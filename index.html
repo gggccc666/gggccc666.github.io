@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-gpt" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/03/gpt/" class="article-date">
+  <time class="dt-published" datetime="2026-02-03T14:56:18.354Z" itemprop="datePublished">2026-02-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="ChatGPT-回答风格规范（技术向）"><a href="#ChatGPT-回答风格规范（技术向）" class="headerlink" title="ChatGPT 回答风格规范（技术向）"></a>ChatGPT 回答风格规范（技术向）</h1><h2 id="一、总体原则"><a href="#一、总体原则" class="headerlink" title="一、总体原则"></a>一、总体原则</h2><p>以<strong>技术准确性与工程严谨性</strong>为最高优先级；若涉及不确定的知识、结论或工程应用前提，必须明确标注不确定性或适用条件。</p>
+<p>回答风格偏向理工科 &#x2F; 计算机专业语境，避免口语化表达。</p>
+<h2 id="不进行无关寒暄，不使用表情符号，不做情绪化评价。二、回答结构规范"><a href="#不进行无关寒暄，不使用表情符号，不做情绪化评价。二、回答结构规范" class="headerlink" title="不进行无关寒暄，不使用表情符号，不做情绪化评价。二、回答结构规范"></a>不进行无关寒暄，不使用表情符号，不做情绪化评价。<br>二、回答结构规范</h2><p>结论优先：<br>若问题存在明确答案或判断，先给出严谨结论；<br>再补充通俗解释（无需比喻）和必要的推导。</p>
+<p>格式要求：<br>尽量少用 Markdown 结构符号；标题不强制加粗，列表可使用自然分段表达。<br>仅在以下情形使用 Markdown：</p>
+<ul>
+<li><p>极少量关键术语强调</p>
+</li>
+<li><p>代码必须使用代码块</p>
+</li>
+<li><p>数学符号可使用 LaTeX<br>不同观点或层次使用普通文本分段。</p>
+</li>
+</ul>
+<p>层次清晰：<br>使用编号或自然标题；<br>一问一答，不发散。</p>
+<h2 id="信息密度优先：避免空泛描述；每一段都应承载实质信息。三、内容深度要求"><a href="#信息密度优先：避免空泛描述；每一段都应承载实质信息。三、内容深度要求" class="headerlink" title="信息密度优先：避免空泛描述；每一段都应承载实质信息。三、内容深度要求"></a>信息密度优先：<br>避免空泛描述；<br>每一段都应承载实质信息。<br>三、内容深度要求</h2><p>技术问题默认采用偏底层 &#x2F; 原理级解释。</p>
+<p>概念复杂度处理规则：</p>
+<ul>
+<li><p>若概念属于工科或计算机领域较复杂、难以直观理解，则直接严格按照原规范解释：严谨结论 → 通俗解释 → 代码示例 → 性质&#x2F;用途&#x2F;作用 → 工程影响 → 下钻层面 → 询问是否继续深入</p>
+</li>
+<li><p>若概念较简单，可用一段话和一个例子直接解释清楚，解释完询问用户是否需要完整严格解释；若用户要求，则严格执行上述完整流程</p>
+</li>
+</ul>
+<p>介绍抽象概念时，遵循以下顺序：</p>
+<ol>
+<li><p>先给出严谨结论</p>
+</li>
+<li><p>给出通俗解释（无需比喻）</p>
+</li>
+<li><p>提供至少一个完整正确的代码示例；可根据概念特点拓展出其他示例，代码长度不限，正确性优先于简短</p>
+</li>
+<li><p>说明概念性质、用法、作用和必要性</p>
+</li>
+<li><p>讨论可能的工程层面影响或特性</p>
+</li>
+<li><p>结束后询问用户是否需要进一步下钻</p>
+</li>
+</ol>
+<p>下钻按层次逐步推进：<br>运行期层面 → 编译期层面 → 体系结构 &#x2F; 机器层面。</p>
+<p>必要时涉及：</p>
+<ul>
+<li><p>数据结构不变式</p>
+</li>
+<li><p>体系结构或标准定义</p>
+</li>
+</ul>
+<h2 id="不因“可能看不懂”而主动简化内容。四、代码与示例规范"><a href="#不因“可能看不懂”而主动简化内容。四、代码与示例规范" class="headerlink" title="不因“可能看不懂”而主动简化内容。四、代码与示例规范"></a>不因“可能看不懂”而主动简化内容。<br>四、代码与示例规范</h2><p>代码优先确保正确，然后解释清楚；长度不限。<br>示例代码应：</p>
+<ul>
+<li><p>最小化但可覆盖概念核心</p>
+</li>
+<li><p>可根据抽象特性拓展出其他示例</p>
+</li>
+<li><p>若为对比说明，明确指出差异与结论</p>
+</li>
+</ul>
+<h2 id="五、题型特殊约定"><a href="#五、题型特殊约定" class="headerlink" title="五、题型特殊约定"></a>五、题型特殊约定</h2><p>选择题：直接给出答案，不提供解析。</p>
+<p>概念性提问：给出严格定义，必要时提供反例。</p>
+<h2 id="是-否问题：先明确回答“是”或“否”，再说明成立条件或例外。六、语言与术语"><a href="#是-否问题：先明确回答“是”或“否”，再说明成立条件或例外。六、语言与术语" class="headerlink" title="是 &#x2F; 否问题：先明确回答“是”或“否”，再说明成立条件或例外。六、语言与术语"></a>是 &#x2F; 否问题：先明确回答“是”或“否”，再说明成立条件或例外。<br>六、语言与术语</h2><h2 id="中文为主；关键术语在首次出现时保留英文原名。不进行中英混写式解释性废话。统一使用学术界或工程实践中通行的术语与表述。七、不应出现的内容"><a href="#中文为主；关键术语在首次出现时保留英文原名。不进行中英混写式解释性废话。统一使用学术界或工程实践中通行的术语与表述。七、不应出现的内容" class="headerlink" title="中文为主；关键术语在首次出现时保留英文原名。不进行中英混写式解释性废话。统一使用学术界或工程实践中通行的术语与表述。七、不应出现的内容"></a>中文为主；关键术语在首次出现时保留英文原名。<br>不进行中英混写式解释性废话。<br>统一使用学术界或工程实践中通行的术语与表述。<br>七、不应出现的内容</h2><h2 id="无前提支撑的不确定性模糊表述（如“可能”“大概”“一般来说”）。与问题无关的类比、故事性描述或泛泛而谈。重复用户已明确掌握的基础知识。八、优先级说明"><a href="#无前提支撑的不确定性模糊表述（如“可能”“大概”“一般来说”）。与问题无关的类比、故事性描述或泛泛而谈。重复用户已明确掌握的基础知识。八、优先级说明" class="headerlink" title="无前提支撑的不确定性模糊表述（如“可能”“大概”“一般来说”）。与问题无关的类比、故事性描述或泛泛而谈。重复用户已明确掌握的基础知识。八、优先级说明"></a>无前提支撑的不确定性模糊表述（如“可能”“大概”“一般来说”）。<br>与问题无关的类比、故事性描述或泛泛而谈。<br>重复用户已明确掌握的基础知识。<br>八、优先级说明</h2><p>本规范在本对话及后续对话中：<br>高于默认回答风格；<br>低于用户在单次提问中明确指定的特殊要求。</p>
+<p>—— 本文档可随时增补或修订 ——</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/03/gpt/" data-id="cuid8LiyJgQ3sXQ_hq3O_0EiP" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-3.stl/6.迭代器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/03/3.stl/6.%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="article-date">
+  <time class="dt-published" datetime="2026-02-03T14:28:41.278Z" itemprop="datePublished">2026-02-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="迭代器是什么？"><a href="#迭代器是什么？" class="headerlink" title="迭代器是什么？"></a>迭代器是什么？</h3><p>通俗来讲，迭代器用来指明stl容器位置</p>
+<p>我们创建一个迭代器，实际上是创建了迭代器类的一个对象，实现了类似指针的操作。所以他的本质不是指针，但很像指针</p>
+<p>例如</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i!=v.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">    cout&lt;&lt;v[i]&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就类似</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(vector&lt;<span class="type">int</span>&gt;::iterator  i=v.<span class="built_in">begin</span>();i!=v.<span class="built_in">end</span>();++i)</span><br></pre></td></tr></table></figure>
+
+<p>begin()指向第一项,end()指向<strong>最后一项的后一项</strong></p>
+<h3 id="迭代器操作"><a href="#迭代器操作" class="headerlink" title="迭代器操作"></a>迭代器操作</h3><ol>
+<li></li>
+</ol>
+<p>itr++，++itr：迭代器进入下一个位置</p>
+<p><strong>注意！itr++实际上是重载运算符，他会返回一个对象！例如i++就是返回老的i，然后i本身封装的指针值++（类似指针移动）</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 后缀 it++</span></span><br><span class="line">    Iterator <span class="keyword">operator</span>++(<span class="type">int</span>) &#123;</span><br><span class="line">        Iterator tmp = *<span class="keyword">this</span>; <span class="comment">// 保存旧值（拷贝）</span></span><br><span class="line">        ++ptr;                <span class="comment">// 再移动</span></span><br><span class="line">        <span class="keyword">return</span> tmp;           <span class="comment">// 返回旧值</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>前缀自增 <code>++it</code> 表示“先移动迭代器，再使用结果”，返回的是<strong>自增后的迭代器本身（通常是引用）</strong>。<br>后缀自增 <code>it++</code> 表示“先使用旧位置，再移动迭代器”，返回的是<strong>自增前迭代器的一个副本</strong>。</p>
+<p>后缀形式为了返回旧值，必须保存一个临时对象；前缀形式不需要。</p>
+<p><strong>不需要旧值的情况下应当使用前缀形式</strong>；前缀在语义和性能上都更优。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/03/3.stl/6.%E8%BF%AD%E4%BB%A3%E5%99%A8/" data-id="cuidv9wbbjma-68_1sKL4hLXx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-3.stl/5.重载运算符" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/03/3.stl/5.%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/" class="article-date">
+  <time class="dt-published" datetime="2026-02-03T13:02:44.628Z" itemprop="datePublished">2026-02-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>operator</strong>是C++的一个关键字，它和运算符（如“&#x3D;”）一起使用，表示一个<strong>运算符重载函数</strong>，在理解时可将operator和待重载的运算符整体（如“operator&#x3D;”）视为一个函数名。</p>
+<p>实现运算符重载的方式通常有以下两种：</p>
+<p>1.运算符重载实现为类的成员函数；</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在student类里面</span></span><br><span class="line"><span class="type">bool</span> <span class="keyword">operator</span>&gt;(<span class="type">const</span> student&amp; a)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.score&gt;a.score)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.运算符重载实现为非类的成员函数（即全局函数）。</p>
+<p>两个参数分别为左右操作数（至少一个是自定义类，可以只有一个或者另一个是int等）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="keyword">operator</span>&gt;(<span class="type">const</span> student &amp;a,<span class="type">const</span> student &amp;b)&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.score&gt;b.score)&#123;</span><br><span class="line">    <span class="keyword">return</span> ture;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<p>不能违反运算符原来的语法规则；</p>
+<p>不能创建新的运算符；</p>
+<p>有一些运算符是不能重载的，如“sizeof”；</p>
+<ul>
+<li>&#x3D;、()、[]、-&gt;操作符只能被类的成员函数重载。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/03/3.stl/5.%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/" data-id="cuiduV8zTSKF037L8FBw1wTeP" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-3.stl/4.模板" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/31/3.stl/4.%E6%A8%A1%E6%9D%BF/" class="article-date">
+  <time class="dt-published" datetime="2026-01-31T13:54:09.572Z" itemprop="datePublished">2026-01-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h4><p>函数模板是一个用于产生函数的公式。</p>
+<p>语法：</p>
+<p>template &lt;typename T&gt; +函数声明</p>
+<p>所以template和函数声明可以分为两行写，中间不能有其他语句。</p>
+<p>(和template&lt;class T&gt;完全等价)</p>
+<p>然后把想泛化的类型换成T即可</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">max</span><span class="params">(T a,T b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&gt;b?a:b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/01/31/3.stl/4.%E6%A8%A1%E6%9D%BF/" data-id="cuidkwwDh4KHiMFGQvws9OYVK" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-3.stl/3.参数传递" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/28/3.stl/3.%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/" class="article-date">
+  <time class="dt-published" datetime="2026-01-28T13:10:56.335Z" itemprop="datePublished">2026-01-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h4><p>一般来说，c++常见几种参数传递</p>
+<p>1.一般值（int ，double，对象）</p>
+<p>2.引址调用 int &amp;</p>
+<p>3.常数引用调用const int &amp;</p>
+<p>4.（cpp里面少用)裸指针</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/01/28/3.stl/3.%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/" data-id="cuidmiVS26hem1UHEpz25hjrD" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-3.stl/2.vector和string" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/25/3.stl/2.vector%E5%92%8Cstring/" class="article-date">
+  <time class="dt-published" datetime="2026-01-25T08:18:40.662Z" itemprop="datePublished">2026-01-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h1><p>#include&lt;vector&gt;</p>
+<p><code>vector</code> 的数据储存在堆空间中，不会爆栈。一般情况 <code>vector</code> 可以替换掉普通数组。</p>
+<p>注意：若长度已确定，那么就直接在构造函数指定长度。因为如果不确定，后面每push_back一次都会耗尽内存而重新分配，产生额外时间开销</p>
+<h6 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h6><p>vector&lt;类型&gt; arr(长度，[初值])</p>
+<p>括号及里面的内容可省，默认构造函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; arr; <span class="comment">// 构造int数组 </span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">arr</span><span class="params">(<span class="number">100</span>)</span></span>; <span class="comment">// 构造初始长100的int数组 </span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">arr</span><span class="params">(<span class="number">100</span>, <span class="number">1</span>)</span></span>; <span class="comment">// 构造初始长100的int数组，初值为1 </span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(<span class="number">100</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; ()); <span class="comment">// 构造初始100行，不指定列数的二维数组 </span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(<span class="number">100</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; (<span class="number">200</span>, <span class="number">-1</span>)) <span class="comment">// 构造初始100行，初始200列的二维数组，初值为-1</span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; arr[<span class="number">100</span>],没初始化的二维数组，有<span class="number">100</span>个元素，每一个arr[i]都是一个vector，相当行数不变，列数不定的二维数组</span><br><span class="line">arr[i].push_back;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>注意，vector创建完后，可以当作普通数组用，如</p>
+<p>vector&lt;int&gt; arr(100) 创建100个长度的可变长数组–&gt;arr[0]&#x3D;1;</p>
+<h5 id="尾增尾删push-back-pop-back"><a href="#尾增尾删push-back-pop-back" class="headerlink" title="尾增尾删push_back(),pop_back()"></a>尾增尾删push_back(),pop_back()</h5><ul>
+<li><strong><code>.push_back(元素)</code></strong>：在 vector 的最后一个内存后增加一格内存，并给这个内存赋值，数组长度+1(!)</li>
+<li><strong><code>.pop_back()</code></strong>：删除 vector 的最后一格内存及其元素，数组长度-1</li>
+</ul>
+<p>arr.push_back(100);</p>
+<p>arr.pop_back();</p>
+<p>arr&#x3D;{0,0,0,0},arr.push_back(9)–&gt;arr&#x3D;{0,0,0,0,9}</p>
+<h5 id="获取长度-size"><a href="#获取长度-size" class="headerlink" title="获取长度.size()"></a>获取长度.size()</h5><p>获取当前 vector 的长度</p>
+<p>注意返回值是无符号整数size_t</p>
+<p>o(1)复杂度</p>
+<h5 id="清空-clear"><a href="#清空-clear" class="headerlink" title="清空.clear()"></a>清空.clear()</h5><p>arr.clear();</p>
+<p>o(n)复杂度</p>
+<h5 id="判空-empty"><a href="#判空-empty" class="headerlink" title="判空 .empty()"></a>判空 .empty()</h5><p>如果是空返回 <code>true</code> 反之返回 <code>false</code>.</p>
+<p>时间复杂度：o(1)</p>
+<h5 id="改变长度"><a href="#改变长度" class="headerlink" title="改变长度"></a>改变长度</h5><p><strong><code>.resize(新长度, [默认值])</code></strong></p>
+<p>修改 vector 的长度</p>
+<p>如果是缩短，则删除多余的值</p>
+<p>如果是扩大，且指定了默认值，则新元素均为默认值（旧元素不变）</p>
+<p>时间复杂度：o(n)</p>
+<h1 id="string"><a href="#string" class="headerlink" title="string"></a>string</h1><p>std::string是cpp的一种类，可以存储任意长度的文本内容，长度可以动态改变。可以通过下标访问字符，或者使用成员函数修改字符串内容，而不必手动管理内存。</p>
+<p>声明：std::string str;</p>
+<p>初始化：std::string s&#x3D;”hello world”</p>
+<p>可通过+增加字符std::string s &#x3D; “Hello”;s +&#x3D; “ World”;</p>
+<h6 id="1-访问元素"><a href="#1-访问元素" class="headerlink" title="1.访问元素"></a>1.访问元素</h6><p>可以通过s[i]或者s.at(i),</p>
+<p>两者都可以修改原string串内容</p>
+<p>s[i]无越界检查，但更高效，s.at(i)会检查越界</p>
+<h6 id="2-方法"><a href="#2-方法" class="headerlink" title="2.方法."></a>2.方法.</h6><p>数组长度 s.length()或者s.size()</p>
+<p>是否为空 s.empty()</p>
+<p>追加字符 s.append()</p>
+<p>插入 s.insert(pos,str)</p>
+<p>删除 s.erase(pos,len)</p>
+<p>清空 s.clear()</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::string s = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line">    s += <span class="string">&quot; World&quot;</span>;      <span class="comment">// 动态扩展</span></span><br><span class="line">    s.<span class="built_in">insert</span>(<span class="number">5</span>, <span class="string">&quot;,&quot;</span>);  <span class="comment">// 在指定位置插入字符</span></span><br><span class="line">    std::cout &lt;&lt; s &lt;&lt; std::endl; <span class="comment">// 输出: Hello, World</span></span><br><span class="line">    std::cout &lt;&lt; s[<span class="number">0</span>] &lt;&lt; std::endl; <span class="comment">// 随机访问字符: H</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/01/25/3.stl/2.vector%E5%92%8Cstring/" data-id="cuidgQTiNo2iJsAFfqgtkYNrY" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-3.stl/1.cpp高级语法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/20/3.stl/1.cpp%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2026-01-20T11:22:26.727Z" itemprop="datePublished">2026-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="1-class语法"><a href="#1-class语法" class="headerlink" title="1.class语法"></a>1.class语法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Name</span>&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="type">int</span> a;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">getB</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> b;&#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="type">int</span> b;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">func2</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line">        <span class="type">int</span> c;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">func3</span><span class="params">()</span></span>&#123;<span class="comment">/**/</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Name::func2</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>public 可被其他程序使用，private只能被当前类的函数使用，protected只能被当前类的函数，和继承类使用.</p>
+<p>我们常把数据设置为私有的或保护的，需要数据时调用public的函数获得数据即可，就不需要暴露数据的来去,例如getB</p>
+<h6 id="类函数"><a href="#类函数" class="headerlink" title="类函数"></a>类函数</h6><p>1.函数写法</p>
+<p> 内联：函数实现直接写在class里面,比如func3</p>
+<p>外联：函数定义在class内，实现在class外，比如func2(注意语法ClassName::func2)</p>
+<h6 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h6><p>1.默认构造函数 ClassName(){}</p>
+<p>若无任何构造函数会自动生成默认构造函数，当自定义了构造函数将不会生成默认构造函数。</p>
+<p>注意构造函数不会对POD类型（c原有的类型，int…）进行初始化</p>
+<p>2.初始化列表（就是构造函数的简写方式）</p>
+<p>int a;double b;</p>
+<p>ClassName():a(0),b(114.514){}</p>
+<p>3.单参数的构造函数最最最好加上explicit（能避免隐式转换）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">class</span> <span class="title">MyClass</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">            <span class="built_in">MyClass</span>(<span class="type">int</span> a)&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    MyClass class1=<span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>上面那个构造是正确的，因为有隐式转换：编译器看到10（int）赋值给class1（MyClass类）会寻找转换方式，即从int到MyClass的构造函数，从而发生以下</p>
+<p>int num&#x3D;10;</p>
+<p>MyClass temp(10);</p>
+<p>MyClass class1&#x3D;temp;</p>
+<h6 id="常量成员函数"><a href="#常量成员函数" class="headerlink" title="常量成员函数"></a>常量成员函数</h6><p>只检测，不改变对象为访问函数，如isEmpty()</p>
+<p>改变对象为修改函数，如makeEmpty()</p>
+<p>所有函数默认为修改函数，要使函数为访问函数需要用const :</p>
+<p>void makeEmpty( ) const { }</p>
+<p>一个函数为常量成员函数，那么他只能使用其他的const函数，只能修改mutable变量</p>
+<h6 id="对象声明"><a href="#对象声明" class="headerlink" title="对象声明"></a>对象声明</h6><p>IntCell obj1 √，默认构造</p>
+<p>IntCell obj1(1) √，int参数构造</p>
+<p>IntCell obj2&#x3D;1×(若是构造函数用Explicit修饰是错的，若没用他修饰，则是对的！默认转换)</p>
+<p>IntCell obj2()×会误以为是函数声明，返回值是IntCell</p>
+<p>甚至可以用指针</p>
+<p>IntCell *m;</p>
+<p>m&#x3D;new IntCell(0);</p>
+<p>m-&gt;write(5);</p>
+<p>delete m;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/01/20/3.stl/1.cpp%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95/" data-id="cuidQS533E7DpssYWsspl3Ewb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-4.数学相关/1数学基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/20/4.%E6%95%B0%E5%AD%A6%E7%9B%B8%E5%85%B3/1%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="article-date">
+  <time class="dt-published" datetime="2026-01-20T11:00:46.410Z" itemprop="datePublished">2026-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h4><p>1.$\sum_{i&#x3D;1}^{n} A^i &#x3D;\frac {A^{N+1}-1}{A-1}$</p>
+<p>当A∈(0,1)，$\sum_{i&#x3D;1}^{n} A^i &lt;&#x3D;\frac {1}{1-A}$</p>
+<ol start="2">
+<li></li>
+</ol>
+<p>$\sum _{i&#x3D;1}^N i&#x3D;N(N+1)&#x2F;2$</p>
+<p>$\sum _{i&#x3D;1}^N i^2 &#x3D;N(N+1)&#x2F;2$</p>
+<p>$\sum _{i&#x3D;1}^N i^k \approx \frac {N^{k+1}}{|k+1|},k\neq-1$</p>
+<p>$\sum _{i&#x3D;1}^N {\frac{1}{i}} \approx log_eN$,近似式误差趋近于欧拉常数$\gamma \approx 0.577215$ </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/01/20/4.%E6%95%B0%E5%AD%A6%E7%9B%B8%E5%85%B3/1%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" data-id="cuidVwlKY4V724zs4TyuS8hI3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-csapp/3.汇编/命令记录" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/20/csapp/3.%E6%B1%87%E7%BC%96/%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/" class="article-date">
+  <time class="dt-published" datetime="2026-01-20T01:34:55.444Z" itemprop="datePublished">2026-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>1.反汇编</p>
+<p>objdump -d name.o</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/01/20/csapp/3.%E6%B1%87%E7%BC%96/%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/" data-id="cuid5c1o6lNxgaDqGFG_6GgQc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2.图/图储存" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/19/2.%E5%9B%BE/%E5%9B%BE%E5%82%A8%E5%AD%98/" class="article-date">
+  <time class="dt-published" datetime="2026-01-19T13:25:14.843Z" itemprop="datePublished">2026-01-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>对于图的储存而言，算法上一般用邻接表和邻接矩阵两种方法</p>
+<h4 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h4><p>使用一个二维数组 <code>adj</code> 来存边，其中 <code>adj[u][v]</code> 为 1 表示存在 𝑢<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="u"> 到 𝑣<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="v"> 的边，为 0 表示不存在．如果是带边权的图，可以在 <code>adj[u][v]</code> 中存<img src="C:\Users\mec\Pictures\算法图解\链式前向星.png" alt="链式前向星">储 𝑢<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="u"> 到 𝑣<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="v"> 的边的边权．<br>    &#x2F;&#x2F;u-&gt;v<br>    adj[u][v]&#x3D;1;</p>
+<p>注意不能有重边，优点是查某边很快，缺点是稀疏图效率低</p>
+<h4 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h4><p>一般情况下，都用邻接表方法储存图</p>
+<p>实现方法有很多，有vector，指针 链表（理论），链式前向星（数组+链式索引），我们采用链式索引</p>
+<p>定义head[a]储存a指向的边的信息</p>
+<p>e[i]为索引i所对应的点</p>
+<p>ne[i]为索引i的下一个索引</p>
+<p>idx为目前储存的边数</p>
+<p>我们储存a-&gt;b,a-&gt;c两条边如图所示</p>
+<p>先储存a-&gt;c,分配idx2&#x3D;1，然后e[idx2]代表a指向的c</p>
+<p>后面插入a-&gt;b,分配idx1&#x3D;2，然后e[idx1]&#x3D;b代表a-&gt;b,然后让ne[idx1]&#x3D;head[a]即idx2。两个边就建好了</p>
+<p><img src="C:\Users\mec\Pictures\算法图解\链式前向星.png" alt="链式前向星"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> n=x<span class="number">+10</span>,m=<span class="number">2</span>*y<span class="number">+10</span>;</span><br><span class="line"><span class="comment">//我们假设有x个节点，y条无向边（一般题目会给）</span></span><br><span class="line"><span class="comment">//2*y表明无向边可以看成两条特殊的有向边</span></span><br><span class="line"><span class="type">int</span> h[n],e[m],ne[m],idx;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">     e[idx]=b;ne[idx]=h[a];h[a]=idx;idx++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>h[i]表示第i个节点的头节点，后面接入i节点指向的所有节点的idx索引，无顺序之分。e[idx]表示第idx个空间分配的值，ne[idx]表示第idx个空间的值所指向的的下一个值的索引。idx从零开始递增。 整体而言可以把e[]看作一个内存池，从这个内存池里面取出边，一个一个赋值，接在h[]后面</p>
+<p>add函数是把e的第idx位置存成b，ne[idx]&#x3D;h[a]表示把原来h[a]指向的索引成为ne的下一个索引，在让h[a]指向idx，idx自增，即可完成插入</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/01/19/2.%E5%9B%BE/%E5%9B%BE%E5%82%A8%E5%AD%98/" data-id="cuidUTbTEPPtU7kMktifkAUmn" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">January 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/02/03/gpt/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/03/3.stl/6.%E8%BF%AD%E4%BB%A3%E5%99%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/03/3.stl/5.%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/31/3.stl/4.%E6%A8%A1%E6%9D%BF/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/28/3.stl/3.%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

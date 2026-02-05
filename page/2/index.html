@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-csapp/7.链接/2.目标文件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/18/csapp/7.%E9%93%BE%E6%8E%A5/2.%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2026-01-18T02:01:11.108Z" itemprop="datePublished">2026-01-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>目标文件分为可重定位目标文件，可执行目标文件，共享目标文件（动态链接）</p>
+<p>对于目标文件而言，每个系统的都不一样，windows是PE格式，linux是ELF格式</p>
+<p>对于linux的ELF目标文件，通常分为ELF头，.text,.rodate,.data等数个节（在可执行文件加载到内存里则称之为段），以及最后的节头部表</p>
+<p>elf头描述系统子，大端还是小端，elf头大小，机器类型等等</p>
+<p>对于节，每个节都有不同的作用，例如.text储存已编译的机器代码，.rodata储存只读数据等</p>
+<p>而节头部表记录了 ELF 文件中每一个节的位置、大小、类型和属性</p>
+<p>命令:readelf -h main.o能查看main.o的elfheader</p>
+<p>readelf -S main.o 查看main.o 的section header</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/01/18/csapp/7.%E9%93%BE%E6%8E%A5/2.%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6/" data-id="cuiduozmtZ9GPEtsPBA3JKTGK" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-csapp/7.链接/1.总体处理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/18/csapp/7.%E9%93%BE%E6%8E%A5/1.%E6%80%BB%E4%BD%93%E5%A4%84%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2026-01-18T01:10:50.315Z" itemprop="datePublished">2026-01-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="整体流程"><a href="#整体流程" class="headerlink" title="整体流程"></a>整体流程</h4><p>源代码–(预处理)–main.i–(编译处理)–main.s–(汇编)–main.o–linked–可执行文件</p>
+<p>1.预处理（c preprocessor，cpp）命令：</p>
+<p>cpp  main.c -o main.i</p>
+<p>or</p>
+<p>gcc -E -o main.i main.c  (-E告诉处理器只弄到main.i)</p>
+<p>2.编译（c compiler）命令：（大写！！）</p>
+<p>cc -S -o main.s main.c</p>
+<p>or  </p>
+<p>gcc -S -o main.s main.c</p>
+<p>3.汇编 （assembler）</p>
+<p>as -o main.o main.c</p>
+<p>4.链接</p>
+<p>手动： ld -static -o prog main.o sum.o &#x2F;usr&#x2F;lib&#x2F;…..o(有六七个系统带的.o文件作为启动等功能，缺的话无法运行)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/01/18/csapp/7.%E9%93%BE%E6%8E%A5/1.%E6%80%BB%E4%BD%93%E5%A4%84%E7%90%86/" data-id="cuidLT5voEVgNkDDIp4Gyo5I7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-1.dp/DAG-dp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/14/1.dp/DAG-dp/" class="article-date">
+  <time class="dt-published" datetime="2026-01-14T10:53:28.425Z" itemprop="datePublished">2026-01-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>什么是DAG，即有向无环图，有些</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/01/14/1.dp/DAG-dp/" data-id="cuid_H2RK3_r2wvWPkY_RFpLm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-语言特性和规范杂谈" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/12/%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E5%92%8C%E8%A7%84%E8%8C%83%E6%9D%82%E8%B0%88/" class="article-date">
+  <time class="dt-published" datetime="2026-01-12T12:04:35.193Z" itemprop="datePublished">2026-01-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="头文件保护"><a href="#头文件保护" class="headerlink" title="头文件保护"></a>头文件保护</h4><p>#ifndef  NAME_H</p>
+<p>#define NAME_H</p>
+<p>内容</p>
+<p>#endif</p>
+<p><strong>为什么要保护？</strong> 如果a.c包含a.h,b.h，而b.h里面又包含了a.h，就会导致声明重复展开导致错误</p>
+<p><strong>保护什么？</strong> <strong>函数声明 包含的头文件 类型 宏等</strong></p>
+<p>注意不要保护定义。比如int 和函数实现。</p>
+<p>因为a.c,b.c都展开了int abc,链接之后abc就是多重定义了</p>
+<p>int可代替为static 或 extern。其中static很易错，因为他是只给a.c这个程序单独可见，很容易出bug</p>
+<p>extern 是全局声明，给编译器说我已经有这个变量了，让他不要报错，extern声明的变量就可以在链接后的总代码中唯一使用</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/01/12/%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E5%92%8C%E8%A7%84%E8%8C%83%E6%9D%82%E8%B0%88/" data-id="cuid-H-Vhlbt5aWFB9E2RyWET" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-数据库/索引对象" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/12/26/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1/" class="article-date">
+  <time class="dt-published" datetime="2025-12-26T12:55:36.120Z" itemprop="datePublished">2025-12-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>什么是数据对象？他是指存储在 <strong>Schema（用户）</strong> 中、由 Oracle 数据字典管理的一切结构化对象。索引就是一种</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/12/26/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1/" data-id="cuidyP7s6PMxCpG7I56aL9n6n" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-数据库/dql" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/12/26/%E6%95%B0%E6%8D%AE%E5%BA%93/dql/" class="article-date">
+  <time class="dt-published" datetime="2025-12-26T03:54:49.959Z" itemprop="datePublished">2025-12-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>dql，query，查询主要是select</p>
+<p>查询</p>
+<h2 id="select"><a href="#select" class="headerlink" title="select"></a>select</h2><pre><code>SELECT column1, column2, ...
+FROM table_name;
+
+SELECT * FROM table_name;
+</code></pre>
+<h6 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h6><p>查询当前schema有哪些表</p>
+<p>SELECT table_name FROM user_tables;</p>
+<h6 id="select-distinct"><a href="#select-distinct" class="headerlink" title="select distinct"></a>select distinct</h6><p>列出column的所有不同值（一个值会且仅会列一次）<br>    SELECT DISTINCT column1, column2, …<br>    FROM table_name;</p>
+<h6 id="select-where筛选行"><a href="#select-where筛选行" class="headerlink" title="select where筛选行"></a>select where筛选行</h6><p>查找满足条件的列<br>    SELECT column1, column2, …<br>    FROM table_name<br>    WHERE condition;</p>
+<p>where可加的有<strong>运算符 逻辑 特殊</strong></p>
+<p>1.运算符&#x3D; &gt; &lt; &gt;&#x3D; ,&lt;&#x3D;, !&#x3D;,&lt;&gt;（或！&#x3D;）</p>
+<p>Select * from emp where ename&#x3D;’SMITH’;</p>
+<p>2.逻辑 and ，or，not</p>
+<p>Select * from emp where sal &gt; 2000 or comm &gt; 500;</p>
+<p>select * from emp where not sal &gt; 1500;</p>
+<p>3.特殊</p>
+<p>空值is null</p>
+<p>在什么之间between</p>
+<p>在什么之中in</p>
+<p>模糊查询like</p>
+<p>Select * from emp where comm is null;</p>
+<p>Select * from emp where sal between 1500 and 3000;</p>
+<p>Select * from emp where sal in (5000,3000,1500);</p>
+<p>Select * from emp where ename like ‘M%’;</p>
+<p>查询 EMP 表中 Ename 列中有 M 的值，M 为要查询内容中的模糊信息。<strong>%表示多个字值_，下划线表示一个字符</strong></p>
+<p><strong>M%</strong> : 为能配符，正则表达式，表示的意思为模糊查询信息为 M 开头的。</p>
+<p> <strong>%M%</strong> : 表示查询包含M的所有内容。</p>
+<p> <strong>%M_</strong> : 表示查询以M在倒数第二位的所有内容</p>
+<h6 id="select-order-by"><a href="#select-order-by" class="headerlink" title="select order by"></a>select order by</h6><p>ORDER BY 关键字用于对结果集按照一个列或者多个列进行排序。默认升序<br>    SELECT column1, column2, …<br>    FROM table_name<br>    ORDER BY column1, column2, … ASC|DESC;</p>
+<p>有多列的话先按1排序，若是相同则按column2排，以此类推</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/12/26/%E6%95%B0%E6%8D%AE%E5%BA%93/dql/" data-id="cuidBkAIzz9260d6yGhHu0NMY" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-数据库/tcl" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/12/26/%E6%95%B0%E6%8D%AE%E5%BA%93/tcl/" class="article-date">
+  <time class="dt-published" datetime="2025-12-26T03:54:43.477Z" itemprop="datePublished">2025-12-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>维护数据一致性，包括commit(提交更改）,rollback（取消更改）,savepoint（设置保存点）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/12/26/%E6%95%B0%E6%8D%AE%E5%BA%93/tcl/" data-id="cuidGT9rx_boqt2czRxHjwCAl" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-数据库/dcl" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/12/26/%E6%95%B0%E6%8D%AE%E5%BA%93/dcl/" class="article-date">
+  <time class="dt-published" datetime="2025-12-26T03:54:38.594Z" itemprop="datePublished">2025-12-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>DCL控制权限 包括GRANT赋予 REVOKE收回</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/12/26/%E6%95%B0%E6%8D%AE%E5%BA%93/dcl/" data-id="cuidNB7rgxnqfbGKALYHbWudu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-数据库/ddl" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/12/26/%E6%95%B0%E6%8D%AE%E5%BA%93/ddl/" class="article-date">
+  <time class="dt-published" datetime="2025-12-26T03:49:45.075Z" itemprop="datePublished">2025-12-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>ddl（define)创建修改删除数据库对象</p>
+<p>包括create,alter,drop，truncate（类似于delete，但是效率更高，delete是放入回滚段中，truncate无法回滚）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/12/26/%E6%95%B0%E6%8D%AE%E5%BA%93/ddl/" data-id="cuidyDwCS7aEw-YrInCv2mXAV" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/12/09/%E9%97%AE%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2025-12-09T14:38:55.704Z" itemprop="datePublished">2025-12-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>搜点的预瞄</p>
+<p>育苗习惯</p>
+<p>阅读，反应</p>
+<p>哨位不要怕，大胆！直接摸，想清楚做什么，注意控图</p>
+<p>看队友位置，做好搜点，直接踩出去        </p>
+<p>不要怕补枪，协同        </p>
+<p>听动静，打近的</p>
+<p>&#x2F;&#x2F;</p>
+<p>预瞄跑图，每天一张</p>
+<p>压枪三十次 急停摆设三十次</p>
+<p>侧面和中等五组（侧面靶是真有用）</p>
+<p>冰墙peek练提前抢</p>
+<p>冰墙远距离练大啦一颗</p>
+<p>正面移动靶3组</p>
+<p>甩狙</p>
+<p>三把死斗</p>
+<p>yay和六目标和micro三组</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/12/09/%E9%97%AE%E9%A2%98/" data-id="cuidpjvGMctUfVJvwgUJzkGuz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">January 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/02/03/gpt/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/03/3.stl/6.%E8%BF%AD%E4%BB%A3%E5%99%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/03/3.stl/5.%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/31/3.stl/4.%E6%A8%A1%E6%9D%BF/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/28/3.stl/3.%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1.计算程序进行时间#include&lt;time.h&gt; double a &#x3D;clock():返回从开始到调用这里的clock时的时间。注意包含手动输入输出时间 CLOCKS_PER_SEC:常数，clock()&#x2F;CLOCKS_PER_SEC得到秒 用法a: 在cmd里面输入echo …(内容)|draft(程序名) (在其他终端里面会错误，比如vscode默认的pow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/05/08/%E6%8A%80%E5%B7%A7/%E6%8A%80%E5%B7%A7/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.计算程序进行时间#include&lt;time.h&gt; double a &#x3D;clock():返回从开始到调用这里的clock时的时间。注意包含手动输入输出时间 CLOCKS_PER_SEC:常数，clock()&#x2F;CLOCKS_PER_SEC得到秒 用法a: 在cmd里面输入echo …(内容)|draft(程序名) (在其他终端里面会错误，比如vscode默认的pow">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-05-08T13:01:54.829Z">
+<meta property="article:modified_time" content="2025-07-09T09:24:06.216Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-技巧/技巧" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/05/08/%E6%8A%80%E5%B7%A7/%E6%8A%80%E5%B7%A7/" class="article-date">
+  <time class="dt-published" datetime="2025-05-08T13:01:54.829Z" itemprop="datePublished">2025-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="1-计算程序进行时间"><a href="#1-计算程序进行时间" class="headerlink" title="1.计算程序进行时间"></a>1.计算程序进行时间</h5><p>#include&lt;time.h&gt;</p>
+<p>double a &#x3D;clock():返回从开始到调用这里的clock时的时间。注意包含手动输入输出时间</p>
+<p>CLOCKS_PER_SEC:常数，clock()&#x2F;CLOCKS_PER_SEC得到秒</p>
+<p>用法a:</p>
+<p>在cmd里面输入echo …(内容)|draft(程序名)</p>
+<p>(在其他终端里面会错误，比如vscode默认的powershell，scanf读不进去),这样就不会算手动输入的时间</p>
+<p>用法b:</p>
+<p>double a&#x3D;clock();  …代码块 … double b&#x3D;clock();</p>
+<p>b-a即该代码块的时间</p>
+<p>注意：</p>
+<p>手动点击调试按钮比gcc -o draft draft.c 后运行.&#x2F;draft慢</p>
+<p>vscode-powershell:time used &#x3D; 0.093000000</p>
+<p>cmd:time used &#x3D; 0.090000000</p>
+<p>点击调试按钮：time used &#x3D; 0.205000000</p>
+<h5 id="2-未结束：window程序输入完按enter未结束，尝试按ctrl-z再按enter"><a href="#2-未结束：window程序输入完按enter未结束，尝试按ctrl-z再按enter" class="headerlink" title="2.未结束：window程序输入完按enter未结束，尝试按ctrl+z再按enter"></a>2.未结束：window程序输入完按enter未结束，尝试按ctrl+z再按enter</h5><p>linux：直接按ctrl+d</p>
+<h5 id="3-重定向读入文件freopen-“filename”-”mode”-stream"><a href="#3-重定向读入文件freopen-“filename”-”mode”-stream" class="headerlink" title="3.重定向读入文件freopen(“filename”,”mode”,stream)"></a>3.重定向读入文件freopen(“filename”,”mode”,stream)</h5><p>替换源流为stream</p>
+<p>比如if(!freopen(“in.txt”,”r”,stdin))</p>
+<p>filename文件名,可以是路径 ..\in.txt,D:\in.txt,.\in.txt</p>
+<p>也可以是”CON”表示回到终端，比如   freopen(“CON”, “w”, stdout);，输出到终端</p>
+<p>mode输入模式,有：</p>
+<table>
+<thead>
+<tr>
+<th><code>mode</code></th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&quot;r&quot;</code></td>
+<td>只读（文件必须存在）</td>
+</tr>
+<tr>
+<td><code>&quot;w&quot;</code></td>
+<td>只写（创建新文件或清空已有文件）</td>
+</tr>
+<tr>
+<td><code>&quot;a&quot;</code></td>
+<td>追加（写入到文件末尾）</td>
+</tr>
+<tr>
+<td><code>&quot;r+&quot;</code></td>
+<td>读写（文件必须存在）</td>
+</tr>
+<tr>
+<td><code>&quot;w+&quot;</code></td>
+<td>读写（创建新文件或清空已有文件）</td>
+</tr>
+<tr>
+<td><code>&quot;a+&quot;</code></td>
+<td>读写追加（写入到文件末尾，读取可从头开始）</td>
+</tr>
+</tbody></table>
+<p>stream有stdin,stdout,stderr</p>
+<h5 id="4-复制数组memcpy"><a href="#4-复制数组memcpy" class="headerlink" title="4.复制数组memcpy"></a>4.复制数组memcpy</h5><p>(注意，memcpy极快，甚至快于for循环赋值)</p>
+<p>#include&lt;string.h&gt;</p>
+<p>void *memcpy(void *dest, const void *src, size_t n)</p>
+<p>dest是目标地址，复制的内容将写入这里,src是源地址，复制的内容从这里读取,n是要复制的字节数。</p>
+<p>从int a数组复制k个值到b：memcpy(b,a,sizeof(int)*k);</p>
+<h5 id="5-清零memset"><a href="#5-清零memset" class="headerlink" title="5.清零memset"></a>5.清零memset</h5><p>这个同上，也快</p>
+<p>作用是给某个数据结构赋固定值。可以初始化内存，清空字符串缓冲区，初始化结构体。但注意value是字节，如使用memset(&amp;p,1,sizeof(p)，每个 int占 4 字节，所以p[i]的实际值是0x0101010（十进制 16843009），而不是 1。所以我们一般用于清零</p>
+<p>#include&lt;string.h&gt;</p>
+<p>void *memset(void *ptr, int value, size_t num);</p>
+<p>memset(&amp;p,0,sizeof(p)</p>
+<h3 id="6-c-初步"><a href="#6-c-初步" class="headerlink" title="6.c++初步"></a>6.c++初步</h3><h4 id="万能头-include"><a href="#万能头-include" class="headerlink" title="万能头#include&lt;bits&#x2F;std++.h&gt;"></a>万能头#include&lt;bits&#x2F;std++.h&gt;</h4><h4 id="命名空间namespace"><a href="#命名空间namespace" class="headerlink" title="命名空间namespace"></a>命名空间namespace</h4><p>namespace准确来说是防止重名，而对某些变量，函数的修饰，因为它并不是物理储存结构，而是编译时的二进制修饰。不恰当的类比:int x;struct x{int x;};这两个语句不冲突，但是去掉struct 就重名了。</p>
+<h5 id="namespace性质"><a href="#namespace性质" class="headerlink" title="namespace性质"></a>namespace性质</h5><h6 id="基本用法："><a href="#基本用法：" class="headerlink" title="基本用法："></a>基本用法：</h6><p>namespace S{</p>
+<p>}括号里面放函数，变量等</p>
+<h6 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h6><p>命名空间可以嵌套</p>
+<p>namespace Outer {<br>    namespace Inner {<br>        void Func() { }<br>    }</p>
+<p>在一个文件里面，如果有全局</p>
+<p>访问:Outer::Inner::Func();</p>
+<h6 id="可多次使用"><a href="#可多次使用" class="headerlink" title="可多次使用"></a>可多次使用</h6><h6 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h6><p>完全限定名：<code>std::cout</code></p>
+<p>只用当前一次</p>
+<p>using声明：<code>using std::cout;</code></p>
+<p>用一个，输入该命令后全域都可以使用</p>
+<p>using指令：<code>using namespace std;</code></p>
+<p>命名空间导入</p>
+<h5 id="namespace变量性质"><a href="#namespace变量性质" class="headerlink" title="namespace变量性质"></a>namespace变量性质</h5><p>当前文件修改namespace里面的变量会生效，但是不会影响到下一次编译</p>
+<p>在某处引入using namespace A或者using A::…，只会在当前作用域生效</p>
+<p>至此，using namespace std是什么已经很清楚了，注意std权限是可读，无法修改cout等函数，假设用hexedit修改源码，会造成编译立即崩溃</p>
+<h4 id="算法algorithm"><a href="#算法algorithm" class="headerlink" title="算法algorithm"></a>算法algorithm</h4><h4 id="容器container"><a href="#容器container" class="headerlink" title="容器container"></a>容器container</h4><h5 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h5><p>#include&lt;vector&gt; </p>
+<p><code>vector</code> 的数据储存在堆空间中，不会爆栈。一般情况 <code>vector</code> 可以替换掉普通数组。</p>
+<p>注意：若长度已确定，那么就直接在构造函数指定长度。因为如果不确定，后面每push_back一次都会耗尽内存而重新分配，产生额外时间开销</p>
+<h6 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h6><p>vector&lt;类型&gt; arr(长度，[初值]) </p>
+<p>括号及里面的内容可省，默认构造函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; arr; <span class="comment">// 构造int数组 </span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">arr</span><span class="params">(<span class="number">100</span>)</span></span>; <span class="comment">// 构造初始长100的int数组 </span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">arr</span><span class="params">(<span class="number">100</span>, <span class="number">1</span>)</span></span>; <span class="comment">// 构造初始长100的int数组，初值为1 </span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(<span class="number">100</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; ()); <span class="comment">// 构造初始100行，不指定列数的二维数组 </span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(<span class="number">100</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; (<span class="number">200</span>, <span class="number">-1</span>)) <span class="comment">// 构造初始100行，初始200列的二维数组，初值为-1</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这个二维数组可以理解为100个元素，每个元素都是一维vector</p>
+<h5 id="尾增尾删push-back-pop-back"><a href="#尾增尾删push-back-pop-back" class="headerlink" title="尾增尾删push_back(),pop_back()"></a>尾增尾删push_back(),pop_back()</h5><ul>
+<li><strong><code>.push_back(元素)</code></strong>：在 vector 的最后一个数据后尾接一个元素，数组长度+1</li>
+<li><strong><code>.pop_back()</code></strong>：删除 vector 的最后一个数据尾部元素，数组长度-1</li>
+</ul>
+<p>arr.push_back(100);</p>
+<p>arr.pop_back();</p>
+<h5 id="获取长度-size"><a href="#获取长度-size" class="headerlink" title="获取长度.size()"></a>获取长度.size()</h5><p>获取当前 vector 的长度</p>
+<p>注意返回值是无符号整数size_t</p>
+<p>o(1)复杂度</p>
+<h5 id="清空-clear"><a href="#清空-clear" class="headerlink" title="清空.clear()"></a>清空.clear()</h5><p>arr.clear();</p>
+<p>o(n)复杂度</p>
+<h5 id="判空-empty"><a href="#判空-empty" class="headerlink" title="判空 .empty()"></a>判空 .empty()</h5><p>如果是空返回 <code>true</code> 反之返回 <code>false</code>.</p>
+<p>时间复杂度：o(1)</p>
+<h5 id="改变长度"><a href="#改变长度" class="headerlink" title="改变长度"></a>改变长度</h5><p><strong><code>.resize(新长度, [默认值])</code></strong></p>
+<p>修改 vector 的长度</p>
+<p>如果是缩短，则删除多余的值</p>
+<p>如果是扩大，且指定了默认值，则新元素均为默认值（旧元素不变）</p>
+<p>时间复杂度：o(n)</p>
+<h4 id="栈stack"><a href="#栈stack" class="headerlink" title="栈stack"></a>栈stack</h4><p>#include&lt;stack&gt;</p>
+<p>栈不可访问内部元素，只能用弹出看栈顶,所以感觉可以用vector代替stack，或者手写。–</p>
+<p>vector 的 <code>.back()</code> 取尾部元素，就相当于取栈顶，<code>.push_back()</code> 相当于进栈，<code>.pop_back()</code> 相当于出栈。</p>
+<h5 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h5><p>stack&lt;类型&gt; a,不初始化</p>
+<h5 id="进出栈"><a href="#进出栈" class="headerlink" title="进出栈"></a>进出栈</h5><p>a.push(元素)进</p>
+<p>a.pop()弹出</p>
+<h5 id="取栈顶"><a href="#取栈顶" class="headerlink" title="取栈顶"></a>取栈顶</h5><p>a.top();</p>
+<p>int topnum&#x3D;a.top();</p>
+<h4 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h4><h5 id="构造-1"><a href="#构造-1" class="headerlink" title="构造"></a>构造</h5><p>queue&lt;类型&gt; que</p>
+<h5 id="进出队"><a href="#进出队" class="headerlink" title="进出队"></a>进出队</h5><p>.push(元素)</p>
+<p>.pop()</p>
+<h5 id="取队尾队首"><a href="#取队尾队首" class="headerlink" title="取队尾队首"></a>取队尾队首</h5><p>.front()</p>
+<p>.back()</p>
+<p>int getfront&#x3D;que.front();</p>
+<h4 id="优先队列priority-queue"><a href="#优先队列priority-queue" class="headerlink" title="优先队列priority_queue"></a>优先队列priority_queue</h4><p>新元素被添加到堆的末尾，然后通过”上浮”操作调整位置，保持堆性质，时间复杂度：O(log n)</p>
+<h5 id="构造-2"><a href="#构造-2" class="headerlink" title="构造"></a>构造</h5><p><strong><code>priority_queue&lt;类型, 容器, 比较器&gt; pque</code></strong></p>
+<p>类型：要储存的数据类型</p>
+<p>容器：储存数据的底层容器，默认为 <code>vector&lt;类型&gt;</code>，竞赛中保持默认即可</p>
+<p>比较器：比较大小使用的比较器，默认为 <code>less&lt;类型&gt;</code>，可自定义</p>
+<p>priority_queue&lt;int&gt; pque;默认为大顶堆</p>
+<p>priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; pque2; 储存int的小顶堆</p>
+<h5 id="进出堆"><a href="#进出堆" class="headerlink" title="进出堆"></a>进出堆</h5><p>.push(元素)</p>
+<p>.pop()</p>
+<h5 id="取堆顶-大堆顶就是最大值，小就是最小值"><a href="#取堆顶-大堆顶就是最大值，小就是最小值" class="headerlink" title="取堆顶(大堆顶就是最大值，小就是最小值)"></a>取堆顶(大堆顶就是最大值，小就是最小值)</h5><p>只可访问堆顶，其他元素都无法读取到。</p>
+<p>.top()</p>
+<p>int a&#x3D;pque.top();</p>
+<h4 id="7-gdb编译的时候，如果用了math-h库，那么编译命令里面要加上-lm"><a href="#7-gdb编译的时候，如果用了math-h库，那么编译命令里面要加上-lm" class="headerlink" title="7.gdb编译的时候，如果用了math.h库，那么编译命令里面要加上-lm"></a>7.gdb编译的时候，如果用了math.h库，那么编译命令里面要加上-lm</h4><p>gcc -g -o draft draft.c -lm  </p>
+<p>&lt;math.h&gt;只是声明了pow()等数学函数的原型（告诉编译器这些函数存在，应该怎么调用）。</p>
+<p>真正的函数实现在数学库libm中&gt;默认情况下，GCC 不会自动链接数学库，所以必须手动加 -lm。</p>
+<h4 id="8-定义字符串数组后加上memset-arr1-0-sizeof-arr1"><a href="#8-定义字符串数组后加上memset-arr1-0-sizeof-arr1" class="headerlink" title="8.定义字符串数组后加上memset(arr1, 0, sizeof(arr1));"></a>8.定义字符串数组后加上memset(arr1, 0, sizeof(arr1));</h4><p>byd没加是错的，加了就对了</p>
+<h4 id="9-ubuntu粘贴会导致输出部分和输入部分错乱，建议重定向文件或者手动输入"><a href="#9-ubuntu粘贴会导致输出部分和输入部分错乱，建议重定向文件或者手动输入" class="headerlink" title="9.ubuntu粘贴会导致输出部分和输入部分错乱，建议重定向文件或者手动输入"></a>9.ubuntu粘贴会导致输出部分和输入部分错乱，建议重定向文件或者手动输入</h4><p>ctrl v导致输入输出异步，缓冲区未刷新</p>
+<p>手动输入和重定向 .&#x2F;draft &lt; in.txt </p>
+<h4 id="10-字符型整数转整数型整数"><a href="#10-字符型整数转整数型整数" class="headerlink" title="10.字符型整数转整数型整数"></a>10.字符型整数转整数型整数</h4><p>假设某串的i-j部分是数字，提取成整数，可以不用pow，效率比较低</p>
+<p>int change(char *str,int i,int j){</p>
+<p>                int result;</p>
+<p>                for(int k&#x3D;i;k&lt;&#x3D;j;k++)</p>
+<p>                result&#x3D;result*10+str[k]-‘0’;</p>
+<p>                return result;</p>
+<p>}    </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/05/08/%E6%8A%80%E5%B7%A7/%E6%8A%80%E5%B7%A7/" data-id="cuidFfkzOhfPd1agF8xIsDIJp" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/05/16/tools/gdb%E5%88%9D%E6%AD%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/05/08/java/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">January 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/02/03/gpt/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/03/3.stl/6.%E8%BF%AD%E4%BB%A3%E5%99%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/03/3.stl/5.%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/31/3.stl/4.%E6%A8%A1%E6%9D%BF/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/28/3.stl/3.%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

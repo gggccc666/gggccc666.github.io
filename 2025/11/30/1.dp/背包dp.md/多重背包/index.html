@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="多重背包也是 0-1 背包的一个变式。与 0-1 背包的区别在于每种物品有 𝑘𝑖 个，而非一个。 （我们尝试用完全背包的思路优化，发现失败。因为多重背包数量是有限的，假设我们背包空间十分大，把ki个物品全部取完，就会导致f[j]和f[j-w[i]]两个都能取完所有的ki物品，和完全背包是不一致的） 所以我们回归到01背包问题，朴素思路，将k个物品看成k个不一样的，时间复杂度（∑s[i]*cap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/11/30/1.dp/%E8%83%8C%E5%8C%85dp.md/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="多重背包也是 0-1 背包的一个变式。与 0-1 背包的区别在于每种物品有 𝑘𝑖 个，而非一个。 （我们尝试用完全背包的思路优化，发现失败。因为多重背包数量是有限的，假设我们背包空间十分大，把ki个物品全部取完，就会导致f[j]和f[j-w[i]]两个都能取完所有的ki物品，和完全背包是不一致的） 所以我们回归到01背包问题，朴素思路，将k个物品看成k个不一样的，时间复杂度（∑s[i]*cap">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-11-30T03:44:58.005Z">
+<meta property="article:modified_time" content="2025-12-01T04:10:49.128Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-1.dp/背包dp.md/多重背包" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/11/30/1.dp/%E8%83%8C%E5%8C%85dp.md/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/" class="article-date">
+  <time class="dt-published" datetime="2025-11-30T03:44:58.005Z" itemprop="datePublished">2025-11-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>多重背包也是 0-1 背包的一个变式。与 0-1 背包的区别在于每种物品有 𝑘𝑖<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="k_i"> 个，而非一个。</p>
+<p>（我们尝试用完全背包的思路优化，发现失败。因为多重背包数量是有限的，假设我们背包空间十分大，把ki个物品全部取完，就会导致f[j]和f[j-w[i]]两个都能取完所有的ki物品，和完全背包是不一致的）</p>
+<p>所以我们回归到01背包问题，朴素思路，将k个物品看成k个不一样的，时间复杂度（∑s[i]*cap*n)</p>
+<p>利用二进制优化：</p>
+<p>我们效率低的原因主要在于我们进行了大量重复性的工作。举例来说，我们考虑了「同时选 𝐴𝑖,1,𝐴𝑖,2<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="A_{i,1},A_{i,2}">」与「同时选 𝐴𝑖,2,𝐴𝑖,3<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="A_{i,2},A_{i,3}">」这两个完全等效的情况。</p>
+<p>我们尝试将物品捆绑为1,2,4,8…2^k,cap-(2^(k+1)-1),这样你选取任意数量的物品，都能从这些二进制数里面组合得到。（比如你选10个—2和8）同时可以证明，在2^k和cap之间的部分，也不存在遗漏，都有组成方案。</p>
+<p>代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxv=<span class="number">10010</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">2000</span>;</span><br><span class="line"><span class="type">int</span> f[maxv];</span><br><span class="line"><span class="type">int</span> v[maxn],w[maxn];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,cap;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;cap;</span><br><span class="line">    <span class="type">int</span> index=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="type">int</span> cnt=<span class="number">1</span>,a,b,s;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b&gt;&gt;s;</span><br><span class="line">        <span class="keyword">while</span>(s&gt;=cnt)&#123;</span><br><span class="line">            index++;</span><br><span class="line">            v[index]=cnt*a;</span><br><span class="line">            w[index]=cnt*b;</span><br><span class="line">            s-=cnt;</span><br><span class="line">            cnt*=<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        index++;</span><br><span class="line">        v[index]=s*a;</span><br><span class="line">        w[index]=s*b;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=index;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=cap;j&gt;=w[i];j--)</span><br><span class="line">            f[j]=<span class="built_in">max</span>(f[j],f[j-w[i]]+v[i]);</span><br><span class="line">    cout&lt;&lt;f[cap]&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码细节：</p>
+<p>1.一次for循环是在初始化那k个数的捆绑，我们不知道一共扩展为多少个物品，所以我们需要一个全局变量index去记录第几个物品。</p>
+<p>2.我们v[],w[]都是从1开始的</p>
+<p>3.cnt代表当前第index个物品由多少个物品捆绑成。</p>
+<p>4.while循环后那一步是在让剩余的物品当作一捆</p>
+<p>5.我们while循环s&gt;&#x3D;cnt可以，代表剩余的量必须大于等于当前捆绑的数量，否则停止，并让剩余的量凑作一捆。当s&#x3D;cnt时，代表整个数列刚好为一个等比（s-∑cnt&#x3D;2^(k+1))，此时继续循环，下一次s被减为0，这种情况会被if(s&gt;0)排除在外，因为s&#x3D;0，已经初始化完了</p>
+<p>6.当然，也可以while(s&gt;cnt)，这时候不需要if(s&gt;0)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/11/30/1.dp/%E8%83%8C%E5%8C%85dp.md/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/" data-id="cuidkgsJHkTEra7eq76j-MqQt" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/12/02/1.dp/%E8%83%8C%E5%8C%85dp.md/%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/11/17/%E6%95%B0%E6%8D%AE%E5%BA%93/oracle%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%93%E7%B3%BB.md/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">January 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/02/03/gpt/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/03/3.stl/6.%E8%BF%AD%E4%BB%A3%E5%99%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/03/3.stl/5.%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/31/3.stl/4.%E6%A8%A1%E6%9D%BF/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/28/3.stl/3.%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
