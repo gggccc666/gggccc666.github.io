@@ -1,89 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Hexo"><meta property="og:url" content="http://example.com/"><meta property="og:site_name" content="Hexo"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/img/og_image.png"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com"},"headline":"Hexo","image":["http://example.com/img/og_image.png"],"author":{"@type":"Person","name":"John Doe"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.svg"}},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
 
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
 
-<meta name="generator" content="Hexo 8.1.1"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-gpt" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/02/03/gpt/" class="article-date">
-  <time class="dt-published" datetime="2026-02-03T14:56:18.354Z" itemprop="datePublished">2026-02-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="ChatGPT-回答风格规范（技术向）"><a href="#ChatGPT-回答风格规范（技术向）" class="headerlink" title="ChatGPT 回答风格规范（技术向）"></a>ChatGPT 回答风格规范（技术向）</h1><h2 id="一、总体原则"><a href="#一、总体原则" class="headerlink" title="一、总体原则"></a>一、总体原则</h2><p>以<strong>技术准确性与工程严谨性</strong>为最高优先级；若涉及不确定的知识、结论或工程应用前提，必须明确标注不确定性或适用条件。</p>
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-02-03T14:56:18.354Z" title="2026/2/3 22:56:18">2026-02-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-02-03T14:56:34.788Z" title="2026/2/3 22:56:34">2026-02-03</time></span><span class="level-item">7 minutes read (About 1038 words)</span></div></div><div class="content"><h1 id="ChatGPT-回答风格规范（技术向）"><a href="#ChatGPT-回答风格规范（技术向）" class="headerlink" title="ChatGPT 回答风格规范（技术向）"></a>ChatGPT 回答风格规范（技术向）</h1><h2 id="一、总体原则"><a href="#一、总体原则" class="headerlink" title="一、总体原则"></a>一、总体原则</h2><p>以<strong>技术准确性与工程严谨性</strong>为最高优先级；若涉及不确定的知识、结论或工程应用前提，必须明确标注不确定性或适用条件。</p>
 <p>回答风格偏向理工科 &#x2F; 计算机专业语境，避免口语化表达。</p>
 <h2 id="不进行无关寒暄，不使用表情符号，不做情绪化评价。二、回答结构规范"><a href="#不进行无关寒暄，不使用表情符号，不做情绪化评价。二、回答结构规范" class="headerlink" title="不进行无关寒暄，不使用表情符号，不做情绪化评价。二、回答结构规范"></a>不进行无关寒暄，不使用表情符号，不做情绪化评价。<br>二、回答结构规范</h2><p>结论优先：<br>若问题存在明确答案或判断，先给出严谨结论；<br>再补充通俗解释（无需比喻）和必要的推导。</p>
 <p>格式要求：<br>尽量少用 Markdown 结构符号；标题不强制加粗，列表可使用自然分段表达。<br>仅在以下情形使用 Markdown：</p>
@@ -140,35 +86,7 @@
 <p>概念性提问：给出严格定义，必要时提供反例。</p>
 <h2 id="是-否问题：先明确回答“是”或“否”，再说明成立条件或例外。六、语言与术语"><a href="#是-否问题：先明确回答“是”或“否”，再说明成立条件或例外。六、语言与术语" class="headerlink" title="是 &#x2F; 否问题：先明确回答“是”或“否”，再说明成立条件或例外。六、语言与术语"></a>是 &#x2F; 否问题：先明确回答“是”或“否”，再说明成立条件或例外。<br>六、语言与术语</h2><h2 id="中文为主；关键术语在首次出现时保留英文原名。不进行中英混写式解释性废话。统一使用学术界或工程实践中通行的术语与表述。七、不应出现的内容"><a href="#中文为主；关键术语在首次出现时保留英文原名。不进行中英混写式解释性废话。统一使用学术界或工程实践中通行的术语与表述。七、不应出现的内容" class="headerlink" title="中文为主；关键术语在首次出现时保留英文原名。不进行中英混写式解释性废话。统一使用学术界或工程实践中通行的术语与表述。七、不应出现的内容"></a>中文为主；关键术语在首次出现时保留英文原名。<br>不进行中英混写式解释性废话。<br>统一使用学术界或工程实践中通行的术语与表述。<br>七、不应出现的内容</h2><h2 id="无前提支撑的不确定性模糊表述（如“可能”“大概”“一般来说”）。与问题无关的类比、故事性描述或泛泛而谈。重复用户已明确掌握的基础知识。八、优先级说明"><a href="#无前提支撑的不确定性模糊表述（如“可能”“大概”“一般来说”）。与问题无关的类比、故事性描述或泛泛而谈。重复用户已明确掌握的基础知识。八、优先级说明" class="headerlink" title="无前提支撑的不确定性模糊表述（如“可能”“大概”“一般来说”）。与问题无关的类比、故事性描述或泛泛而谈。重复用户已明确掌握的基础知识。八、优先级说明"></a>无前提支撑的不确定性模糊表述（如“可能”“大概”“一般来说”）。<br>与问题无关的类比、故事性描述或泛泛而谈。<br>重复用户已明确掌握的基础知识。<br>八、优先级说明</h2><p>本规范在本对话及后续对话中：<br>高于默认回答风格；<br>低于用户在单次提问中明确指定的特殊要求。</p>
 <p>—— 本文档可随时增补或修订 ——</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/03/gpt/" data-id="cuid8LiyJgQ3sXQ_hq3O_0EiP" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-3.stl/6.迭代器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/02/03/3.stl/6.%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="article-date">
-  <time class="dt-published" datetime="2026-02-03T14:28:41.278Z" itemprop="datePublished">2026-02-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="迭代器是什么？"><a href="#迭代器是什么？" class="headerlink" title="迭代器是什么？"></a>迭代器是什么？</h3><p>通俗来讲，迭代器用来指明stl容器位置</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-02-03T14:28:41.278Z" title="2026/2/3 22:28:41">2026-02-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-02-03T15:04:04.271Z" title="2026/2/3 23:04:04">2026-02-03</time></span><span class="level-item">2 minutes read (About 357 words)</span></div></div><div class="content"><h3 id="迭代器是什么？"><a href="#迭代器是什么？" class="headerlink" title="迭代器是什么？"></a>迭代器是什么？</h3><p>通俗来讲，迭代器用来指明stl容器位置</p>
 <p>我们创建一个迭代器，实际上是创建了迭代器类的一个对象，实现了类似指针的操作。所以他的本质不是指针，但很像指针</p>
 <p>例如</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i!=v.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">    cout&lt;&lt;v[i]&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -189,35 +107,7 @@
 <p>前缀自增 <code>++it</code> 表示“先移动迭代器，再使用结果”，返回的是<strong>自增后的迭代器本身（通常是引用）</strong>。<br>后缀自增 <code>it++</code> 表示“先使用旧位置，再移动迭代器”，返回的是<strong>自增前迭代器的一个副本</strong>。</p>
 <p>后缀形式为了返回旧值，必须保存一个临时对象；前缀形式不需要。</p>
 <p><strong>不需要旧值的情况下应当使用前缀形式</strong>；前缀在语义和性能上都更优。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/03/3.stl/6.%E8%BF%AD%E4%BB%A3%E5%99%A8/" data-id="cuidv9wbbjma-68_1sKL4hLXx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-3.stl/5.重载运算符" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/02/03/3.stl/5.%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/" class="article-date">
-  <time class="dt-published" datetime="2026-02-03T13:02:44.628Z" itemprop="datePublished">2026-02-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>operator</strong>是C++的一个关键字，它和运算符（如“&#x3D;”）一起使用，表示一个<strong>运算符重载函数</strong>，在理解时可将operator和待重载的运算符整体（如“operator&#x3D;”）视为一个函数名。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-02-03T13:02:44.628Z" title="2026/2/3 21:02:44">2026-02-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-02-03T14:28:35.516Z" title="2026/2/3 22:28:35">2026-02-03</time></span><span class="level-item">2 minutes read (About 264 words)</span></div></div><div class="content"><p><strong>operator</strong>是C++的一个关键字，它和运算符（如“&#x3D;”）一起使用，表示一个<strong>运算符重载函数</strong>，在理解时可将operator和待重载的运算符整体（如“operator&#x3D;”）视为一个函数名。</p>
 <p>实现运算符重载的方式通常有以下两种：</p>
 <p>1.运算符重载实现为类的成员函数；</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在student类里面</span></span><br><span class="line"><span class="type">bool</span> <span class="keyword">operator</span>&gt;(<span class="type">const</span> student&amp; a)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.score&gt;a.score)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -233,103 +123,19 @@
 <ul>
 <li>&#x3D;、()、[]、-&gt;操作符只能被类的成员函数重载。</li>
 </ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/03/3.stl/5.%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/" data-id="cuiduV8zTSKF037L8FBw1wTeP" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-3.stl/4.模板" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/01/31/3.stl/4.%E6%A8%A1%E6%9D%BF/" class="article-date">
-  <time class="dt-published" datetime="2026-01-31T13:54:09.572Z" itemprop="datePublished">2026-01-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h4><p>函数模板是一个用于产生函数的公式。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-01-31T13:54:09.572Z" title="2026/1/31 21:54:09">2026-01-31</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-02-03T12:32:21.389Z" title="2026/2/3 20:32:21">2026-02-03</time></span><span class="level-item">a few seconds read (About 88 words)</span></div></div><div class="content"><h4 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h4><p>函数模板是一个用于产生函数的公式。</p>
 <p>语法：</p>
 <p>template &lt;typename T&gt; +函数声明</p>
 <p>所以template和函数声明可以分为两行写，中间不能有其他语句。</p>
 <p>(和template&lt;class T&gt;完全等价)</p>
 <p>然后把想泛化的类型换成T即可</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">max</span><span class="params">(T a,T b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&gt;b?a:b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/31/3.stl/4.%E6%A8%A1%E6%9D%BF/" data-id="cuidkwwDh4KHiMFGQvws9OYVK" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-3.stl/3.参数传递" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/01/28/3.stl/3.%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/" class="article-date">
-  <time class="dt-published" datetime="2026-01-28T13:10:56.335Z" itemprop="datePublished">2026-01-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h4><p>一般来说，c++常见几种参数传递</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-01-28T13:10:56.335Z" title="2026/1/28 21:10:56">2026-01-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-01-28T13:50:47.780Z" title="2026/1/28 21:50:47">2026-01-28</time></span><span class="level-item">a few seconds read (About 51 words)</span></div></div><div class="content"><h4 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h4><p>一般来说，c++常见几种参数传递</p>
 <p>1.一般值（int ，double，对象）</p>
 <p>2.引址调用 int &amp;</p>
 <p>3.常数引用调用const int &amp;</p>
 <p>4.（cpp里面少用)裸指针</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/28/3.stl/3.%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/" data-id="cuidmiVS26hem1UHEpz25hjrD" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-3.stl/2.vector和string" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/01/25/3.stl/2.vector%E5%92%8Cstring/" class="article-date">
-  <time class="dt-published" datetime="2026-01-25T08:18:40.662Z" itemprop="datePublished">2026-01-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h1><p>#include&lt;vector&gt;</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-01-25T08:18:40.662Z" title="2026/1/25 16:18:40">2026-01-25</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-01-25T09:13:24.546Z" title="2026/1/25 17:13:24">2026-01-25</time></span><span class="level-item">5 minutes read (About 718 words)</span></div></div><div class="content"><h1 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h1><p>#include&lt;vector&gt;</p>
 <p><code>vector</code> 的数据储存在堆空间中，不会爆栈。一般情况 <code>vector</code> 可以替换掉普通数组。</p>
 <p>注意：若长度已确定，那么就直接在构造函数指定长度。因为如果不确定，后面每push_back一次都会耗尽内存而重新分配，产生额外时间开销</p>
 <h6 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h6><p>vector&lt;类型&gt; arr(长度，[初值])</p>
@@ -375,35 +181,7 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::string s = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line">    s += <span class="string">&quot; World&quot;</span>;      <span class="comment">// 动态扩展</span></span><br><span class="line">    s.<span class="built_in">insert</span>(<span class="number">5</span>, <span class="string">&quot;,&quot;</span>);  <span class="comment">// 在指定位置插入字符</span></span><br><span class="line">    std::cout &lt;&lt; s &lt;&lt; std::endl; <span class="comment">// 输出: Hello, World</span></span><br><span class="line">    std::cout &lt;&lt; s[<span class="number">0</span>] &lt;&lt; std::endl; <span class="comment">// 随机访问字符: H</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/25/3.stl/2.vector%E5%92%8Cstring/" data-id="cuidgQTiNo2iJsAFfqgtkYNrY" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-3.stl/1.cpp高级语法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/01/20/3.stl/1.cpp%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95/" class="article-date">
-  <time class="dt-published" datetime="2026-01-20T11:22:26.727Z" itemprop="datePublished">2026-01-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="1-class语法"><a href="#1-class语法" class="headerlink" title="1.class语法"></a>1.class语法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Name</span>&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="type">int</span> a;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">getB</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> b;&#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="type">int</span> b;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">func2</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line">        <span class="type">int</span> c;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">func3</span><span class="params">()</span></span>&#123;<span class="comment">/**/</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Name::func2</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-01-20T11:22:26.727Z" title="2026/1/20 19:22:26">2026-01-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-01-26T01:14:41.402Z" title="2026/1/26 09:14:41">2026-01-26</time></span><span class="level-item">4 minutes read (About 553 words)</span></div></div><div class="content"><h4 id="1-class语法"><a href="#1-class语法" class="headerlink" title="1.class语法"></a>1.class语法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Name</span>&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="type">int</span> a;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">getB</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> b;&#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="type">int</span> b;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">func2</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line">        <span class="type">int</span> c;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">func3</span><span class="params">()</span></span>&#123;<span class="comment">/**/</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Name::func2</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
 
 <p>public 可被其他程序使用，private只能被当前类的函数使用，protected只能被当前类的函数，和继承类使用.</p>
 <p>我们常把数据设置为私有的或保护的，需要数据时调用public的函数获得数据即可，就不需要暴露数据的来去,例如getB</p>
@@ -437,35 +215,7 @@
 <p>m&#x3D;new IntCell(0);</p>
 <p>m-&gt;write(5);</p>
 <p>delete m;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/20/3.stl/1.cpp%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95/" data-id="cuidQS533E7DpssYWsspl3Ewb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-4.数学相关/1数学基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/01/20/4.%E6%95%B0%E5%AD%A6%E7%9B%B8%E5%85%B3/1%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="article-date">
-  <time class="dt-published" datetime="2026-01-20T11:00:46.410Z" itemprop="datePublished">2026-01-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h4><p>1.$\sum_{i&#x3D;1}^{n} A^i &#x3D;\frac {A^{N+1}-1}{A-1}$</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-01-20T11:00:46.410Z" title="2026/1/20 19:00:46">2026-01-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-01-20T11:22:11.721Z" title="2026/1/20 19:22:11">2026-01-20</time></span><span class="level-item">a few seconds read (About 68 words)</span></div></div><div class="content"><h4 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h4><p>1.$\sum_{i&#x3D;1}^{n} A^i &#x3D;\frac {A^{N+1}-1}{A-1}$</p>
 <p>当A∈(0,1)，$\sum_{i&#x3D;1}^{n} A^i &lt;&#x3D;\frac {1}{1-A}$</p>
 <ol start="2">
 <li></li>
@@ -474,65 +224,9 @@
 <p>$\sum _{i&#x3D;1}^N i^2 &#x3D;N(N+1)&#x2F;2$</p>
 <p>$\sum _{i&#x3D;1}^N i^k \approx \frac {N^{k+1}}{|k+1|},k\neq-1$</p>
 <p>$\sum _{i&#x3D;1}^N {\frac{1}{i}} \approx log_eN$,近似式误差趋近于欧拉常数$\gamma \approx 0.577215$ </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/20/4.%E6%95%B0%E5%AD%A6%E7%9B%B8%E5%85%B3/1%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" data-id="cuidVwlKY4V724zs4TyuS8hI3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-csapp/3.汇编/命令记录" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/01/20/csapp/3.%E6%B1%87%E7%BC%96/%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/" class="article-date">
-  <time class="dt-published" datetime="2026-01-20T01:34:55.444Z" itemprop="datePublished">2026-01-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>1.反汇编</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-01-20T01:34:55.444Z" title="2026/1/20 09:34:55">2026-01-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-01-20T02:07:54.506Z" title="2026/1/20 10:07:54">2026-01-20</time></span><span class="level-item">a few seconds read (About 7 words)</span></div></div><div class="content"><p>1.反汇编</p>
 <p>objdump -d name.o</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/20/csapp/3.%E6%B1%87%E7%BC%96/%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/" data-id="cuid5c1o6lNxgaDqGFG_6GgQc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2.图/图储存" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/01/19/2.%E5%9B%BE/%E5%9B%BE%E5%82%A8%E5%AD%98/" class="article-date">
-  <time class="dt-published" datetime="2026-01-19T13:25:14.843Z" itemprop="datePublished">2026-01-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>对于图的储存而言，算法上一般用邻接表和邻接矩阵两种方法</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-01-19T13:25:14.843Z" title="2026/1/19 21:25:14">2026-01-19</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-01-19T14:27:04.644Z" title="2026/1/19 22:27:04">2026-01-19</time></span><span class="level-item">4 minutes read (About 650 words)</span></div></div><div class="content"><p>对于图的储存而言，算法上一般用邻接表和邻接矩阵两种方法</p>
 <h4 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h4><p>使用一个二维数组 <code>adj</code> 来存边，其中 <code>adj[u][v]</code> 为 1 表示存在 𝑢<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="u"> 到 𝑣<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="v"> 的边，为 0 表示不存在．如果是带边权的图，可以在 <code>adj[u][v]</code> 中存<img src="C:\Users\mec\Pictures\算法图解\链式前向星.png" alt="链式前向星">储 𝑢<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="u"> 到 𝑣<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="v"> 的边的边权．<br>    &#x2F;&#x2F;u-&gt;v<br>    adj[u][v]&#x3D;1;</p>
 <p>注意不能有重边，优点是查某边很快，缺点是稀疏图效率低</p>
 <h4 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h4><p>一般情况下，都用邻接表方法储存图</p>
@@ -549,123 +243,48 @@
 
 <p>h[i]表示第i个节点的头节点，后面接入i节点指向的所有节点的idx索引，无顺序之分。e[idx]表示第idx个空间分配的值，ne[idx]表示第idx个空间的值所指向的的下一个值的索引。idx从零开始递增。 整体而言可以把e[]看作一个内存池，从这个内存池里面取出边，一个一个赋值，接在h[]后面</p>
 <p>add函数是把e的第idx位置存成b，ne[idx]&#x3D;h[a]表示把原来h[a]指向的索引成为ne的下一个索引，在让h[a]指向idx，idx自增，即可完成插入</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/19/2.%E5%9B%BE/%E5%9B%BE%E5%82%A8%E5%AD%98/" data-id="cuidUTbTEPPtU7kMktifkAUmn" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">January 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2026/02/03/gpt/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/03/3.stl/6.%E8%BF%AD%E4%BB%A3%E5%99%A8/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/03/3.stl/5.%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2026/01/31/3.stl/4.%E6%A8%A1%E6%9D%BF/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2026/01/28/3.stl/3.%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/">(no title)</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2026 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">Previous</a></div><div class="pagination-next"><a href="/page/2/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/6/">6</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives/"><p class="title">51</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories/"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags/"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="me noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-02-03T14:56:18.354Z">2026-02-03</time></p><p class="title"><a href="/2026/02/03/gpt/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-02-03T14:28:41.278Z">2026-02-03</time></p><p class="title"><a href="/2026/02/03/3.stl/6.%E8%BF%AD%E4%BB%A3%E5%99%A8/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-02-03T13:02:44.628Z">2026-02-03</time></p><p class="title"><a href="/2026/02/03/3.stl/5.%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-01-31T13:54:09.572Z">2026-01-31</time></p><p class="title"><a href="/2026/01/31/3.stl/4.%E6%A8%A1%E6%9D%BF/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-01-28T13:10:56.335Z">2026-01-28</time></p><p class="title"><a href="/2026/01/28/3.stl/3.%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/"> </a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/02/"><span class="level-start"><span class="level-item">February 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">January 2026</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/12/"><span class="level-start"><span class="level-item">December 2025</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/11/"><span class="level-start"><span class="level-item">November 2025</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/10/"><span class="level-start"><span class="level-item">October 2025</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/09/"><span class="level-start"><span class="level-item">September 2025</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/08/"><span class="level-start"><span class="level-item">August 2025</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/07/"><span class="level-start"><span class="level-item">July 2025</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/05/"><span class="level-start"><span class="level-item">May 2025</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/04/"><span class="level-start"><span class="level-item">April 2025</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/02/"><span class="level-start"><span class="level-item">February 2025</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/01/"><span class="level-start"><span class="level-item">January 2025</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2026 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
