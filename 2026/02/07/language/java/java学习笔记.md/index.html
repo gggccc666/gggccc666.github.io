@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"localhost","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="概念规则 实例和对象和类区别：实例是通过类创建的对象，比如我string a，a就是string类的实例。比如人类，里面的李白和杜甫就是实例。对象更宽泛，你可以说任何内存实体都是对象。但是一般可以认为实例和对象就是一回事，可以换用。  源代码的文件名必须与公共类的类名相同  main方法必须为public  字符串区间规律：从零开始，操作长度为n–（0,n)例如x.delete(0,4)删除第1-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java学习笔记">
-<meta property="og:url" content="http://example.com/2026/02/07/language/java/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md/index.html">
+<meta property="og:url" content="http://localhost:4000/2026/02/07/language/java/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="概念规则 实例和对象和类区别：实例是通过类创建的对象，比如我string a，a就是string类的实例。比如人类，里面的李白和杜甫就是实例。对象更宽泛，你可以说任何内存实体都是对象。但是一般可以认为实例和对象就是一回事，可以换用。  源代码的文件名必须与公共类的类名相同  main方法必须为public  字符串区间规律：从零开始，操作长度为n–（0,n)例如x.delete(0,4)删除第1-">
 <meta property="og:locale" content="zh_CN">
@@ -34,7 +34,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="file:///C:/Users/hardestnut/Pictures/Typedown/39850735-a33b-4c8d-a2f5-5bd5fde0cbe4.png">
 
-<link rel="canonical" href="http://example.com/2026/02/07/language/java/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md/">
+<link rel="canonical" href="http://localhost:4000/2026/02/07/language/java/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -181,7 +181,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/language/java/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/language/java/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -475,12 +475,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>

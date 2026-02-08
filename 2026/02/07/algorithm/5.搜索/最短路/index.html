@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"localhost","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="关于最短路，我们不区分是否有向，无向可以看作特殊的有向，把a-&gt;b和b-&gt;a都写进去  aw上关于以上几个算法的用途大致分类 多源：起点不确定，可能是任意点 汇点：终点 朴素dijkstra求解非负权图上单源最短路径 相比与堆优化版的dijkstra，这个适用于稠密图（堆优化版mlongn在稠密情况下是n^2logn），所以用邻接矩阵来存 松弛操作 先说明松弛操作，即当我们发现一条边能">
 <meta property="og:type" content="article">
 <meta property="og:title" content="最短路">
-<meta property="og:url" content="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%9C%80%E7%9F%AD%E8%B7%AF/index.html">
+<meta property="og:url" content="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%9C%80%E7%9F%AD%E8%B7%AF/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="关于最短路，我们不区分是否有向，无向可以看作特殊的有向，把a-&gt;b和b-&gt;a都写进去  aw上关于以上几个算法的用途大致分类 多源：起点不确定，可能是任意点 汇点：终点 朴素dijkstra求解非负权图上单源最短路径 相比与堆优化版的dijkstra，这个适用于稠密图（堆优化版mlongn在稠密情况下是n^2logn），所以用邻接矩阵来存 松弛操作 先说明松弛操作，即当我们发现一条边能">
 <meta property="og:locale" content="zh_CN">
@@ -34,7 +34,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="file:///D:/Typedown/7e4cbfdc-0cac-4e78-b02f-6647c7d75a8a.png">
 
-<link rel="canonical" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
+<link rel="canonical" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -181,7 +181,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -412,12 +412,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>

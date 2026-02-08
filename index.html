@@ -17,18 +17,18 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"localhost","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://localhost:4000/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="HardestNut">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://localhost:4000/">
 
 
 <script id="page-configurations">
@@ -75,7 +75,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -174,7 +174,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/tools/hexo%E8%AF%A6%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/tools/hexo%E8%AF%A6%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -205,7 +205,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-02-08 09:30:49" itemprop="dateModified" datetime="2026-02-08T09:30:49+08:00">2026-02-08</time>
+                <time title="修改时间：2026-02-08 09:39:59" itemprop="dateModified" datetime="2026-02-08T09:39:59+08:00">2026-02-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -246,8 +246,15 @@
 <p>5.<strong>hexo server (hexo s)</strong></p>
 <p>启动本地 HTTP 服务预览站点。</p>
 <p>在本地用网站<a href="http://localhost:4000浏览">http://localhost:4000浏览</a></p>
-<p>可以用<strong>hexo s -g</strong>,即先生成再启动服务。</p>
+<p>用<strong>hexo clean&amp;&amp;hexo g&amp;&amp;hexo s</strong>快速启动</p>
 <p>hexo s相当于本地调试服务器，不涉及真实部署。</p>
+<p>6.<strong>hexo deploy (hexo d)</strong></p>
+<p>事先安装好hexo-deployer-git后，将public&#x2F;中的静态文件部署到远端（github page)</p>
+<p>可以用<strong>hexo clean&amp;&amp;hexo g&amp;&amp;hexo d</strong>快速部署</p>
+<p>7.其他</p>
+<p><strong>hexo list tag</strong>列出tag下的资源</p>
+<p><strong>hexo version</strong>查看版本</p>
+<p><strong>hexo belp</strong>查看命令和说明</p>
 <h3 id="hexo构架"><a href="#hexo构架" class="headerlink" title="hexo构架"></a>hexo构架</h3><h3 id="hexo创建新索引头"><a href="#hexo创建新索引头" class="headerlink" title="hexo创建新索引头"></a>hexo创建新索引头</h3>
       
     </div>
@@ -267,7 +274,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/tools/gpt/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/tools/gpt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -403,7 +410,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/%E9%9B%B6%E6%95%A3%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/algorithm/%E9%9B%B6%E6%95%A3%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -540,7 +547,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/%E9%9B%B6%E6%95%A3%E7%AE%97%E6%B3%95/hash/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/algorithm/%E9%9B%B6%E6%95%A3%E7%AE%97%E6%B3%95/hash/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -631,7 +638,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%9E%9A%E4%B8%BE%E6%8E%92%E5%88%97/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%9E%9A%E4%B8%BE%E6%8E%92%E5%88%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -733,7 +740,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -831,7 +838,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -923,7 +930,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%AD%90%E9%9B%86%E7%94%9F%E6%88%90/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%AD%90%E9%9B%86%E7%94%9F%E6%88%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1015,7 +1022,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1086,7 +1093,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/dfs/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/dfs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1297,12 +1304,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>

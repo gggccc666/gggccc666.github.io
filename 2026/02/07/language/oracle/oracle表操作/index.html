@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"localhost","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="1.create创建表表存放在表空间之下，所以要指定放在那个表空间下，没指定就是默认表空间（一般是user） 查看默认表空间： 1select default_tablespace from user_users;    注意，select一般是从 Oracle 的数据字典视图（DBA__&#x2F;ALL__&#x2F;USER_*）中，  查询数据库对象的元数据（名称、状态、位置、属性等），其">
 <meta property="og:type" content="article">
 <meta property="og:title" content="oracle表操作">
-<meta property="og:url" content="http://example.com/2026/02/07/language/oracle/oracle%E8%A1%A8%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:url" content="http://localhost:4000/2026/02/07/language/oracle/oracle%E8%A1%A8%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1.create创建表表存放在表空间之下，所以要指定放在那个表空间下，没指定就是默认表空间（一般是user） 查看默认表空间： 1select default_tablespace from user_users;    注意，select一般是从 Oracle 的数据字典视图（DBA__&#x2F;ALL__&#x2F;USER_*）中，  查询数据库对象的元数据（名称、状态、位置、属性等），其">
 <meta property="og:locale" content="zh_CN">
@@ -32,7 +32,7 @@
 <meta property="article:author" content="HardestNut">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2026/02/07/language/oracle/oracle%E8%A1%A8%E6%93%8D%E4%BD%9C/">
+<link rel="canonical" href="http://localhost:4000/2026/02/07/language/oracle/oracle%E8%A1%A8%E6%93%8D%E4%BD%9C/">
 
 
 <script id="page-configurations">
@@ -79,7 +79,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/language/oracle/oracle%E8%A1%A8%E6%93%8D%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/language/oracle/oracle%E8%A1%A8%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -298,8 +298,8 @@
       <i class="fa fa-chevron-left"></i> oracle体系图示
     </a></div>
       <div class="post-nav-item">
-    <a href="/2026/02/07/language/oracle/tcl/" rel="next" title="tcl">
-      tcl <i class="fa fa-chevron-right"></i>
+    <a href="/2026/02/07/language/oracle/%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1/" rel="next" title="索引对象">
+      索引对象 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -432,12 +432,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>

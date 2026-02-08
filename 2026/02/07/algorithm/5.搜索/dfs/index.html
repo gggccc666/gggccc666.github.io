@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"localhost","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="dfs是什么？DFS，即深度优先搜索，常用于遍历搜索树或图。 该类搜索算法的特点在于，将要搜索的目标分成若干「层」，每层基于前几层的状态进行决策，直到达到目标状态。 DFS 最显著的特征在于其 递归调用自身。同时与 BFS 类似，DFS 会对其访问过的点打上访问标记，在遍历图时跳过已打过标记的点，以确保 每个点仅访问一次。符合以上两条规则的函数，便是广义上的 DFS。 遍历图先了解图的储存 ( 树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="dfs">
-<meta property="og:url" content="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/dfs/index.html">
+<meta property="og:url" content="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/dfs/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="dfs是什么？DFS，即深度优先搜索，常用于遍历搜索树或图。 该类搜索算法的特点在于，将要搜索的目标分成若干「层」，每层基于前几层的状态进行决策，直到达到目标状态。 DFS 最显著的特征在于其 递归调用自身。同时与 BFS 类似，DFS 会对其访问过的点打上访问标记，在遍历图时跳过已打过标记的点，以确保 每个点仅访问一次。符合以上两条规则的函数，便是广义上的 DFS。 遍历图先了解图的储存 ( 树">
 <meta property="og:locale" content="zh_CN">
@@ -32,7 +32,7 @@
 <meta property="article:author" content="HardestNut">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/dfs/">
+<link rel="canonical" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/dfs/">
 
 
 <script id="page-configurations">
@@ -79,7 +79,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/dfs/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/dfs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -399,12 +399,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>

@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"localhost","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="子集生成生成某个整数序列的所有可能子集 下面以从1-n的整数集，无重复数字 举例 增量构造法（递归）思路是从第一位开始，对于每一位而言，依次填入这一位后面的所有值，而后面的后面又是这样填，即递归。 若是算法每一步都对，有正确的初始化值，且有终止条件，则可用递归 例如，1 2 3的递归过程用解释树构造如下  a:构造的子集 s:s为当前加入的值，若cur为零，则初始化为1，否则为a[cur-1]的下">
 <meta property="og:type" content="article">
 <meta property="og:title" content="子集生成">
-<meta property="og:url" content="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%AD%90%E9%9B%86%E7%94%9F%E6%88%90/index.html">
+<meta property="og:url" content="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%AD%90%E9%9B%86%E7%94%9F%E6%88%90/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="子集生成生成某个整数序列的所有可能子集 下面以从1-n的整数集，无重复数字 举例 增量构造法（递归）思路是从第一位开始，对于每一位而言，依次填入这一位后面的所有值，而后面的后面又是这样填，即递归。 若是算法每一步都对，有正确的初始化值，且有终止条件，则可用递归 例如，1 2 3的递归过程用解释树构造如下  a:构造的子集 s:s为当前加入的值，若cur为零，则初始化为1，否则为a[cur-1]的下">
 <meta property="og:locale" content="zh_CN">
@@ -34,7 +34,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="file:///D:/Typedown/813127ef-a2ea-447c-ba05-f6b9380c3577.png">
 
-<link rel="canonical" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%AD%90%E9%9B%86%E7%94%9F%E6%88%90/">
+<link rel="canonical" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%AD%90%E9%9B%86%E7%94%9F%E6%88%90/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -181,7 +181,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%AD%90%E9%9B%86%E7%94%9F%E6%88%90/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%AD%90%E9%9B%86%E7%94%9F%E6%88%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -406,12 +406,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>

@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"localhost","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="gcc常见命令 gcc  draft.c  -o draft 把draft.c源文件编译,输出成draft 注意-o后面必须紧跟draft文件名，其他位置没有讲究。 gcc draft.c -g -o draft,生成调试信息，gdb要用 只要-o后面紧跟draft文件名， gcc -g -o myprog main.cgcc -o myprog -g main.cgcc main.c -g -o">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gdb初步">
-<meta property="og:url" content="http://example.com/2026/02/07/tools/gdb%E5%88%9D%E6%AD%A5/index.html">
+<meta property="og:url" content="http://localhost:4000/2026/02/07/tools/gdb%E5%88%9D%E6%AD%A5/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="gcc常见命令 gcc  draft.c  -o draft 把draft.c源文件编译,输出成draft 注意-o后面必须紧跟draft文件名，其他位置没有讲究。 gcc draft.c -g -o draft,生成调试信息，gdb要用 只要-o后面紧跟draft文件名， gcc -g -o myprog main.cgcc -o myprog -g main.cgcc main.c -g -o">
 <meta property="og:locale" content="zh_CN">
@@ -32,7 +32,7 @@
 <meta property="article:author" content="HardestNut">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2026/02/07/tools/gdb%E5%88%9D%E6%AD%A5/">
+<link rel="canonical" href="http://localhost:4000/2026/02/07/tools/gdb%E5%88%9D%E6%AD%A5/">
 
 
 <script id="page-configurations">
@@ -79,7 +79,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/tools/gdb%E5%88%9D%E6%AD%A5/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/tools/gdb%E5%88%9D%E6%AD%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -400,12 +400,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>

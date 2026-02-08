@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"localhost","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="某一路径下，按ls查看所有文件，有一文件filename，vim+”filename”进入vim 普通模式vim按esc进入普通模式，这个模式下可以进行dd，u等操作：  1.删除操作a.删除整行dd   删除光标下1行 5dd 删除光标下5行 D     从当前位置删除到行尾 b.d+移动位置dgg   删除到文件开头（gg会直接到开头) dG    删除到文件末尾 (caps+g也就是G会直接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim常见用法">
-<meta property="og:url" content="http://example.com/2026/02/07/tools/vim%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/index.html">
+<meta property="og:url" content="http://localhost:4000/2026/02/07/tools/vim%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="某一路径下，按ls查看所有文件，有一文件filename，vim+”filename”进入vim 普通模式vim按esc进入普通模式，这个模式下可以进行dd，u等操作：  1.删除操作a.删除整行dd   删除光标下1行 5dd 删除光标下5行 D     从当前位置删除到行尾 b.d+移动位置dgg   删除到文件开头（gg会直接到开头) dG    删除到文件末尾 (caps+g也就是G会直接">
 <meta property="og:locale" content="zh_CN">
@@ -34,7 +34,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="file:///C:/Users/hardestnut/Pictures/Typedown/70b8b7a0-7e02-4c89-a256-f16cd8bf0c8d.png">
 
-<link rel="canonical" href="http://example.com/2026/02/07/tools/vim%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/">
+<link rel="canonical" href="http://localhost:4000/2026/02/07/tools/vim%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -181,7 +181,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/tools/vim%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/tools/vim%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -483,12 +483,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>

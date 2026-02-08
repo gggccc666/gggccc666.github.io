@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"localhost","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="目标文件分为可重定位目标文件，可执行目标文件，共享目标文件（动态链接） 对于目标文件而言，每个系统的都不一样，windows是PE格式，linux是ELF格式 对于linux的ELF目标文件，通常分为ELF头，.text,.rodate,.data等数个节（在可执行文件加载到内存里则称之为段），以及最后的节头部表 elf头描述系统子，大端还是小端，elf头大小，机器类型等等 对于节，每个节都有不同">
 <meta property="og:type" content="article">
 <meta property="og:title" content="csapp">
-<meta property="og:url" content="http://example.com/2026/02/07/note/csapp/7.%E9%93%BE%E6%8E%A5/2.%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6/index.html">
+<meta property="og:url" content="http://localhost:4000/2026/02/07/note/csapp/7.%E9%93%BE%E6%8E%A5/2.%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="目标文件分为可重定位目标文件，可执行目标文件，共享目标文件（动态链接） 对于目标文件而言，每个系统的都不一样，windows是PE格式，linux是ELF格式 对于linux的ELF目标文件，通常分为ELF头，.text,.rodate,.data等数个节（在可执行文件加载到内存里则称之为段），以及最后的节头部表 elf头描述系统子，大端还是小端，elf头大小，机器类型等等 对于节，每个节都有不同">
 <meta property="og:locale" content="zh_CN">
@@ -32,7 +32,7 @@
 <meta property="article:author" content="HardestNut">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2026/02/07/note/csapp/7.%E9%93%BE%E6%8E%A5/2.%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6/">
+<link rel="canonical" href="http://localhost:4000/2026/02/07/note/csapp/7.%E9%93%BE%E6%8E%A5/2.%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6/">
 
 
 <script id="page-configurations">
@@ -79,7 +79,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/note/csapp/7.%E9%93%BE%E6%8E%A5/2.%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/note/csapp/7.%E9%93%BE%E6%8E%A5/2.%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -390,12 +390,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>

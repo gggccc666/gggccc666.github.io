@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"localhost","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="拓扑排序 拓扑序列：一个有向图中，对于任意的边，拓扑排序的目标是将所有节点排序，使得排在前面的节点不能依赖于排在后面的节点。 可以证明，一个有向无环图一定存在拓扑序列，但不一定唯一 算法： 所有入度为零的点入队，删除该点和所有出边 枚举所有入队的点的指向的点，让其入度减1，若是这些点入度变为零，则入队；若是不为零，不管，直到其他点不断递归到指向它的点，使得入度最终变为零，再入队。 不断重复以上过程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="拓扑排序">
-<meta property="og:url" content="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/index.html">
+<meta property="og:url" content="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="拓扑排序 拓扑序列：一个有向图中，对于任意的边，拓扑排序的目标是将所有节点排序，使得排在前面的节点不能依赖于排在后面的节点。 可以证明，一个有向无环图一定存在拓扑序列，但不一定唯一 算法： 所有入度为零的点入队，删除该点和所有出边 枚举所有入队的点的指向的点，让其入度减1，若是这些点入度变为零，则入队；若是不为零，不管，直到其他点不断递归到指向它的点，使得入度最终变为零，再入队。 不断重复以上过程">
 <meta property="og:locale" content="zh_CN">
@@ -32,7 +32,7 @@
 <meta property="article:author" content="HardestNut">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
+<link rel="canonical" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
 
 
 <script id="page-configurations">
@@ -79,7 +79,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -403,12 +403,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>

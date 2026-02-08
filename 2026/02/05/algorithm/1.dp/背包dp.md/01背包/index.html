@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"localhost","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="引入有 𝑛 个物品和一个容量为 𝑊 的背包，每个物品有重量 𝑤𝑖 和价值 𝑣𝑖 两种属性，要求选若干物品放入背包，使背包中物品的总价值最大且背包中物品的总重量不超过背包的容量。 每个物体只有取与不取两种可能的状态，即01背包问题 朴素思路首先思考这个问题里面的要素，有容量，重量，总重量，其中总重量是要求的，即f( ). 我们考虑dp状态：  𝑓𝑖,𝑗 为在只能放前 𝑖 个物品的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="01背包">
-<meta property="og:url" content="http://example.com/2026/02/05/algorithm/1.dp/%E8%83%8C%E5%8C%85dp.md/01%E8%83%8C%E5%8C%85/index.html">
+<meta property="og:url" content="http://localhost:4000/2026/02/05/algorithm/1.dp/%E8%83%8C%E5%8C%85dp.md/01%E8%83%8C%E5%8C%85/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="引入有 𝑛 个物品和一个容量为 𝑊 的背包，每个物品有重量 𝑤𝑖 和价值 𝑣𝑖 两种属性，要求选若干物品放入背包，使背包中物品的总价值最大且背包中物品的总重量不超过背包的容量。 每个物体只有取与不取两种可能的状态，即01背包问题 朴素思路首先思考这个问题里面的要素，有容量，重量，总重量，其中总重量是要求的，即f( ). 我们考虑dp状态：  𝑓𝑖,𝑗 为在只能放前 𝑖 个物品的">
 <meta property="og:locale" content="zh_CN">
@@ -32,7 +32,7 @@
 <meta property="article:author" content="HardestNut">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2026/02/05/algorithm/1.dp/%E8%83%8C%E5%8C%85dp.md/01%E8%83%8C%E5%8C%85/">
+<link rel="canonical" href="http://localhost:4000/2026/02/05/algorithm/1.dp/%E8%83%8C%E5%8C%85dp.md/01%E8%83%8C%E5%8C%85/">
 
 
 <script id="page-configurations">
@@ -79,7 +79,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/05/algorithm/1.dp/%E8%83%8C%E5%8C%85dp.md/01%E8%83%8C%E5%8C%85/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/05/algorithm/1.dp/%E8%83%8C%E5%8C%85dp.md/01%E8%83%8C%E5%8C%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -409,12 +409,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>
