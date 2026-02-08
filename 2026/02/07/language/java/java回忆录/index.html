@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="[TOC] 理解面向对象编程：区别于面向过程编程，一个小程序需要几个函数和几个变量，我们分别编写再一一使用，面向过程（围绕函数展开）。而面向对象则是根据需求抽象出不同的对象并为不同的对象实现不同功能。https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;27468564&#x2F;answer&#x2F;757537214 方法积累：查java手册字符串类：substring,length,equals; S">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java回忆录">
+<meta property="og:url" content="http://example.com/2026/02/07/language/java/java%E5%9B%9E%E5%BF%86%E5%BD%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="[TOC] 理解面向对象编程：区别于面向过程编程，一个小程序需要几个函数和几个变量，我们分别编写再一一使用，面向过程（围绕函数展开）。而面向对象则是根据需求抽象出不同的对象并为不同的对象实现不同功能。https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;27468564&#x2F;answer&#x2F;757537214 方法积累：查java手册字符串类：substring,length,equals; S">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-07T01:13:30.062Z">
+<meta property="article:modified_time" content="2026-02-07T02:40:48.818Z">
+<meta property="article:author" content="HardestNut">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2026/02/07/language/java/java%E5%9B%9E%E5%BF%86%E5%BD%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>java回忆录 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">知行合一</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/language/java/java%E5%9B%9E%E5%BF%86%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          java回忆录
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:13:30 / 修改时间：10:40:48" itemprop="dateCreated datePublished" datetime="2026-02-07T09:13:30+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/language/" itemprop="url" rel="index"><span itemprop="name">language</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/language/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>[TOC]</p>
+<h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><p>面向对象编程：区别于面向过程编程，一个小程序需要几个函数和几个变量，我们分别编写再一一使用，面向过程（围绕函数展开）。而面向对象则是根据需求抽象出不同的对象并为不同的对象实现不同功能。<br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/27468564/answer/757537214">https://www.zhihu.com/question/27468564/answer/757537214</a></p>
+<h3 id="方法积累：查java手册"><a href="#方法积累：查java手册" class="headerlink" title="方法积累：查java手册"></a>方法积累：查java手册</h3><h5 id="字符串类："><a href="#字符串类：" class="headerlink" title="字符串类："></a>字符串类：</h5><p>substring,length,equals;</p>
+<p>StringBuilder:length,append,delete,reverse,insert,join(用字符分隔),repeat,replace</p>
+<h5 id="Math"><a href="#Math" class="headerlink" title="Math:"></a>Math:</h5><p>exp(),log(),pow(,)sqrt(),sin(),asin(),</p>
+<p>toDegrees(),toRadians(),random()</p>
+<h5 id="Number包装类-Number-Java-SE-11-JDK-11"><a href="#Number包装类-Number-Java-SE-11-JDK-11" class="headerlink" title="Number包装类:Number (Java SE 11 &amp; JDK 11 )"></a>Number包装类:<a target="_blank" rel="noopener" href="https://www.runoob.com/manual/jdk1.6/java.base/java/lang/Number.html">Number (Java SE 11 &amp; JDK 11 )</a></h5><p>…Value()？，把某种包装类变成…数据类型(如x.intValue,x为Double等)</p>
+<p>ValueOf(),如Integer.ValueOf(int);</p>
+<p>可以用Integer i&#x3D;…;底层调用的就是valueof</p>
+<p>不用Integer i&#x3D;new Integer(int);这个即将被淘汰。</p>
+<p>equal()</p>
+<p>Integer.parseInt(String或String,int(这里int是进制，不写int默认10)</p>
+<h5 id="大数"><a href="#大数" class="headerlink" title="大数"></a>大数</h5><p>biginteger:任意精度整数运算</p>
+<p>创建：BigInteger ..&#x3D;new BigInteger(“字符串”);</p>
+<p>BigInteger ..&#x3D;BigInteger.ValueOf(100);</p>
+<p>运算：c&#x3D;a.add(b(biginter类型))</p>
+<p>a.multiply a.mod a.pow a.divide a.subtract a.compareTo</p>
+<p>输入:in.nextbiginteger() 或者常规加valueof</p>
+<p>输出:常规输出即可</p>
+<h4 id="数据储存"><a href="#数据储存" class="headerlink" title="数据储存"></a>数据储存</h4><p>1.栈内存用于存储基本数据类型,基本数据类型,方法调用时的局部变量</p>
+<p>2.堆由 JVM（Java 虚拟机）统一管理，储存Java里面所有对象</p>
+<p>3.new:new Walrus(1000.0,3);new实例化一个对象，从堆里面分配相应内存这里是32，64共96bits，并返回其地址</p>
+<p> Walrus newwalrus:创建一个引用对象，期间创建一个64bits(固定64！)的内存，默认为空，然后把new的返回赋给它，那么newwalrus就可以使用了:newwalrus&#x3D;new Walrus(1000.0,3)</p>
+<p>注意重新指向对象可能导致原对象丢失</p>
+<p>4.在一个类里面创建构造函数(constructor)，</p>
+<p>pubic 类名(参数){</p>
+<p>this. …&#x3D;….;</p>
+<p>…</p>
+<p>}</p>
+<p>那么创建对象的时候将new 类(参数)； 没有构造函数的话（会有默认的空构造函数）：new类（）。</p>
+<p>5.方法 的值传递：</p>
+<p>a.传入对象数组等，相当于传入的是一个副本p’，让p’指向新的对象new，外面的p不会变，但是p’.name变了，外面的p.name也会变（地址）</p>
+<p>b.原始类型：值传递，外面不变</p>
+<p>6.数组也是对象，即类似于3那种，int[] arr&#x3D;new int[]{1,2,2,3,1};</p>
+<p>7.String 创建的字符串存储在公共池中，而 new 创建的字符串对象在堆上</p>
+<h4 id="文件规则"><a href="#文件规则" class="headerlink" title="文件规则"></a>文件规则</h4><p>1.源代码的文件名必须与公共类的类名相同</p>
+<p>2.main方法必须为public</p>
+<h4 id="方法（类似于函数）"><a href="#方法（类似于函数）" class="headerlink" title="方法（类似于函数）"></a>方法（类似于函数）</h4><p>1.点号用于调用方法</p>
+<p>2.输出函数</p>
+<p>System.ou.println(“”);输出后有换行符</p>
+<p>System.out.print(“”);输出后无换行符</p>
+<p>2.5：注意，bufferread比上面这个输入快很多</p>
+<p>3.数学库Math.pow( , );Math.sqrt();</p>
+<p>Math.sin();Math.exp();</p>
+<p>常量Math.PI;Math.E;</p>
+<p>（返回值类型是long）Math.round();四舍五入</p>
+<p>避免使用前缀:import static java.lang.Math.*;</p>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p>1.byte（1） short（2） int（4） long（8） float（4） double（8） boolean char</p>
+<p>2.无 无符号类型</p>
+<p>3.长整型有L或l后缀，float有F&#x2F;f后缀。十六进制0x前缀</p>
+<p>4.java整型大小与平台无关</p>
+<p>5.正无穷大：Double.POSITIVE_INFINITY</p>
+<p>   负无穷大：Double.NEGATIVE_INFINITY</p>
+<p>   不是数：Double.NaN(所有的NaN值都是不同的）,判断是不是数Double.isNaN(x)</p>
+<p>6.unicode转义在解析代码之前处理</p>
+<p>println等价于pr\u0069tf   哈哈哈unicode只是编码格式，大多数情况等价</p>
+<p>7.var 变量&#x3D;1；变量自动识别为int.</p>
+<p>8.常量:final double ADF;表示ADF变量只能被赋值一次</p>
+<p>9.类常量，放在main方法外，同一个类的其他方法也能用:public <strong>static​</strong>  fianl double</p>
+<p>10.二元运算符连接两个变量的时候，自动进行类型转换，忘高精度，浮点数的变量方向转化</p>
+<p>11.不在boolean类型和其他之间类型转换，用B?1:0</p>
+<p>12.枚举类型：枚举是一种特殊的类，该类里面所有的常量都是他的实例。</p>
+<p>enum   size(类) {A,B,C,D};</p>
+<p>Size x&#x3D;Size.B;</p>
+<h4 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h4><h5 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h5><p>跳过没学</p>
+<h5 id="运算符级别"><a href="#运算符级别" class="headerlink" title="运算符级别"></a>运算符级别</h5><p>同c</p>
+<p>1.注意a+&#x3D;b+&#x3D;c，加等于是右结合运算符，等价于a +&#x3D;(b+&#x3D;c)</p>
+<p>2.java无逗号运算符</p>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>String  a&#x3D;””;</p>
+<p>String不是字符串类型，是一个预定义类</p>
+<p>这意味着string有很多方法</p>
+<p>string进行了特殊优化，使其使用起来像基本类型，可以直接拼接</p>
+<p>注意string储存的是对象引用，是堆上的对象，是对象的地址，赋值后改变则都会改变</p>
+<p>（有点像c的指针）赋值新值后会导致原值留在内存里面</p>
+<h5 id="子串-substring方法"><a href="#子串-substring方法" class="headerlink" title="子串:substring方法"></a>子串:substring方法</h5><p>String greeting &#x3D;”hello”;</p>
+<p>String s&#x3D;greeting.substring(0,3) &#x2F;&#x2F;从从零到第一个不想复制的位置</p>
+<p>(s&#x3D;&#x3D;”hel”)</p>
+<h5 id="拼接"><a href="#拼接" class="headerlink" title="拼接"></a>拼接</h5><p>java支持字符串的拼接</p>
+<h6 id="字符与字符"><a href="#字符与字符" class="headerlink" title="字符与字符"></a>字符与字符</h6><h6 id="字符与其他类型"><a href="#字符与其他类型" class="headerlink" title="字符与其他类型"></a>字符与其他类型</h6><p>int age &#x3D;18;</p>
+<p>String information&#x3D;”name”+age;</p>
+<p>—- name18</p>
+<h5 id="一些方法"><a href="#一些方法" class="headerlink" title="一些方法"></a>一些方法</h5><p>equals 比较字符串是否相等，注意字符串不用&#x3D;&#x3D;比较，因为比的是地址，可能出bug</p>
+<p>join 用指定分隔符隔开若干个字符串</p>
+<p>repeat 把一个字符串重复指定次数次，成为一个新的字符串</p>
+<p>length 返回指定字符串所需要的代码单元个数</p>
+<p>很多，可以去oracle官网查看api注释</p>
+<h5 id="不能改变"><a href="#不能改变" class="headerlink" title="不能改变"></a>不能改变</h5><p>string指向的内容不能修改，但是可以重新指向新的目标</p>
+<p>但是string指向的内容可以共享</p>
+<h5 id="空串和null"><a href="#空串和null" class="headerlink" title="空串和null"></a>空串和null</h5><p>空串是一个 java 对象，有自己的串长度 ( 0) 和内容 (空)。</p>
+<p>null表示目前没有任何对象与该变量关联</p>
+<p>检查一个字符串是否为 null：if (str&#x3D;&#x3D;null)</p>
+<h4 id="构建字符串StringBuilder"><a href="#构建字符串StringBuilder" class="headerlink" title="构建字符串StringBuilder"></a>构建字符串StringBuilder</h4><p><code>StringBuilder</code> 是允许原地修改字符串的类</p>
+<h5 id="创建StringBuilder类字符串"><a href="#创建StringBuilder类字符串" class="headerlink" title="创建StringBuilder类字符串"></a>创建StringBuilder类字符串</h5><p>StringBuilder  x&#x3D;new StringBuilder(“hello(或者String变)”);</p>
+<h5 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h5><h6 id="增加append"><a href="#增加append" class="headerlink" title="增加append"></a>增加append</h6><p>x.append(“ “);</p>
+<h6 id="插入insert"><a href="#插入insert" class="headerlink" title="插入insert"></a>插入insert</h6><h6 id="替换replace"><a href="#替换replace" class="headerlink" title="替换replace"></a>替换replace</h6><h6 id="删除delete-deleteCharAt"><a href="#删除delete-deleteCharAt" class="headerlink" title="删除delete&#x2F;deleteCharAt"></a>删除delete&#x2F;deleteCharAt</h6><p>注意从零开始的问题</p>
+<h6 id="反转reverse"><a href="#反转reverse" class="headerlink" title="反转reverse"></a>反转reverse</h6><h6 id="获取长度length"><a href="#获取长度length" class="headerlink" title="获取长度length"></a>获取长度length</h6><h6 id="转化为string"><a href="#转化为string" class="headerlink" title="转化为string"></a>转化为string</h6><p>String y&#x3D;x.toStrin();</p>
+<h4 id="构建字符串StringBuffer"><a href="#构建字符串StringBuffer" class="headerlink" title="构建字符串StringBuffer"></a>构建字符串StringBuffer</h4><p>语法基本同StringBuilder，区别在于StringBuilder更快，但只适用于单线程，而StringBuilder适用于多线程</p>
+<h5 id="理解多线程"><a href="#理解多线程" class="headerlink" title="理解多线程"></a>理解多线程</h5><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/brokyz/p/14707360.html">Java多线程详解——一篇文章搞懂Java多线程 - brokyz - 博客园</a></p>
+<h5 id="文本块d"><a href="#文本块d" class="headerlink" title="文本块d"></a>文本块d</h5><h4 id="输入语句"><a href="#输入语句" class="headerlink" title="输入语句"></a>输入语句</h4><h5 id="1-导入库"><a href="#1-导入库" class="headerlink" title="1.导入库"></a>1.导入库</h5><p>import java.util.*.;(util包含输入输出和数据结构的一些方法，*表示全部方法，除了concurrent并发库)</p>
+<h5 id="2-构建一个输入对象"><a href="#2-构建一个输入对象" class="headerlink" title="2.构建一个输入对象"></a>2.构建一个输入对象</h5><p>利用Scanner方法</p>
+<p>Scanner x&#x3D;new Scanner(System.in);</p>
+<p>接着就可以通过x，调用scanner方法</p>
+<h5 id="3-方法"><a href="#3-方法" class="headerlink" title="3.方法"></a>3.方法</h5><p>输入一整行 String name &#x3D;in.nextLine;</p>
+<p>输入一个单词(空格) in.next();</p>
+<p>int，double之类  in.nextInt();</p>
+<h4 id="输出语句"><a href="#输出语句" class="headerlink" title="输出语句"></a>输出语句</h4><p>System.out.print();</p>
+<p>Systrm.out.printf(“ “,…)(就是c里面的printf)</p>
+<h3 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h3><h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><h5 id="形式1：java14引入"><a href="#形式1：java14引入" class="headerlink" title="形式1：java14引入"></a>形式1：java14引入</h5><p>根据seasoncode的值(case)给season字符串直接赋值</p>
+<p>String(表示字符串类型，也可以是int等)   season&#x3D;switch(seasoncode){</p>
+<p>case 0 -&gt;”spring”;……</p>
+<p>}</p>
+<p>如果seasoncode是null，则抛出NullPointerException， 即异常</p>
+<h4 id="日期-date-过时-，time类"><a href="#日期-date-过时-，time类" class="headerlink" title="日期 date(过时)，time类"></a>日期 date(过时)，time类</h4><h4 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h4><p>正则表达式(Regular Expression)是一种文本模式，包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为”元字符”），可以用来描述和匹配字符串的特定模式。</p>
+<table>
+<thead>
+<tr>
+<th>this is text</th>
+<th>匹配字符串 “this is text”</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>this\s+is\s+text</td>
+<td>注意字符串中的 <strong>\s+</strong>。匹配单词 “this” 后面的 <strong>\s+</strong> 可以匹配多个空格，之后匹配 is 字符串，再之后 <strong>\s+</strong> 匹配多个空格然后再跟上 text 字符串。可以匹配这个实例：this is text</td>
+</tr>
+<tr>
+<td>^\d+(.\d+)?</td>
+<td>^ 定义了以什么开始\d+ 匹配一个或多个数字? 设置括号内的选项是可选的. 匹配 “.”可以匹配的实例：”5”, “1.5” 和 “2.21”。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/02/05/algorithm/6.%E8%B4%AA%E5%BF%83/%E8%B4%AA%E5%BF%83/" rel="prev" title="贪心">
+      <i class="fa fa-chevron-left"></i> 贪心
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2026/02/07/language/java/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md/" rel="next" title="java学习笔记">
+      java学习笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E7%A7%AF%E7%B4%AF%EF%BC%9A%E6%9F%A5java%E6%89%8B%E5%86%8C"><span class="nav-number">2.</span> <span class="nav-text">方法积累：查java手册</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">字符串类：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Math"><span class="nav-number">2.2.</span> <span class="nav-text">Math:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Number%E5%8C%85%E8%A3%85%E7%B1%BB-Number-Java-SE-11-JDK-11"><span class="nav-number">2.3.</span> <span class="nav-text">Number包装类:Number (Java SE 11 &amp; JDK 11 )</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0"><span class="nav-number">2.4.</span> <span class="nav-text">大数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%82%A8%E5%AD%98"><span class="nav-number">2.5.</span> <span class="nav-text">数据储存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E8%A7%84%E5%88%99"><span class="nav-number">2.6.</span> <span class="nav-text">文件规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%EF%BC%88%E7%B1%BB%E4%BC%BC%E4%BA%8E%E5%87%BD%E6%95%B0%EF%BC%89"><span class="nav-number">2.7.</span> <span class="nav-text">方法（类似于函数）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.8.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E7%AE%97"><span class="nav-number">2.9.</span> <span class="nav-text">运算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.9.1.</span> <span class="nav-text">位运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E7%BA%A7%E5%88%AB"><span class="nav-number">2.9.2.</span> <span class="nav-text">运算符级别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">2.10.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%90%E4%B8%B2-substring%E6%96%B9%E6%B3%95"><span class="nav-number">2.10.1.</span> <span class="nav-text">子串:substring方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8B%BC%E6%8E%A5"><span class="nav-number">2.10.2.</span> <span class="nav-text">拼接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%8E%E5%AD%97%E7%AC%A6"><span class="nav-number">2.10.2.1.</span> <span class="nav-text">字符与字符</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%8E%E5%85%B6%E4%BB%96%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.10.2.2.</span> <span class="nav-text">字符与其他类型</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95"><span class="nav-number">2.10.3.</span> <span class="nav-text">一些方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8D%E8%83%BD%E6%94%B9%E5%8F%98"><span class="nav-number">2.10.4.</span> <span class="nav-text">不能改变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A9%BA%E4%B8%B2%E5%92%8Cnull"><span class="nav-number">2.10.5.</span> <span class="nav-text">空串和null</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E5%AD%97%E7%AC%A6%E4%B8%B2StringBuilder"><span class="nav-number">2.11.</span> <span class="nav-text">构建字符串StringBuilder</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAStringBuilder%E7%B1%BB%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">2.11.1.</span> <span class="nav-text">创建StringBuilder类字符串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">2.11.2.</span> <span class="nav-text">操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0append"><span class="nav-number">2.11.2.1.</span> <span class="nav-text">增加append</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8F%92%E5%85%A5insert"><span class="nav-number">2.11.2.2.</span> <span class="nav-text">插入insert</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9B%BF%E6%8D%A2replace"><span class="nav-number">2.11.2.3.</span> <span class="nav-text">替换replace</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%A0%E9%99%A4delete-deleteCharAt"><span class="nav-number">2.11.2.4.</span> <span class="nav-text">删除delete&#x2F;deleteCharAt</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8F%8D%E8%BD%ACreverse"><span class="nav-number">2.11.2.5.</span> <span class="nav-text">反转reverse</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E9%95%BF%E5%BA%A6length"><span class="nav-number">2.11.2.6.</span> <span class="nav-text">获取长度length</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BD%AC%E5%8C%96%E4%B8%BAstring"><span class="nav-number">2.11.2.7.</span> <span class="nav-text">转化为string</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E5%AD%97%E7%AC%A6%E4%B8%B2StringBuffer"><span class="nav-number">2.12.</span> <span class="nav-text">构建字符串StringBuffer</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="nav-number">2.12.1.</span> <span class="nav-text">理解多线程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E5%9D%97d"><span class="nav-number">2.12.2.</span> <span class="nav-text">文本块d</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.13.</span> <span class="nav-text">输入语句</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%AF%BC%E5%85%A5%E5%BA%93"><span class="nav-number">2.13.1.</span> <span class="nav-text">1.导入库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%BE%93%E5%85%A5%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.13.2.</span> <span class="nav-text">2.构建一个输入对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E6%96%B9%E6%B3%95"><span class="nav-number">2.13.3.</span> <span class="nav-text">3.方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.14.</span> <span class="nav-text">输出语句</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.</span> <span class="nav-text">语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#switch%E8%AF%AD%E5%8F%A5"><span class="nav-number">4.</span> <span class="nav-text">switch语句</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BD%A2%E5%BC%8F1%EF%BC%9Ajava14%E5%BC%95%E5%85%A5"><span class="nav-number">4.1.</span> <span class="nav-text">形式1：java14引入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F-date-%E8%BF%87%E6%97%B6-%EF%BC%8Ctime%E7%B1%BB"><span class="nav-number">4.2.</span> <span class="nav-text">日期 date(过时)，time类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">4.3.</span> <span class="nav-text">正则表达式</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HardestNut"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">HardestNut</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HardestNut</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

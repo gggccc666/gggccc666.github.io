@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1.万能头#include&lt;bits&#x2F;std++.h&gt;2.命名空间namespacenamespace准确来说是防止重名，而对某些变量，函数的修饰，因为它并不是物理储存结构，而是编译时的二进制修饰。不恰当的类比:int x;struct x{int x;};这两个语句不冲突，但是去掉struct 就重名了。 namespace性质基本用法：namespace S{ }括号里面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++语法">
+<meta property="og:url" content="http://example.com/2026/02/07/language/c++/c++%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.万能头#include&lt;bits&#x2F;std++.h&gt;2.命名空间namespacenamespace准确来说是防止重名，而对某些变量，函数的修饰，因为它并不是物理储存结构，而是编译时的二进制修饰。不恰当的类比:int x;struct x{int x;};这两个语句不冲突，但是去掉struct 就重名了。 namespace性质基本用法：namespace S{ }括号里面">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-07T01:13:43.404Z">
+<meta property="article:modified_time" content="2026-02-07T02:39:47.144Z">
+<meta property="article:author" content="HardestNut">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2026/02/07/language/c++/c++%E8%AF%AD%E6%B3%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>c++语法 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">知行合一</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/language/c++/c++%E8%AF%AD%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          c++语法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:13:43 / 修改时间：10:39:47" itemprop="dateCreated datePublished" datetime="2026-02-07T09:13:43+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/language/" itemprop="url" rel="index"><span itemprop="name">language</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/language/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="1-万能头-include"><a href="#1-万能头-include" class="headerlink" title="1.万能头#include&lt;bits&#x2F;std++.h&gt;"></a>1.万能头#include&lt;bits&#x2F;std++.h&gt;</h4><h4 id="2-命名空间namespace"><a href="#2-命名空间namespace" class="headerlink" title="2.命名空间namespace"></a>2.命名空间namespace</h4><p>namespace准确来说是防止重名，而对某些变量，函数的修饰，因为它并不是物理储存结构，而是编译时的二进制修饰。不恰当的类比:int x;struct x{int x;};这两个语句不冲突，但是去掉struct 就重名了。</p>
+<h5 id="namespace性质"><a href="#namespace性质" class="headerlink" title="namespace性质"></a>namespace性质</h5><h6 id="基本用法："><a href="#基本用法：" class="headerlink" title="基本用法："></a>基本用法：</h6><p>namespace S{</p>
+<p>}括号里面放函数，变量等</p>
+<h6 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h6><p>命名空间可以嵌套</p>
+<p>namespace Outer { namespace Inner { void Func() { } }</p>
+<p>在一个文件里面，如果有全局</p>
+<p>访问:Outer::Inner::Func();</p>
+<h6 id="可多次使用"><a href="#可多次使用" class="headerlink" title="可多次使用"></a>可多次使用</h6><h6 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h6><p>完全限定名：<code>std::cout</code></p>
+<p>只用当前一次</p>
+<p>using声明：<code>using std::cout;</code></p>
+<p>用一个，输入该命令后全域都可以使用</p>
+<p>using指令：<code>using namespace std;</code></p>
+<p>命名空间导入</p>
+<h5 id="namespace变量性质"><a href="#namespace变量性质" class="headerlink" title="namespace变量性质"></a>namespace变量性质</h5><p>当前文件修改namespace里面的变量会生效，但是不会影响到下一次编译</p>
+<p>在某处引入using namespace A或者using A::…，只会在当前作用域生效</p>
+<p>至此，using namespace std是什么已经很清楚了，注意std权限是可读，无法修改cout等函数，假设用hexedit修改源码，会造成编译立即崩溃</p>
+<h4 id="3-引用"><a href="#3-引用" class="headerlink" title="3.引用"></a>3.引用</h4><p>int func(int &amp;a){}</p>
+<p>表示a按照传引用 传递，也就是外面的值可以像用指针那样改变</p>
+<p>后面a正常用，不要当成指针*a用。</p>
+<h4 id="4-头文件细微变化"><a href="#4-头文件细微变化" class="headerlink" title="4.头文件细微变化"></a>4.头文件细微变化</h4><p>多头文件#include&lt;iostream&gt;</p>
+<p>而c头文件可以正常用，但是推荐去掉.h,前面加c，比如&lt;stdio.h&gt; —&gt; &lt;cstdio&gt;</p>
+<h4 id="5-迭代器"><a href="#5-迭代器" class="headerlink" title="5.迭代器"></a>5.迭代器</h4><p>迭代器是 C++ STL 提供的一种泛型指针，这种数据类型用于检查和遍历容器内元素，理解为指针即可</p>
+<h6 id="begin和end"><a href="#begin和end" class="headerlink" title="begin和end"></a>begin和end</h6><p>begin()指向容器的第一个元素，注意！end()指向容器的最后一个元素的后一个元素！end通常作为未查找到的返回值</p>
+<h6 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h6><p>vector &lt;int&gt;::iterator it;</p>
+<p>for(set &lt;int&gt;::iterator it&#x3D;dict.begin();it!&#x3D;dict.end();++it)</p>
+<p>cout&lt;&lt;*it&lt;&lt;”\n”;</p>
+<h6 id="种类"><a href="#种类" class="headerlink" title="种类"></a>种类</h6><p>1.随机访问迭代器 ：</p>
+<p>功能最全，支持解引用，成员访问，自增自减，迭代器加减，迭代器距离，比较，下标。和数组指针几乎一样</p>
+<p>vector，deque容器支持</p>
+<p>如</p>
+<p>vector&lt;int&gt;::iterator it &#x3D; v.begin();<br>    cout &lt;&lt; *it &lt;&lt; endl;      &#x2F;&#x2F; 输出第一个元素<br>    cout &lt;&lt; *(it + 3) &lt;&lt; endl; &#x2F;&#x2F; 输出第四个元素<br>    it +&#x3D; 2;                  &#x2F;&#x2F; 跳跃到第3个元素<br>    cout &lt;&lt; *it &lt;&lt; endl;      &#x2F;&#x2F; 输出<br>    cout &lt;&lt; (v.end() - v.begin()) &lt;&lt; endl; &#x2F;&#x2F; 元素个数<br>    cout &lt;&lt; it[1] &lt;&lt; endl;    &#x2F;&#x2F; 相当于 *(it + 1)</p>
+<p>2.双向迭代器：</p>
+<p>比随机访问迭代器更弱一点，不支持迭代器位置比较it_1&lt;it_2，和随即跳转it+n</p>
+<p>list,set,map是双向</p>
+<p>3.前向迭代器 多次读写，单向，输出迭代器，只写一次，单向，输入迭代器，只读一次，单向。很少用。</p>
+<h6 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h6><p>比如vector容器，动态扩容之后会重新找一块更大的空间，所以原来的迭代器会失效</p>
+<h6 id="迭代器辅助函数"><a href="#迭代器辅助函数" class="headerlink" title="迭代器辅助函数"></a>迭代器辅助函数</h6><p>辅助函数可用于各种迭代器，通常用于写模板或泛型代码</p>
+<p>#include&lt;algorithm&gt;</p>
+<p>advance(it,n);使得迭代器向前&#x2F;后移动n，（随即迭代器里的it+&#x3D;n;)</p>
+<p>distance（it2,it1)；计算两个迭代器之间距离，即元素个数。it2要&lt;&#x3D;it1</p>
+<p>iter_swap(it1,it2);交换迭代器指向的值</p>
+<h5 id="stringstream"><a href="#stringstream" class="headerlink" title="stringstream"></a>stringstream</h5><h6 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h6><p>用于处理字符串的输入输出流。从string里面读入</p>
+<p>c++里面，流是数据从一个对象到另一个对象的流动。数据输入输出通过IO流实现，cin&#x2F;cout是istream，ostream创建的对象（cin，cout是抽象实现，不能创建和拷贝，但是可以引用，istream &amp; _cin&#x3D;cin对，istream _cin&#x3D;cin和istream _cin都错。 而stringstream不是抽象类，可以直接创建）</p>
+<h6 id="2-创建-一般来说创建名为ss"><a href="#2-创建-一般来说创建名为ss" class="headerlink" title="2.创建(一般来说创建名为ss)"></a>2.创建(一般来说创建名为ss)</h6><p>a.直接创建</p>
+<p>string arr(“hello world”);</p>
+<p>stringstream ss;</p>
+<p>ss&lt;&lt; arr;</p>
+<p>cout &lt;&lt;ss.str()&lt;&lt;endl;</p>
+<p>b.初始化创建</p>
+<p>stringsream ss(“hello world”);</p>
+<h6 id="3-输出"><a href="#3-输出" class="headerlink" title="3.输出"></a>3.输出</h6><p>调用ss.str();不能直接输出ss</p>
+<h6 id="4-修改流"><a href="#4-修改流" class="headerlink" title="4.修改流"></a>4.修改流</h6><p>ss.str(“fuck world”)</p>
+<h6 id="5-常见用法"><a href="#5-常见用法" class="headerlink" title="5.常见用法"></a>5.常见用法</h6><p>string line,wold;</p>
+<p>while(getline(cin,line)){</p>
+<p>stringstream ss(line)</p>
+<p>while(ss&gt;&gt;word)…</p>
+<p>}</p>
+<h5 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h5><p>自动推导类型</p>
+<p>如auto x&#x3D;6—x为int</p>
+<p>auto x&#x3D;arr.size();—x为size_t</p>
+<h5 id="string"><a href="#string" class="headerlink" title="string"></a>string</h5><p>一种类，string s&#x3D;”hello world”</p>
+<p>1.访问元素可以通过s[i]或者s.at(i),</p>
+<p>两者都可以修改原string串内容</p>
+<p>s[i]无越界检查，但跟高效，s.at(i)会检查越界</p>
+<p>2.方法.</p>
+<p>数组长度 s.length()或者s.size()</p>
+<p>是否为空 s.empty()</p>
+<p>追加字符 s.append()</p>
+<p>插入         s.insert(pos,str)</p>
+<p>删除          s.erase(pos,len)</p>
+<p>清空          s.clear()</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/02/07/language/c++/c++%E5%AE%B9%E5%99%A8/" rel="prev" title="c++容器">
+      <i class="fa fa-chevron-left"></i> c++容器
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2026/02/07/algorithm/2.%E5%9B%BE/%E5%9B%BE%E5%82%A8%E5%AD%98/" rel="next" title="图储存">
+      图储存 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E4%B8%87%E8%83%BD%E5%A4%B4-include"><span class="nav-number">1.</span> <span class="nav-text">1.万能头#include&lt;bits&#x2F;std++.h&gt;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4namespace"><span class="nav-number">2.</span> <span class="nav-text">2.命名空间namespace</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#namespace%E6%80%A7%E8%B4%A8"><span class="nav-number">2.1.</span> <span class="nav-text">namespace性质</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="nav-number">2.1.1.</span> <span class="nav-text">基本用法：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97"><span class="nav-number">2.1.2.</span> <span class="nav-text">嵌套</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8F%AF%E5%A4%9A%E6%AC%A1%E4%BD%BF%E7%94%A8"><span class="nav-number">2.1.3.</span> <span class="nav-text">可多次使用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE"><span class="nav-number">2.1.4.</span> <span class="nav-text">访问</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#namespace%E5%8F%98%E9%87%8F%E6%80%A7%E8%B4%A8"><span class="nav-number">2.2.</span> <span class="nav-text">namespace变量性质</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%BC%95%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">3.引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%A4%B4%E6%96%87%E4%BB%B6%E7%BB%86%E5%BE%AE%E5%8F%98%E5%8C%96"><span class="nav-number">4.</span> <span class="nav-text">4.头文件细微变化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-number">5.</span> <span class="nav-text">5.迭代器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#begin%E5%92%8Cend"><span class="nav-number">5.1.</span> <span class="nav-text">begin和end</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E"><span class="nav-number">5.2.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%A7%8D%E7%B1%BB"><span class="nav-number">5.3.</span> <span class="nav-text">种类</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">5.4.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0"><span class="nav-number">5.5.</span> <span class="nav-text">迭代器辅助函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#stringstream"><span class="nav-number">5.6.</span> <span class="nav-text">stringstream</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E4%BB%8B%E7%BB%8D"><span class="nav-number">5.6.1.</span> <span class="nav-text">1.介绍</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA-%E4%B8%80%E8%88%AC%E6%9D%A5%E8%AF%B4%E5%88%9B%E5%BB%BA%E5%90%8D%E4%B8%BAss"><span class="nav-number">5.6.2.</span> <span class="nav-text">2.创建(一般来说创建名为ss)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-%E8%BE%93%E5%87%BA"><span class="nav-number">5.6.3.</span> <span class="nav-text">3.输出</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-%E4%BF%AE%E6%94%B9%E6%B5%81"><span class="nav-number">5.6.4.</span> <span class="nav-text">4.修改流</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95"><span class="nav-number">5.6.5.</span> <span class="nav-text">5.常见用法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#auto"><span class="nav-number">5.7.</span> <span class="nav-text">auto</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#string"><span class="nav-number">5.8.</span> <span class="nav-text">string</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HardestNut"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">HardestNut</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HardestNut</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

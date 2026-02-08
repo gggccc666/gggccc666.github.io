@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="概念规则 实例和对象和类区别：实例是通过类创建的对象，比如我string a，a就是string类的实例。比如人类，里面的李白和杜甫就是实例。对象更宽泛，你可以说任何内存实体都是对象。但是一般可以认为实例和对象就是一回事，可以换用。  源代码的文件名必须与公共类的类名相同  main方法必须为public  字符串区间规律：从零开始，操作长度为n–（0,n)例如x.delete(0,4)删除第1-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java学习笔记">
+<meta property="og:url" content="http://example.com/2026/02/07/language/java/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="概念规则 实例和对象和类区别：实例是通过类创建的对象，比如我string a，a就是string类的实例。比如人类，里面的李白和杜甫就是实例。对象更宽泛，你可以说任何内存实体都是对象。但是一般可以认为实例和对象就是一回事，可以换用。  源代码的文件名必须与公共类的类名相同  main方法必须为public  字符串区间规律：从零开始，操作长度为n–（0,n)例如x.delete(0,4)删除第1-">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="file:///C:/Users/hardestnut/Pictures/Typedown/39850735-a33b-4c8d-a2f5-5bd5fde0cbe4.png">
+<meta property="article:published_time" content="2026-02-07T01:13:30.072Z">
+<meta property="article:modified_time" content="2026-02-07T02:40:58.777Z">
+<meta property="article:author" content="HardestNut">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="file:///C:/Users/hardestnut/Pictures/Typedown/39850735-a33b-4c8d-a2f5-5bd5fde0cbe4.png">
+
+<link rel="canonical" href="http://example.com/2026/02/07/language/java/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>java学习笔记 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">知行合一</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/language/java/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          java学习笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:13:30 / 修改时间：10:40:58" itemprop="dateCreated datePublished" datetime="2026-02-07T09:13:30+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/language/" itemprop="url" rel="index"><span itemprop="name">language</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/language/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="概念规则"><a href="#概念规则" class="headerlink" title="概念规则"></a>概念规则</h2><ol>
+<li><p>实例和对象和类区别：<br>实例是通过类创建的对象，比如我string a，a就是string类的实例。比如人类，里面的李白和杜甫就是实例。<br>对象更宽泛，你可以说任何内存实体都是对象。<br>但是一般可以认为实例和对象就是一回事，可以换用。</p>
+</li>
+<li><p>源代码的文件名必须与公共类的类名相同</p>
+</li>
+<li><p>main方法必须为public</p>
+</li>
+<li><p>字符串区间规律：从零开始，操作长度为n–（0,n)例如x.delete(0,4)删除第1-4个，第一个代表起始位置，第二个代表总长度</p>
+</li>
+<li><p>java.lang是java核心包，无需import</p>
+</li>
+</ol>
+<h2 id="方法积累"><a href="#方法积累" class="headerlink" title="方法积累"></a>方法积累</h2><h3 id="字符串类"><a href="#字符串类" class="headerlink" title="字符串类"></a>字符串类</h3><h6 id="理解："><a href="#理解：" class="headerlink" title="理解："></a>理解：</h6><p>1.java无内置字符串类型，但有一个预定义类string，每个字符串都是string类的实例，这意味着string有很多方法</p>
+<p>2.string进行了特殊优化，使其使用起来像基本类型，可以直接拼接</p>
+<p>3.注意string储存的是对象在内存中位置的引用，是对象在堆上的<strong>地址</strong>。但是String是不可变对象引用，给某一个string对象引用赋新值，会导致这个引用直接指向新的对象。同时赋值新值后，会导致原值留在内存里面。</p>
+<p>String s1&#x3D;”hello”;</p>
+<p>String s4&#x3D;”hello”;</p>
+<p>s4&#x3D;”nima”;</p>
+<p>System.out.println(s1);—-输出hello!</p>
+<h6 id="构建："><a href="#构建：" class="headerlink" title="构建："></a>构建：</h6><p>a.字面量:String s1&#x3D;”hello”;高效率</p>
+<p>b.构造方法:String s2&#x3D;new String (“nima”);</p>
+<p>区别：</p>
+<p>a.存储在 <strong>字符串常量池</strong>中，如果常量池中已经存在 <code>&quot;hello&quot;</code>，Java 就不会再创建新的对象，而是 <strong>直接引用已存在的</strong>。</p>
+<p>b.会 <strong>在堆内存中新建一个字符串对象</strong>。</p>
+<p>String s1&#x3D;”hello”;</p>
+<p>String s4&#x3D;”hello”;</p>
+<p>String s2&#x3D;new String (“hello”);</p>
+<p>s1.equals(s2)–true</p>
+<p>s1.equals(s4)–true</p>
+<p>s1&#x3D;&#x3D;s2–true(地址相同,同一个)</p>
+<p>s1&#x3D;&#x3D;s4–false</p>
+<h6 id="拼接"><a href="#拼接" class="headerlink" title="拼接 +"></a>拼接 +</h6><p>String s3&#x3D;s1+s4;—“hellohello”</p>
+<p>注意！</p>
+<p>1.Java 中 <code>String</code> 是不可变的，所以每次拼接字符串，实际上是创建了一个新的字符串对象，而不是在原字符串基础上修改。</p>
+<p>2.实际编译器会生成类似这样的代码：String s &#x3D; new StringBuilder().append(s1).append(s4).toString();</p>
+<p>所以每次+都会创建新的字符串对象，性能差</p>
+<p>建议用StringBuilder</p>
+<h5 id="substring方法"><a href="#substring方法" class="headerlink" title="substring方法"></a>substring方法</h5><p>返回新的子串</p>
+<p>String substring(int beginIndex)</p>
+<p>&#x2F;&#x2F;从该索引开始到结束<br>String substring(int beginIndex, int endIndex)</p>
+<p>&#x2F;&#x2F;注意如果看成数组索引的话，endindex要+1</p>
+<p>输出完自动添加换行</p>
+<p>eg：</p>
+<p>String str &#x3D; “hello world”;<br>System.out.println(str.substring(0, 5)); &#x2F;&#x2F; 输出 “hello”<br>System.out.println(str.substring(6));   &#x2F;&#x2F; 输出 “world”</p>
+<h5 id="length"><a href="#length" class="headerlink" title="length"></a>length</h5><p>很多类都有这个方法</p>
+<p>String str&#x3D;”hello world”;</p>
+<p>str.length()&#x3D;&#x3D;11;</p>
+<h5 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h5><p>s1.equals(s2);</p>
+<p>“hello”.equals(s2);</p>
+<p>不要用等于&#x3D;&#x3D;,&#x3D;&#x3D;代表比较位置，只有字符串字面量可能相等</p>
+<h5 id="equalsIgnoreCase"><a href="#equalsIgnoreCase" class="headerlink" title="equalsIgnoreCase"></a>equalsIgnoreCase</h5><p>s1.equalsIgnoreCase(s2)比较忽略大小写</p>
+<h5 id="compareTo"><a href="#compareTo" class="headerlink" title="compareTo"></a>compareTo</h5><p>s1.compareTo(s2)</p>
+<p>按照字典顺序比较两个字符串，相等返回1，小于返回负数，大于返回正数</p>
+<h3 id="Stingbuilder类"><a href="#Stingbuilder类" class="headerlink" title="Stingbuilder类"></a>Stingbuilder类</h3><h6 id="创建："><a href="#创建：" class="headerlink" title="创建："></a>创建：</h6><p>StringBuilder x&#x3D;new StringBuilder(“cao “(或者String变量));</p>
+<h5 id="length-1"><a href="#length-1" class="headerlink" title="length"></a>length</h5><p>类似</p>
+<h5 id="append"><a href="#append" class="headerlink" title="append"></a>append</h5><p>x..append(“nima”) ,在cao后面追加nima</p>
+<h5 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h5><p>x.delete(0, 4),删除区间内内容（含头不含尾）</p>
+<h5 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h5><p>x.reverse(),反转字符串</p>
+<h5 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h5><p>x.insert(2, “X”),在指定位置插入</p>
+<h5 id="join拼接"><a href="#join拼接" class="headerlink" title="join拼接"></a>join拼接</h5><h5 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h5><p>x.replace(1, 3, “XYZ”),替换内容</p>
+<h5 id="ToString"><a href="#ToString" class="headerlink" title="ToString"></a>ToString</h5><p>x.ToString()变成string类</p>
+<h3 id="StringBuffer"><a href="#StringBuffer" class="headerlink" title="StringBuffer"></a>StringBuffer</h3><p>语法基本同StringBuilder，区别在于StringBuilder更快，但只适用于单线程，而StringBuffer适用于多线程</p>
+<p>理解多线程</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/brokyz/p/14707360.html">Java多线程详解——一篇文章搞懂Java多线程 - brokyz - 博客园</a></p>
+<h3 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h3><p>java.lang.Math无需导入</p>
+<h5 id="exp-log-pow-sqrt-sin-asin-toDegrees-toRadians-random"><a href="#exp-log-pow-sqrt-sin-asin-toDegrees-toRadians-random" class="headerlink" title="exp(),log(),pow(),sqrt(),sin(),asin(),toDegrees(),toRadians(),random()"></a>exp(),log(),pow(),sqrt(),sin(),asin(),toDegrees(),toRadians(),random()</h5><p>double a &#x3D; Math.exp(1);            &#x2F;&#x2F; e 的 1 次方，即 e ≈ 2.718<br>double b &#x3D; Math.log(10);           &#x2F;&#x2F; 计算自然对数 ln(10)<br>double c &#x3D; Math.pow(2, 3);         &#x2F;&#x2F; 2 的 3 次方，结果为 8<br>double d &#x3D; Math.sqrt(16);          &#x2F;&#x2F; 计算 16 的平方根，结果为 4<br>double e &#x3D; Math.sin(Math.PI &#x2F; 2);  &#x2F;&#x2F; 计算正弦，sin(π&#x2F;2) &#x3D; 1<br>double f &#x3D; Math.asin(1);           &#x2F;&#x2F; 计算反正弦 asin(1) &#x3D; π&#x2F;2<br>double g &#x3D; Math.toDegrees(Math.PI); &#x2F;&#x2F; 弧度转角度，π 弧度 ≈ 180°<br>double h &#x3D; Math.toRadians(90);     &#x2F;&#x2F; 角度转弧度，90° ≈ π&#x2F;2<br>double i &#x3D; Math.random();          &#x2F;&#x2F; 生成一个 0.0 到 1.0 的随机数</p>
+<h3 id="Number包装类Number-Java-SE-11-JDK-11"><a href="#Number包装类Number-Java-SE-11-JDK-11" class="headerlink" title="Number包装类Number (Java SE 11 &amp; JDK 11 )"></a>Number包装类<a target="_blank" rel="noopener" href="https://www.runoob.com/manual/jdk1.6/java.base/java/lang/Number.html">Number (Java SE 11 &amp; JDK 11 )</a></h3><p>包装类（Wrapper Class） 是 Java 提供的一种机制，它将基本数据类型（int、<code>char</code>、<code>double</code> 等）包装为 <strong>对象</strong>。这使得基本数据类型能够作为对象使用，例如在 <strong>Java 集合框架</strong>（如 <code>ArrayList</code>、<code>HashMap</code>）中，或者进行类型转换、方法调用等操作。</p>
+<p><img src="file:///C:/Users/hardestnut/Pictures/Typedown/39850735-a33b-4c8d-a2f5-5bd5fde0cbe4.png" alt="39850735-a33b-4c8d-a2f5-5bd5fde0cbe4"></p>
+<p>抽象类，不能实例化</p>
+<p>Double那些是Number的子类，注意BigDecimal，BigInteger也是。是Number子类都可以调用.intValue()方法</p>
+<h5 id="intValue-doubleValue……"><a href="#intValue-doubleValue……" class="headerlink" title="intValue,doubleValue……"></a>intValue,doubleValue……</h5><p>Double d &#x3D; 3.99;<br>int i &#x3D; d.intValue();       &#x2F;&#x2F; i &#x3D; 3，截断小数</p>
+<h5 id="valueOf-NaN"><a href="#valueOf-NaN" class="headerlink" title="valueOf()"></a>valueOf()</h5><p>基本类型转包装对象</p>
+<p>Double d &#x3D; Double.valueOf(3.14);        &#x2F;&#x2F; double -&gt; Double 对象</p>
+<p>字符串转包装对象</p>
+<p>Integer i2 &#x3D; Integer.valueOf(“456”);    &#x2F;&#x2F; 字符串 “456” -&gt; Integer 对象</p>
+<h3 id="大数"><a href="#大数" class="headerlink" title="大数"></a>大数</h3><p>BigInteger整数，BigDecimal浮点</p>
+<h6 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h6><p>1.BigInteger big1 &#x3D; new BigInteger(“123456789012345678901234567890”);</p>
+<p>2.valueOf</p>
+<h5 id="valueOf"><a href="#valueOf" class="headerlink" title="valueOf"></a>valueOf</h5><p>记得上面说的吗，BigInteger也是Number的子类</p>
+<p>BigInteger a&#x3D;BigInteger.valueOf(1000000)</p>
+<p>把1000000转换成biginteger类的对象</p>
+<h5 id="add"><a href="#add" class="headerlink" title="add"></a>add</h5><p>BigInteger sum &#x3D; big1.add(big2);</p>
+<h5 id="multiply"><a href="#multiply" class="headerlink" title="multiply()"></a>multiply()</h5><h5 id="divide"><a href="#divide" class="headerlink" title="divide()"></a>divide()</h5><h5 id="mod"><a href="#mod" class="headerlink" title="mod()"></a>mod()</h5><h5 id="pow-int"><a href="#pow-int" class="headerlink" title="pow(int)"></a>pow(int)</h5><h5 id="subtract"><a href="#subtract" class="headerlink" title="subtract()"></a>subtract()</h5><h5 id="compareTo-1"><a href="#compareTo-1" class="headerlink" title="compareTo()"></a>compareTo()</h5><h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h2 id="对象初步"><a href="#对象初步" class="headerlink" title="对象初步"></a>对象初步</h2><h3 id="1-基本规则"><a href="#1-基本规则" class="headerlink" title="1.基本规则"></a>1.基本规则</h3><p>1.一个文件里面可以有多个类，但是public修饰的类只能有一个，且这个类名必须和文件名一样</p>
+<h3 id="构造对象"><a href="#构造对象" class="headerlink" title="构造对象"></a>构造对象</h3><p>使用构造器构造，构造器名与类相同，前面加上new，</p>
+<p>如new class();</p>
+<p>Date rightnow–创建一个Date类的对象变量–对象变量不是对象，不能使用对象的方法</p>
+<p>注意！：对象变量的值是一个引用，也就是说Date rightnow&#x3D;new Date();,rightnow_2&#x3D;rightnow,此时两个还是指向一个</p>
+<p>new Date()–构造一个变量</p>
+<p>System.out.println(new Date())–创建的对象变量可以用，但只能用一次（这里date有toString方法，println输出默认使用toString转为字符串）</p>
+<p>Date rightnow&#x3D;new Date();</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/02/07/language/java/java%E5%9B%9E%E5%BF%86%E5%BD%95/" rel="prev" title="java回忆录">
+      <i class="fa fa-chevron-left"></i> java回忆录
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2026/02/07/language/c++/c++%E5%AE%B9%E5%99%A8/" rel="next" title="c++容器">
+      c++容器 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%E8%A7%84%E5%88%99"><span class="nav-number">1.</span> <span class="nav-text">概念规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E7%A7%AF%E7%B4%AF"><span class="nav-number">2.</span> <span class="nav-text">方法积累</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB"><span class="nav-number">2.1.</span> <span class="nav-text">字符串类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%EF%BC%9A"><span class="nav-number">2.1.1.</span> <span class="nav-text">理解：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%EF%BC%9A"><span class="nav-number">2.1.2.</span> <span class="nav-text">构建：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8B%BC%E6%8E%A5"><span class="nav-number">2.1.3.</span> <span class="nav-text">拼接 +</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#substring%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.4.</span> <span class="nav-text">substring方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#length"><span class="nav-number">2.1.5.</span> <span class="nav-text">length</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#equals"><span class="nav-number">2.1.6.</span> <span class="nav-text">equals</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#equalsIgnoreCase"><span class="nav-number">2.1.7.</span> <span class="nav-text">equalsIgnoreCase</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#compareTo"><span class="nav-number">2.1.8.</span> <span class="nav-text">compareTo</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stingbuilder%E7%B1%BB"><span class="nav-number">2.2.</span> <span class="nav-text">Stingbuilder类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%EF%BC%9A"><span class="nav-number">2.2.1.</span> <span class="nav-text">创建：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#length-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">length</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#append"><span class="nav-number">2.2.3.</span> <span class="nav-text">append</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#delete"><span class="nav-number">2.2.4.</span> <span class="nav-text">delete</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#reverse"><span class="nav-number">2.2.5.</span> <span class="nav-text">reverse</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#insert"><span class="nav-number">2.2.6.</span> <span class="nav-text">insert</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#join%E6%8B%BC%E6%8E%A5"><span class="nav-number">2.2.7.</span> <span class="nav-text">join拼接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#replace"><span class="nav-number">2.2.8.</span> <span class="nav-text">replace</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ToString"><span class="nav-number">2.2.9.</span> <span class="nav-text">ToString</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StringBuffer"><span class="nav-number">2.3.</span> <span class="nav-text">StringBuffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math%E7%B1%BB"><span class="nav-number">2.4.</span> <span class="nav-text">Math类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#exp-log-pow-sqrt-sin-asin-toDegrees-toRadians-random"><span class="nav-number">2.4.1.</span> <span class="nav-text">exp(),log(),pow(),sqrt(),sin(),asin(),toDegrees(),toRadians(),random()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number%E5%8C%85%E8%A3%85%E7%B1%BBNumber-Java-SE-11-JDK-11"><span class="nav-number">2.5.</span> <span class="nav-text">Number包装类Number (Java SE 11 &amp; JDK 11 )</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#intValue-doubleValue%E2%80%A6%E2%80%A6"><span class="nav-number">2.5.1.</span> <span class="nav-text">intValue,doubleValue……</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#valueOf-NaN"><span class="nav-number">2.5.2.</span> <span class="nav-text">valueOf()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0"><span class="nav-number">2.6.</span> <span class="nav-text">大数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9E%84%E9%80%A0"><span class="nav-number">2.6.1.</span> <span class="nav-text">构造</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#valueOf"><span class="nav-number">2.6.2.</span> <span class="nav-text">valueOf</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#add"><span class="nav-number">2.6.3.</span> <span class="nav-text">add</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#multiply"><span class="nav-number">2.6.4.</span> <span class="nav-text">multiply()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#divide"><span class="nav-number">2.6.5.</span> <span class="nav-text">divide()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mod"><span class="nav-number">2.6.6.</span> <span class="nav-text">mod()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#pow-int"><span class="nav-number">2.6.7.</span> <span class="nav-text">pow(int)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#subtract"><span class="nav-number">2.6.8.</span> <span class="nav-text">subtract()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#compareTo-1"><span class="nav-number">2.6.9.</span> <span class="nav-text">compareTo()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%88%9D%E6%AD%A5"><span class="nav-number">3.2.</span> <span class="nav-text">对象初步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%88%99"><span class="nav-number">3.2.1.</span> <span class="nav-text">1.基本规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.2.2.</span> <span class="nav-text">构造对象</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HardestNut"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">HardestNut</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HardestNut</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

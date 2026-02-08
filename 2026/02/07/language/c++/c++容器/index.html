@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="算法algorithm容器containervector#include&lt;vector&gt;  vector 的数据储存在堆空间中，不会爆栈。一般情况 vector 可以替换掉普通数组。 注意：若长度已确定，那么就直接在构造函数指定长度。因为如果不确定，后面每push_back一次都会耗尽内存而重新分配，产生额外时间开销 声明vector&lt;类型&gt; arr(长度，[初值])  括">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++容器">
+<meta property="og:url" content="http://example.com/2026/02/07/language/c++/c++%E5%AE%B9%E5%99%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="算法algorithm容器containervector#include&lt;vector&gt;  vector 的数据储存在堆空间中，不会爆栈。一般情况 vector 可以替换掉普通数组。 注意：若长度已确定，那么就直接在构造函数指定长度。因为如果不确定，后面每push_back一次都会耗尽内存而重新分配，产生额外时间开销 声明vector&lt;类型&gt; arr(长度，[初值])  括">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-07T01:13:43.393Z">
+<meta property="article:modified_time" content="2026-02-07T02:39:25.322Z">
+<meta property="article:author" content="HardestNut">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2026/02/07/language/c++/c++%E5%AE%B9%E5%99%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>c++容器 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">知行合一</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/language/c++/c++%E5%AE%B9%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          c++容器
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:13:43 / 修改时间：10:39:25" itemprop="dateCreated datePublished" datetime="2026-02-07T09:13:43+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/language/" itemprop="url" rel="index"><span itemprop="name">language</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/language/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="算法algorithm"><a href="#算法algorithm" class="headerlink" title="算法algorithm"></a>算法algorithm</h4><h1 id="容器container"><a href="#容器container" class="headerlink" title="容器container"></a>容器container</h1><h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><p>#include&lt;vector&gt; </p>
+<p><code>vector</code> 的数据储存在堆空间中，不会爆栈。一般情况 <code>vector</code> 可以替换掉普通数组。</p>
+<p>注意：若长度已确定，那么就直接在构造函数指定长度。因为如果不确定，后面每push_back一次都会耗尽内存而重新分配，产生额外时间开销</p>
+<h6 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h6><p>vector&lt;类型&gt; arr(长度，[初值]) </p>
+<p>括号及里面的内容可省，默认构造函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; arr; <span class="comment">// 构造int数组 </span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">arr</span><span class="params">(<span class="number">100</span>)</span></span>; <span class="comment">// 构造初始长100的int数组 </span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">arr</span><span class="params">(<span class="number">100</span>, <span class="number">1</span>)</span></span>; <span class="comment">// 构造初始长100的int数组，初值为1 </span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(<span class="number">100</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; ()); <span class="comment">// 构造初始100行，不指定列数的二维数组 </span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(<span class="number">100</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; (<span class="number">200</span>, <span class="number">-1</span>)) <span class="comment">// 构造初始100行，初始200列的二维数组，初值为-1</span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; arr[<span class="number">100</span>],没初始化的二维数组，每一个arr[i]都是一个vector，相当行数不变，列数不定的二维数组</span><br><span class="line">arr[i].push_back;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这个二维数组可以理解为100个元素，每个元素都是一维vector</p>
+<p>注意，创建完后，可以当作普通数组用，如</p>
+<p>vector&lt;int&gt; arr(100),arr[0]&#x3D;1;</p>
+<h5 id="尾增尾删push-back-pop-back"><a href="#尾增尾删push-back-pop-back" class="headerlink" title="尾增尾删push_back(),pop_back()"></a>尾增尾删push_back(),pop_back()</h5><ul>
+<li><strong><code>.push_back(元素)</code></strong>：在 vector 的最后一个内存后增加一格内存，并给这个内存赋值，数组长度+1(!)</li>
+<li><strong><code>.pop_back()</code></strong>：删除 vector 的最后一格内存及其元素，数组长度-1</li>
+</ul>
+<p>arr.push_back(100);</p>
+<p>arr.pop_back();</p>
+<p>arr&#x3D;{0,0,0,0},arr.push_back(9)–&gt;arr&#x3D;{0,0,0,0,9}</p>
+<h5 id="获取长度-size"><a href="#获取长度-size" class="headerlink" title="获取长度.size()"></a>获取长度.size()</h5><p>获取当前 vector 的长度</p>
+<p>注意返回值是无符号整数size_t</p>
+<p>o(1)复杂度</p>
+<h5 id="清空-clear"><a href="#清空-clear" class="headerlink" title="清空.clear()"></a>清空.clear()</h5><p>arr.clear();</p>
+<p>o(n)复杂度</p>
+<h5 id="判空-empty"><a href="#判空-empty" class="headerlink" title="判空 .empty()"></a>判空 .empty()</h5><p>如果是空返回 <code>true</code> 反之返回 <code>false</code>.</p>
+<p>时间复杂度：o(1)</p>
+<h5 id="改变长度"><a href="#改变长度" class="headerlink" title="改变长度"></a>改变长度</h5><p><strong><code>.resize(新长度, [默认值])</code></strong></p>
+<p>修改 vector 的长度</p>
+<p>如果是缩短，则删除多余的值</p>
+<p>如果是扩大，且指定了默认值，则新元素均为默认值（旧元素不变）</p>
+<p>时间复杂度：o(n)</p>
+<h2 id="栈stack"><a href="#栈stack" class="headerlink" title="栈stack"></a>栈stack</h2><p>#include&lt;stack&gt;</p>
+<p>栈不可访问内部元素，只能用弹出看栈顶,所以感觉可以用vector代替stack，或者手写。–</p>
+<p>vector 的 <code>.back()</code> 取尾部元素，就相当于取栈顶，<code>.push_back()</code> 相当于进栈，<code>.pop_back()</code> 相当于出栈。</p>
+<h5 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h5><p>stack&lt;类型&gt; a,不初始化</p>
+<h5 id="进出栈"><a href="#进出栈" class="headerlink" title="进出栈"></a>进出栈</h5><p>a.push(元素)进</p>
+<p>a.pop()弹出</p>
+<h5 id="取栈顶"><a href="#取栈顶" class="headerlink" title="取栈顶"></a>取栈顶</h5><p>a.top();</p>
+<p>int topnum&#x3D;a.top();</p>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><h5 id="构造-1"><a href="#构造-1" class="headerlink" title="构造"></a>构造</h5><p>queue&lt;类型&gt; que</p>
+<h5 id="进出队"><a href="#进出队" class="headerlink" title="进出队"></a>进出队</h5><p>.push(元素)</p>
+<p>.pop()</p>
+<h5 id="取队尾队首"><a href="#取队尾队首" class="headerlink" title="取队尾队首"></a>取队尾队首</h5><p>.front()</p>
+<p>.back()</p>
+<p>int getfront&#x3D;que.front();</p>
+<h2 id="集合set"><a href="#集合set" class="headerlink" title="集合set"></a>集合set</h2><p>自动去重，加入元素后，元素自动从小到大排序的一个容器</p>
+<p>注意set不支持下标操作，需要用迭代器</p>
+<h5 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h5><p>#include&lt;set&gt;</p>
+<h5 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h5><p>set&lt;int&gt; dict;</p>
+<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>插入：dict.insert(x);</p>
+<p>删除：dict.erase(x);</p>
+<p>查找：dict.count(x) &#x2F;dict.find(x);</p>
+<p>找到了，返回指向x的迭代器，没找到返回特殊迭代器dict.end()</p>
+<p>个数：dict.size(x);</p>
+<p>清空：dict.clear(x);</p>
+<p>判断为空：dict.empty(x);</p>
+<h2 id="优先队列priority-queue"><a href="#优先队列priority-queue" class="headerlink" title="优先队列priority_queue"></a>优先队列priority_queue</h2><p>新元素被添加到堆的末尾，然后通过”上浮”操作调整位置，保持堆性质，时间复杂度：O(log n)</p>
+<h5 id="构造-2"><a href="#构造-2" class="headerlink" title="构造"></a>构造</h5><p><strong><code>priority_queue&lt;类型, 容器, 比较器&gt; pque</code></strong></p>
+<p>类型：要储存的数据类型</p>
+<p>容器：储存数据的底层容器，默认为 <code>vector&lt;类型&gt;</code>，竞赛中保持默认即可</p>
+<p>比较器：比较大小使用的比较器，默认为 <code>less&lt;类型&gt;</code>，可自定义</p>
+<p>priority_queue&lt;int&gt; pque;默认为大顶堆</p>
+<p>priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; pque2; 储存int的小顶堆</p>
+<h5 id="进出堆"><a href="#进出堆" class="headerlink" title="进出堆"></a>进出堆</h5><p>.push(元素)</p>
+<p>.pop()</p>
+<h5 id="取堆顶-大堆顶就是最大值，小就是最小值"><a href="#取堆顶-大堆顶就是最大值，小就是最小值" class="headerlink" title="取堆顶(大堆顶就是最大值，小就是最小值)"></a>取堆顶(大堆顶就是最大值，小就是最小值)</h5><p>只可访问堆顶，其他元素都无法读取到。</p>
+<p>.top()</p>
+<p>int a&#x3D;pque.top();</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/02/07/language/java/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md/" rel="prev" title="java学习笔记">
+      <i class="fa fa-chevron-left"></i> java学习笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2026/02/07/language/c++/c++%E8%AF%AD%E6%B3%95/" rel="next" title="c++语法">
+      c++语法 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95algorithm"><span class="nav-number">1.</span> <span class="nav-text">算法algorithm</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8container"><span class="nav-number">2.</span> <span class="nav-text">容器container</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vector"><span class="nav-number">2.1.</span> <span class="nav-text">vector</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E"><span class="nav-number">2.1.1.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B0%BE%E5%A2%9E%E5%B0%BE%E5%88%A0push-back-pop-back"><span class="nav-number">2.1.2.</span> <span class="nav-text">尾增尾删push_back(),pop_back()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E9%95%BF%E5%BA%A6-size"><span class="nav-number">2.1.3.</span> <span class="nav-text">获取长度.size()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B8%85%E7%A9%BA-clear"><span class="nav-number">2.1.4.</span> <span class="nav-text">清空.clear()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A4%E7%A9%BA-empty"><span class="nav-number">2.1.5.</span> <span class="nav-text">判空 .empty()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%94%B9%E5%8F%98%E9%95%BF%E5%BA%A6"><span class="nav-number">2.1.6.</span> <span class="nav-text">改变长度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%88stack"><span class="nav-number">2.2.</span> <span class="nav-text">栈stack</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%84%E9%80%A0"><span class="nav-number">2.2.1.</span> <span class="nav-text">构造</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9B%E5%87%BA%E6%A0%88"><span class="nav-number">2.2.2.</span> <span class="nav-text">进出栈</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%96%E6%A0%88%E9%A1%B6"><span class="nav-number">2.2.3.</span> <span class="nav-text">取栈顶</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%9F%E5%88%97"><span class="nav-number">2.3.</span> <span class="nav-text">队列</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%84%E9%80%A0-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">构造</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9B%E5%87%BA%E9%98%9F"><span class="nav-number">2.3.2.</span> <span class="nav-text">进出队</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%96%E9%98%9F%E5%B0%BE%E9%98%9F%E9%A6%96"><span class="nav-number">2.3.3.</span> <span class="nav-text">取队尾队首</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88set"><span class="nav-number">2.4.</span> <span class="nav-text">集合set</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="nav-number">2.4.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%9B%86%E5%90%88"><span class="nav-number">2.4.2.</span> <span class="nav-text">创建集合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">2.4.3.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97priority-queue"><span class="nav-number">2.5.</span> <span class="nav-text">优先队列priority_queue</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%84%E9%80%A0-2"><span class="nav-number">2.5.1.</span> <span class="nav-text">构造</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9B%E5%87%BA%E5%A0%86"><span class="nav-number">2.5.2.</span> <span class="nav-text">进出堆</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%96%E5%A0%86%E9%A1%B6-%E5%A4%A7%E5%A0%86%E9%A1%B6%E5%B0%B1%E6%98%AF%E6%9C%80%E5%A4%A7%E5%80%BC%EF%BC%8C%E5%B0%8F%E5%B0%B1%E6%98%AF%E6%9C%80%E5%B0%8F%E5%80%BC"><span class="nav-number">2.5.3.</span> <span class="nav-text">取堆顶(大堆顶就是最大值，小就是最小值)</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HardestNut"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">HardestNut</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HardestNut</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

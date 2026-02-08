@@ -1,37 +1,325 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Hexo"><meta property="og:url" content="http://example.com/"><meta property="og:site_name" content="Hexo"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/img/og_image.png"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com"},"headline":"Hexo","image":["http://example.com/img/og_image.png"],"author":{"@type":"Person","name":"John Doe"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.svg"}},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
-  (function () {
-      function switchTab() {
-          if (!location.hash) {
-            return;
-          }
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-          const id = '#' + CSS.escape(location.hash.substring(1));
-          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
-          if (!$tabMenu) {
-            return;
-          }
+<link rel="stylesheet" href="/css/main.css">
 
-          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
-          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
-          Array.from($tabMenuContainer.querySelectorAll('a'))
-              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
-              .forEach($content => $content.classList.add('is-hidden'));
 
-          if ($tabMenu) {
-              $tabMenu.parentElement.classList.add('is-active');
-          }
-          const $activeTab = document.querySelector(id);
-          if ($activeTab) {
-              $activeTab.classList.remove('is-hidden');
-          }
-      }
-      switchTab();
-      window.addEventListener('hashchange', switchTab, false);
-  })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-02-03T14:56:18.354Z" title="2026/2/3 22:56:18">2026-02-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-02-03T14:56:34.788Z" title="2026/2/3 22:56:34">2026-02-03</time></span><span class="level-item">7 minutes read (About 1038 words)</span></div></div><div class="content"><h1 id="ChatGPT-回答风格规范（技术向）"><a href="#ChatGPT-回答风格规范（技术向）" class="headerlink" title="ChatGPT 回答风格规范（技术向）"></a>ChatGPT 回答风格规范（技术向）</h1><h2 id="一、总体原则"><a href="#一、总体原则" class="headerlink" title="一、总体原则"></a>一、总体原则</h2><p>以<strong>技术准确性与工程严谨性</strong>为最高优先级；若涉及不确定的知识、结论或工程应用前提，必须明确标注不确定性或适用条件。</p>
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="HardestNut">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">知行合一</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/tools/hexo%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/02/07/tools/hexo%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">hexo详解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2026-02-07 10:50:46" itemprop="dateCreated datePublished" datetime="2026-02-07T10:50:46+08:00">2026-02-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-02-08 09:30:49" itemprop="dateModified" datetime="2026-02-08T09:30:49+08:00">2026-02-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="hexo是什么"><a href="#hexo是什么" class="headerlink" title="hexo是什么"></a>hexo是什么</h3><p>hexo是基于node.js的静态站点生成器</p>
+<p>能够将含有结构化元数据的文本（通常使用markdown）在构建期转换为纯静态的HTML&#x2F;CSS&#x2F;JS文件，并部署到静态托管环境</p>
+<p>（通俗来讲就是：把一堆markdown当成源码编译成网站）</p>
+<h3 id="hexo命令"><a href="#hexo命令" class="headerlink" title="hexo命令"></a>hexo命令</h3><p>1.<strong>hexo init</strong></p>
+<p>在某个目录下初始化，生成一个新的 Hexo 站点。</p>
+<p>生成标准目录结构（_config.yml、package.json、scaffolds、source、themes 等），并自动安装依赖。 </p>
+<p>等价于“创建项目骨架”，只需执行一次。</p>
+<p>2.<strong>hexo new</strong> [layout] <title></p>
+<p>layout是post时，titile应为文章名，作用是在soutce&#x2F;_post下创建新文件title</p>
+<p>layout是page时，title应为索引头类型，比如about，categories，tag，对应网站上home同级别的索引头</p>
+<p>对应source下的文件夹about，categories等。</p>
+<p>3.<strong>hexo clean</strong></p>
+<p>清理生成缓存和静态文件（删除 public&#x2F; 和缓存目录）。</p>
+<p>4.<strong>hexo generate (hexo g)</strong></p>
+<p>将 Markdown 源文件编译为静态 HTML 文件,输出到public&#x2F; ，构建产物生成</p>
+<p>5.<strong>hexo server (hexo s)</strong></p>
+<p>启动本地 HTTP 服务预览站点。</p>
+<p>在本地用网站<a href="http://localhost:4000浏览">http://localhost:4000浏览</a></p>
+<p>可以用<strong>hexo s -g</strong>,即先生成再启动服务。</p>
+<p>hexo s相当于本地调试服务器，不涉及真实部署。</p>
+<h3 id="hexo构架"><a href="#hexo构架" class="headerlink" title="hexo构架"></a>hexo构架</h3><h3 id="hexo创建新索引头"><a href="#hexo创建新索引头" class="headerlink" title="hexo创建新索引头"></a>hexo创建新索引头</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/tools/gpt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/02/07/tools/gpt/" class="post-title-link" itemprop="url">gpt规范回答</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:21:42 / 修改时间：10:46:05" itemprop="dateCreated datePublished" datetime="2026-02-07T09:21:42+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="ChatGPT-回答风格规范（技术向）"><a href="#ChatGPT-回答风格规范（技术向）" class="headerlink" title="ChatGPT 回答风格规范（技术向）"></a>ChatGPT 回答风格规范（技术向）</h1><h2 id="一、总体原则"><a href="#一、总体原则" class="headerlink" title="一、总体原则"></a>一、总体原则</h2><p>以<strong>技术准确性与工程严谨性</strong>为最高优先级；若涉及不确定的知识、结论或工程应用前提，必须明确标注不确定性或适用条件。</p>
 <p>回答风格偏向理工科 &#x2F; 计算机专业语境，避免口语化表达。</p>
-<h2 id="不进行无关寒暄，不使用表情符号，不做情绪化评价。二、回答结构规范"><a href="#不进行无关寒暄，不使用表情符号，不做情绪化评价。二、回答结构规范" class="headerlink" title="不进行无关寒暄，不使用表情符号，不做情绪化评价。二、回答结构规范"></a>不进行无关寒暄，不使用表情符号，不做情绪化评价。<br>二、回答结构规范</h2><p>结论优先：<br>若问题存在明确答案或判断，先给出严谨结论；<br>再补充通俗解释（无需比喻）和必要的推导。</p>
+<p>不进行无关寒暄，不使用表情符号，不做情绪化评价。<br>二、回答结构规范</p>
+<hr>
+<p>结论优先：<br>若问题存在明确答案或判断，先给出严谨结论；<br>再补充通俗解释（无需比喻）和必要的推导。</p>
 <p>格式要求：<br>尽量少用 Markdown 结构符号；标题不强制加粗，列表可使用自然分段表达。<br>仅在以下情形使用 Markdown：</p>
 <ul>
 <li><p>极少量关键术语强调</p>
@@ -42,7 +330,9 @@
 </li>
 </ul>
 <p>层次清晰：<br>使用编号或自然标题；<br>一问一答，不发散。</p>
-<h2 id="信息密度优先：避免空泛描述；每一段都应承载实质信息。三、内容深度要求"><a href="#信息密度优先：避免空泛描述；每一段都应承载实质信息。三、内容深度要求" class="headerlink" title="信息密度优先：避免空泛描述；每一段都应承载实质信息。三、内容深度要求"></a>信息密度优先：<br>避免空泛描述；<br>每一段都应承载实质信息。<br>三、内容深度要求</h2><p>技术问题默认采用偏底层 &#x2F; 原理级解释。</p>
+<p>信息密度优先：<br>避免空泛描述；<br>每一段都应承载实质信息。<br>三、内容深度要求</p>
+<hr>
+<p>技术问题默认采用偏底层 &#x2F; 原理级解释。</p>
 <p>概念复杂度处理规则：</p>
 <ul>
 <li><p>若概念属于工科或计算机领域较复杂、难以直观理解，则直接严格按照原规范解释：严谨结论 → 通俗解释 → 代码示例 → 性质&#x2F;用途&#x2F;作用 → 工程影响 → 下钻层面 → 询问是否继续深入</p>
@@ -73,7 +363,9 @@
 <li><p>体系结构或标准定义</p>
 </li>
 </ul>
-<h2 id="不因“可能看不懂”而主动简化内容。四、代码与示例规范"><a href="#不因“可能看不懂”而主动简化内容。四、代码与示例规范" class="headerlink" title="不因“可能看不懂”而主动简化内容。四、代码与示例规范"></a>不因“可能看不懂”而主动简化内容。<br>四、代码与示例规范</h2><p>代码优先确保正确，然后解释清楚；长度不限。<br>示例代码应：</p>
+<p>不因“可能看不懂”而主动简化内容。<br>四、代码与示例规范</p>
+<hr>
+<p>代码优先确保正确，然后解释清楚；长度不限。<br>示例代码应：</p>
 <ul>
 <li><p>最小化但可覆盖概念核心</p>
 </li>
@@ -84,207 +376,966 @@
 </ul>
 <h2 id="五、题型特殊约定"><a href="#五、题型特殊约定" class="headerlink" title="五、题型特殊约定"></a>五、题型特殊约定</h2><p>选择题：直接给出答案，不提供解析。</p>
 <p>概念性提问：给出严格定义，必要时提供反例。</p>
-<h2 id="是-否问题：先明确回答“是”或“否”，再说明成立条件或例外。六、语言与术语"><a href="#是-否问题：先明确回答“是”或“否”，再说明成立条件或例外。六、语言与术语" class="headerlink" title="是 &#x2F; 否问题：先明确回答“是”或“否”，再说明成立条件或例外。六、语言与术语"></a>是 &#x2F; 否问题：先明确回答“是”或“否”，再说明成立条件或例外。<br>六、语言与术语</h2><h2 id="中文为主；关键术语在首次出现时保留英文原名。不进行中英混写式解释性废话。统一使用学术界或工程实践中通行的术语与表述。七、不应出现的内容"><a href="#中文为主；关键术语在首次出现时保留英文原名。不进行中英混写式解释性废话。统一使用学术界或工程实践中通行的术语与表述。七、不应出现的内容" class="headerlink" title="中文为主；关键术语在首次出现时保留英文原名。不进行中英混写式解释性废话。统一使用学术界或工程实践中通行的术语与表述。七、不应出现的内容"></a>中文为主；关键术语在首次出现时保留英文原名。<br>不进行中英混写式解释性废话。<br>统一使用学术界或工程实践中通行的术语与表述。<br>七、不应出现的内容</h2><h2 id="无前提支撑的不确定性模糊表述（如“可能”“大概”“一般来说”）。与问题无关的类比、故事性描述或泛泛而谈。重复用户已明确掌握的基础知识。八、优先级说明"><a href="#无前提支撑的不确定性模糊表述（如“可能”“大概”“一般来说”）。与问题无关的类比、故事性描述或泛泛而谈。重复用户已明确掌握的基础知识。八、优先级说明" class="headerlink" title="无前提支撑的不确定性模糊表述（如“可能”“大概”“一般来说”）。与问题无关的类比、故事性描述或泛泛而谈。重复用户已明确掌握的基础知识。八、优先级说明"></a>无前提支撑的不确定性模糊表述（如“可能”“大概”“一般来说”）。<br>与问题无关的类比、故事性描述或泛泛而谈。<br>重复用户已明确掌握的基础知识。<br>八、优先级说明</h2><p>本规范在本对话及后续对话中：<br>高于默认回答风格；<br>低于用户在单次提问中明确指定的特殊要求。</p>
+<p>是 &#x2F; 否问题：先明确回答“是”或“否”，再说明成立条件或例外。<br>六、语言与术语</p>
+<hr>
+<p>中文为主；关键术语在首次出现时保留英文原名。<br>不进行中英混写式解释性废话。<br>统一使用学术界或工程实践中通行的术语与表述。<br>七、不应出现的内容</p>
+<hr>
+<p>无前提支撑的不确定性模糊表述（如“可能”“大概”“一般来说”）。<br>与问题无关的类比、故事性描述或泛泛而谈。<br>重复用户已明确掌握的基础知识。<br>八、优先级说明</p>
+<hr>
+<p>本规范在本对话及后续对话中：<br>高于默认回答风格；<br>低于用户在单次提问中明确指定的特殊要求。</p>
 <p>—— 本文档可随时增补或修订 ——</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-02-03T14:28:41.278Z" title="2026/2/3 22:28:41">2026-02-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-02-03T15:04:04.271Z" title="2026/2/3 23:04:04">2026-02-03</time></span><span class="level-item">2 minutes read (About 357 words)</span></div></div><div class="content"><h3 id="迭代器是什么？"><a href="#迭代器是什么？" class="headerlink" title="迭代器是什么？"></a>迭代器是什么？</h3><p>通俗来讲，迭代器用来指明stl容器位置</p>
-<p>我们创建一个迭代器，实际上是创建了迭代器类的一个对象，实现了类似指针的操作。所以他的本质不是指针，但很像指针</p>
-<p>例如</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i!=v.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">    cout&lt;&lt;v[i]&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>就类似</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(vector&lt;<span class="type">int</span>&gt;::iterator  i=v.<span class="built_in">begin</span>();i!=v.<span class="built_in">end</span>();++i)</span><br></pre></td></tr></table></figure>
+      
+    </div>
 
-<p>begin()指向第一项,end()指向<strong>最后一项的后一项</strong></p>
-<h3 id="迭代器操作"><a href="#迭代器操作" class="headerlink" title="迭代器操作"></a>迭代器操作</h3><ol>
-<li></li>
-</ol>
-<p>itr++，++itr：迭代器进入下一个位置</p>
-<p><strong>注意！itr++实际上是重载运算符，他会返回一个对象！例如i++就是返回老的i，然后i本身封装的指针值++（类似指针移动）</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 后缀 it++</span></span><br><span class="line">    Iterator <span class="keyword">operator</span>++(<span class="type">int</span>) &#123;</span><br><span class="line">        Iterator tmp = *<span class="keyword">this</span>; <span class="comment">// 保存旧值（拷贝）</span></span><br><span class="line">        ++ptr;                <span class="comment">// 再移动</span></span><br><span class="line">        <span class="keyword">return</span> tmp;           <span class="comment">// 返回旧值</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/%E9%9B%B6%E6%95%A3%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
 
-<p>前缀自增 <code>++it</code> 表示“先移动迭代器，再使用结果”，返回的是<strong>自增后的迭代器本身（通常是引用）</strong>。<br>后缀自增 <code>it++</code> 表示“先使用旧位置，再移动迭代器”，返回的是<strong>自增前迭代器的一个副本</strong>。</p>
-<p>后缀形式为了返回旧值，必须保存一个临时对象；前缀形式不需要。</p>
-<p><strong>不需要旧值的情况下应当使用前缀形式</strong>；前缀在语义和性能上都更优。</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-02-03T13:02:44.628Z" title="2026/2/3 21:02:44">2026-02-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-02-03T14:28:35.516Z" title="2026/2/3 22:28:35">2026-02-03</time></span><span class="level-item">2 minutes read (About 264 words)</span></div></div><div class="content"><p><strong>operator</strong>是C++的一个关键字，它和运算符（如“&#x3D;”）一起使用，表示一个<strong>运算符重载函数</strong>，在理解时可将operator和待重载的运算符整体（如“operator&#x3D;”）视为一个函数名。</p>
-<p>实现运算符重载的方式通常有以下两种：</p>
-<p>1.运算符重载实现为类的成员函数；</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在student类里面</span></span><br><span class="line"><span class="type">bool</span> <span class="keyword">operator</span>&gt;(<span class="type">const</span> student&amp; a)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.score&gt;a.score)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/02/07/algorithm/%E9%9B%B6%E6%95%A3%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">零散小合集</a>
+        </h2>
 
-<p>2.运算符重载实现为非类的成员函数（即全局函数）。</p>
-<p>两个参数分别为左右操作数（至少一个是自定义类，可以只有一个或者另一个是int等）</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="keyword">operator</span>&gt;(<span class="type">const</span> student &amp;a,<span class="type">const</span> student &amp;b)&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.score&gt;b.score)&#123;</span><br><span class="line">    <span class="keyword">return</span> ture;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
-<p>注意：</p>
-<p>不能违反运算符原来的语法规则；</p>
-<p>不能创建新的运算符；</p>
-<p>有一些运算符是不能重载的，如“sizeof”；</p>
-<ul>
-<li>&#x3D;、()、[]、-&gt;操作符只能被类的成员函数重载。</li>
-</ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-01-31T13:54:09.572Z" title="2026/1/31 21:54:09">2026-01-31</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-02-03T12:32:21.389Z" title="2026/2/3 20:32:21">2026-02-03</time></span><span class="level-item">a few seconds read (About 88 words)</span></div></div><div class="content"><h4 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h4><p>函数模板是一个用于产生函数的公式。</p>
-<p>语法：</p>
-<p>template &lt;typename T&gt; +函数声明</p>
-<p>所以template和函数声明可以分为两行写，中间不能有其他语句。</p>
-<p>(和template&lt;class T&gt;完全等价)</p>
-<p>然后把想泛化的类型换成T即可</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">max</span><span class="params">(T a,T b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&gt;b?a:b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-01-28T13:10:56.335Z" title="2026/1/28 21:10:56">2026-01-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-01-28T13:50:47.780Z" title="2026/1/28 21:50:47">2026-01-28</time></span><span class="level-item">a few seconds read (About 51 words)</span></div></div><div class="content"><h4 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h4><p>一般来说，c++常见几种参数传递</p>
-<p>1.一般值（int ，double，对象）</p>
-<p>2.引址调用 int &amp;</p>
-<p>3.常数引用调用const int &amp;</p>
-<p>4.（cpp里面少用)裸指针</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-01-25T08:18:40.662Z" title="2026/1/25 16:18:40">2026-01-25</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-01-25T09:13:24.546Z" title="2026/1/25 17:13:24">2026-01-25</time></span><span class="level-item">5 minutes read (About 718 words)</span></div></div><div class="content"><h1 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h1><p>#include&lt;vector&gt;</p>
-<p><code>vector</code> 的数据储存在堆空间中，不会爆栈。一般情况 <code>vector</code> 可以替换掉普通数组。</p>
-<p>注意：若长度已确定，那么就直接在构造函数指定长度。因为如果不确定，后面每push_back一次都会耗尽内存而重新分配，产生额外时间开销</p>
-<h6 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h6><p>vector&lt;类型&gt; arr(长度，[初值])</p>
-<p>括号及里面的内容可省，默认构造函数</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; arr; <span class="comment">// 构造int数组 </span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">arr</span><span class="params">(<span class="number">100</span>)</span></span>; <span class="comment">// 构造初始长100的int数组 </span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">arr</span><span class="params">(<span class="number">100</span>, <span class="number">1</span>)</span></span>; <span class="comment">// 构造初始长100的int数组，初值为1 </span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(<span class="number">100</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; ()); <span class="comment">// 构造初始100行，不指定列数的二维数组 </span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(<span class="number">100</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; (<span class="number">200</span>, <span class="number">-1</span>)) <span class="comment">// 构造初始100行，初始200列的二维数组，初值为-1</span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; arr[<span class="number">100</span>],没初始化的二维数组，有<span class="number">100</span>个元素，每一个arr[i]都是一个vector，相当行数不变，列数不定的二维数组</span><br><span class="line">arr[i].push_back;</span><br></pre></td></tr></table></figure>
+              <time title="创建时间：2026-02-07 09:21:22 / 修改时间：10:38:43" itemprop="dateCreated datePublished" datetime="2026-02-07T09:21:22+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/%E9%9B%B6%E6%95%A3%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">零散算法</span></a>
+                </span>
+            </span>
 
+          
 
+        </div>
+      </header>
 
-<p>注意，vector创建完后，可以当作普通数组用，如</p>
-<p>vector&lt;int&gt; arr(100) 创建100个长度的可变长数组–&gt;arr[0]&#x3D;1;</p>
-<h5 id="尾增尾删push-back-pop-back"><a href="#尾增尾删push-back-pop-back" class="headerlink" title="尾增尾删push_back(),pop_back()"></a>尾增尾删push_back(),pop_back()</h5><ul>
-<li><strong><code>.push_back(元素)</code></strong>：在 vector 的最后一个内存后增加一格内存，并给这个内存赋值，数组长度+1(!)</li>
-<li><strong><code>.pop_back()</code></strong>：删除 vector 的最后一格内存及其元素，数组长度-1</li>
-</ul>
-<p>arr.push_back(100);</p>
-<p>arr.pop_back();</p>
-<p>arr&#x3D;{0,0,0,0},arr.push_back(9)–&gt;arr&#x3D;{0,0,0,0,9}</p>
-<h5 id="获取长度-size"><a href="#获取长度-size" class="headerlink" title="获取长度.size()"></a>获取长度.size()</h5><p>获取当前 vector 的长度</p>
-<p>注意返回值是无符号整数size_t</p>
-<p>o(1)复杂度</p>
-<h5 id="清空-clear"><a href="#清空-clear" class="headerlink" title="清空.clear()"></a>清空.clear()</h5><p>arr.clear();</p>
-<p>o(n)复杂度</p>
-<h5 id="判空-empty"><a href="#判空-empty" class="headerlink" title="判空 .empty()"></a>判空 .empty()</h5><p>如果是空返回 <code>true</code> 反之返回 <code>false</code>.</p>
-<p>时间复杂度：o(1)</p>
-<h5 id="改变长度"><a href="#改变长度" class="headerlink" title="改变长度"></a>改变长度</h5><p><strong><code>.resize(新长度, [默认值])</code></strong></p>
-<p>修改 vector 的长度</p>
-<p>如果是缩短，则删除多余的值</p>
-<p>如果是扩大，且指定了默认值，则新元素均为默认值（旧元素不变）</p>
-<p>时间复杂度：o(n)</p>
-<h1 id="string"><a href="#string" class="headerlink" title="string"></a>string</h1><p>std::string是cpp的一种类，可以存储任意长度的文本内容，长度可以动态改变。可以通过下标访问字符，或者使用成员函数修改字符串内容，而不必手动管理内存。</p>
-<p>声明：std::string str;</p>
-<p>初始化：std::string s&#x3D;”hello world”</p>
-<p>可通过+增加字符std::string s &#x3D; “Hello”;s +&#x3D; “ World”;</p>
-<h6 id="1-访问元素"><a href="#1-访问元素" class="headerlink" title="1.访问元素"></a>1.访问元素</h6><p>可以通过s[i]或者s.at(i),</p>
-<p>两者都可以修改原string串内容</p>
-<p>s[i]无越界检查，但更高效，s.at(i)会检查越界</p>
-<h6 id="2-方法"><a href="#2-方法" class="headerlink" title="2.方法."></a>2.方法.</h6><p>数组长度 s.length()或者s.size()</p>
-<p>是否为空 s.empty()</p>
-<p>追加字符 s.append()</p>
-<p>插入 s.insert(pos,str)</p>
-<p>删除 s.erase(pos,len)</p>
-<p>清空 s.clear()</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::string s = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line">    s += <span class="string">&quot; World&quot;</span>;      <span class="comment">// 动态扩展</span></span><br><span class="line">    s.<span class="built_in">insert</span>(<span class="number">5</span>, <span class="string">&quot;,&quot;</span>);  <span class="comment">// 在指定位置插入字符</span></span><br><span class="line">    std::cout &lt;&lt; s &lt;&lt; std::endl; <span class="comment">// 输出: Hello, World</span></span><br><span class="line">    std::cout &lt;&lt; s[<span class="number">0</span>] &lt;&lt; std::endl; <span class="comment">// 随机访问字符: H</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
+      
+          <p>quicksort快速排序</p>
+<p>双指针</p>
+<p>1.从待排的数里随便取分界点x，常用两边或中间</p>
+<p>2.考虑两个指针i,j分居数两侧，如果指针i指向的数左小于x或右边的j大于x，则向中间走一格。如果i大于x或者j小于x，则停下，等两边停下，交换数。从而保证在x的左边都小于等于x，右边同理</p>
+<p>3.由此，一串数通过x划分为左右两串数，对每一串数递归处理即可</p>
+<p>代码实现</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">quick_sort</span><span class="params">(<span class="type">int</span> q[],<span class="type">int</span> left,<span class="type">int</span> right)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(left==right)<span class="keyword">return</span> ;</span><br><span class="line">    <span class="type">int</span> i=left<span class="number">-1</span>,j=right+<span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> s=q[(left+right)/<span class="number">2</span>];</span><br><span class="line">    <span class="keyword">while</span>(i&lt;j)<span class="comment">//结束循环意味着i&gt;=j，此时代表完成&#123;</span></span><br><span class="line">        <span class="keyword">do</span> i++;<span class="keyword">while</span>(q[i]&lt;s);</span><br><span class="line">        <span class="keyword">do</span> j--;<span class="keyword">while</span>(q[j]&gt;s);</span><br><span class="line">        <span class="keyword">if</span>(i&lt;j)&#123;</span><br><span class="line">        <span class="type">int</span> temp=q[j];</span><br><span class="line">        q[j]=q[i];</span><br><span class="line">        q[i]=temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    quick_sort(q,left,j);</span><br><span class="line">    quick_sort(q,j+<span class="number">1</span>,right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-01-20T11:22:26.727Z" title="2026/1/20 19:22:26">2026-01-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-01-26T01:14:41.402Z" title="2026/1/26 09:14:41">2026-01-26</time></span><span class="level-item">4 minutes read (About 553 words)</span></div></div><div class="content"><h4 id="1-class语法"><a href="#1-class语法" class="headerlink" title="1.class语法"></a>1.class语法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Name</span>&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="type">int</span> a;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">getB</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> b;&#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="type">int</span> b;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">func2</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line">        <span class="type">int</span> c;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">func3</span><span class="params">()</span></span>&#123;<span class="comment">/**/</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Name::func2</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意，</p>
+<p>1.s应该是q[(left+right)&#x2F;2]这个固定值,而不是left+right)&#x2F;2这个索引，因为虽然s不变，但后面while交换时可能打乱变动q[s]值。</p>
+<p>2.建议递归的(q,left,j)不写成(q,left,j-1),因为当排序只有两个，左边指针一来就停止时，右边会到最左边，造成左边的数分串是零，右边跟原来一模一样，造成无限递归。同理,s&#x3D;q[r]时，尽量避开(q,left,j)</p>
+<p>即s&#x3D;q[left]或left+right&#x2F;2—-j,j+1;s&#x3D;q[right]或者left+right+1&#x2F;2—-i-1,i。</p>
+<p>3.为什么是j,j+1而不是j-1,j?</p>
+<p>考虑结束时仅有i&#x3D;j(指向同一个地点)和—-ji—–i在j后面一个，显然划分数串的就是ji中间的缝，对应索引j,j+1或者i-1,i(这里选择ij需要注意2的问题，如果是取中间还是j，毕竟c是向小取整)</p>
+<p>mergesort并归排序</p>
+<p>这里应用双指针算法</p>
+<p>总体思路是不断分割数串，直到小到两个数，再利用递归合并成数串</p>
+<p>关键思路是如何把两个排好序得数组合并成大的有序数组</p>
+<p>1.对于两串排好序的数列，我们分别在数串两边添加一个指针，如果数串1的值小于数串2，把该值放入一个空数组temp中，数串1指针+1，反之数串2放入空数组，直到某一边到边界停下，这意味着没到边界的数串后面的每一个数都比停下的数串最大的数更大，直接把没到边界的数串后面的数放到temp后面。由此，能把两个排好序的数串整成一个排好序的大数串temp</p>
+<p>2.两个数能通过 1 排好，如果只有一个数，不做处理，作为基情况。</p>
+<p>3.递归</p>
+<p>代码实现</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> temp[MAXN];</span><br><span class="line"><span class="type">void</span> <span class="title function_">merge_sort</span><span class="params">(<span class="type">int</span> q[],<span class="type">int</span> left,<span class="type">int</span> right)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(left==right)<span class="keyword">return</span> ;</span><br><span class="line">    <span class="type">int</span> mid=(left+right)/<span class="number">2</span>;</span><br><span class="line">    merge_sort(q,left,mid);</span><br><span class="line">    merge_sort(q,mid+<span class="number">1</span>,right);</span><br><span class="line">    <span class="type">int</span> i=left,j=mid+<span class="number">1</span>,k=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=mid&amp;&amp;j&lt;=right)&#123;</span><br><span class="line">        <span class="keyword">if</span>(q[i]&lt;=q[j])</span><br><span class="line">            temp[k++]=q[i++];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            temp[k++]=q[j++];</span><br><span class="line">    &#125;<span class="comment">//这时可能只有一边完成 需要补刀</span></span><br><span class="line">    <span class="keyword">while</span>(i&lt;=mid)temp[k++]=q[i++];</span><br><span class="line">    <span class="keyword">while</span>(j&lt;=right)temp[k++]=q[j++];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=left,j=<span class="number">0</span>;i&lt;=right;i++,j++)q[i]=temp[j];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>public 可被其他程序使用，private只能被当前类的函数使用，protected只能被当前类的函数，和继承类使用.</p>
-<p>我们常把数据设置为私有的或保护的，需要数据时调用public的函数获得数据即可，就不需要暴露数据的来去,例如getB</p>
-<h6 id="类函数"><a href="#类函数" class="headerlink" title="类函数"></a>类函数</h6><p>1.函数写法</p>
-<p> 内联：函数实现直接写在class里面,比如func3</p>
-<p>外联：函数定义在class内，实现在class外，比如func2(注意语法ClassName::func2)</p>
-<h6 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h6><p>1.默认构造函数 ClassName(){}</p>
-<p>若无任何构造函数会自动生成默认构造函数，当自定义了构造函数将不会生成默认构造函数。</p>
-<p>注意构造函数不会对POD类型（c原有的类型，int…）进行初始化</p>
-<p>2.初始化列表（就是构造函数的简写方式）</p>
-<p>int a;double b;</p>
-<p>ClassName():a(0),b(114.514){}</p>
-<p>3.单参数的构造函数最最最好加上explicit（能避免隐式转换）</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">class</span> <span class="title">MyClass</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">            <span class="built_in">MyClass</span>(<span class="type">int</span> a)&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    MyClass class1=<span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>二分查找</p>
+<p>用于查找一段排好序的数列中，指定数的位置</p>
+<p>逻辑很简单，判断中间索引的数列值和指定数的大小，不断减小两边区间范围，实现二分逼近</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">bsearch</span><span class="params">(<span class="type">int</span> left,<span class="type">int</span> right,<span class="type">int</span> a[],<span class="type">int</span> target)</span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">        <span class="type">int</span> middle=(left+right)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[middle]&gt;target)right=middle;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a[middle]&lt;target)left=middle+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> middle;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>上面那个构造是正确的，因为有隐式转换：编译器看到10（int）赋值给class1（MyClass类）会寻找转换方式，即从int到MyClass的构造函数，从而发生以下</p>
-<p>int num&#x3D;10;</p>
-<p>MyClass temp(10);</p>
-<p>MyClass class1&#x3D;temp;</p>
-<h6 id="常量成员函数"><a href="#常量成员函数" class="headerlink" title="常量成员函数"></a>常量成员函数</h6><p>只检测，不改变对象为访问函数，如isEmpty()</p>
-<p>改变对象为修改函数，如makeEmpty()</p>
-<p>所有函数默认为修改函数，要使函数为访问函数需要用const :</p>
-<p>void makeEmpty( ) const { }</p>
-<p>一个函数为常量成员函数，那么他只能使用其他的const函数，只能修改mutable变量</p>
-<h6 id="对象声明"><a href="#对象声明" class="headerlink" title="对象声明"></a>对象声明</h6><p>IntCell obj1 √，默认构造</p>
-<p>IntCell obj1(1) √，int参数构造</p>
-<p>IntCell obj2&#x3D;1×(若是构造函数用Explicit修饰是错的，若没用他修饰，则是对的！默认转换)</p>
-<p>IntCell obj2()×会误以为是函数声明，返回值是IntCell</p>
-<p>甚至可以用指针</p>
-<p>IntCell *m;</p>
-<p>m&#x3D;new IntCell(0);</p>
-<p>m-&gt;write(5);</p>
-<p>delete m;</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-01-20T11:00:46.410Z" title="2026/1/20 19:00:46">2026-01-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-01-20T11:22:11.721Z" title="2026/1/20 19:22:11">2026-01-20</time></span><span class="level-item">a few seconds read (About 68 words)</span></div></div><div class="content"><h4 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h4><p>1.$\sum_{i&#x3D;1}^{n} A^i &#x3D;\frac {A^{N+1}-1}{A-1}$</p>
-<p>当A∈(0,1)，$\sum_{i&#x3D;1}^{n} A^i &lt;&#x3D;\frac {1}{1-A}$</p>
+<p>循环条件是left&lt;right，跳出循环的时候一定是left&#x3D;&#x3D;right,并且没有触发a[middle]&#x3D;&#x3D;target，说明没有target这个值，返回-1。</p>
+<p>如果a[middle]&gt;target,说明target在左边，需要缩小右边，让middle赋值给right。注意&lt;时基本同理，但是应该把middle+1赋值给left，因为left+right&#x2F;2向左边取整，不加一可能造成递归重复数列，无限循环</p>
+<p>浮点二分查找</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="title function_">double_search</span><span class="params">(<span class="type">double</span> x)</span>&#123;</span><br><span class="line">    <span class="type">double</span> left=<span class="number">0</span>,right=x;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(right-left&gt;=<span class="number">1e-6</span>)&#123;</span><br><span class="line">    <span class="type">double</span> middle=(left+right)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(middle*middle&gt;x)right=middle;</span><br><span class="line">    <span class="keyword">else</span> left=middle;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>无边界问题，简单。这里是平方根的示例</p>
+<p>大数 </p>
+<p>查看博客三连击</p>
+<p>双指针</p>
+<p>利用两个变量i,j,以及题目中给出的性质，避免使用ij双层for循环的算法.</p>
+<p>例如，考虑一串数，给出数串中不含重复数字的子串的长度最大值</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="type">int</span> a[n];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">    <span class="type">int</span> maxlength=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;j&amp;&amp;check_chong(a,i,j))i++;</span><br><span class="line">        maxlength=max(maxlength,j-i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,maxlength+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>main函数中双指针实现如上，0&lt;&#x3D;i&lt;&#x3D;j&lt;&#x3D;n,由于每一次i更新后，j的位置不可能相对于上一次j的位置发生后退，因为如果后退，那么上一次j的位置在这个假想的后退后的位置也可以存在。因此每次i更新j不必从零开始，而是优化为从上一次的位置开始，这样ij只需要扫描2n格即可。</p>
+<p>下面是完整代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">max</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&gt;b?a:b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">check_chong</span><span class="params">(<span class="type">int</span>* a,<span class="type">int</span> i,<span class="type">int</span> j)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i==j)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> b[<span class="number">9</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> k=i;k&lt;=j;k++)b[a[k]<span class="number">-1</span>]++;</span><br><span class="line">    <span class="type">int</span> found=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;<span class="number">9</span>;k++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b[k]&gt;<span class="number">1</span>)&#123;</span><br><span class="line">            found++;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> found;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="type">int</span> a[n];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">    <span class="type">int</span> maxlength=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;j&amp;&amp;check_chong(a,i,j))i++;</span><br><span class="line">        maxlength=max(maxlength,j-i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,maxlength+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>位运算&gt;&gt;常见操作</p>
+<p>1.n的二进制表示中第k位是多少n&gt;&gt;k&amp;1</p>
+<p>&gt;&gt;位运算符，表示把n的二进制数串往后移k位</p>
+<p>&amp;是与运算，&amp;1表示判断奇偶，例如011011&amp;1(即000001),除了最高位其他位都是0所以011011只有0位（011011分别是543210位）的那个1参与有效运算，如果是1，与运算后也是1，对应十进制中的奇数，如果是零，与运算后也是零，对应十进制中的偶数，从而实现判断奇偶。这里用来判断第k位是多少显然也是可以的</p>
+<p>2.lowbit：x&amp;-x即x&amp;(~x+1),表示x的第一个1，例如1010000返回10000，1010100返回100。</p>
+<p>首先，-x&#x3D;<del>x+1，</del>表示所有位取反。即负数的二进制表示，是找到其正数的二进制数串，每一位取反，最终＋1。如5-00000101，-5-&gt;11111010-&gt;11111011，这样5+-5&#x3D;00000000。</p>
+<p>值得注意的是，251和-5比特串都是11111011，如果类型是unsigned ，串的第7位1为符号位，1表示负，从而该串表示-5，如果是signed，则表示251</p>
+<p>然后lowbit原理如下，我们假设x的第一个1在k位，那么<del>x的0-k-1位全是1，第k位变成0，</del>x+1（即-x）后，0-k-1位所有1变成0，然后第k位变成1。现在相加，神奇的是，第0-k-1位，x和-x所有都是0，与运算后都是0，k+1位到最后一位全都相反，与运算后也是零，只有第k位是1，从而实现</p>
+<p>eg;x:01011110000  ~x:1010001111 -x:1010010000 x&amp;-x：0000010000，输出10000。</p>
+<p>离散化</p>
+<p>离散化思想是比较少的一堆数要作为下标时，这些数有很大，如果要开数组直接储存这些数的时候，将会占用极大的内存，无法实现，这时考虑到这些数很小，所以把这些数按照大小一一与1，2，3，4等对应，这样内存占用将会极大减小。</p>
+<p>530417</p>
+<p>kmp</p>
+<p>manacher</p>
+<p>算法里面的数据结构手搓</p>
+<p>链表</p>
+<p>用数组模拟链表，常规动态链表比较慢</p>
+<p>value[MAXN]存储值</p>
+<p>next[MAXN]存储下一个节点的坐标 </p>
+<p>idx 当前用到了那个点，用于当作新分配的节点下标</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/%E9%9B%B6%E6%95%A3%E7%AE%97%E6%B3%95/hash/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/02/07/algorithm/%E9%9B%B6%E6%95%A3%E7%AE%97%E6%B3%95/hash/" class="post-title-link" itemprop="url">哈希表</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:21:07 / 修改时间：10:38:10" itemprop="dateCreated datePublished" datetime="2026-02-07T09:21:07+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/%E9%9B%B6%E6%95%A3%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">零散算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>哈希表（Hash Table，也叫散列表）是一种基于哈希函数的数据结构，用来实现快速的查找、插入和删除操作。</p>
+<p>关键思想是，如果我们有很多十分分散的数据，直接储存查找需要大量空间，那么我们不妨使存储位置与存储值之间建立直接关系，从而可以把一堆比较大的数据压缩到一个较小的数据中，这样我们可以很大的压缩空间。</p>
+<p>即 <strong>p&#x3D;H(key)</strong> H是散列函数，p是散列地址，key就是储存的关键字</p>
+<p>但是一个hash表很有可能遇到”冲突“，即我们不同的关键字，在进行hash(key)压缩后来到了同一个位置，导致无法区分，对此我们常采用开放地址法和链地址法</p>
+<h4 id="构造hash"><a href="#构造hash" class="headerlink" title="构造hash"></a>构造hash</h4><p>1.规律：若已知数据的构成都具有某种规律，可根据规律定义hash</p>
+<p>2.平方法：把数串平方，取固定的某几位作为映射方式</p>
+<p>3.折叠：把数串平均分成几部分，相加，可作为最终hash地址</p>
+<p>4.模：H(key)&#x3D;key%x. 最常用的一集</p>
+<p><strong>注1：p最好取质数，并离2^n尽量远</strong>，</p>
+<p><strong>注2：含负数的模的公式：A%B&#x3D;A-A&#x2F;B*B，有个结论是结果只与A的正负有关</strong> </p>
+<h4 id="冲突处理"><a href="#冲突处理" class="headerlink" title="冲突处理"></a>冲突处理</h4><p>1.链地址：我们先进行一次处理如mod(p)得到p个可能的hash地址，然后以这0-p建立p个单链表，分别储存冲突的数字（类比图的储存，一个节点后跟着他到的所有边)</p>
+<p>由于”注1“，我们先找到大于hash范围的最小质数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">find_prime</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;=<span class="number">2</span>)<span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">    <span class="type">bool</span> flag=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">2</span>;j*j&lt;=x;j++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(x%j==<span class="number">0</span>)&#123;</span><br><span class="line">    flag=<span class="number">0</span>;<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">if</span>(flag)<span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">if</span>(x%<span class="number">2</span>)x+=<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">else</span> x++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们发现find_prime(10000)&#x3D;10007</p>
+<p>插入操作：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">10007</span>;</span><br><span class="line"><span class="type">int</span> h[N],e[N],ne[N],idx;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">int</span> number)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> hnum=(number%N+N)%N;<span class="comment">//可处理number是负数的情况，将其映射到正数，如果A是正数就和A%B一样的，如果A是负数等于A%B+B一定是正数</span></span><br><span class="line">e[idx]=number,ne[idx]=h[hnum],h[hnum]=idx,idx++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>查找操作</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">find</span><span class="params">(<span class="type">int</span> number)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> hnum=(number%N+N)%N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%9E%9A%E4%B8%BE%E6%8E%92%E5%88%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%9E%9A%E4%B8%BE%E6%8E%92%E5%88%97/" class="post-title-link" itemprop="url">枚举排列</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:17:37 / 修改时间：10:34:02" itemprop="dateCreated datePublished" datetime="2026-02-07T09:17:37+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/%E6%90%9C%E7%B4%A2/" itemprop="url" rel="index"><span itemprop="name">搜索</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="枚举排列"><a href="#枚举排列" class="headerlink" title="枚举排列"></a>枚举排列</h4><p>枚举排列，即列出一个集合的所有排列可能，考虑字典序的话，通常有递归(树深搜)和stl(next_permutation)两种方法</p>
+<h5 id="next-permutation"><a href="#next-permutation" class="headerlink" title="next_permutation()"></a>next_permutation()</h5><h6 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h6><p>next_permutation(_BidirectionalIterator __first, _BidirectionalIterator __last)  </p>
+<p>first和last是迭代器，一般我们用指针就够了：</p>
+<p>next_permutation(p,p+n)</p>
+<h6 id="函数作用"><a href="#函数作用" class="headerlink" title="函数作用"></a>函数作用</h6><p>找出当前序列的<strong>下一个</strong>排列</p>
+<h6 id="函数算法"><a href="#函数算法" class="headerlink" title="函数算法"></a>函数算法</h6><p>1.从后向前找到第一个 <strong>升序对</strong>：<code>a[i] &lt; a[i+1]</code>。</p>
+<p>2.从后向前找到第一个比 <code>a[i]</code> 大的元素 <code>a[j]</code>，交换 <code>a[i]</code> 和 <code>a[j]</code>。</p>
+<p>3.将 <code>a[i+1]</code> 到末尾逆序。</p>
+<p>例如，求32154的下一个排列：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3 2 1 5 4--1 5第一个升序(i=2)，4比1大(j=4)</span><br><span class="line"></span><br><span class="line">交换--3 2 4 5 1</span><br><span class="line"></span><br><span class="line">逆序--3 2 4 1 5</span><br></pre></td></tr></table></figure>
+
+<h6 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h6><p>输入n个散乱的数</p>
+<p>先sort排序，再用next_permutation求下一个排序</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="type">int</span> p[maxn];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;p[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(p,p+n);</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            cout&lt;&lt;p[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">    &#125;<span class="keyword">while</span>(<span class="built_in">next_permutation</span>(p,p+n));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="递归求"><a href="#递归求" class="headerlink" title="递归求"></a>递归求</h5><p>思路是这样，我们从开头固定数字，这样只需要递归的求后面几位的字典序即可</p>
+<p>如我们有1 2 3 4，就先固定开头为1，再递归求后面，后面又可以先固定第二位为2，再递归，直到递归完。</p>
+<p>算法过程</p>
+<p>传入三个变量*n(数组),len数组长,cur已经固定的数的末尾位置</p>
+<p>当cur&#x3D;&#x3D;len说明全部固定完成，输出字典序，return，进入上一层递归。</p>
+<p>否则我们从数组中所有的数中从小到大选出一个没被用于固定的数，作为当前的值，再递归。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_permutation</span><span class="params">(<span class="type">int</span> *n,<span class="type">int</span> len,<span class="type">int</span> cur)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cur==len)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;len;i++)std::cout&lt;&lt;n[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        std::cout&lt;&lt;std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;len;j++)&#123;</span><br><span class="line">        <span class="type">bool</span> done=<span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;cur;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(j==n[i])done=<span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(done)&#123;</span><br><span class="line">        n[cur]=j;</span><br><span class="line">        <span class="built_in">print_permutation</span>(n,len,cur<span class="number">+1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如 3 1 2</p>
+<p>1最小，固定,进入下一层递归</p>
+<p>2最小，固定，进入下一层</p>
+<p>3最小，固定，进入下一层</p>
+<p>cur&#x3D;&#x3D;len,输出1 2 3，return 回固定了 1 2的那一层，此时for循环刚好走到尽头，继续递归到固定1 的那一层，递归前执行到了for(j&#x3D;2,j&lt;3;j++)，所以现在j&#x3D;3，</p>
+<p>1 3固定，进入下一层</p>
+<p>2固定，进入下一层</p>
+<p>cur&#x3D;&#x3D;len,输出1 3 2…以此类推。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%9C%80%E7%9F%AD%E8%B7%AF/" class="post-title-link" itemprop="url">最短路</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:17:37 / 修改时间：10:34:37" itemprop="dateCreated datePublished" datetime="2026-02-07T09:17:37+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/%E6%90%9C%E7%B4%A2/" itemprop="url" rel="index"><span itemprop="name">搜索</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>关于最短路，我们不区分是否有向，无向可以看作特殊的有向，把a-&gt;b和b-&gt;a都写进去</p>
+<p><img src="file:///D:/Typedown/7e4cbfdc-0cac-4e78-b02f-6647c7d75a8a.png" alt="7e4cbfdc-0cac-4e78-b02f-6647c7d75a8a"></p>
+<p>aw上关于以上几个算法的用途大致分类</p>
+<p>多源：起点不确定，可能是任意点</p>
+<p>汇点：终点</p>
+<h3 id="朴素dijkstra"><a href="#朴素dijkstra" class="headerlink" title="朴素dijkstra"></a>朴素dijkstra</h3><p>求解非负权图上单源最短路径</p>
+<p>相比与堆优化版的dijkstra，这个适用于稠密图（堆优化版mlongn在稠密情况下是n^2logn），所以用邻接矩阵来存</p>
+<h6 id="松弛操作"><a href="#松弛操作" class="headerlink" title="松弛操作"></a>松弛操作</h6><p> 先说明松弛操作，即当我们发现一条边能够 改善（缩短）源点到某个顶点的当前最短路径估计值 时，就更新这个顶点的最短路径估计值。</p>
+<p>if d[v]&gt;d[u]+w(u,v)then update d[v]&#x3D;d[u]+w(u,v)</p>
+<p>即某个点a到b再到c的距离小于a到c的距离，就把ac直线距离松弛为a到b再到c</p>
+<h6 id="算法过程"><a href="#算法过程" class="headerlink" title="算法过程"></a>算法过程</h6><p>将结点分成两个集合：已确定最短路长度的点集（记为 𝑆<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="S"> 集合）的和未确定最短路长度的点集（记为 𝑇<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="T"> 集合）。一开始所有的点都属于 𝑇<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="T"> 集合。</p>
+<p>1.初始化 𝑑𝑖𝑠(𝑠) &#x3D;0<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="dis(s)&#x3D;0">，其他点的 𝑑𝑖𝑠<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="dis"> 均为 +∞<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="+\infty"></p>
 <ol start="2">
 <li></li>
 </ol>
-<p>$\sum _{i&#x3D;1}^N i&#x3D;N(N+1)&#x2F;2$</p>
-<p>$\sum _{i&#x3D;1}^N i^2 &#x3D;N(N+1)&#x2F;2$</p>
-<p>$\sum _{i&#x3D;1}^N i^k \approx \frac {N^{k+1}}{|k+1|},k\neq-1$</p>
-<p>$\sum _{i&#x3D;1}^N {\frac{1}{i}} \approx log_eN$,近似式误差趋近于欧拉常数$\gamma \approx 0.577215$ </p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-01-20T01:34:55.444Z" title="2026/1/20 09:34:55">2026-01-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-01-20T02:07:54.506Z" title="2026/1/20 10:07:54">2026-01-20</time></span><span class="level-item">a few seconds read (About 7 words)</span></div></div><div class="content"><p>1.反汇编</p>
-<p>objdump -d name.o</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2026-01-19T13:25:14.843Z" title="2026/1/19 21:25:14">2026-01-19</time></span><span class="level-item">Updated&nbsp;<time dateTime="2026-01-19T14:27:04.644Z" title="2026/1/19 22:27:04">2026-01-19</time></span><span class="level-item">4 minutes read (About 650 words)</span></div></div><div class="content"><p>对于图的储存而言，算法上一般用邻接表和邻接矩阵两种方法</p>
-<h4 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h4><p>使用一个二维数组 <code>adj</code> 来存边，其中 <code>adj[u][v]</code> 为 1 表示存在 𝑢<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="u"> 到 𝑣<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="v"> 的边，为 0 表示不存在．如果是带边权的图，可以在 <code>adj[u][v]</code> 中存<img src="C:\Users\mec\Pictures\算法图解\链式前向星.png" alt="链式前向星">储 𝑢<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="u"> 到 𝑣<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="v"> 的边的边权．<br>    &#x2F;&#x2F;u-&gt;v<br>    adj[u][v]&#x3D;1;</p>
-<p>注意不能有重边，优点是查某边很快，缺点是稀疏图效率低</p>
-<h4 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h4><p>一般情况下，都用邻接表方法储存图</p>
-<p>实现方法有很多，有vector，指针 链表（理论），链式前向星（数组+链式索引），我们采用链式索引</p>
-<p>定义head[a]储存a指向的边的信息</p>
-<p>e[i]为索引i所对应的点</p>
-<p>ne[i]为索引i的下一个索引</p>
-<p>idx为目前储存的边数</p>
-<p>我们储存a-&gt;b,a-&gt;c两条边如图所示</p>
-<p>先储存a-&gt;c,分配idx2&#x3D;1，然后e[idx2]代表a指向的c</p>
-<p>后面插入a-&gt;b,分配idx1&#x3D;2，然后e[idx1]&#x3D;b代表a-&gt;b,然后让ne[idx1]&#x3D;head[a]即idx2。两个边就建好了</p>
-<p><img src="C:\Users\mec\Pictures\算法图解\链式前向星.png" alt="链式前向星"></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> n=x<span class="number">+10</span>,m=<span class="number">2</span>*y<span class="number">+10</span>;</span><br><span class="line"><span class="comment">//我们假设有x个节点，y条无向边（一般题目会给）</span></span><br><span class="line"><span class="comment">//2*y表明无向边可以看成两条特殊的有向边</span></span><br><span class="line"><span class="type">int</span> h[n],e[m],ne[m],idx;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">     e[idx]=b;ne[idx]=h[a];h[a]=idx;idx++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>a.从t里面的点中，计算源点到这些点的距离，最小的那个取出，放到s里面（一定最小，贪心）</p>
+<p>b.对刚放入s节点里面的边进行松弛操作（即更新和a中取出的节点有关节点的dist）</p>
+<p>3.重复2，直到t为空</p>
+<p>时间复杂度：n^2+m</p>
+<h6 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h6><p>首先维护几个结构</p>
+<p>n是点数，m是边数，一般来说，n<del>km是稀疏图，m</del>n^2是稠密图</p>
+<p>g是邻接矩阵，一般是稠密图在用，g[i][j]表示i指向j的关系，值为零表示没边，为k表示边权为k</p>
+<p>dist[k]是k节点到源点的最短距离为dist[k] (未定，可动态变化);</p>
+<p>track[k]表示每个点的最短路是否确定</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> n=<span class="number">110</span>,m=<span class="number">10010</span>;</span><br><span class="line"><span class="type">int</span> g[n][n];</span><br><span class="line"><span class="type">int</span> dist[n];</span><br><span class="line"><span class="type">bool</span> track[n];</span><br></pre></td></tr></table></figure>
 
-<p>h[i]表示第i个节点的头节点，后面接入i节点指向的所有节点的idx索引，无顺序之分。e[idx]表示第idx个空间分配的值，ne[idx]表示第idx个空间的值所指向的的下一个值的索引。idx从零开始递增。 整体而言可以把e[]看作一个内存池，从这个内存池里面取出边，一个一个赋值，接在h[]后面</p>
-<p>add函数是把e的第idx位置存成b，ne[idx]&#x3D;h[a]表示把原来h[a]指向的索引成为ne的下一个索引，在让h[a]指向idx，idx自增，即可完成插入</p>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">Previous</a></div><div class="pagination-next"><a href="/page/2/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/6/">6</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="HardestNut"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">HardestNut</p><p class="is-size-6 is-block">nnnnut</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Q</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives/"><p class="title">51</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories/"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags/"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/gggccc666" target="_blank" rel="me noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/gggccc666"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/02/"><span class="level-start"><span class="level-item">February 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">January 2026</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/12/"><span class="level-start"><span class="level-item">December 2025</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/11/"><span class="level-start"><span class="level-item">November 2025</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/10/"><span class="level-start"><span class="level-item">October 2025</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/09/"><span class="level-start"><span class="level-item">September 2025</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/08/"><span class="level-start"><span class="level-item">August 2025</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/07/"><span class="level-start"><span class="level-item">July 2025</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/05/"><span class="level-start"><span class="level-item">May 2025</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/04/"><span class="level-start"><span class="level-item">April 2025</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/02/"><span class="level-start"><span class="level-item">February 2025</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/01/"><span class="level-start"><span class="level-item">January 2025</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-02-03T14:56:18.354Z">2026-02-03</time></p><p class="title"><a href="/2026/02/03/gpt/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-02-03T14:28:41.278Z">2026-02-03</time></p><p class="title"><a href="/2026/02/03/3.stl/6.%E8%BF%AD%E4%BB%A3%E5%99%A8/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-02-03T13:02:44.628Z">2026-02-03</time></p><p class="title"><a href="/2026/02/03/3.stl/5.%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-01-31T13:54:09.572Z">2026-01-31</time></p><p class="title"><a href="/2026/01/31/3.stl/4.%E6%A8%A1%E6%9D%BF/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-01-28T13:10:56.335Z">2026-01-28</time></p><p class="title"><a href="/2026/01/28/3.stl/3.%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/"> </a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2026 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
-            article: {
-                highlight: {
-                    clipboard: true,
-                    fold: 'unfolded'
-                }
-            }
-        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
-      window.cookieconsent.initialise({
-        type: "info",
-        theme: "edgeless",
-        static: false,
-        position: "bottom-left",
-        content: {
-          message: "This website uses cookies to improve your experience.",
-          dismiss: "Got it!",
-          allow: "Allow cookies",
-          deny: "Decline",
-          link: "Learn more",
-          policy: "Cookie Policy",
-          href: "https://www.cookiesandyou.com/",
-        },
-        palette: {
-          popup: {
-            background: "#edeff5",
-            text: "#838391"
-          },
-          button: {
-            background: "#4b81e8"
-          },
-        },
-      });
-    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
-            if (typeof $.fn.lightGallery === 'function') {
-                $('.article').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof $.fn.justifiedGallery === 'function') {
-                if ($('.justified-gallery > p > .gallery-item').length) {
-                    $('.justified-gallery > p > .gallery-item').unwrap();
-                }
-                $('.justified-gallery').justifiedGallery();
-            }
-        });</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
-            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
-        });</script></body></html>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//计算s节点到n节点的最短路,无则返回-1</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dijkstra</span><span class="params">(<span class="type">int</span> s)</span></span>&#123;</span><br><span class="line">    <span class="built_in">menset</span>(dist,<span class="number">0x3f</span>,<span class="built_in">sizeof</span>(dist));</span><br><span class="line">    dist[s]=<span class="number">0</span>;</span><br><span class="line"><span class="comment">//注意初始化track所有都是false，初始化track[s]是错的，他会在第一次循环里面自动初始化</span></span><br><span class="line"><span class="comment">//因为如果s==1的时候，t将永远为零</span></span><br><span class="line"><span class="comment">//循环执行n次</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line"><span class="comment">//找到最短的节点t</span></span><br><span class="line">    <span class="type">int</span> t=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(!track[j]&amp;&amp;(t==<span class="number">-1</span>||dist[t]&gt;dist[j]))</span><br><span class="line">    t=j;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(g[t][j])<span class="comment">//可省，因为无路g为零，而dist[j]一定小于dist[t]</span></span><br><span class="line">    dist[j]=<span class="built_in">min</span>(dist[j],dist[t]+g[t][j]);</span><br><span class="line">&#125;</span><br><span class="line">    track[t]=<span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">if</span>(dist[n]==<span class="number">0x3f3f3f3f</span>)<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> dist[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">拓扑排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:17:37 / 修改时间：10:34:10" itemprop="dateCreated datePublished" datetime="2026-02-07T09:17:37+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/%E6%90%9C%E7%B4%A2/" itemprop="url" rel="index"><span itemprop="name">搜索</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>拓扑排序</p>
+<p>拓扑序列：一个有向图中，对于任意的边，拓扑排序的目标是将所有节点排序，使得排在前面的节点不能依赖于排在后面的节点。</p>
+<p>可以证明，一个有向无环图一定存在拓扑序列，但不一定唯一</p>
+<p>算法：</p>
+<p>所有入度为零的点入队，删除该点和所有出边</p>
+<p>枚举所有入队的点的指向的点，让其入度减1，若是这些点入度变为零，则入队；若是不为零，不管，直到其他点不断递归到指向它的点，使得入度最终变为零，再入队。</p>
+<p>不断重复以上过程，直到集合 𝑆<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="S"> 为空。检查图中是否存在任何边，如果有，那么这个图一定有环路，否则返回 𝐿<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="L">，𝐿<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="L"> 中顶点的顺序就是构造拓扑序列的结果。</p>
+<p>首先仍然需要图的储存</p>
+<p>其中q代表队列，d代表点的入度</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">10010</span>;</span><br><span class="line"><span class="type">int</span> e[N],ne[N],h[N],idx;</span><br><span class="line"><span class="type">int</span> q[N],d[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">    idx=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">menset</span>(h,<span class="number">-1</span>,<span class="built_in">sizeof</span>(h);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="built_in">add</span>(<span class="type">int</span> a,<span class="type">int</span> b)&#123;</span><br><span class="line">    e[idx]=b;ne[idx]=h[a];h[a]=idx;idx++;</span><br><span class="line">    d[b]++</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后是toposort</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">toposort</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> j=<span class="number">-1</span>,k=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="keyword">if</span>(d[i]==<span class="number">0</span>)q[++j]=i;</span><br><span class="line">    <span class="keyword">while</span>(k&lt;=j)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> head=h[q[k]];head!=<span class="number">-1</span>;head=ne[head])&#123;</span><br><span class="line">    <span class="type">int</span> nt=e[head];</span><br><span class="line">    d[nt]--;</span><br><span class="line">    <span class="keyword">if</span>(d[nt]==<span class="number">0</span>)q[++j]=nt;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> j==n<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>main函数中，输出topo序列的逻辑</p>
+<p>发现我们q[]刚好就是节点的排序，满足前面的节点不依赖于后面的节点</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">toposort</span>())&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)cout&lt;&lt;q[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%AD%90%E9%9B%86%E7%94%9F%E6%88%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%AD%90%E9%9B%86%E7%94%9F%E6%88%90/" class="post-title-link" itemprop="url">子集生成</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:17:37 / 修改时间：10:34:26" itemprop="dateCreated datePublished" datetime="2026-02-07T09:17:37+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/%E6%90%9C%E7%B4%A2/" itemprop="url" rel="index"><span itemprop="name">搜索</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="子集生成"><a href="#子集生成" class="headerlink" title="子集生成"></a>子集生成</h3><p>生成某个整数序列的所有可能子集</p>
+<p>下面以从1-n的整数集，无重复数字 举例</p>
+<h5 id="增量构造法（递归）"><a href="#增量构造法（递归）" class="headerlink" title="增量构造法（递归）"></a>增量构造法（递归）</h5><p>思路是从第一位开始，对于每一位而言，依次填入这一位后面的所有值，而后面的后面又是这样填，即递归。</p>
+<p>若是算法每一步都对，有正确的初始化值，且有终止条件，则可用递归</p>
+<p>例如，1 2 3的递归过程用解释树构造如下</p>
+<p><img src="file:///D:/Typedown/813127ef-a2ea-447c-ba05-f6b9380c3577.png" alt="813127ef-a2ea-447c-ba05-f6b9380c3577"></p>
+<p>a:构造的子集</p>
+<p>s:s为当前加入的值，若cur为零，则初始化为1，否则为a[cur-1]的下一个值</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_subset</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> *a,<span class="type">int</span> cur)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;cur;i++)cout&lt;&lt;a[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    <span class="type">int</span> s=cur?a[cur<span class="number">-1</span>]<span class="number">+1</span>:<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=s;i&lt;=n;i++)&#123;</span><br><span class="line">        a[cur]=i;</span><br><span class="line">        <span class="built_in">print_subset</span>(n,a,cur<span class="number">+1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="位向量法-决策树"><a href="#位向量法-决策树" class="headerlink" title="位向量法(决策树)"></a>位向量法(决策树)</h5><p>我们构造一个向量a,a[i]为0或1,a[i]&#x3D;&#x3D;1意味着子集含有i</p>
+<p>比如a[4]&#x3D;0,1,1,0;对应子集为2 3.</p>
+<p>注意这里递归函数没有for循环限制数量，需要return ；</p>
+<p>对于某一位而言，下一位数要么有，要么没有，以此构造递归式</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_subset1</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> *a,<span class="type">int</span> cur)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cur==n)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i])cout&lt;&lt;i<span class="number">+1</span>&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    a[cur]=<span class="number">1</span>;</span><br><span class="line">    <span class="built_in">print_subset1</span>(n,a,cur<span class="number">+1</span>);</span><br><span class="line">    a[cur]=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">print_subset1</span>(n,a,cur<span class="number">+1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="二进制法"><a href="#二进制法" class="headerlink" title="二进制法"></a>二进制法</h5><p>惊讶的发现，我们子集可以看成一个数组，每一位取和不取的集合！将取与不取看成01的话，子集就代表一个二进制串！（和位向量法类似）</p>
+<p>先枚举二进制数（就是1-2^n，二进制和十进制没区别），对于每个二进制数，打印出其对应的子集</p>
+<p>s&amp;1&lt;&lt;i即s的第i位与上1,判断s的第i位是否为1</p>
+<p>很优雅的实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;(<span class="number">1</span>&lt;&lt;<span class="number">4</span>);i++)</span><br><span class="line">    <span class="built_in">print_subset2</span>(<span class="number">4</span>,i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_subset2</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s&amp;<span class="number">1</span>&lt;&lt;i)cout&lt;&lt;i<span class="number">+1</span>&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/" class="post-title-link" itemprop="url">回溯</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:17:37 / 修改时间：10:33:40" itemprop="dateCreated datePublished" datetime="2026-02-07T09:17:37+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/%E6%90%9C%E7%B4%A2/" itemprop="url" rel="index"><span itemprop="name">搜索</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/dfs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/dfs/" class="post-title-link" itemprop="url">dfs</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:17:37 / 修改时间：10:33:33" itemprop="dateCreated datePublished" datetime="2026-02-07T09:17:37+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/%E6%90%9C%E7%B4%A2/" itemprop="url" rel="index"><span itemprop="name">搜索</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="dfs是什么？"><a href="#dfs是什么？" class="headerlink" title="dfs是什么？"></a>dfs是什么？</h3><p>DFS，即深度优先搜索，常用于遍历搜索树或图。</p>
+<p><strong>该类搜索算法的特点在于，将要搜索的目标分成若干「层」，每层基于前几层的状态进行决策，直到达到目标状态。</strong></p>
+<p>DFS 最显著的特征在于其 <strong>递归调用自身</strong>。同时与 BFS 类似，DFS 会对其访问过的点打上访问标记，在遍历图时跳过已打过标记的点，以确保 <strong>每个点仅访问一次</strong>。符合以上两条规则的函数，便是广义上的 DFS。</p>
+<h4 id="遍历图"><a href="#遍历图" class="headerlink" title="遍历图"></a>遍历图</h4><p>先了解图的储存 ( 树其实可以算图的一种 ) </p>
+<h6 id="图的储存-邻接矩阵，邻接表"><a href="#图的储存-邻接矩阵，邻接表" class="headerlink" title="图的储存:邻接矩阵，邻接表"></a>图的储存:邻接矩阵，邻接表</h6><p>1.对于邻接矩阵而言，如果我们a-&gt;b有边，就让P[a][b]&#x3D;true;以此类推。</p>
+<p>2.我们通常用邻接表储存</p>
+<p>邻接表可以看成链表数组，一个数组里面每一个元素都是一个链表，对应每一个链表指向的所有节点。类比vector&lt;int&gt; a[maxn].</p>
+<p>数据结构定义</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//我们假设有a个节点，b条无向边（一般题目会给）</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> n=a<span class="number">+10</span>,m=<span class="number">2</span>*b<span class="number">+10</span>;<span class="comment">//2*b表明无向边可以看成两条特殊的有向边</span></span><br><span class="line"><span class="type">int</span> h[n],e[m],ne[m],idx;</span><br><span class="line"><span class="comment">//h[i]表示第i个节点的头节点，后面接入i节点指向的所有节点的idx索引，无顺序之分。e[idx]表示第idx个空间分配的值，ne[idx]表示第idx个空间的值所指向的的下一个值的索引。idx从零开始递增。</span></span><br><span class="line"><span class="comment">//整体而言可以把e[]看作一个内存池，从这个内存池里面取出边，一个一个赋值，接在h[]后面</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">    e[idx]=b;ne[idx]=h[a];h[a]=idx;idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//add函数解析：把e的第idx位置存成b，ne[idx]=h[a]表示把原来h[a]指向的索引成为ne的下一个索引，在让h[a]指向idx，idx自增，即可完成插入</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="dfs遍历连通图"><a href="#dfs遍历连通图" class="headerlink" title="dfs遍历连通图"></a>dfs遍历连通图</h6><p>图一般是连通图，若是非连通图，一般只能遍历起点所在的连通分图</p>
+<p>算法通常是通过递归实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> if_get[n]=&#123;<span class="literal">false</span>&#125;;<span class="comment">//表示某个点是否被搜索过</span></span><br><span class="line"><span class="comment">//传入u号节点，if_get[u]为true表示遍历过了，然后找到u节点的下一个节点开始dfs，直到每个节点都找到了。</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u)</span></span>&#123;</span><br><span class="line">    if_get[u]=<span class="literal">true</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=h[u];i!=<span class="number">-1</span>;i=ne[i])&#123;</span><br><span class="line">    <span class="type">int</span> j=e[i];</span><br><span class="line">    <span class="keyword">if</span>(!if_get[i])<span class="built_in">bfs</span>(i);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="遍历树"><a href="#遍历树" class="headerlink" title="遍历树"></a>遍历树</h4><p>通常为：若是为空则返回，否则递归子树1，子树2….</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">DLRtraverse</span><span class="params">(BitTree T)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T==<span class="literal">NULL</span>)<span class="keyword">return</span> ;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">    cout&lt;&lt;T-&gt;data&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">DLRtraverse</span> (T-&gt;lchild);</span><br><span class="line">    <span class="built_in">DLRtraverse</span> (T-&gt;rchild);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HardestNut"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">HardestNut</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HardestNut</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
