@@ -179,6 +179,210 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/language/java/java%E5%9B%9E%E5%BF%86%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/02/07/language/java/java%E5%9B%9E%E5%BF%86%E5%BD%95/" class="post-title-link" itemprop="url">java回忆录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:13:30 / 修改时间：10:40:48" itemprop="dateCreated datePublished" datetime="2026-02-07T09:13:30+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/language/" itemprop="url" rel="index"><span itemprop="name">language</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/language/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[TOC]</p>
+<h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><p>面向对象编程：区别于面向过程编程，一个小程序需要几个函数和几个变量，我们分别编写再一一使用，面向过程（围绕函数展开）。而面向对象则是根据需求抽象出不同的对象并为不同的对象实现不同功能。<br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/27468564/answer/757537214">https://www.zhihu.com/question/27468564/answer/757537214</a></p>
+<h3 id="方法积累：查java手册"><a href="#方法积累：查java手册" class="headerlink" title="方法积累：查java手册"></a>方法积累：查java手册</h3><h5 id="字符串类："><a href="#字符串类：" class="headerlink" title="字符串类："></a>字符串类：</h5><p>substring,length,equals;</p>
+<p>StringBuilder:length,append,delete,reverse,insert,join(用字符分隔),repeat,replace</p>
+<h5 id="Math"><a href="#Math" class="headerlink" title="Math:"></a>Math:</h5><p>exp(),log(),pow(,)sqrt(),sin(),asin(),</p>
+<p>toDegrees(),toRadians(),random()</p>
+<h5 id="Number包装类-Number-Java-SE-11-JDK-11"><a href="#Number包装类-Number-Java-SE-11-JDK-11" class="headerlink" title="Number包装类:Number (Java SE 11 &amp; JDK 11 )"></a>Number包装类:<a target="_blank" rel="noopener" href="https://www.runoob.com/manual/jdk1.6/java.base/java/lang/Number.html">Number (Java SE 11 &amp; JDK 11 )</a></h5><p>…Value()？，把某种包装类变成…数据类型(如x.intValue,x为Double等)</p>
+<p>ValueOf(),如Integer.ValueOf(int);</p>
+<p>可以用Integer i&#x3D;…;底层调用的就是valueof</p>
+<p>不用Integer i&#x3D;new Integer(int);这个即将被淘汰。</p>
+<p>equal()</p>
+<p>Integer.parseInt(String或String,int(这里int是进制，不写int默认10)</p>
+<h5 id="大数"><a href="#大数" class="headerlink" title="大数"></a>大数</h5><p>biginteger:任意精度整数运算</p>
+<p>创建：BigInteger ..&#x3D;new BigInteger(“字符串”);</p>
+<p>BigInteger ..&#x3D;BigInteger.ValueOf(100);</p>
+<p>运算：c&#x3D;a.add(b(biginter类型))</p>
+<p>a.multiply a.mod a.pow a.divide a.subtract a.compareTo</p>
+<p>输入:in.nextbiginteger() 或者常规加valueof</p>
+<p>输出:常规输出即可</p>
+<h4 id="数据储存"><a href="#数据储存" class="headerlink" title="数据储存"></a>数据储存</h4><p>1.栈内存用于存储基本数据类型,基本数据类型,方法调用时的局部变量</p>
+<p>2.堆由 JVM（Java 虚拟机）统一管理，储存Java里面所有对象</p>
+<p>3.new:new Walrus(1000.0,3);new实例化一个对象，从堆里面分配相应内存这里是32，64共96bits，并返回其地址</p>
+<p> Walrus newwalrus:创建一个引用对象，期间创建一个64bits(固定64！)的内存，默认为空，然后把new的返回赋给它，那么newwalrus就可以使用了:newwalrus&#x3D;new Walrus(1000.0,3)</p>
+<p>注意重新指向对象可能导致原对象丢失</p>
+<p>4.在一个类里面创建构造函数(constructor)，</p>
+<p>pubic 类名(参数){</p>
+<p>this. …&#x3D;….;</p>
+<p>…</p>
+<p>}</p>
+<p>那么创建对象的时候将new 类(参数)； 没有构造函数的话（会有默认的空构造函数）：new类（）。</p>
+<p>5.方法 的值传递：</p>
+<p>a.传入对象数组等，相当于传入的是一个副本p’，让p’指向新的对象new，外面的p不会变，但是p’.name变了，外面的p.name也会变（地址）</p>
+<p>b.原始类型：值传递，外面不变</p>
+<p>6.数组也是对象，即类似于3那种，int[] arr&#x3D;new int[]{1,2,2,3,1};</p>
+<p>7.String 创建的字符串存储在公共池中，而 new 创建的字符串对象在堆上</p>
+<h4 id="文件规则"><a href="#文件规则" class="headerlink" title="文件规则"></a>文件规则</h4><p>1.源代码的文件名必须与公共类的类名相同</p>
+<p>2.main方法必须为public</p>
+<h4 id="方法（类似于函数）"><a href="#方法（类似于函数）" class="headerlink" title="方法（类似于函数）"></a>方法（类似于函数）</h4><p>1.点号用于调用方法</p>
+<p>2.输出函数</p>
+<p>System.ou.println(“”);输出后有换行符</p>
+<p>System.out.print(“”);输出后无换行符</p>
+<p>2.5：注意，bufferread比上面这个输入快很多</p>
+<p>3.数学库Math.pow( , );Math.sqrt();</p>
+<p>Math.sin();Math.exp();</p>
+<p>常量Math.PI;Math.E;</p>
+<p>（返回值类型是long）Math.round();四舍五入</p>
+<p>避免使用前缀:import static java.lang.Math.*;</p>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p>1.byte（1） short（2） int（4） long（8） float（4） double（8） boolean char</p>
+<p>2.无 无符号类型</p>
+<p>3.长整型有L或l后缀，float有F&#x2F;f后缀。十六进制0x前缀</p>
+<p>4.java整型大小与平台无关</p>
+<p>5.正无穷大：Double.POSITIVE_INFINITY</p>
+<p>   负无穷大：Double.NEGATIVE_INFINITY</p>
+<p>   不是数：Double.NaN(所有的NaN值都是不同的）,判断是不是数Double.isNaN(x)</p>
+<p>6.unicode转义在解析代码之前处理</p>
+<p>println等价于pr\u0069tf   哈哈哈unicode只是编码格式，大多数情况等价</p>
+<p>7.var 变量&#x3D;1；变量自动识别为int.</p>
+<p>8.常量:final double ADF;表示ADF变量只能被赋值一次</p>
+<p>9.类常量，放在main方法外，同一个类的其他方法也能用:public <strong>static​</strong>  fianl double</p>
+<p>10.二元运算符连接两个变量的时候，自动进行类型转换，忘高精度，浮点数的变量方向转化</p>
+<p>11.不在boolean类型和其他之间类型转换，用B?1:0</p>
+<p>12.枚举类型：枚举是一种特殊的类，该类里面所有的常量都是他的实例。</p>
+<p>enum   size(类) {A,B,C,D};</p>
+<p>Size x&#x3D;Size.B;</p>
+<h4 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h4><h5 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h5><p>跳过没学</p>
+<h5 id="运算符级别"><a href="#运算符级别" class="headerlink" title="运算符级别"></a>运算符级别</h5><p>同c</p>
+<p>1.注意a+&#x3D;b+&#x3D;c，加等于是右结合运算符，等价于a +&#x3D;(b+&#x3D;c)</p>
+<p>2.java无逗号运算符</p>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>String  a&#x3D;””;</p>
+<p>String不是字符串类型，是一个预定义类</p>
+<p>这意味着string有很多方法</p>
+<p>string进行了特殊优化，使其使用起来像基本类型，可以直接拼接</p>
+<p>注意string储存的是对象引用，是堆上的对象，是对象的地址，赋值后改变则都会改变</p>
+<p>（有点像c的指针）赋值新值后会导致原值留在内存里面</p>
+<h5 id="子串-substring方法"><a href="#子串-substring方法" class="headerlink" title="子串:substring方法"></a>子串:substring方法</h5><p>String greeting &#x3D;”hello”;</p>
+<p>String s&#x3D;greeting.substring(0,3) &#x2F;&#x2F;从从零到第一个不想复制的位置</p>
+<p>(s&#x3D;&#x3D;”hel”)</p>
+<h5 id="拼接"><a href="#拼接" class="headerlink" title="拼接"></a>拼接</h5><p>java支持字符串的拼接</p>
+<h6 id="字符与字符"><a href="#字符与字符" class="headerlink" title="字符与字符"></a>字符与字符</h6><h6 id="字符与其他类型"><a href="#字符与其他类型" class="headerlink" title="字符与其他类型"></a>字符与其他类型</h6><p>int age &#x3D;18;</p>
+<p>String information&#x3D;”name”+age;</p>
+<p>—- name18</p>
+<h5 id="一些方法"><a href="#一些方法" class="headerlink" title="一些方法"></a>一些方法</h5><p>equals 比较字符串是否相等，注意字符串不用&#x3D;&#x3D;比较，因为比的是地址，可能出bug</p>
+<p>join 用指定分隔符隔开若干个字符串</p>
+<p>repeat 把一个字符串重复指定次数次，成为一个新的字符串</p>
+<p>length 返回指定字符串所需要的代码单元个数</p>
+<p>很多，可以去oracle官网查看api注释</p>
+<h5 id="不能改变"><a href="#不能改变" class="headerlink" title="不能改变"></a>不能改变</h5><p>string指向的内容不能修改，但是可以重新指向新的目标</p>
+<p>但是string指向的内容可以共享</p>
+<h5 id="空串和null"><a href="#空串和null" class="headerlink" title="空串和null"></a>空串和null</h5><p>空串是一个 java 对象，有自己的串长度 ( 0) 和内容 (空)。</p>
+<p>null表示目前没有任何对象与该变量关联</p>
+<p>检查一个字符串是否为 null：if (str&#x3D;&#x3D;null)</p>
+<h4 id="构建字符串StringBuilder"><a href="#构建字符串StringBuilder" class="headerlink" title="构建字符串StringBuilder"></a>构建字符串StringBuilder</h4><p><code>StringBuilder</code> 是允许原地修改字符串的类</p>
+<h5 id="创建StringBuilder类字符串"><a href="#创建StringBuilder类字符串" class="headerlink" title="创建StringBuilder类字符串"></a>创建StringBuilder类字符串</h5><p>StringBuilder  x&#x3D;new StringBuilder(“hello(或者String变)”);</p>
+<h5 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h5><h6 id="增加append"><a href="#增加append" class="headerlink" title="增加append"></a>增加append</h6><p>x.append(“ “);</p>
+<h6 id="插入insert"><a href="#插入insert" class="headerlink" title="插入insert"></a>插入insert</h6><h6 id="替换replace"><a href="#替换replace" class="headerlink" title="替换replace"></a>替换replace</h6><h6 id="删除delete-deleteCharAt"><a href="#删除delete-deleteCharAt" class="headerlink" title="删除delete&#x2F;deleteCharAt"></a>删除delete&#x2F;deleteCharAt</h6><p>注意从零开始的问题</p>
+<h6 id="反转reverse"><a href="#反转reverse" class="headerlink" title="反转reverse"></a>反转reverse</h6><h6 id="获取长度length"><a href="#获取长度length" class="headerlink" title="获取长度length"></a>获取长度length</h6><h6 id="转化为string"><a href="#转化为string" class="headerlink" title="转化为string"></a>转化为string</h6><p>String y&#x3D;x.toStrin();</p>
+<h4 id="构建字符串StringBuffer"><a href="#构建字符串StringBuffer" class="headerlink" title="构建字符串StringBuffer"></a>构建字符串StringBuffer</h4><p>语法基本同StringBuilder，区别在于StringBuilder更快，但只适用于单线程，而StringBuilder适用于多线程</p>
+<h5 id="理解多线程"><a href="#理解多线程" class="headerlink" title="理解多线程"></a>理解多线程</h5><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/brokyz/p/14707360.html">Java多线程详解——一篇文章搞懂Java多线程 - brokyz - 博客园</a></p>
+<h5 id="文本块d"><a href="#文本块d" class="headerlink" title="文本块d"></a>文本块d</h5><h4 id="输入语句"><a href="#输入语句" class="headerlink" title="输入语句"></a>输入语句</h4><h5 id="1-导入库"><a href="#1-导入库" class="headerlink" title="1.导入库"></a>1.导入库</h5><p>import java.util.*.;(util包含输入输出和数据结构的一些方法，*表示全部方法，除了concurrent并发库)</p>
+<h5 id="2-构建一个输入对象"><a href="#2-构建一个输入对象" class="headerlink" title="2.构建一个输入对象"></a>2.构建一个输入对象</h5><p>利用Scanner方法</p>
+<p>Scanner x&#x3D;new Scanner(System.in);</p>
+<p>接着就可以通过x，调用scanner方法</p>
+<h5 id="3-方法"><a href="#3-方法" class="headerlink" title="3.方法"></a>3.方法</h5><p>输入一整行 String name &#x3D;in.nextLine;</p>
+<p>输入一个单词(空格) in.next();</p>
+<p>int，double之类  in.nextInt();</p>
+<h4 id="输出语句"><a href="#输出语句" class="headerlink" title="输出语句"></a>输出语句</h4><p>System.out.print();</p>
+<p>Systrm.out.printf(“ “,…)(就是c里面的printf)</p>
+<h3 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h3><h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><h5 id="形式1：java14引入"><a href="#形式1：java14引入" class="headerlink" title="形式1：java14引入"></a>形式1：java14引入</h5><p>根据seasoncode的值(case)给season字符串直接赋值</p>
+<p>String(表示字符串类型，也可以是int等)   season&#x3D;switch(seasoncode){</p>
+<p>case 0 -&gt;”spring”;……</p>
+<p>}</p>
+<p>如果seasoncode是null，则抛出NullPointerException， 即异常</p>
+<h4 id="日期-date-过时-，time类"><a href="#日期-date-过时-，time类" class="headerlink" title="日期 date(过时)，time类"></a>日期 date(过时)，time类</h4><h4 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h4><p>正则表达式(Regular Expression)是一种文本模式，包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为”元字符”），可以用来描述和匹配字符串的特定模式。</p>
+<table>
+<thead>
+<tr>
+<th>this is text</th>
+<th>匹配字符串 “this is text”</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>this\s+is\s+text</td>
+<td>注意字符串中的 <strong>\s+</strong>。匹配单词 “this” 后面的 <strong>\s+</strong> 可以匹配多个空格，之后匹配 is 字符串，再之后 <strong>\s+</strong> 匹配多个空格然后再跟上 text 字符串。可以匹配这个实例：this is text</td>
+</tr>
+<tr>
+<td>^\d+(.\d+)?</td>
+<td>^ 定义了以什么开始\d+ 匹配一个或多个数字? 设置括号内的选项是可选的. 匹配 “.”可以匹配的实例：”5”, “1.5” 和 “2.21”。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/05/algorithm/6.%E8%B4%AA%E5%BF%83/%E8%B4%AA%E5%BF%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -248,99 +452,6 @@
 <h4 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h4><p>最常见的贪心有两种。</p>
 <p>1.我们将 XXX 按照某某顺序排序，然后按某种顺序（例如从小到大）选择。<br>2.我们每次都取 XXX 中最大&#x2F;小的东西，并更新 XXX。（有时「XXX 中最大&#x2F;小的东西」可以优化，比如用优先队列维护）</p>
 <h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><p>区间选点<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hardestnut/articles/19149534">https://www.cnblogs.com/hardestnut/articles/19149534</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/05/algorithm/1.dp/%E8%83%8C%E5%8C%85dp.md/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="HardestNut">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2026/02/05/algorithm/1.dp/%E8%83%8C%E5%8C%85dp.md/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/" class="post-title-link" itemprop="url">多重背包</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2026-02-05 22:48:08" itemprop="dateCreated datePublished" datetime="2026-02-05T22:48:08+08:00">2026-02-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-02-07 09:55:22" itemprop="dateModified" datetime="2026-02-07T09:55:22+08:00">2026-02-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/algorithm/%E8%83%8C%E5%8C%85dp/" itemprop="url" rel="index"><span itemprop="name">背包dp</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>多重背包也是 0-1 背包的一个变式。与 0-1 背包的区别在于每种物品有 𝑘𝑖<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="k_i"> 个，而非一个。</p>
-<p>（我们尝试用完全背包的思路优化，发现失败。因为多重背包数量是有限的，假设我们背包空间十分大，把ki个物品全部取完，就会导致f[j]和f[j-w[i]]两个都能取完所有的ki物品，和完全背包是不一致的）</p>
-<p>所以我们回归到01背包问题，朴素思路，将k个物品看成k个不一样的，时间复杂度（∑s[i]*cap*n)</p>
-<p>利用二进制优化：</p>
-<p>我们效率低的原因主要在于我们进行了大量重复性的工作。举例来说，我们考虑了「同时选 𝐴𝑖,1,𝐴𝑖,2<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="A_{i,1},A_{i,2}">」与「同时选 𝐴𝑖,2,𝐴𝑖,3<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="A_{i,2},A_{i,3}">」这两个完全等效的情况。</p>
-<p>我们尝试将物品捆绑为1,2,4,8…2^k,cap-(2^(k+1)-1),这样你选取任意数量的物品，都能从这些二进制数里面组合得到。（比如你选10个—2和8）同时可以证明，在2^k和cap之间的部分，也不存在遗漏，都有组成方案。</p>
-<p>代码</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxv=<span class="number">10010</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">2000</span>;</span><br><span class="line"><span class="type">int</span> f[maxv];</span><br><span class="line"><span class="type">int</span> v[maxn],w[maxn];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,cap;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;cap;</span><br><span class="line">    <span class="type">int</span> index=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="type">int</span> cnt=<span class="number">1</span>,a,b,s;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b&gt;&gt;s;</span><br><span class="line">        <span class="keyword">while</span>(s&gt;=cnt)&#123;</span><br><span class="line">            index++;</span><br><span class="line">            v[index]=cnt*a;</span><br><span class="line">            w[index]=cnt*b;</span><br><span class="line">            s-=cnt;</span><br><span class="line">            cnt*=<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        index++;</span><br><span class="line">        v[index]=s*a;</span><br><span class="line">        w[index]=s*b;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=index;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=cap;j&gt;=w[i];j--)</span><br><span class="line">            f[j]=<span class="built_in">max</span>(f[j],f[j-w[i]]+v[i]);</span><br><span class="line">    cout&lt;&lt;f[cap]&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>代码细节：</p>
-<p>1.一次for循环是在初始化那k个数的捆绑，我们不知道一共扩展为多少个物品，所以我们需要一个全局变量index去记录第几个物品。</p>
-<p>2.我们v[],w[]都是从1开始的</p>
-<p>3.cnt代表当前第index个物品由多少个物品捆绑成。</p>
-<p>4.while循环后那一步是在让剩余的物品当作一捆</p>
-<p>5.我们while循环s&gt;&#x3D;cnt可以，代表剩余的量必须大于等于当前捆绑的数量，否则停止，并让剩余的量凑作一捆。当s&#x3D;cnt时，代表整个数列刚好为一个等比（s-∑cnt&#x3D;2^(k+1))，此时继续循环，下一次s被减为0，这种情况会被if(s&gt;0)排除在外，因为s&#x3D;0，已经初始化完了</p>
-<p>6.当然，也可以while(s&gt;cnt)，这时候不需要if(s&gt;0)</p>
 
       
     </div>
@@ -435,6 +546,99 @@
 <p>值得注意的是，<strong>我们第二层for循环不必像01背包那样逆着来</strong>，因为我们状态转移方程里面第二个f[i][j-w]+v就是需要这一层的（01背包是f[i-1][j-w[i]]+v[i]])，逻辑刚好</p>
 <p>代码如下</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=w[i];j&lt;=cap;j++)&#123;</span><br><span class="line">    f[j]=std::<span class="built_in">max</span>(f[j],f[j-w[i]]+v[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/05/algorithm/1.dp/%E8%83%8C%E5%8C%85dp.md/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/02/05/algorithm/1.dp/%E8%83%8C%E5%8C%85dp.md/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/" class="post-title-link" itemprop="url">多重背包</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2026-02-05 22:48:08" itemprop="dateCreated datePublished" datetime="2026-02-05T22:48:08+08:00">2026-02-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-02-07 09:55:22" itemprop="dateModified" datetime="2026-02-07T09:55:22+08:00">2026-02-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/%E8%83%8C%E5%8C%85dp/" itemprop="url" rel="index"><span itemprop="name">背包dp</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>多重背包也是 0-1 背包的一个变式。与 0-1 背包的区别在于每种物品有 𝑘𝑖<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="k_i"> 个，而非一个。</p>
+<p>（我们尝试用完全背包的思路优化，发现失败。因为多重背包数量是有限的，假设我们背包空间十分大，把ki个物品全部取完，就会导致f[j]和f[j-w[i]]两个都能取完所有的ki物品，和完全背包是不一致的）</p>
+<p>所以我们回归到01背包问题，朴素思路，将k个物品看成k个不一样的，时间复杂度（∑s[i]*cap*n)</p>
+<p>利用二进制优化：</p>
+<p>我们效率低的原因主要在于我们进行了大量重复性的工作。举例来说，我们考虑了「同时选 𝐴𝑖,1,𝐴𝑖,2<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="A_{i,1},A_{i,2}">」与「同时选 𝐴𝑖,2,𝐴𝑖,3<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="A_{i,2},A_{i,3}">」这两个完全等效的情况。</p>
+<p>我们尝试将物品捆绑为1,2,4,8…2^k,cap-(2^(k+1)-1),这样你选取任意数量的物品，都能从这些二进制数里面组合得到。（比如你选10个—2和8）同时可以证明，在2^k和cap之间的部分，也不存在遗漏，都有组成方案。</p>
+<p>代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxv=<span class="number">10010</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">2000</span>;</span><br><span class="line"><span class="type">int</span> f[maxv];</span><br><span class="line"><span class="type">int</span> v[maxn],w[maxn];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,cap;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;cap;</span><br><span class="line">    <span class="type">int</span> index=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="type">int</span> cnt=<span class="number">1</span>,a,b,s;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b&gt;&gt;s;</span><br><span class="line">        <span class="keyword">while</span>(s&gt;=cnt)&#123;</span><br><span class="line">            index++;</span><br><span class="line">            v[index]=cnt*a;</span><br><span class="line">            w[index]=cnt*b;</span><br><span class="line">            s-=cnt;</span><br><span class="line">            cnt*=<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        index++;</span><br><span class="line">        v[index]=s*a;</span><br><span class="line">        w[index]=s*b;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=index;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=cap;j&gt;=w[i];j--)</span><br><span class="line">            f[j]=<span class="built_in">max</span>(f[j],f[j-w[i]]+v[i]);</span><br><span class="line">    cout&lt;&lt;f[cap]&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码细节：</p>
+<p>1.一次for循环是在初始化那k个数的捆绑，我们不知道一共扩展为多少个物品，所以我们需要一个全局变量index去记录第几个物品。</p>
+<p>2.我们v[],w[]都是从1开始的</p>
+<p>3.cnt代表当前第index个物品由多少个物品捆绑成。</p>
+<p>4.while循环后那一步是在让剩余的物品当作一捆</p>
+<p>5.我们while循环s&gt;&#x3D;cnt可以，代表剩余的量必须大于等于当前捆绑的数量，否则停止，并让剩余的量凑作一捆。当s&#x3D;cnt时，代表整个数列刚好为一个等比（s-∑cnt&#x3D;2^(k+1))，此时继续循环，下一次s被减为0，这种情况会被if(s&gt;0)排除在外，因为s&#x3D;0，已经初始化完了</p>
+<p>6.当然，也可以while(s&gt;cnt)，这时候不需要if(s&gt;0)</p>
 
       
     </div>
@@ -911,7 +1115,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
