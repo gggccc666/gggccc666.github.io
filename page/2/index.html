@@ -179,6 +179,261 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">拓扑排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:17:37 / 修改时间：10:34:10" itemprop="dateCreated datePublished" datetime="2026-02-07T09:17:37+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/%E6%90%9C%E7%B4%A2/" itemprop="url" rel="index"><span itemprop="name">搜索</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>拓扑排序</p>
+<p>拓扑序列：一个有向图中，对于任意的边，拓扑排序的目标是将所有节点排序，使得排在前面的节点不能依赖于排在后面的节点。</p>
+<p>可以证明，一个有向无环图一定存在拓扑序列，但不一定唯一</p>
+<p>算法：</p>
+<p>所有入度为零的点入队，删除该点和所有出边</p>
+<p>枚举所有入队的点的指向的点，让其入度减1，若是这些点入度变为零，则入队；若是不为零，不管，直到其他点不断递归到指向它的点，使得入度最终变为零，再入队。</p>
+<p>不断重复以上过程，直到集合 𝑆<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="S"> 为空。检查图中是否存在任何边，如果有，那么这个图一定有环路，否则返回 𝐿<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="L">，𝐿<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="L"> 中顶点的顺序就是构造拓扑序列的结果。</p>
+<p>首先仍然需要图的储存</p>
+<p>其中q代表队列，d代表点的入度</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">10010</span>;</span><br><span class="line"><span class="type">int</span> e[N],ne[N],h[N],idx;</span><br><span class="line"><span class="type">int</span> q[N],d[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">    idx=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">menset</span>(h,<span class="number">-1</span>,<span class="built_in">sizeof</span>(h);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="built_in">add</span>(<span class="type">int</span> a,<span class="type">int</span> b)&#123;</span><br><span class="line">    e[idx]=b;ne[idx]=h[a];h[a]=idx;idx++;</span><br><span class="line">    d[b]++</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后是toposort</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">toposort</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> j=<span class="number">-1</span>,k=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="keyword">if</span>(d[i]==<span class="number">0</span>)q[++j]=i;</span><br><span class="line">    <span class="keyword">while</span>(k&lt;=j)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> head=h[q[k]];head!=<span class="number">-1</span>;head=ne[head])&#123;</span><br><span class="line">    <span class="type">int</span> nt=e[head];</span><br><span class="line">    d[nt]--;</span><br><span class="line">    <span class="keyword">if</span>(d[nt]==<span class="number">0</span>)q[++j]=nt;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> j==n<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>main函数中，输出topo序列的逻辑</p>
+<p>发现我们q[]刚好就是节点的排序，满足前面的节点不依赖于后面的节点</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">toposort</span>())&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)cout&lt;&lt;q[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/" class="post-title-link" itemprop="url">回溯</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:17:37 / 修改时间：10:33:40" itemprop="dateCreated datePublished" datetime="2026-02-07T09:17:37+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/%E6%90%9C%E7%B4%A2/" itemprop="url" rel="index"><span itemprop="name">搜索</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%AD%90%E9%9B%86%E7%94%9F%E6%88%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%AD%90%E9%9B%86%E7%94%9F%E6%88%90/" class="post-title-link" itemprop="url">子集生成</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:17:37 / 修改时间：10:34:26" itemprop="dateCreated datePublished" datetime="2026-02-07T09:17:37+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/%E6%90%9C%E7%B4%A2/" itemprop="url" rel="index"><span itemprop="name">搜索</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="子集生成"><a href="#子集生成" class="headerlink" title="子集生成"></a>子集生成</h3><p>生成某个整数序列的所有可能子集</p>
+<p>下面以从1-n的整数集，无重复数字 举例</p>
+<h5 id="增量构造法（递归）"><a href="#增量构造法（递归）" class="headerlink" title="增量构造法（递归）"></a>增量构造法（递归）</h5><p>思路是从第一位开始，对于每一位而言，依次填入这一位后面的所有值，而后面的后面又是这样填，即递归。</p>
+<p>若是算法每一步都对，有正确的初始化值，且有终止条件，则可用递归</p>
+<p>例如，1 2 3的递归过程用解释树构造如下</p>
+<p><img src="file:///D:/Typedown/813127ef-a2ea-447c-ba05-f6b9380c3577.png" alt="813127ef-a2ea-447c-ba05-f6b9380c3577"></p>
+<p>a:构造的子集</p>
+<p>s:s为当前加入的值，若cur为零，则初始化为1，否则为a[cur-1]的下一个值</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_subset</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> *a,<span class="type">int</span> cur)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;cur;i++)cout&lt;&lt;a[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    <span class="type">int</span> s=cur?a[cur<span class="number">-1</span>]<span class="number">+1</span>:<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=s;i&lt;=n;i++)&#123;</span><br><span class="line">        a[cur]=i;</span><br><span class="line">        <span class="built_in">print_subset</span>(n,a,cur<span class="number">+1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="位向量法-决策树"><a href="#位向量法-决策树" class="headerlink" title="位向量法(决策树)"></a>位向量法(决策树)</h5><p>我们构造一个向量a,a[i]为0或1,a[i]&#x3D;&#x3D;1意味着子集含有i</p>
+<p>比如a[4]&#x3D;0,1,1,0;对应子集为2 3.</p>
+<p>注意这里递归函数没有for循环限制数量，需要return ；</p>
+<p>对于某一位而言，下一位数要么有，要么没有，以此构造递归式</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_subset1</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> *a,<span class="type">int</span> cur)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cur==n)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i])cout&lt;&lt;i<span class="number">+1</span>&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    a[cur]=<span class="number">1</span>;</span><br><span class="line">    <span class="built_in">print_subset1</span>(n,a,cur<span class="number">+1</span>);</span><br><span class="line">    a[cur]=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">print_subset1</span>(n,a,cur<span class="number">+1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="二进制法"><a href="#二进制法" class="headerlink" title="二进制法"></a>二进制法</h5><p>惊讶的发现，我们子集可以看成一个数组，每一位取和不取的集合！将取与不取看成01的话，子集就代表一个二进制串！（和位向量法类似）</p>
+<p>先枚举二进制数（就是1-2^n，二进制和十进制没区别），对于每个二进制数，打印出其对应的子集</p>
+<p>s&amp;1&lt;&lt;i即s的第i位与上1,判断s的第i位是否为1</p>
+<p>很优雅的实现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;(<span class="number">1</span>&lt;&lt;<span class="number">4</span>);i++)</span><br><span class="line">    <span class="built_in">print_subset2</span>(<span class="number">4</span>,i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_subset2</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s&amp;<span class="number">1</span>&lt;&lt;i)cout&lt;&lt;i<span class="number">+1</span>&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/dfs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -373,78 +628,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/language/oracle/%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="HardestNut">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2026/02/07/language/oracle/%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">索引对象</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2026-02-07 09:16:36 / 修改时间：10:43:19" itemprop="dateCreated datePublished" datetime="2026-02-07T09:16:36+08:00">2026-02-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/language/" itemprop="url" rel="index"><span itemprop="name">language</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/language/oracle/" itemprop="url" rel="index"><span itemprop="name">oracle</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>什么是数据对象？他是指存储在 <strong>Schema（用户）</strong> 中、由 Oracle 数据字典管理的一切结构化对象。索引就是一种</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/language/oracle/tcl/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -498,6 +681,78 @@
 
       
           <p>维护数据一致性，包括commit(提交更改）,rollback（取消更改）,savepoint（设置保存点）</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/language/oracle/%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="HardestNut">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/02/07/language/oracle/%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">索引对象</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-07 09:16:36 / 修改时间：10:43:19" itemprop="dateCreated datePublished" datetime="2026-02-07T09:16:36+08:00">2026-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/language/" itemprop="url" rel="index"><span itemprop="name">language</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/language/oracle/" itemprop="url" rel="index"><span itemprop="name">oracle</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>什么是数据对象？他是指存储在 <strong>Schema（用户）</strong> 中、由 Oracle 数据字典管理的一切结构化对象。索引就是一种</p>
 
       
     </div>
@@ -851,276 +1106,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/language/oracle/dql/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="HardestNut">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2026/02/07/language/oracle/dql/" class="post-title-link" itemprop="url">dql</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2026-02-07 09:16:36 / 修改时间：10:41:44" itemprop="dateCreated datePublished" datetime="2026-02-07T09:16:36+08:00">2026-02-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/language/" itemprop="url" rel="index"><span itemprop="name">language</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/language/oracle/" itemprop="url" rel="index"><span itemprop="name">oracle</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>dql，query，查询主要是select</p>
-<p>查询</p>
-<h2 id="select"><a href="#select" class="headerlink" title="select"></a>select</h2><pre><code>SELECT column1, column2, ...
-FROM table_name;
-
-SELECT * FROM table_name;
-</code></pre>
-<h6 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h6><p>查询当前schema有哪些表</p>
-<p>SELECT table_name FROM user_tables;</p>
-<h6 id="select-distinct"><a href="#select-distinct" class="headerlink" title="select distinct"></a>select distinct</h6><p>列出column的所有不同值（一个值会且仅会列一次）<br>    SELECT DISTINCT column1, column2, …<br>    FROM table_name;</p>
-<h6 id="select-where筛选行"><a href="#select-where筛选行" class="headerlink" title="select where筛选行"></a>select where筛选行</h6><p>查找满足条件的列<br>    SELECT column1, column2, …<br>    FROM table_name<br>    WHERE condition;</p>
-<p>where可加的有<strong>运算符 逻辑 特殊</strong></p>
-<p>1.运算符&#x3D; &gt; &lt; &gt;&#x3D; ,&lt;&#x3D;, !&#x3D;,&lt;&gt;（或！&#x3D;）</p>
-<p>Select * from emp where ename&#x3D;’SMITH’;</p>
-<p>2.逻辑 and ，or，not</p>
-<p>Select * from emp where sal &gt; 2000 or comm &gt; 500;</p>
-<p>select * from emp where not sal &gt; 1500;</p>
-<p>3.特殊</p>
-<p>空值is null</p>
-<p>在什么之间between</p>
-<p>在什么之中in</p>
-<p>模糊查询like</p>
-<p>Select * from emp where comm is null;</p>
-<p>Select * from emp where sal between 1500 and 3000;</p>
-<p>Select * from emp where sal in (5000,3000,1500);</p>
-<p>Select * from emp where ename like ‘M%’;</p>
-<p>查询 EMP 表中 Ename 列中有 M 的值，M 为要查询内容中的模糊信息。<strong>%表示多个字值_，下划线表示一个字符</strong></p>
-<p><strong>M%</strong> : 为能配符，正则表达式，表示的意思为模糊查询信息为 M 开头的。</p>
-<p> <strong>%M%</strong> : 表示查询包含M的所有内容。</p>
-<p> <strong>%M_</strong> : 表示查询以M在倒数第二位的所有内容</p>
-<h6 id="select-order-by"><a href="#select-order-by" class="headerlink" title="select order by"></a>select order by</h6><p>ORDER BY 关键字用于对结果集按照一个列或者多个列进行排序。默认升序<br>    SELECT column1, column2, …<br>    FROM table_name<br>    ORDER BY column1, column2, … ASC|DESC;</p>
-<p>有多列的话先按1排序，若是相同则按column2排，以此类推</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/language/oracle/DML/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="HardestNut">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2026/02/07/language/oracle/DML/" class="post-title-link" itemprop="url">dml</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2026-02-07 09:16:36 / 修改时间：10:41:38" itemprop="dateCreated datePublished" datetime="2026-02-07T09:16:36+08:00">2026-02-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/language/" itemprop="url" rel="index"><span itemprop="name">language</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/language/oracle/" itemprop="url" rel="index"><span itemprop="name">oracle</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>dml,操作数据库中的数据（增删改）的语言</p>
-<p>主要包括insert，update，delete</p>
-<p><strong>注意，DML需要手动commit，否则不会保存。</strong></p>
-<p><strong>注意，提交commit后，无法回退</strong></p>
-<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><h6 id="insert-into"><a href="#insert-into" class="headerlink" title="insert into"></a>insert into</h6><p>1.简写方式</p>
-<p>列数value数必须一样，除非允许空值，按顺序插入</p>
-<p>&#x2F;&#x2F;[]表示可选</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> table_name</span><br><span class="line">[(列名<span class="number">1</span>,...列名n)]</span><br><span class="line"><span class="keyword">VALUES</span> (value1,value2,value3,...);</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li></li>
-</ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> table_name (column1,column2,column3,...)</span><br><span class="line"><span class="keyword">VALUES</span> (value1,value2,value3,...);</span><br></pre></td></tr></table></figure>
-
-<p>INSERT INTO Websites (name, url, alexa, country) VALUES (‘百度’,’<a target="_blank" rel="noopener" href="https://www.baidu.com/','4','CN">https://www.baidu.com/&#39;,&#39;4&#39;,&#39;CN</a>‘);</p>
-<h3 id="更新update"><a href="#更新update" class="headerlink" title="更新update"></a>更新update</h3><p>注意若无 WHERE 子句，所有的记录都将被更新</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> table_name</span><br><span class="line"><span class="keyword">SET</span> column1 <span class="operator">=</span> value1, column2 <span class="operator">=</span> value2, ...</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除delete"><a href="#删除delete" class="headerlink" title="删除delete"></a>删除delete</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span>;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2026/02/07/language/oracle/ddl/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="HardestNut">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2026/02/07/language/oracle/ddl/" class="post-title-link" itemprop="url">ddl</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2026-02-07 09:16:36 / 修改时间：10:41:32" itemprop="dateCreated datePublished" datetime="2026-02-07T09:16:36+08:00">2026-02-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/language/" itemprop="url" rel="index"><span itemprop="name">language</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/language/oracle/" itemprop="url" rel="index"><span itemprop="name">oracle</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>ddl（define)创建修改删除数据库对象</p>
-<p>包括create,alter,drop，truncate（类似于delete，但是效率更高，delete是放入回滚段中，truncate无法回滚）</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1187,7 +1176,7 @@ SELECT * FROM table_name;
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
