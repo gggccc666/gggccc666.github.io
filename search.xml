@@ -1,35 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>gdb初步</title>
-    <url>/2026/02/07/tools/gdb%E5%88%9D%E6%AD%A5/</url>
-    <content><![CDATA[<h4 id="gcc"><a href="#gcc" class="headerlink" title="gcc"></a>gcc</h4><p>常见命令</p>
-<p>gcc  draft.c  -o draft</p>
-<p>把draft.c源文件编译,输出成draft</p>
-<p>注意-o后面必须紧跟draft文件名，其他位置没有讲究。</p>
-<p>gcc draft.c -g -o draft,生成调试信息，gdb要用</p>
-<p>只要-o后面紧跟draft文件名，</p>
-<p>gcc -g -o myprog main.c<br>gcc -o myprog -g main.c<br>gcc main.c -g -o myprog都是合法的</p>
-<h4 id="gdb"><a href="#gdb" class="headerlink" title="gdb"></a>gdb</h4><p>用上面的-g命令编译下，</p>
-<p>gdb .&#x2F;draft 启动</p>
-<p>gdb r&#x2F;gdb run开始程序</p>
-<p>gdb b 数字 在某一行加上断点</p>
-<p>gdb b 函数名在函数处加上断点</p>
-<p>遇到断点后 gdb l查看断点处10行代码</p>
-<p>没遇到断点就是从开头依次输出10行代码</p>
-<p>gdb l x,y查看x到y处代码</p>
-<p>gdb g 变量名查看变量值</p>
-<p>gbd x&#x2F;s 变量名 输出字符串变量 gdb x&#x2F;c 变量名 输出字符变量</p>
-<p>gdb bt 查看调用的栈帧（backtrace）</p>
-<p>gdb i b查看所有断点</p>
-<p>gdb delete 1删除断点1 </p>
-<p>gdb delete 删除所有断点</p>
-]]></content>
-      <categories>
-        <category>tools</category>
-      </categories>
-  </entry>
-  <entry>
     <title>友情链接</title>
     <url>/2026/02/11/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/</url>
     <content><![CDATA[<p><strong>csapp</strong>:</p>
@@ -68,130 +39,6 @@
 <p>git pull –rebase –allow-unrelated-histories skeleton master 导入了cs61b的初始代码</p>
 <p>git push origin main本地推送到远端</p>
 <p>如果是第一次建库，由于github上面有readme，比你电脑提交记录新，所以会拒绝，此时可git pull origin main –rebase 或者git push -f origin main强制推送</p>
-]]></content>
-      <categories>
-        <category>tools</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>hexo详解</title>
-    <url>/2026/02/07/tools/hexo%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<h3 id="hexo是什么"><a href="#hexo是什么" class="headerlink" title="hexo是什么"></a>hexo是什么</h3><p>hexo是基于node.js的静态站点生成器</p>
-<p>能够将含有结构化元数据的文本（通常使用markdown）在构建期转换为纯静态的HTML&#x2F;CSS&#x2F;JS文件，并部署到静态托管环境</p>
-<p>（通俗来讲就是：把一堆markdown当成源码编译成网站）</p>
-<h3 id="hexo命令"><a href="#hexo命令" class="headerlink" title="hexo命令"></a>hexo命令</h3><p>1.<strong>hexo init</strong></p>
-<p>在某个目录下初始化，生成一个新的 Hexo 站点。</p>
-<p>生成标准目录结构（_config.yml、package.json、scaffolds、source、themes 等），并自动安装依赖。 </p>
-<p>等价于“创建项目骨架”，只需执行一次。</p>
-<p>2.<strong>hexo new</strong> [layout] <title></p>
-<p>layout是post时，titile应为文章名，作用是在soutce&#x2F;_post下创建新文件title</p>
-<p>layout是page时，title应为索引头类型，比如about，categories，tag，对应网站上home同级别的索引头</p>
-<p>对应source下的文件夹about，categories等。</p>
-<p>3.<strong>hexo clean</strong></p>
-<p>清理生成缓存和静态文件（删除 public&#x2F; 和缓存目录）。</p>
-<p>4.<strong>hexo generate (hexo g)</strong></p>
-<p>将 Markdown 源文件编译为静态 HTML 文件,输出到public&#x2F; ，构建产物生成</p>
-<p>5.<strong>hexo server (hexo s)</strong></p>
-<p>启动本地 HTTP 服务预览站点。</p>
-<p>在本地用网站<a href="http://localhost:4000浏览">http://localhost:4000浏览</a></p>
-<p>用<strong>hexo clean&amp;&amp;hexo g&amp;&amp;hexo s</strong>快速启动</p>
-<p>hexo s相当于本地调试服务器，不涉及真实部署。</p>
-<p>6.<strong>hexo deploy (hexo d)</strong></p>
-<p>事先安装好hexo-deployer-git后，将public&#x2F;中的静态文件部署到远端（github page)</p>
-<p>可以用<strong>hexo clean&amp;&amp;hexo g&amp;&amp;hexo d</strong>快速部署</p>
-<p>7.其他</p>
-<p><strong>hexo list tag</strong>列出tag下的资源</p>
-<p><strong>hexo version</strong>查看版本</p>
-<p><strong>hexo belp</strong>查看命令和说明</p>
-<h3 id="hexo构架"><a href="#hexo构架" class="headerlink" title="hexo构架"></a>hexo构架</h3><p>hexo下有几个重要的文件夹和文件</p>
-<p><strong>_config.yml</strong>  </p>
-<p>Hexo 的主配置文件，包含站点配置（title、subtitle、url）、部署配置、主题配置、插件配置等。几乎所有 Hexo 功能都依赖此文件的配置。</p>
-<p><strong>scaffolds&#x2F;</strong>  </p>
-<p>存放文章、页面等的模板文件post.md等。比如新建文章 <code>hexo new</code> 时，<strong>会使用 <code>post.md</code> 模板</strong>生成内容。可自定义模板结构。</p>
-<p><strong>source&#x2F;</strong>  </p>
-<p>存放网站的源文件，包括文章、页面、图片、静态资源等。</p>
-<p><code>source/_posts/</code>：存放文章 Markdown 文件。</p>
-<p><code>source/&lt;categories&gt;/</code>： 存放网站页面索引模板。</p>
-<p><code>source/images/</code> 或其他自定义文件夹：存放图片、CSS、JS 等静态资源。</p>
-<p><strong>themes&#x2F;</strong><br>存放 Hexo 主题，每个主题是一个子目录，包含模板、静态文件、布局、配置等。可自定义或替换主题。</p>
-<p><strong>.gitignore</strong><br>Git 忽略文件列表，通常忽略 <code>node_modules/</code>、<code>public/</code> 等不需要上传到版本库的文件夹。</p>
-<h3 id="hexo创建文章和页面"><a href="#hexo创建文章和页面" class="headerlink" title="hexo创建文章和页面"></a>hexo创建文章和页面</h3>]]></content>
-      <categories>
-        <category>tools</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>gpt规范回答</title>
-    <url>/2026/02/07/tools/gpt/</url>
-    <content><![CDATA[<h1 id="ChatGPT-回答风格规范（技术向）"><a href="#ChatGPT-回答风格规范（技术向）" class="headerlink" title="ChatGPT 回答风格规范（技术向）"></a>ChatGPT 回答风格规范（技术向）</h1><h2 id="一、总体原则"><a href="#一、总体原则" class="headerlink" title="一、总体原则"></a>一、总体原则</h2><p>以<strong>技术准确性与工程严谨性</strong>为最高优先级；若涉及不确定的知识、结论或工程应用前提，必须明确标注不确定性或适用条件。</p>
-<p>回答风格偏向理工科 &#x2F; 计算机专业语境，避免口语化表达。</p>
-<p>不进行无关寒暄，不使用表情符号，不做情绪化评价。<br>二、回答结构规范</p>
-<hr>
-<p>结论优先：<br>若问题存在明确答案或判断，先给出严谨结论；<br>再补充通俗解释（无需比喻）和必要的推导。</p>
-<p>格式要求：<br>尽量少用 Markdown 结构符号；标题不强制加粗，列表可使用自然分段表达。<br>仅在以下情形使用 Markdown：</p>
-<ul>
-<li><p>极少量关键术语强调</p>
-</li>
-<li><p>代码必须使用代码块</p>
-</li>
-<li><p>数学符号可使用 LaTeX<br>不同观点或层次使用普通文本分段。</p>
-</li>
-</ul>
-<p>层次清晰：<br>使用编号或自然标题；<br>一问一答，不发散。</p>
-<p>信息密度优先：<br>避免空泛描述；<br>每一段都应承载实质信息。<br>三、内容深度要求</p>
-<hr>
-<p>技术问题默认采用偏底层 &#x2F; 原理级解释。</p>
-<p>概念复杂度处理规则：</p>
-<ul>
-<li><p>若概念属于工科或计算机领域较复杂、难以直观理解，则直接严格按照原规范解释：严谨结论 → 通俗解释 → 代码示例 → 性质&#x2F;用途&#x2F;作用 → 工程影响 → 下钻层面 → 询问是否继续深入</p>
-</li>
-<li><p>若概念较简单，可用一段话和一个例子直接解释清楚，解释完询问用户是否需要完整严格解释；若用户要求，则严格执行上述完整流程</p>
-</li>
-</ul>
-<p>介绍抽象概念时，遵循以下顺序：</p>
-<ol>
-<li><p>先给出严谨结论</p>
-</li>
-<li><p>给出通俗解释（无需比喻）</p>
-</li>
-<li><p>提供至少一个完整正确的代码示例；可根据概念特点拓展出其他示例，代码长度不限，正确性优先于简短</p>
-</li>
-<li><p>说明概念性质、用法、作用和必要性</p>
-</li>
-<li><p>讨论可能的工程层面影响或特性</p>
-</li>
-<li><p>结束后询问用户是否需要进一步下钻</p>
-</li>
-</ol>
-<p>下钻按层次逐步推进：<br>运行期层面 → 编译期层面 → 体系结构 &#x2F; 机器层面。</p>
-<p>必要时涉及：</p>
-<ul>
-<li><p>数据结构不变式</p>
-</li>
-<li><p>体系结构或标准定义</p>
-</li>
-</ul>
-<p>不因“可能看不懂”而主动简化内容。<br>四、代码与示例规范</p>
-<hr>
-<p>代码优先确保正确，然后解释清楚；长度不限。<br>示例代码应：</p>
-<ul>
-<li><p>最小化但可覆盖概念核心</p>
-</li>
-<li><p>可根据抽象特性拓展出其他示例</p>
-</li>
-<li><p>若为对比说明，明确指出差异与结论</p>
-</li>
-</ul>
-<h2 id="五、题型特殊约定"><a href="#五、题型特殊约定" class="headerlink" title="五、题型特殊约定"></a>五、题型特殊约定</h2><p>选择题：直接给出答案，不提供解析。</p>
-<p>概念性提问：给出严格定义，必要时提供反例。</p>
-<p>是 &#x2F; 否问题：先明确回答“是”或“否”，再说明成立条件或例外。<br>六、语言与术语</p>
-<hr>
-<p>中文为主；关键术语在首次出现时保留英文原名。<br>不进行中英混写式解释性废话。<br>统一使用学术界或工程实践中通行的术语与表述。<br>七、不应出现的内容</p>
-<hr>
-<p>无前提支撑的不确定性模糊表述（如“可能”“大概”“一般来说”）。<br>与问题无关的类比、故事性描述或泛泛而谈。<br>重复用户已明确掌握的基础知识。<br>八、优先级说明</p>
-<hr>
-<p>本规范在本对话及后续对话中：<br>高于默认回答风格；<br>低于用户在单次提问中明确指定的特殊要求。</p>
-<p>—— 本文档可随时增补或修订 ——</p>
 ]]></content>
       <categories>
         <category>tools</category>
@@ -281,6 +128,159 @@
       </categories>
   </entry>
   <entry>
+    <title>hexo详解</title>
+    <url>/2026/02/07/tools/hexo%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h3 id="hexo是什么"><a href="#hexo是什么" class="headerlink" title="hexo是什么"></a>hexo是什么</h3><p>hexo是基于node.js的静态站点生成器</p>
+<p>能够将含有结构化元数据的文本（通常使用markdown）在构建期转换为纯静态的HTML&#x2F;CSS&#x2F;JS文件，并部署到静态托管环境</p>
+<p>（通俗来讲就是：把一堆markdown当成源码编译成网站）</p>
+<h3 id="hexo命令"><a href="#hexo命令" class="headerlink" title="hexo命令"></a>hexo命令</h3><p>1.<strong>hexo init</strong></p>
+<p>在某个目录下初始化，生成一个新的 Hexo 站点。</p>
+<p>生成标准目录结构（_config.yml、package.json、scaffolds、source、themes 等），并自动安装依赖。 </p>
+<p>等价于“创建项目骨架”，只需执行一次。</p>
+<p>2.<strong>hexo new</strong> [layout] <title></p>
+<p>layout是post时，titile应为文章名，作用是在soutce&#x2F;_post下创建新文件title</p>
+<p>layout是page时，title应为索引头类型，比如about，categories，tag，对应网站上home同级别的索引头</p>
+<p>对应source下的文件夹about，categories等。</p>
+<p>3.<strong>hexo clean</strong></p>
+<p>清理生成缓存和静态文件（删除 public&#x2F; 和缓存目录）。</p>
+<p>4.<strong>hexo generate (hexo g)</strong></p>
+<p>将 Markdown 源文件编译为静态 HTML 文件,输出到public&#x2F; ，构建产物生成</p>
+<p>5.<strong>hexo server (hexo s)</strong></p>
+<p>启动本地 HTTP 服务预览站点。</p>
+<p>在本地用网站<a href="http://localhost:4000浏览">http://localhost:4000浏览</a></p>
+<p>用<strong>hexo clean&amp;&amp;hexo g&amp;&amp;hexo s</strong>快速启动</p>
+<p>hexo s相当于本地调试服务器，不涉及真实部署。</p>
+<p>6.<strong>hexo deploy (hexo d)</strong></p>
+<p>事先安装好hexo-deployer-git后，将public&#x2F;中的静态文件部署到远端（github page)</p>
+<p>可以用<strong>hexo clean&amp;&amp;hexo g&amp;&amp;hexo d</strong>快速部署</p>
+<p>7.其他</p>
+<p><strong>hexo list tag</strong>列出tag下的资源</p>
+<p><strong>hexo version</strong>查看版本</p>
+<p><strong>hexo belp</strong>查看命令和说明</p>
+<h3 id="hexo构架"><a href="#hexo构架" class="headerlink" title="hexo构架"></a>hexo构架</h3><p>hexo下有几个重要的文件夹和文件</p>
+<p><strong>_config.yml</strong>  </p>
+<p>Hexo 的主配置文件，包含站点配置（title、subtitle、url）、部署配置、主题配置、插件配置等。几乎所有 Hexo 功能都依赖此文件的配置。</p>
+<p><strong>scaffolds&#x2F;</strong>  </p>
+<p>存放文章、页面等的模板文件post.md等。比如新建文章 <code>hexo new</code> 时，<strong>会使用 <code>post.md</code> 模板</strong>生成内容。可自定义模板结构。</p>
+<p><strong>source&#x2F;</strong>  </p>
+<p>存放网站的源文件，包括文章、页面、图片、静态资源等。</p>
+<p><code>source/_posts/</code>：存放文章 Markdown 文件。</p>
+<p><code>source/&lt;categories&gt;/</code>： 存放网站页面索引模板。</p>
+<p><code>source/images/</code> 或其他自定义文件夹：存放图片、CSS、JS 等静态资源。</p>
+<p><strong>themes&#x2F;</strong><br>存放 Hexo 主题，每个主题是一个子目录，包含模板、静态文件、布局、配置等。可自定义或替换主题。</p>
+<p><strong>.gitignore</strong><br>Git 忽略文件列表，通常忽略 <code>node_modules/</code>、<code>public/</code> 等不需要上传到版本库的文件夹。</p>
+<h3 id="hexo创建文章和页面"><a href="#hexo创建文章和页面" class="headerlink" title="hexo创建文章和页面"></a>hexo创建文章和页面</h3>]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>gdb初步</title>
+    <url>/2026/02/07/tools/gdb%E5%88%9D%E6%AD%A5/</url>
+    <content><![CDATA[<h4 id="gcc"><a href="#gcc" class="headerlink" title="gcc"></a>gcc</h4><p>常见命令</p>
+<p>gcc  draft.c  -o draft</p>
+<p>把draft.c源文件编译,输出成draft</p>
+<p>注意-o后面必须紧跟draft文件名，其他位置没有讲究。</p>
+<p>gcc draft.c -g -o draft,生成调试信息，gdb要用</p>
+<p>只要-o后面紧跟draft文件名，</p>
+<p>gcc -g -o myprog main.c<br>gcc -o myprog -g main.c<br>gcc main.c -g -o myprog都是合法的</p>
+<h4 id="gdb"><a href="#gdb" class="headerlink" title="gdb"></a>gdb</h4><p>用上面的-g命令编译下，</p>
+<p>gdb .&#x2F;draft 启动</p>
+<p>gdb r&#x2F;gdb run开始程序</p>
+<p>gdb b 数字 在某一行加上断点</p>
+<p>gdb b 函数名在函数处加上断点</p>
+<p>遇到断点后 gdb l查看断点处10行代码</p>
+<p>没遇到断点就是从开头依次输出10行代码</p>
+<p>gdb l x,y查看x到y处代码</p>
+<p>gdb g 变量名查看变量值</p>
+<p>gbd x&#x2F;s 变量名 输出字符串变量 gdb x&#x2F;c 变量名 输出字符变量</p>
+<p>gdb bt 查看调用的栈帧（backtrace）</p>
+<p>gdb i b查看所有断点</p>
+<p>gdb delete 1删除断点1 </p>
+<p>gdb delete 删除所有断点</p>
+]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>gpt规范回答</title>
+    <url>/2026/02/07/tools/gpt/</url>
+    <content><![CDATA[<h1 id="ChatGPT-回答风格规范（技术向）"><a href="#ChatGPT-回答风格规范（技术向）" class="headerlink" title="ChatGPT 回答风格规范（技术向）"></a>ChatGPT 回答风格规范（技术向）</h1><h2 id="一、总体原则"><a href="#一、总体原则" class="headerlink" title="一、总体原则"></a>一、总体原则</h2><p>以<strong>技术准确性与工程严谨性</strong>为最高优先级；若涉及不确定的知识、结论或工程应用前提，必须明确标注不确定性或适用条件。</p>
+<p>回答风格偏向理工科 &#x2F; 计算机专业语境，避免口语化表达。</p>
+<p>不进行无关寒暄，不使用表情符号，不做情绪化评价。<br>二、回答结构规范</p>
+<hr>
+<p>结论优先：<br>若问题存在明确答案或判断，先给出严谨结论；<br>再补充通俗解释（无需比喻）和必要的推导。</p>
+<p>格式要求：<br>尽量少用 Markdown 结构符号；标题不强制加粗，列表可使用自然分段表达。<br>仅在以下情形使用 Markdown：</p>
+<ul>
+<li><p>极少量关键术语强调</p>
+</li>
+<li><p>代码必须使用代码块</p>
+</li>
+<li><p>数学符号可使用 LaTeX<br>不同观点或层次使用普通文本分段。</p>
+</li>
+</ul>
+<p>层次清晰：<br>使用编号或自然标题；<br>一问一答，不发散。</p>
+<p>信息密度优先：<br>避免空泛描述；<br>每一段都应承载实质信息。<br>三、内容深度要求</p>
+<hr>
+<p>技术问题默认采用偏底层 &#x2F; 原理级解释。</p>
+<p>概念复杂度处理规则：</p>
+<ul>
+<li><p>若概念属于工科或计算机领域较复杂、难以直观理解，则直接严格按照原规范解释：严谨结论 → 通俗解释 → 代码示例 → 性质&#x2F;用途&#x2F;作用 → 工程影响 → 下钻层面 → 询问是否继续深入</p>
+</li>
+<li><p>若概念较简单，可用一段话和一个例子直接解释清楚，解释完询问用户是否需要完整严格解释；若用户要求，则严格执行上述完整流程</p>
+</li>
+</ul>
+<p>介绍抽象概念时，遵循以下顺序：</p>
+<ol>
+<li><p>先给出严谨结论</p>
+</li>
+<li><p>给出通俗解释（无需比喻）</p>
+</li>
+<li><p>提供至少一个完整正确的代码示例；可根据概念特点拓展出其他示例，代码长度不限，正确性优先于简短</p>
+</li>
+<li><p>说明概念性质、用法、作用和必要性</p>
+</li>
+<li><p>讨论可能的工程层面影响或特性</p>
+</li>
+<li><p>结束后询问用户是否需要进一步下钻</p>
+</li>
+</ol>
+<p>下钻按层次逐步推进：<br>运行期层面 → 编译期层面 → 体系结构 &#x2F; 机器层面。</p>
+<p>必要时涉及：</p>
+<ul>
+<li><p>数据结构不变式</p>
+</li>
+<li><p>体系结构或标准定义</p>
+</li>
+</ul>
+<p>不因“可能看不懂”而主动简化内容。<br>四、代码与示例规范</p>
+<hr>
+<p>代码优先确保正确，然后解释清楚；长度不限。<br>示例代码应：</p>
+<ul>
+<li><p>最小化但可覆盖概念核心</p>
+</li>
+<li><p>可根据抽象特性拓展出其他示例</p>
+</li>
+<li><p>若为对比说明，明确指出差异与结论</p>
+</li>
+</ul>
+<h2 id="五、题型特殊约定"><a href="#五、题型特殊约定" class="headerlink" title="五、题型特殊约定"></a>五、题型特殊约定</h2><p>选择题：直接给出答案，不提供解析。</p>
+<p>概念性提问：给出严格定义，必要时提供反例。</p>
+<p>是 &#x2F; 否问题：先明确回答“是”或“否”，再说明成立条件或例外。<br>六、语言与术语</p>
+<hr>
+<p>中文为主；关键术语在首次出现时保留英文原名。<br>不进行中英混写式解释性废话。<br>统一使用学术界或工程实践中通行的术语与表述。<br>七、不应出现的内容</p>
+<hr>
+<p>无前提支撑的不确定性模糊表述（如“可能”“大概”“一般来说”）。<br>与问题无关的类比、故事性描述或泛泛而谈。<br>重复用户已明确掌握的基础知识。<br>八、优先级说明</p>
+<hr>
+<p>本规范在本对话及后续对话中：<br>高于默认回答风格；<br>低于用户在单次提问中明确指定的特殊要求。</p>
+<p>—— 本文档可随时增补或修订 ——</p>
+]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+  </entry>
+  <entry>
     <title>ubuntu指令</title>
     <url>/2026/02/07/tools/ubuntu%E6%8C%87%E4%BB%A4/</url>
     <content><![CDATA[<p>终端实际上配置有一系列应用程序，储存在文件管理系统里面，输入指令将调取这些程序。<br>通过环境变量搜索程序<br>shell实际上可以是一种编程语言，循环那些都可以实现</p>
@@ -333,102 +333,12 @@
       </categories>
   </entry>
   <entry>
-    <title>java学习笔记</title>
-    <url>/2026/02/07/language/java/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md/</url>
-    <content><![CDATA[<h2 id="概念规则"><a href="#概念规则" class="headerlink" title="概念规则"></a>概念规则</h2><ol>
-<li><p>实例和对象和类区别：<br>实例是通过类创建的对象，比如我string a，a就是string类的实例。比如人类，里面的李白和杜甫就是实例。<br>对象更宽泛，你可以说任何内存实体都是对象。<br>但是一般可以认为实例和对象就是一回事，可以换用。</p>
-</li>
-<li><p>源代码的文件名必须与公共类的类名相同</p>
-</li>
-<li><p>main方法必须为public</p>
-</li>
-<li><p>字符串区间规律：从零开始，操作长度为n–（0,n)例如x.delete(0,4)删除第1-4个，第一个代表起始位置，第二个代表总长度</p>
-</li>
-<li><p>java.lang是java核心包，无需import</p>
-</li>
-</ol>
-<h2 id="方法积累"><a href="#方法积累" class="headerlink" title="方法积累"></a>方法积累</h2><h3 id="字符串类"><a href="#字符串类" class="headerlink" title="字符串类"></a>字符串类</h3><h6 id="理解："><a href="#理解：" class="headerlink" title="理解："></a>理解：</h6><p>1.java无内置字符串类型，但有一个预定义类string，每个字符串都是string类的实例，这意味着string有很多方法</p>
-<p>2.string进行了特殊优化，使其使用起来像基本类型，可以直接拼接</p>
-<p>3.注意string储存的是对象在内存中位置的引用，是对象在堆上的<strong>地址</strong>。但是String是不可变对象引用，给某一个string对象引用赋新值，会导致这个引用直接指向新的对象。同时赋值新值后，会导致原值留在内存里面。</p>
-<p>String s1&#x3D;”hello”;</p>
-<p>String s4&#x3D;”hello”;</p>
-<p>s4&#x3D;”nima”;</p>
-<p>System.out.println(s1);—-输出hello!</p>
-<h6 id="构建："><a href="#构建：" class="headerlink" title="构建："></a>构建：</h6><p>a.字面量:String s1&#x3D;”hello”;高效率</p>
-<p>b.构造方法:String s2&#x3D;new String (“nima”);</p>
-<p>区别：</p>
-<p>a.存储在 <strong>字符串常量池</strong>中，如果常量池中已经存在 <code>&quot;hello&quot;</code>，Java 就不会再创建新的对象，而是 <strong>直接引用已存在的</strong>。</p>
-<p>b.会 <strong>在堆内存中新建一个字符串对象</strong>。</p>
-<p>String s1&#x3D;”hello”;</p>
-<p>String s4&#x3D;”hello”;</p>
-<p>String s2&#x3D;new String (“hello”);</p>
-<p>s1.equals(s2)–true</p>
-<p>s1.equals(s4)–true</p>
-<p>s1&#x3D;&#x3D;s2–true(地址相同,同一个)</p>
-<p>s1&#x3D;&#x3D;s4–false</p>
-<h6 id="拼接"><a href="#拼接" class="headerlink" title="拼接 +"></a>拼接 +</h6><p>String s3&#x3D;s1+s4;—“hellohello”</p>
-<p>注意！</p>
-<p>1.Java 中 <code>String</code> 是不可变的，所以每次拼接字符串，实际上是创建了一个新的字符串对象，而不是在原字符串基础上修改。</p>
-<p>2.实际编译器会生成类似这样的代码：String s &#x3D; new StringBuilder().append(s1).append(s4).toString();</p>
-<p>所以每次+都会创建新的字符串对象，性能差</p>
-<p>建议用StringBuilder</p>
-<h5 id="substring方法"><a href="#substring方法" class="headerlink" title="substring方法"></a>substring方法</h5><p>返回新的子串</p>
-<p>String substring(int beginIndex)</p>
-<p>&#x2F;&#x2F;从该索引开始到结束<br>String substring(int beginIndex, int endIndex)</p>
-<p>&#x2F;&#x2F;注意如果看成数组索引的话，endindex要+1</p>
-<p>输出完自动添加换行</p>
-<p>eg：</p>
-<p>String str &#x3D; “hello world”;<br>System.out.println(str.substring(0, 5)); &#x2F;&#x2F; 输出 “hello”<br>System.out.println(str.substring(6));   &#x2F;&#x2F; 输出 “world”</p>
-<h5 id="length"><a href="#length" class="headerlink" title="length"></a>length</h5><p>很多类都有这个方法</p>
-<p>String str&#x3D;”hello world”;</p>
-<p>str.length()&#x3D;&#x3D;11;</p>
-<h5 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h5><p>s1.equals(s2);</p>
-<p>“hello”.equals(s2);</p>
-<p>不要用等于&#x3D;&#x3D;,&#x3D;&#x3D;代表比较位置，只有字符串字面量可能相等</p>
-<h5 id="equalsIgnoreCase"><a href="#equalsIgnoreCase" class="headerlink" title="equalsIgnoreCase"></a>equalsIgnoreCase</h5><p>s1.equalsIgnoreCase(s2)比较忽略大小写</p>
-<h5 id="compareTo"><a href="#compareTo" class="headerlink" title="compareTo"></a>compareTo</h5><p>s1.compareTo(s2)</p>
-<p>按照字典顺序比较两个字符串，相等返回1，小于返回负数，大于返回正数</p>
-<h3 id="Stingbuilder类"><a href="#Stingbuilder类" class="headerlink" title="Stingbuilder类"></a>Stingbuilder类</h3><h6 id="创建："><a href="#创建：" class="headerlink" title="创建："></a>创建：</h6><p>StringBuilder x&#x3D;new StringBuilder(“cao “(或者String变量));</p>
-<h5 id="length-1"><a href="#length-1" class="headerlink" title="length"></a>length</h5><p>类似</p>
-<h5 id="append"><a href="#append" class="headerlink" title="append"></a>append</h5><p>x..append(“nima”) ,在cao后面追加nima</p>
-<h5 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h5><p>x.delete(0, 4),删除区间内内容（含头不含尾）</p>
-<h5 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h5><p>x.reverse(),反转字符串</p>
-<h5 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h5><p>x.insert(2, “X”),在指定位置插入</p>
-<h5 id="join拼接"><a href="#join拼接" class="headerlink" title="join拼接"></a>join拼接</h5><h5 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h5><p>x.replace(1, 3, “XYZ”),替换内容</p>
-<h5 id="ToString"><a href="#ToString" class="headerlink" title="ToString"></a>ToString</h5><p>x.ToString()变成string类</p>
-<h3 id="StringBuffer"><a href="#StringBuffer" class="headerlink" title="StringBuffer"></a>StringBuffer</h3><p>语法基本同StringBuilder，区别在于StringBuilder更快，但只适用于单线程，而StringBuffer适用于多线程</p>
-<p>理解多线程</p>
-<p><a href="https://www.cnblogs.com/brokyz/p/14707360.html">Java多线程详解——一篇文章搞懂Java多线程 - brokyz - 博客园</a></p>
-<h3 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h3><p>java.lang.Math无需导入</p>
-<h5 id="exp-log-pow-sqrt-sin-asin-toDegrees-toRadians-random"><a href="#exp-log-pow-sqrt-sin-asin-toDegrees-toRadians-random" class="headerlink" title="exp(),log(),pow(),sqrt(),sin(),asin(),toDegrees(),toRadians(),random()"></a>exp(),log(),pow(),sqrt(),sin(),asin(),toDegrees(),toRadians(),random()</h5><p>double a &#x3D; Math.exp(1);            &#x2F;&#x2F; e 的 1 次方，即 e ≈ 2.718<br>double b &#x3D; Math.log(10);           &#x2F;&#x2F; 计算自然对数 ln(10)<br>double c &#x3D; Math.pow(2, 3);         &#x2F;&#x2F; 2 的 3 次方，结果为 8<br>double d &#x3D; Math.sqrt(16);          &#x2F;&#x2F; 计算 16 的平方根，结果为 4<br>double e &#x3D; Math.sin(Math.PI &#x2F; 2);  &#x2F;&#x2F; 计算正弦，sin(π&#x2F;2) &#x3D; 1<br>double f &#x3D; Math.asin(1);           &#x2F;&#x2F; 计算反正弦 asin(1) &#x3D; π&#x2F;2<br>double g &#x3D; Math.toDegrees(Math.PI); &#x2F;&#x2F; 弧度转角度，π 弧度 ≈ 180°<br>double h &#x3D; Math.toRadians(90);     &#x2F;&#x2F; 角度转弧度，90° ≈ π&#x2F;2<br>double i &#x3D; Math.random();          &#x2F;&#x2F; 生成一个 0.0 到 1.0 的随机数</p>
-<h3 id="Number包装类Number-Java-SE-11-JDK-11"><a href="#Number包装类Number-Java-SE-11-JDK-11" class="headerlink" title="Number包装类Number (Java SE 11 &amp; JDK 11 )"></a>Number包装类<a href="https://www.runoob.com/manual/jdk1.6/java.base/java/lang/Number.html">Number (Java SE 11 &amp; JDK 11 )</a></h3><p>包装类（Wrapper Class） 是 Java 提供的一种机制，它将基本数据类型（int、<code>char</code>、<code>double</code> 等）包装为 <strong>对象</strong>。这使得基本数据类型能够作为对象使用，例如在 <strong>Java 集合框架</strong>（如 <code>ArrayList</code>、<code>HashMap</code>）中，或者进行类型转换、方法调用等操作。</p>
-<p><img src="file:///C:/Users/hardestnut/Pictures/Typedown/39850735-a33b-4c8d-a2f5-5bd5fde0cbe4.png" alt="39850735-a33b-4c8d-a2f5-5bd5fde0cbe4"></p>
-<p>抽象类，不能实例化</p>
-<p>Double那些是Number的子类，注意BigDecimal，BigInteger也是。是Number子类都可以调用.intValue()方法</p>
-<h5 id="intValue-doubleValue……"><a href="#intValue-doubleValue……" class="headerlink" title="intValue,doubleValue……"></a>intValue,doubleValue……</h5><p>Double d &#x3D; 3.99;<br>int i &#x3D; d.intValue();       &#x2F;&#x2F; i &#x3D; 3，截断小数</p>
-<h5 id="valueOf-NaN"><a href="#valueOf-NaN" class="headerlink" title="valueOf()"></a>valueOf()</h5><p>基本类型转包装对象</p>
-<p>Double d &#x3D; Double.valueOf(3.14);        &#x2F;&#x2F; double -&gt; Double 对象</p>
-<p>字符串转包装对象</p>
-<p>Integer i2 &#x3D; Integer.valueOf(“456”);    &#x2F;&#x2F; 字符串 “456” -&gt; Integer 对象</p>
-<h3 id="大数"><a href="#大数" class="headerlink" title="大数"></a>大数</h3><p>BigInteger整数，BigDecimal浮点</p>
-<h6 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h6><p>1.BigInteger big1 &#x3D; new BigInteger(“123456789012345678901234567890”);</p>
-<p>2.valueOf</p>
-<h5 id="valueOf"><a href="#valueOf" class="headerlink" title="valueOf"></a>valueOf</h5><p>记得上面说的吗，BigInteger也是Number的子类</p>
-<p>BigInteger a&#x3D;BigInteger.valueOf(1000000)</p>
-<p>把1000000转换成biginteger类的对象</p>
-<h5 id="add"><a href="#add" class="headerlink" title="add"></a>add</h5><p>BigInteger sum &#x3D; big1.add(big2);</p>
-<h5 id="multiply"><a href="#multiply" class="headerlink" title="multiply()"></a>multiply()</h5><h5 id="divide"><a href="#divide" class="headerlink" title="divide()"></a>divide()</h5><h5 id="mod"><a href="#mod" class="headerlink" title="mod()"></a>mod()</h5><h5 id="pow-int"><a href="#pow-int" class="headerlink" title="pow(int)"></a>pow(int)</h5><h5 id="subtract"><a href="#subtract" class="headerlink" title="subtract()"></a>subtract()</h5><h5 id="compareTo-1"><a href="#compareTo-1" class="headerlink" title="compareTo()"></a>compareTo()</h5><h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h2 id="对象初步"><a href="#对象初步" class="headerlink" title="对象初步"></a>对象初步</h2><h3 id="1-基本规则"><a href="#1-基本规则" class="headerlink" title="1.基本规则"></a>1.基本规则</h3><p>1.一个文件里面可以有多个类，但是public修饰的类只能有一个，且这个类名必须和文件名一样</p>
-<h3 id="构造对象"><a href="#构造对象" class="headerlink" title="构造对象"></a>构造对象</h3><p>使用构造器构造，构造器名与类相同，前面加上new，</p>
-<p>如new class();</p>
-<p>Date rightnow–创建一个Date类的对象变量–对象变量不是对象，不能使用对象的方法</p>
-<p>注意！：对象变量的值是一个引用，也就是说Date rightnow&#x3D;new Date();,rightnow_2&#x3D;rightnow,此时两个还是指向一个</p>
-<p>new Date()–构造一个变量</p>
-<p>System.out.println(new Date())–创建的对象变量可以用，但只能用一次（这里date有toString方法，println输出默认使用toString转为字符串）</p>
-<p>Date rightnow&#x3D;new Date();</p>
+    <title>DAG</title>
+    <url>/2026/02/05/algorithm/1.dp/DAG-dp/</url>
+    <content><![CDATA[<p>什么是DAG，即有向无环图，有些</p>
 ]]></content>
       <categories>
-        <category>language</category>
-        <category>java</category>
+        <category>algorithm</category>
       </categories>
   </entry>
   <entry>
@@ -539,6 +449,268 @@
 ]]></content>
       <categories>
         <category>tools</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>c++容器</title>
+    <url>/2026/02/07/language/c++/c++%E5%AE%B9%E5%99%A8/</url>
+    <content><![CDATA[<h4 id="算法algorithm"><a href="#算法algorithm" class="headerlink" title="算法algorithm"></a>算法algorithm</h4><h1 id="容器container"><a href="#容器container" class="headerlink" title="容器container"></a>容器container</h1><h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><p>#include&lt;vector&gt; </p>
+<p><code>vector</code> 的数据储存在堆空间中，不会爆栈。一般情况 <code>vector</code> 可以替换掉普通数组。</p>
+<p>注意：若长度已确定，那么就直接在构造函数指定长度。因为如果不确定，后面每push_back一次都会耗尽内存而重新分配，产生额外时间开销</p>
+<h6 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h6><p>vector&lt;类型&gt; arr(长度，[初值]) </p>
+<p>括号及里面的内容可省，默认构造函数</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; arr; <span class="comment">// 构造int数组 </span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">arr</span><span class="params">(<span class="number">100</span>)</span></span>; <span class="comment">// 构造初始长100的int数组 </span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">arr</span><span class="params">(<span class="number">100</span>, <span class="number">1</span>)</span></span>; <span class="comment">// 构造初始长100的int数组，初值为1 </span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(<span class="number">100</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; ()); <span class="comment">// 构造初始100行，不指定列数的二维数组 </span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(<span class="number">100</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; (<span class="number">200</span>, <span class="number">-1</span>)) <span class="comment">// 构造初始100行，初始200列的二维数组，初值为-1</span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; arr[<span class="number">100</span>],没初始化的二维数组，每一个arr[i]都是一个vector，相当行数不变，列数不定的二维数组</span><br><span class="line">arr[i].push_back;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这个二维数组可以理解为100个元素，每个元素都是一维vector</p>
+<p>注意，创建完后，可以当作普通数组用，如</p>
+<p>vector&lt;int&gt; arr(100),arr[0]&#x3D;1;</p>
+<h5 id="尾增尾删push-back-pop-back"><a href="#尾增尾删push-back-pop-back" class="headerlink" title="尾增尾删push_back(),pop_back()"></a>尾增尾删push_back(),pop_back()</h5><ul>
+<li><strong><code>.push_back(元素)</code></strong>：在 vector 的最后一个内存后增加一格内存，并给这个内存赋值，数组长度+1(!)</li>
+<li><strong><code>.pop_back()</code></strong>：删除 vector 的最后一格内存及其元素，数组长度-1</li>
+</ul>
+<p>arr.push_back(100);</p>
+<p>arr.pop_back();</p>
+<p>arr&#x3D;{0,0,0,0},arr.push_back(9)–&gt;arr&#x3D;{0,0,0,0,9}</p>
+<h5 id="获取长度-size"><a href="#获取长度-size" class="headerlink" title="获取长度.size()"></a>获取长度.size()</h5><p>获取当前 vector 的长度</p>
+<p>注意返回值是无符号整数size_t</p>
+<p>o(1)复杂度</p>
+<h5 id="清空-clear"><a href="#清空-clear" class="headerlink" title="清空.clear()"></a>清空.clear()</h5><p>arr.clear();</p>
+<p>o(n)复杂度</p>
+<h5 id="判空-empty"><a href="#判空-empty" class="headerlink" title="判空 .empty()"></a>判空 .empty()</h5><p>如果是空返回 <code>true</code> 反之返回 <code>false</code>.</p>
+<p>时间复杂度：o(1)</p>
+<h5 id="改变长度"><a href="#改变长度" class="headerlink" title="改变长度"></a>改变长度</h5><p><strong><code>.resize(新长度, [默认值])</code></strong></p>
+<p>修改 vector 的长度</p>
+<p>如果是缩短，则删除多余的值</p>
+<p>如果是扩大，且指定了默认值，则新元素均为默认值（旧元素不变）</p>
+<p>时间复杂度：o(n)</p>
+<h2 id="栈stack"><a href="#栈stack" class="headerlink" title="栈stack"></a>栈stack</h2><p>#include&lt;stack&gt;</p>
+<p>栈不可访问内部元素，只能用弹出看栈顶,所以感觉可以用vector代替stack，或者手写。–</p>
+<p>vector 的 <code>.back()</code> 取尾部元素，就相当于取栈顶，<code>.push_back()</code> 相当于进栈，<code>.pop_back()</code> 相当于出栈。</p>
+<h5 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h5><p>stack&lt;类型&gt; a,不初始化</p>
+<h5 id="进出栈"><a href="#进出栈" class="headerlink" title="进出栈"></a>进出栈</h5><p>a.push(元素)进</p>
+<p>a.pop()弹出</p>
+<h5 id="取栈顶"><a href="#取栈顶" class="headerlink" title="取栈顶"></a>取栈顶</h5><p>a.top();</p>
+<p>int topnum&#x3D;a.top();</p>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><h5 id="构造-1"><a href="#构造-1" class="headerlink" title="构造"></a>构造</h5><p>queue&lt;类型&gt; que</p>
+<h5 id="进出队"><a href="#进出队" class="headerlink" title="进出队"></a>进出队</h5><p>.push(元素)</p>
+<p>.pop()</p>
+<h5 id="取队尾队首"><a href="#取队尾队首" class="headerlink" title="取队尾队首"></a>取队尾队首</h5><p>.front()</p>
+<p>.back()</p>
+<p>int getfront&#x3D;que.front();</p>
+<h2 id="集合set"><a href="#集合set" class="headerlink" title="集合set"></a>集合set</h2><p>自动去重，加入元素后，元素自动从小到大排序的一个容器</p>
+<p>注意set不支持下标操作，需要用迭代器</p>
+<h5 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h5><p>#include&lt;set&gt;</p>
+<h5 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h5><p>set&lt;int&gt; dict;</p>
+<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>插入：dict.insert(x);</p>
+<p>删除：dict.erase(x);</p>
+<p>查找：dict.count(x) &#x2F;dict.find(x);</p>
+<p>找到了，返回指向x的迭代器，没找到返回特殊迭代器dict.end()</p>
+<p>个数：dict.size(x);</p>
+<p>清空：dict.clear(x);</p>
+<p>判断为空：dict.empty(x);</p>
+<h2 id="优先队列priority-queue"><a href="#优先队列priority-queue" class="headerlink" title="优先队列priority_queue"></a>优先队列priority_queue</h2><p>新元素被添加到堆的末尾，然后通过”上浮”操作调整位置，保持堆性质，时间复杂度：O(log n)</p>
+<h5 id="构造-2"><a href="#构造-2" class="headerlink" title="构造"></a>构造</h5><p><strong><code>priority_queue&lt;类型, 容器, 比较器&gt; pque</code></strong></p>
+<p>类型：要储存的数据类型</p>
+<p>容器：储存数据的底层容器，默认为 <code>vector&lt;类型&gt;</code>，竞赛中保持默认即可</p>
+<p>比较器：比较大小使用的比较器，默认为 <code>less&lt;类型&gt;</code>，可自定义</p>
+<p>priority_queue&lt;int&gt; pque;默认为大顶堆</p>
+<p>priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; pque2; 储存int的小顶堆</p>
+<h5 id="进出堆"><a href="#进出堆" class="headerlink" title="进出堆"></a>进出堆</h5><p>.push(元素)</p>
+<p>.pop()</p>
+<h5 id="取堆顶-大堆顶就是最大值，小就是最小值"><a href="#取堆顶-大堆顶就是最大值，小就是最小值" class="headerlink" title="取堆顶(大堆顶就是最大值，小就是最小值)"></a>取堆顶(大堆顶就是最大值，小就是最小值)</h5><p>只可访问堆顶，其他元素都无法读取到。</p>
+<p>.top()</p>
+<p>int a&#x3D;pque.top();</p>
+]]></content>
+      <categories>
+        <category>language</category>
+        <category>c++</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>线性dp</title>
+    <url>/2026/02/05/algorithm/1.dp/%E7%BA%BF%E6%80%A7dp/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>c++语法</title>
+    <url>/2026/02/07/language/c++/c++%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h4 id="1-万能头-include"><a href="#1-万能头-include" class="headerlink" title="1.万能头#include&lt;bits&#x2F;std++.h&gt;"></a>1.万能头#include&lt;bits&#x2F;std++.h&gt;</h4><h4 id="2-命名空间namespace"><a href="#2-命名空间namespace" class="headerlink" title="2.命名空间namespace"></a>2.命名空间namespace</h4><p>namespace准确来说是防止重名，而对某些变量，函数的修饰，因为它并不是物理储存结构，而是编译时的二进制修饰。不恰当的类比:int x;struct x{int x;};这两个语句不冲突，但是去掉struct 就重名了。</p>
+<h5 id="namespace性质"><a href="#namespace性质" class="headerlink" title="namespace性质"></a>namespace性质</h5><h6 id="基本用法："><a href="#基本用法：" class="headerlink" title="基本用法："></a>基本用法：</h6><p>namespace S{</p>
+<p>}括号里面放函数，变量等</p>
+<h6 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h6><p>命名空间可以嵌套</p>
+<p>namespace Outer { namespace Inner { void Func() { } }</p>
+<p>在一个文件里面，如果有全局</p>
+<p>访问:Outer::Inner::Func();</p>
+<h6 id="可多次使用"><a href="#可多次使用" class="headerlink" title="可多次使用"></a>可多次使用</h6><h6 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h6><p>完全限定名：<code>std::cout</code></p>
+<p>只用当前一次</p>
+<p>using声明：<code>using std::cout;</code></p>
+<p>用一个，输入该命令后全域都可以使用</p>
+<p>using指令：<code>using namespace std;</code></p>
+<p>命名空间导入</p>
+<h5 id="namespace变量性质"><a href="#namespace变量性质" class="headerlink" title="namespace变量性质"></a>namespace变量性质</h5><p>当前文件修改namespace里面的变量会生效，但是不会影响到下一次编译</p>
+<p>在某处引入using namespace A或者using A::…，只会在当前作用域生效</p>
+<p>至此，using namespace std是什么已经很清楚了，注意std权限是可读，无法修改cout等函数，假设用hexedit修改源码，会造成编译立即崩溃</p>
+<h4 id="3-引用"><a href="#3-引用" class="headerlink" title="3.引用"></a>3.引用</h4><p>int func(int &amp;a){}</p>
+<p>表示a按照传引用 传递，也就是外面的值可以像用指针那样改变</p>
+<p>后面a正常用，不要当成指针*a用。</p>
+<h4 id="4-头文件细微变化"><a href="#4-头文件细微变化" class="headerlink" title="4.头文件细微变化"></a>4.头文件细微变化</h4><p>多头文件#include&lt;iostream&gt;</p>
+<p>而c头文件可以正常用，但是推荐去掉.h,前面加c，比如&lt;stdio.h&gt; —&gt; &lt;cstdio&gt;</p>
+<h4 id="5-迭代器"><a href="#5-迭代器" class="headerlink" title="5.迭代器"></a>5.迭代器</h4><p>迭代器是 C++ STL 提供的一种泛型指针，这种数据类型用于检查和遍历容器内元素，理解为指针即可</p>
+<h6 id="begin和end"><a href="#begin和end" class="headerlink" title="begin和end"></a>begin和end</h6><p>begin()指向容器的第一个元素，注意！end()指向容器的最后一个元素的后一个元素！end通常作为未查找到的返回值</p>
+<h6 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h6><p>vector &lt;int&gt;::iterator it;</p>
+<p>for(set &lt;int&gt;::iterator it&#x3D;dict.begin();it!&#x3D;dict.end();++it)</p>
+<p>cout&lt;&lt;*it&lt;&lt;”\n”;</p>
+<h6 id="种类"><a href="#种类" class="headerlink" title="种类"></a>种类</h6><p>1.随机访问迭代器 ：</p>
+<p>功能最全，支持解引用，成员访问，自增自减，迭代器加减，迭代器距离，比较，下标。和数组指针几乎一样</p>
+<p>vector，deque容器支持</p>
+<p>如</p>
+<p>vector&lt;int&gt;::iterator it &#x3D; v.begin();<br>    cout &lt;&lt; *it &lt;&lt; endl;      &#x2F;&#x2F; 输出第一个元素<br>    cout &lt;&lt; *(it + 3) &lt;&lt; endl; &#x2F;&#x2F; 输出第四个元素<br>    it +&#x3D; 2;                  &#x2F;&#x2F; 跳跃到第3个元素<br>    cout &lt;&lt; *it &lt;&lt; endl;      &#x2F;&#x2F; 输出<br>    cout &lt;&lt; (v.end() - v.begin()) &lt;&lt; endl; &#x2F;&#x2F; 元素个数<br>    cout &lt;&lt; it[1] &lt;&lt; endl;    &#x2F;&#x2F; 相当于 *(it + 1)</p>
+<p>2.双向迭代器：</p>
+<p>比随机访问迭代器更弱一点，不支持迭代器位置比较it_1&lt;it_2，和随即跳转it+n</p>
+<p>list,set,map是双向</p>
+<p>3.前向迭代器 多次读写，单向，输出迭代器，只写一次，单向，输入迭代器，只读一次，单向。很少用。</p>
+<h6 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h6><p>比如vector容器，动态扩容之后会重新找一块更大的空间，所以原来的迭代器会失效</p>
+<h6 id="迭代器辅助函数"><a href="#迭代器辅助函数" class="headerlink" title="迭代器辅助函数"></a>迭代器辅助函数</h6><p>辅助函数可用于各种迭代器，通常用于写模板或泛型代码</p>
+<p>#include&lt;algorithm&gt;</p>
+<p>advance(it,n);使得迭代器向前&#x2F;后移动n，（随即迭代器里的it+&#x3D;n;)</p>
+<p>distance（it2,it1)；计算两个迭代器之间距离，即元素个数。it2要&lt;&#x3D;it1</p>
+<p>iter_swap(it1,it2);交换迭代器指向的值</p>
+<h5 id="stringstream"><a href="#stringstream" class="headerlink" title="stringstream"></a>stringstream</h5><h6 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h6><p>用于处理字符串的输入输出流。从string里面读入</p>
+<p>c++里面，流是数据从一个对象到另一个对象的流动。数据输入输出通过IO流实现，cin&#x2F;cout是istream，ostream创建的对象（cin，cout是抽象实现，不能创建和拷贝，但是可以引用，istream &amp; _cin&#x3D;cin对，istream _cin&#x3D;cin和istream _cin都错。 而stringstream不是抽象类，可以直接创建）</p>
+<h6 id="2-创建-一般来说创建名为ss"><a href="#2-创建-一般来说创建名为ss" class="headerlink" title="2.创建(一般来说创建名为ss)"></a>2.创建(一般来说创建名为ss)</h6><p>a.直接创建</p>
+<p>string arr(“hello world”);</p>
+<p>stringstream ss;</p>
+<p>ss&lt;&lt; arr;</p>
+<p>cout &lt;&lt;ss.str()&lt;&lt;endl;</p>
+<p>b.初始化创建</p>
+<p>stringsream ss(“hello world”);</p>
+<h6 id="3-输出"><a href="#3-输出" class="headerlink" title="3.输出"></a>3.输出</h6><p>调用ss.str();不能直接输出ss</p>
+<h6 id="4-修改流"><a href="#4-修改流" class="headerlink" title="4.修改流"></a>4.修改流</h6><p>ss.str(“fuck world”)</p>
+<h6 id="5-常见用法"><a href="#5-常见用法" class="headerlink" title="5.常见用法"></a>5.常见用法</h6><p>string line,wold;</p>
+<p>while(getline(cin,line)){</p>
+<p>stringstream ss(line)</p>
+<p>while(ss&gt;&gt;word)…</p>
+<p>}</p>
+<h5 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h5><p>自动推导类型</p>
+<p>如auto x&#x3D;6—x为int</p>
+<p>auto x&#x3D;arr.size();—x为size_t</p>
+<h5 id="string"><a href="#string" class="headerlink" title="string"></a>string</h5><p>一种类，string s&#x3D;”hello world”</p>
+<p>1.访问元素可以通过s[i]或者s.at(i),</p>
+<p>两者都可以修改原string串内容</p>
+<p>s[i]无越界检查，但跟高效，s.at(i)会检查越界</p>
+<p>2.方法.</p>
+<p>数组长度 s.length()或者s.size()</p>
+<p>是否为空 s.empty()</p>
+<p>追加字符 s.append()</p>
+<p>插入         s.insert(pos,str)</p>
+<p>删除          s.erase(pos,len)</p>
+<p>清空          s.clear()</p>
+]]></content>
+      <categories>
+        <category>language</category>
+        <category>c++</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>java学习笔记</title>
+    <url>/2026/02/07/language/java/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md/</url>
+    <content><![CDATA[<h2 id="概念规则"><a href="#概念规则" class="headerlink" title="概念规则"></a>概念规则</h2><ol>
+<li><p>实例和对象和类区别：<br>实例是通过类创建的对象，比如我string a，a就是string类的实例。比如人类，里面的李白和杜甫就是实例。<br>对象更宽泛，你可以说任何内存实体都是对象。<br>但是一般可以认为实例和对象就是一回事，可以换用。</p>
+</li>
+<li><p>源代码的文件名必须与公共类的类名相同</p>
+</li>
+<li><p>main方法必须为public</p>
+</li>
+<li><p>字符串区间规律：从零开始，操作长度为n–（0,n)例如x.delete(0,4)删除第1-4个，第一个代表起始位置，第二个代表总长度</p>
+</li>
+<li><p>java.lang是java核心包，无需import</p>
+</li>
+</ol>
+<h2 id="方法积累"><a href="#方法积累" class="headerlink" title="方法积累"></a>方法积累</h2><h3 id="字符串类"><a href="#字符串类" class="headerlink" title="字符串类"></a>字符串类</h3><h6 id="理解："><a href="#理解：" class="headerlink" title="理解："></a>理解：</h6><p>1.java无内置字符串类型，但有一个预定义类string，每个字符串都是string类的实例，这意味着string有很多方法</p>
+<p>2.string进行了特殊优化，使其使用起来像基本类型，可以直接拼接</p>
+<p>3.注意string储存的是对象在内存中位置的引用，是对象在堆上的<strong>地址</strong>。但是String是不可变对象引用，给某一个string对象引用赋新值，会导致这个引用直接指向新的对象。同时赋值新值后，会导致原值留在内存里面。</p>
+<p>String s1&#x3D;”hello”;</p>
+<p>String s4&#x3D;”hello”;</p>
+<p>s4&#x3D;”nima”;</p>
+<p>System.out.println(s1);—-输出hello!</p>
+<h6 id="构建："><a href="#构建：" class="headerlink" title="构建："></a>构建：</h6><p>a.字面量:String s1&#x3D;”hello”;高效率</p>
+<p>b.构造方法:String s2&#x3D;new String (“nima”);</p>
+<p>区别：</p>
+<p>a.存储在 <strong>字符串常量池</strong>中，如果常量池中已经存在 <code>&quot;hello&quot;</code>，Java 就不会再创建新的对象，而是 <strong>直接引用已存在的</strong>。</p>
+<p>b.会 <strong>在堆内存中新建一个字符串对象</strong>。</p>
+<p>String s1&#x3D;”hello”;</p>
+<p>String s4&#x3D;”hello”;</p>
+<p>String s2&#x3D;new String (“hello”);</p>
+<p>s1.equals(s2)–true</p>
+<p>s1.equals(s4)–true</p>
+<p>s1&#x3D;&#x3D;s2–true(地址相同,同一个)</p>
+<p>s1&#x3D;&#x3D;s4–false</p>
+<h6 id="拼接"><a href="#拼接" class="headerlink" title="拼接 +"></a>拼接 +</h6><p>String s3&#x3D;s1+s4;—“hellohello”</p>
+<p>注意！</p>
+<p>1.Java 中 <code>String</code> 是不可变的，所以每次拼接字符串，实际上是创建了一个新的字符串对象，而不是在原字符串基础上修改。</p>
+<p>2.实际编译器会生成类似这样的代码：String s &#x3D; new StringBuilder().append(s1).append(s4).toString();</p>
+<p>所以每次+都会创建新的字符串对象，性能差</p>
+<p>建议用StringBuilder</p>
+<h5 id="substring方法"><a href="#substring方法" class="headerlink" title="substring方法"></a>substring方法</h5><p>返回新的子串</p>
+<p>String substring(int beginIndex)</p>
+<p>&#x2F;&#x2F;从该索引开始到结束<br>String substring(int beginIndex, int endIndex)</p>
+<p>&#x2F;&#x2F;注意如果看成数组索引的话，endindex要+1</p>
+<p>输出完自动添加换行</p>
+<p>eg：</p>
+<p>String str &#x3D; “hello world”;<br>System.out.println(str.substring(0, 5)); &#x2F;&#x2F; 输出 “hello”<br>System.out.println(str.substring(6));   &#x2F;&#x2F; 输出 “world”</p>
+<h5 id="length"><a href="#length" class="headerlink" title="length"></a>length</h5><p>很多类都有这个方法</p>
+<p>String str&#x3D;”hello world”;</p>
+<p>str.length()&#x3D;&#x3D;11;</p>
+<h5 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h5><p>s1.equals(s2);</p>
+<p>“hello”.equals(s2);</p>
+<p>不要用等于&#x3D;&#x3D;,&#x3D;&#x3D;代表比较位置，只有字符串字面量可能相等</p>
+<h5 id="equalsIgnoreCase"><a href="#equalsIgnoreCase" class="headerlink" title="equalsIgnoreCase"></a>equalsIgnoreCase</h5><p>s1.equalsIgnoreCase(s2)比较忽略大小写</p>
+<h5 id="compareTo"><a href="#compareTo" class="headerlink" title="compareTo"></a>compareTo</h5><p>s1.compareTo(s2)</p>
+<p>按照字典顺序比较两个字符串，相等返回1，小于返回负数，大于返回正数</p>
+<h3 id="Stingbuilder类"><a href="#Stingbuilder类" class="headerlink" title="Stingbuilder类"></a>Stingbuilder类</h3><h6 id="创建："><a href="#创建：" class="headerlink" title="创建："></a>创建：</h6><p>StringBuilder x&#x3D;new StringBuilder(“cao “(或者String变量));</p>
+<h5 id="length-1"><a href="#length-1" class="headerlink" title="length"></a>length</h5><p>类似</p>
+<h5 id="append"><a href="#append" class="headerlink" title="append"></a>append</h5><p>x..append(“nima”) ,在cao后面追加nima</p>
+<h5 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h5><p>x.delete(0, 4),删除区间内内容（含头不含尾）</p>
+<h5 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h5><p>x.reverse(),反转字符串</p>
+<h5 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h5><p>x.insert(2, “X”),在指定位置插入</p>
+<h5 id="join拼接"><a href="#join拼接" class="headerlink" title="join拼接"></a>join拼接</h5><h5 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h5><p>x.replace(1, 3, “XYZ”),替换内容</p>
+<h5 id="ToString"><a href="#ToString" class="headerlink" title="ToString"></a>ToString</h5><p>x.ToString()变成string类</p>
+<h3 id="StringBuffer"><a href="#StringBuffer" class="headerlink" title="StringBuffer"></a>StringBuffer</h3><p>语法基本同StringBuilder，区别在于StringBuilder更快，但只适用于单线程，而StringBuffer适用于多线程</p>
+<p>理解多线程</p>
+<p><a href="https://www.cnblogs.com/brokyz/p/14707360.html">Java多线程详解——一篇文章搞懂Java多线程 - brokyz - 博客园</a></p>
+<h3 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h3><p>java.lang.Math无需导入</p>
+<h5 id="exp-log-pow-sqrt-sin-asin-toDegrees-toRadians-random"><a href="#exp-log-pow-sqrt-sin-asin-toDegrees-toRadians-random" class="headerlink" title="exp(),log(),pow(),sqrt(),sin(),asin(),toDegrees(),toRadians(),random()"></a>exp(),log(),pow(),sqrt(),sin(),asin(),toDegrees(),toRadians(),random()</h5><p>double a &#x3D; Math.exp(1);            &#x2F;&#x2F; e 的 1 次方，即 e ≈ 2.718<br>double b &#x3D; Math.log(10);           &#x2F;&#x2F; 计算自然对数 ln(10)<br>double c &#x3D; Math.pow(2, 3);         &#x2F;&#x2F; 2 的 3 次方，结果为 8<br>double d &#x3D; Math.sqrt(16);          &#x2F;&#x2F; 计算 16 的平方根，结果为 4<br>double e &#x3D; Math.sin(Math.PI &#x2F; 2);  &#x2F;&#x2F; 计算正弦，sin(π&#x2F;2) &#x3D; 1<br>double f &#x3D; Math.asin(1);           &#x2F;&#x2F; 计算反正弦 asin(1) &#x3D; π&#x2F;2<br>double g &#x3D; Math.toDegrees(Math.PI); &#x2F;&#x2F; 弧度转角度，π 弧度 ≈ 180°<br>double h &#x3D; Math.toRadians(90);     &#x2F;&#x2F; 角度转弧度，90° ≈ π&#x2F;2<br>double i &#x3D; Math.random();          &#x2F;&#x2F; 生成一个 0.0 到 1.0 的随机数</p>
+<h3 id="Number包装类Number-Java-SE-11-JDK-11"><a href="#Number包装类Number-Java-SE-11-JDK-11" class="headerlink" title="Number包装类Number (Java SE 11 &amp; JDK 11 )"></a>Number包装类<a href="https://www.runoob.com/manual/jdk1.6/java.base/java/lang/Number.html">Number (Java SE 11 &amp; JDK 11 )</a></h3><p>包装类（Wrapper Class） 是 Java 提供的一种机制，它将基本数据类型（int、<code>char</code>、<code>double</code> 等）包装为 <strong>对象</strong>。这使得基本数据类型能够作为对象使用，例如在 <strong>Java 集合框架</strong>（如 <code>ArrayList</code>、<code>HashMap</code>）中，或者进行类型转换、方法调用等操作。</p>
+<p><img src="file:///C:/Users/hardestnut/Pictures/Typedown/39850735-a33b-4c8d-a2f5-5bd5fde0cbe4.png" alt="39850735-a33b-4c8d-a2f5-5bd5fde0cbe4"></p>
+<p>抽象类，不能实例化</p>
+<p>Double那些是Number的子类，注意BigDecimal，BigInteger也是。是Number子类都可以调用.intValue()方法</p>
+<h5 id="intValue-doubleValue……"><a href="#intValue-doubleValue……" class="headerlink" title="intValue,doubleValue……"></a>intValue,doubleValue……</h5><p>Double d &#x3D; 3.99;<br>int i &#x3D; d.intValue();       &#x2F;&#x2F; i &#x3D; 3，截断小数</p>
+<h5 id="valueOf-NaN"><a href="#valueOf-NaN" class="headerlink" title="valueOf()"></a>valueOf()</h5><p>基本类型转包装对象</p>
+<p>Double d &#x3D; Double.valueOf(3.14);        &#x2F;&#x2F; double -&gt; Double 对象</p>
+<p>字符串转包装对象</p>
+<p>Integer i2 &#x3D; Integer.valueOf(“456”);    &#x2F;&#x2F; 字符串 “456” -&gt; Integer 对象</p>
+<h3 id="大数"><a href="#大数" class="headerlink" title="大数"></a>大数</h3><p>BigInteger整数，BigDecimal浮点</p>
+<h6 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h6><p>1.BigInteger big1 &#x3D; new BigInteger(“123456789012345678901234567890”);</p>
+<p>2.valueOf</p>
+<h5 id="valueOf"><a href="#valueOf" class="headerlink" title="valueOf"></a>valueOf</h5><p>记得上面说的吗，BigInteger也是Number的子类</p>
+<p>BigInteger a&#x3D;BigInteger.valueOf(1000000)</p>
+<p>把1000000转换成biginteger类的对象</p>
+<h5 id="add"><a href="#add" class="headerlink" title="add"></a>add</h5><p>BigInteger sum &#x3D; big1.add(big2);</p>
+<h5 id="multiply"><a href="#multiply" class="headerlink" title="multiply()"></a>multiply()</h5><h5 id="divide"><a href="#divide" class="headerlink" title="divide()"></a>divide()</h5><h5 id="mod"><a href="#mod" class="headerlink" title="mod()"></a>mod()</h5><h5 id="pow-int"><a href="#pow-int" class="headerlink" title="pow(int)"></a>pow(int)</h5><h5 id="subtract"><a href="#subtract" class="headerlink" title="subtract()"></a>subtract()</h5><h5 id="compareTo-1"><a href="#compareTo-1" class="headerlink" title="compareTo()"></a>compareTo()</h5><h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h2 id="对象初步"><a href="#对象初步" class="headerlink" title="对象初步"></a>对象初步</h2><h3 id="1-基本规则"><a href="#1-基本规则" class="headerlink" title="1.基本规则"></a>1.基本规则</h3><p>1.一个文件里面可以有多个类，但是public修饰的类只能有一个，且这个类名必须和文件名一样</p>
+<h3 id="构造对象"><a href="#构造对象" class="headerlink" title="构造对象"></a>构造对象</h3><p>使用构造器构造，构造器名与类相同，前面加上new，</p>
+<p>如new class();</p>
+<p>Date rightnow–创建一个Date类的对象变量–对象变量不是对象，不能使用对象的方法</p>
+<p>注意！：对象变量的值是一个引用，也就是说Date rightnow&#x3D;new Date();,rightnow_2&#x3D;rightnow,此时两个还是指向一个</p>
+<p>new Date()–构造一个变量</p>
+<p>System.out.println(new Date())–创建的对象变量可以用，但只能用一次（这里date有toString方法，println输出默认使用toString转为字符串）</p>
+<p>Date rightnow&#x3D;new Date();</p>
+]]></content>
+      <categories>
+        <category>language</category>
+        <category>java</category>
       </categories>
   </entry>
   <entry>
@@ -684,6 +856,16 @@
       </categories>
   </entry>
   <entry>
+    <title>dcl</title>
+    <url>/2026/02/07/language/oracle/dcl/</url>
+    <content><![CDATA[<p>DCL控制权限 包括GRANT赋予 REVOKE收回</p>
+]]></content>
+      <categories>
+        <category>language</category>
+        <category>oracle</category>
+      </categories>
+  </entry>
+  <entry>
     <title>dml</title>
     <url>/2026/02/07/language/oracle/DML/</url>
     <content><![CDATA[<p>dml,操作数据库中的数据（增删改）的语言</p>
@@ -712,161 +894,6 @@
       </categories>
   </entry>
   <entry>
-    <title>c++容器</title>
-    <url>/2026/02/07/language/c++/c++%E5%AE%B9%E5%99%A8/</url>
-    <content><![CDATA[<h4 id="算法algorithm"><a href="#算法algorithm" class="headerlink" title="算法algorithm"></a>算法algorithm</h4><h1 id="容器container"><a href="#容器container" class="headerlink" title="容器container"></a>容器container</h1><h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><p>#include&lt;vector&gt; </p>
-<p><code>vector</code> 的数据储存在堆空间中，不会爆栈。一般情况 <code>vector</code> 可以替换掉普通数组。</p>
-<p>注意：若长度已确定，那么就直接在构造函数指定长度。因为如果不确定，后面每push_back一次都会耗尽内存而重新分配，产生额外时间开销</p>
-<h6 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h6><p>vector&lt;类型&gt; arr(长度，[初值]) </p>
-<p>括号及里面的内容可省，默认构造函数</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; arr; <span class="comment">// 构造int数组 </span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">arr</span><span class="params">(<span class="number">100</span>)</span></span>; <span class="comment">// 构造初始长100的int数组 </span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">arr</span><span class="params">(<span class="number">100</span>, <span class="number">1</span>)</span></span>; <span class="comment">// 构造初始长100的int数组，初值为1 </span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(<span class="number">100</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; ()); <span class="comment">// 构造初始100行，不指定列数的二维数组 </span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(<span class="number">100</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; (<span class="number">200</span>, <span class="number">-1</span>)) <span class="comment">// 构造初始100行，初始200列的二维数组，初值为-1</span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; arr[<span class="number">100</span>],没初始化的二维数组，每一个arr[i]都是一个vector，相当行数不变，列数不定的二维数组</span><br><span class="line">arr[i].push_back;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>这个二维数组可以理解为100个元素，每个元素都是一维vector</p>
-<p>注意，创建完后，可以当作普通数组用，如</p>
-<p>vector&lt;int&gt; arr(100),arr[0]&#x3D;1;</p>
-<h5 id="尾增尾删push-back-pop-back"><a href="#尾增尾删push-back-pop-back" class="headerlink" title="尾增尾删push_back(),pop_back()"></a>尾增尾删push_back(),pop_back()</h5><ul>
-<li><strong><code>.push_back(元素)</code></strong>：在 vector 的最后一个内存后增加一格内存，并给这个内存赋值，数组长度+1(!)</li>
-<li><strong><code>.pop_back()</code></strong>：删除 vector 的最后一格内存及其元素，数组长度-1</li>
-</ul>
-<p>arr.push_back(100);</p>
-<p>arr.pop_back();</p>
-<p>arr&#x3D;{0,0,0,0},arr.push_back(9)–&gt;arr&#x3D;{0,0,0,0,9}</p>
-<h5 id="获取长度-size"><a href="#获取长度-size" class="headerlink" title="获取长度.size()"></a>获取长度.size()</h5><p>获取当前 vector 的长度</p>
-<p>注意返回值是无符号整数size_t</p>
-<p>o(1)复杂度</p>
-<h5 id="清空-clear"><a href="#清空-clear" class="headerlink" title="清空.clear()"></a>清空.clear()</h5><p>arr.clear();</p>
-<p>o(n)复杂度</p>
-<h5 id="判空-empty"><a href="#判空-empty" class="headerlink" title="判空 .empty()"></a>判空 .empty()</h5><p>如果是空返回 <code>true</code> 反之返回 <code>false</code>.</p>
-<p>时间复杂度：o(1)</p>
-<h5 id="改变长度"><a href="#改变长度" class="headerlink" title="改变长度"></a>改变长度</h5><p><strong><code>.resize(新长度, [默认值])</code></strong></p>
-<p>修改 vector 的长度</p>
-<p>如果是缩短，则删除多余的值</p>
-<p>如果是扩大，且指定了默认值，则新元素均为默认值（旧元素不变）</p>
-<p>时间复杂度：o(n)</p>
-<h2 id="栈stack"><a href="#栈stack" class="headerlink" title="栈stack"></a>栈stack</h2><p>#include&lt;stack&gt;</p>
-<p>栈不可访问内部元素，只能用弹出看栈顶,所以感觉可以用vector代替stack，或者手写。–</p>
-<p>vector 的 <code>.back()</code> 取尾部元素，就相当于取栈顶，<code>.push_back()</code> 相当于进栈，<code>.pop_back()</code> 相当于出栈。</p>
-<h5 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h5><p>stack&lt;类型&gt; a,不初始化</p>
-<h5 id="进出栈"><a href="#进出栈" class="headerlink" title="进出栈"></a>进出栈</h5><p>a.push(元素)进</p>
-<p>a.pop()弹出</p>
-<h5 id="取栈顶"><a href="#取栈顶" class="headerlink" title="取栈顶"></a>取栈顶</h5><p>a.top();</p>
-<p>int topnum&#x3D;a.top();</p>
-<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><h5 id="构造-1"><a href="#构造-1" class="headerlink" title="构造"></a>构造</h5><p>queue&lt;类型&gt; que</p>
-<h5 id="进出队"><a href="#进出队" class="headerlink" title="进出队"></a>进出队</h5><p>.push(元素)</p>
-<p>.pop()</p>
-<h5 id="取队尾队首"><a href="#取队尾队首" class="headerlink" title="取队尾队首"></a>取队尾队首</h5><p>.front()</p>
-<p>.back()</p>
-<p>int getfront&#x3D;que.front();</p>
-<h2 id="集合set"><a href="#集合set" class="headerlink" title="集合set"></a>集合set</h2><p>自动去重，加入元素后，元素自动从小到大排序的一个容器</p>
-<p>注意set不支持下标操作，需要用迭代器</p>
-<h5 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h5><p>#include&lt;set&gt;</p>
-<h5 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h5><p>set&lt;int&gt; dict;</p>
-<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>插入：dict.insert(x);</p>
-<p>删除：dict.erase(x);</p>
-<p>查找：dict.count(x) &#x2F;dict.find(x);</p>
-<p>找到了，返回指向x的迭代器，没找到返回特殊迭代器dict.end()</p>
-<p>个数：dict.size(x);</p>
-<p>清空：dict.clear(x);</p>
-<p>判断为空：dict.empty(x);</p>
-<h2 id="优先队列priority-queue"><a href="#优先队列priority-queue" class="headerlink" title="优先队列priority_queue"></a>优先队列priority_queue</h2><p>新元素被添加到堆的末尾，然后通过”上浮”操作调整位置，保持堆性质，时间复杂度：O(log n)</p>
-<h5 id="构造-2"><a href="#构造-2" class="headerlink" title="构造"></a>构造</h5><p><strong><code>priority_queue&lt;类型, 容器, 比较器&gt; pque</code></strong></p>
-<p>类型：要储存的数据类型</p>
-<p>容器：储存数据的底层容器，默认为 <code>vector&lt;类型&gt;</code>，竞赛中保持默认即可</p>
-<p>比较器：比较大小使用的比较器，默认为 <code>less&lt;类型&gt;</code>，可自定义</p>
-<p>priority_queue&lt;int&gt; pque;默认为大顶堆</p>
-<p>priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; pque2; 储存int的小顶堆</p>
-<h5 id="进出堆"><a href="#进出堆" class="headerlink" title="进出堆"></a>进出堆</h5><p>.push(元素)</p>
-<p>.pop()</p>
-<h5 id="取堆顶-大堆顶就是最大值，小就是最小值"><a href="#取堆顶-大堆顶就是最大值，小就是最小值" class="headerlink" title="取堆顶(大堆顶就是最大值，小就是最小值)"></a>取堆顶(大堆顶就是最大值，小就是最小值)</h5><p>只可访问堆顶，其他元素都无法读取到。</p>
-<p>.top()</p>
-<p>int a&#x3D;pque.top();</p>
-]]></content>
-      <categories>
-        <category>language</category>
-        <category>c++</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>c++语法</title>
-    <url>/2026/02/07/language/c++/c++%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h4 id="1-万能头-include"><a href="#1-万能头-include" class="headerlink" title="1.万能头#include&lt;bits&#x2F;std++.h&gt;"></a>1.万能头#include&lt;bits&#x2F;std++.h&gt;</h4><h4 id="2-命名空间namespace"><a href="#2-命名空间namespace" class="headerlink" title="2.命名空间namespace"></a>2.命名空间namespace</h4><p>namespace准确来说是防止重名，而对某些变量，函数的修饰，因为它并不是物理储存结构，而是编译时的二进制修饰。不恰当的类比:int x;struct x{int x;};这两个语句不冲突，但是去掉struct 就重名了。</p>
-<h5 id="namespace性质"><a href="#namespace性质" class="headerlink" title="namespace性质"></a>namespace性质</h5><h6 id="基本用法："><a href="#基本用法：" class="headerlink" title="基本用法："></a>基本用法：</h6><p>namespace S{</p>
-<p>}括号里面放函数，变量等</p>
-<h6 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h6><p>命名空间可以嵌套</p>
-<p>namespace Outer { namespace Inner { void Func() { } }</p>
-<p>在一个文件里面，如果有全局</p>
-<p>访问:Outer::Inner::Func();</p>
-<h6 id="可多次使用"><a href="#可多次使用" class="headerlink" title="可多次使用"></a>可多次使用</h6><h6 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h6><p>完全限定名：<code>std::cout</code></p>
-<p>只用当前一次</p>
-<p>using声明：<code>using std::cout;</code></p>
-<p>用一个，输入该命令后全域都可以使用</p>
-<p>using指令：<code>using namespace std;</code></p>
-<p>命名空间导入</p>
-<h5 id="namespace变量性质"><a href="#namespace变量性质" class="headerlink" title="namespace变量性质"></a>namespace变量性质</h5><p>当前文件修改namespace里面的变量会生效，但是不会影响到下一次编译</p>
-<p>在某处引入using namespace A或者using A::…，只会在当前作用域生效</p>
-<p>至此，using namespace std是什么已经很清楚了，注意std权限是可读，无法修改cout等函数，假设用hexedit修改源码，会造成编译立即崩溃</p>
-<h4 id="3-引用"><a href="#3-引用" class="headerlink" title="3.引用"></a>3.引用</h4><p>int func(int &amp;a){}</p>
-<p>表示a按照传引用 传递，也就是外面的值可以像用指针那样改变</p>
-<p>后面a正常用，不要当成指针*a用。</p>
-<h4 id="4-头文件细微变化"><a href="#4-头文件细微变化" class="headerlink" title="4.头文件细微变化"></a>4.头文件细微变化</h4><p>多头文件#include&lt;iostream&gt;</p>
-<p>而c头文件可以正常用，但是推荐去掉.h,前面加c，比如&lt;stdio.h&gt; —&gt; &lt;cstdio&gt;</p>
-<h4 id="5-迭代器"><a href="#5-迭代器" class="headerlink" title="5.迭代器"></a>5.迭代器</h4><p>迭代器是 C++ STL 提供的一种泛型指针，这种数据类型用于检查和遍历容器内元素，理解为指针即可</p>
-<h6 id="begin和end"><a href="#begin和end" class="headerlink" title="begin和end"></a>begin和end</h6><p>begin()指向容器的第一个元素，注意！end()指向容器的最后一个元素的后一个元素！end通常作为未查找到的返回值</p>
-<h6 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h6><p>vector &lt;int&gt;::iterator it;</p>
-<p>for(set &lt;int&gt;::iterator it&#x3D;dict.begin();it!&#x3D;dict.end();++it)</p>
-<p>cout&lt;&lt;*it&lt;&lt;”\n”;</p>
-<h6 id="种类"><a href="#种类" class="headerlink" title="种类"></a>种类</h6><p>1.随机访问迭代器 ：</p>
-<p>功能最全，支持解引用，成员访问，自增自减，迭代器加减，迭代器距离，比较，下标。和数组指针几乎一样</p>
-<p>vector，deque容器支持</p>
-<p>如</p>
-<p>vector&lt;int&gt;::iterator it &#x3D; v.begin();<br>    cout &lt;&lt; *it &lt;&lt; endl;      &#x2F;&#x2F; 输出第一个元素<br>    cout &lt;&lt; *(it + 3) &lt;&lt; endl; &#x2F;&#x2F; 输出第四个元素<br>    it +&#x3D; 2;                  &#x2F;&#x2F; 跳跃到第3个元素<br>    cout &lt;&lt; *it &lt;&lt; endl;      &#x2F;&#x2F; 输出<br>    cout &lt;&lt; (v.end() - v.begin()) &lt;&lt; endl; &#x2F;&#x2F; 元素个数<br>    cout &lt;&lt; it[1] &lt;&lt; endl;    &#x2F;&#x2F; 相当于 *(it + 1)</p>
-<p>2.双向迭代器：</p>
-<p>比随机访问迭代器更弱一点，不支持迭代器位置比较it_1&lt;it_2，和随即跳转it+n</p>
-<p>list,set,map是双向</p>
-<p>3.前向迭代器 多次读写，单向，输出迭代器，只写一次，单向，输入迭代器，只读一次，单向。很少用。</p>
-<h6 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h6><p>比如vector容器，动态扩容之后会重新找一块更大的空间，所以原来的迭代器会失效</p>
-<h6 id="迭代器辅助函数"><a href="#迭代器辅助函数" class="headerlink" title="迭代器辅助函数"></a>迭代器辅助函数</h6><p>辅助函数可用于各种迭代器，通常用于写模板或泛型代码</p>
-<p>#include&lt;algorithm&gt;</p>
-<p>advance(it,n);使得迭代器向前&#x2F;后移动n，（随即迭代器里的it+&#x3D;n;)</p>
-<p>distance（it2,it1)；计算两个迭代器之间距离，即元素个数。it2要&lt;&#x3D;it1</p>
-<p>iter_swap(it1,it2);交换迭代器指向的值</p>
-<h5 id="stringstream"><a href="#stringstream" class="headerlink" title="stringstream"></a>stringstream</h5><h6 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h6><p>用于处理字符串的输入输出流。从string里面读入</p>
-<p>c++里面，流是数据从一个对象到另一个对象的流动。数据输入输出通过IO流实现，cin&#x2F;cout是istream，ostream创建的对象（cin，cout是抽象实现，不能创建和拷贝，但是可以引用，istream &amp; _cin&#x3D;cin对，istream _cin&#x3D;cin和istream _cin都错。 而stringstream不是抽象类，可以直接创建）</p>
-<h6 id="2-创建-一般来说创建名为ss"><a href="#2-创建-一般来说创建名为ss" class="headerlink" title="2.创建(一般来说创建名为ss)"></a>2.创建(一般来说创建名为ss)</h6><p>a.直接创建</p>
-<p>string arr(“hello world”);</p>
-<p>stringstream ss;</p>
-<p>ss&lt;&lt; arr;</p>
-<p>cout &lt;&lt;ss.str()&lt;&lt;endl;</p>
-<p>b.初始化创建</p>
-<p>stringsream ss(“hello world”);</p>
-<h6 id="3-输出"><a href="#3-输出" class="headerlink" title="3.输出"></a>3.输出</h6><p>调用ss.str();不能直接输出ss</p>
-<h6 id="4-修改流"><a href="#4-修改流" class="headerlink" title="4.修改流"></a>4.修改流</h6><p>ss.str(“fuck world”)</p>
-<h6 id="5-常见用法"><a href="#5-常见用法" class="headerlink" title="5.常见用法"></a>5.常见用法</h6><p>string line,wold;</p>
-<p>while(getline(cin,line)){</p>
-<p>stringstream ss(line)</p>
-<p>while(ss&gt;&gt;word)…</p>
-<p>}</p>
-<h5 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h5><p>自动推导类型</p>
-<p>如auto x&#x3D;6—x为int</p>
-<p>auto x&#x3D;arr.size();—x为size_t</p>
-<h5 id="string"><a href="#string" class="headerlink" title="string"></a>string</h5><p>一种类，string s&#x3D;”hello world”</p>
-<p>1.访问元素可以通过s[i]或者s.at(i),</p>
-<p>两者都可以修改原string串内容</p>
-<p>s[i]无越界检查，但跟高效，s.at(i)会检查越界</p>
-<p>2.方法.</p>
-<p>数组长度 s.length()或者s.size()</p>
-<p>是否为空 s.empty()</p>
-<p>追加字符 s.append()</p>
-<p>插入         s.insert(pos,str)</p>
-<p>删除          s.erase(pos,len)</p>
-<p>清空          s.clear()</p>
-]]></content>
-      <categories>
-        <category>language</category>
-        <category>c++</category>
-      </categories>
-  </entry>
-  <entry>
     <title>ddl</title>
     <url>/2026/02/07/language/oracle/ddl/</url>
     <content><![CDATA[<p>ddl（define)创建修改删除数据库对象</p>
@@ -878,9 +905,9 @@
       </categories>
   </entry>
   <entry>
-    <title>dcl</title>
-    <url>/2026/02/07/language/oracle/dcl/</url>
-    <content><![CDATA[<p>DCL控制权限 包括GRANT赋予 REVOKE收回</p>
+    <title>oracle体系图示</title>
+    <url>/2026/02/07/language/oracle/oracle%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%93%E7%B3%BB.md/</url>
+    <content><![CDATA[<img src="file:///C:/Users/mec/Pictures/oracle服务器体系.jpg" title="" alt="oracle服务器体系" data-align="inline">
 ]]></content>
       <categories>
         <category>language</category>
@@ -1013,13 +1040,47 @@ SELECT * FROM table_name;
       </categories>
   </entry>
   <entry>
-    <title>oracle体系图示</title>
-    <url>/2026/02/07/language/oracle/oracle%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%93%E7%B3%BB.md/</url>
-    <content><![CDATA[<img src="file:///C:/Users/mec/Pictures/oracle服务器体系.jpg" title="" alt="oracle服务器体系" data-align="inline">
+    <title>图储存</title>
+    <url>/2026/02/07/algorithm/2.%E5%9B%BE/%E5%9B%BE%E5%82%A8%E5%AD%98/</url>
+    <content><![CDATA[<p>对于图的储存而言，算法上一般用邻接表和邻接矩阵两种方法</p>
+<h4 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h4><p>使用一个二维数组 <code>adj</code> 来存边，其中 <code>adj[u][v]</code> 为 1 表示存在 𝑢<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="u"> 到 𝑣<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="v"> 的边，为 0 表示不存在．如果是带边权的图，可以在 <code>adj[u][v]</code> 中存<img src="C:\Users\mec\Pictures\算法图解\链式前向星.png" alt="链式前向星">储 𝑢<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="u"> 到 𝑣<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="v"> 的边的边权．<br>    &#x2F;&#x2F;u-&gt;v<br>    adj[u][v]&#x3D;1;</p>
+<p>注意不能有重边，优点是查某边很快，缺点是稀疏图效率低</p>
+<h4 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h4><p>一般情况下，都用邻接表方法储存图</p>
+<p>实现方法有很多，有vector，指针 链表（理论），链式前向星（数组+链式索引），我们采用链式索引</p>
+<p>定义head[a]储存a指向的边的信息</p>
+<p>e[i]为索引i所对应的点</p>
+<p>ne[i]为索引i的下一个索引</p>
+<p>idx为目前储存的边数</p>
+<p>我们储存a-&gt;b,a-&gt;c两条边如图所示</p>
+<p>先储存a-&gt;c,分配idx2&#x3D;1，然后e[idx2]代表a指向的c</p>
+<p>后面插入a-&gt;b,分配idx1&#x3D;2，然后e[idx1]&#x3D;b代表a-&gt;b,然后让ne[idx1]&#x3D;head[a]即idx2。两个边就建好了</p>
+<p><img src="C:\Users\mec\Pictures\算法图解\链式前向星.png" alt="链式前向星"></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> n=x<span class="number">+10</span>,m=<span class="number">2</span>*y<span class="number">+10</span>;</span><br><span class="line"><span class="comment">//我们假设有x个节点，y条无向边（一般题目会给）</span></span><br><span class="line"><span class="comment">//2*y表明无向边可以看成两条特殊的有向边</span></span><br><span class="line"><span class="type">int</span> h[n],e[m],ne[m],idx;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">     e[idx]=b;ne[idx]=h[a];h[a]=idx;idx++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>h[i]表示第i个节点的头节点，后面接入i节点指向的所有节点的idx索引，无顺序之分。e[idx]表示第idx个空间分配的值，ne[idx]表示第idx个空间的值所指向的的下一个值的索引。idx从零开始递增。 整体而言可以把e[]看作一个内存池，从这个内存池里面取出边，一个一个赋值，接在h[]后面</p>
+<p>add函数是把e的第idx位置存成b，ne[idx]&#x3D;h[a]表示把原来h[a]指向的索引成为ne的下一个索引，在让h[a]指向idx，idx自增，即可完成插入</p>
 ]]></content>
       <categories>
-        <category>language</category>
-        <category>oracle</category>
+        <category>algorithm</category>
+        <category>图</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>基础</title>
+    <url>/2026/02/07/algorithm/4.%E6%95%B0%E5%AD%A6%E7%9B%B8%E5%85%B3/1%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h4 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h4><p>1.$\sum_{i&#x3D;1}^{n} A^i &#x3D;\frac {A^{N+1}-1}{A-1}$</p>
+<p>当A∈(0,1)，$\sum_{i&#x3D;1}^{n} A^i &lt;&#x3D;\frac {1}{1-A}$</p>
+<ol start="2">
+<li></li>
+</ol>
+<p>$\sum _{i&#x3D;1}^N i&#x3D;N(N+1)&#x2F;2$</p>
+<p>$\sum _{i&#x3D;1}^N i^2 &#x3D;N(N+1)&#x2F;2$</p>
+<p>$\sum _{i&#x3D;1}^N i^k \approx \frac {N^{k+1}}{|k+1|},k\neq-1$</p>
+<p>$\sum _{i&#x3D;1}^N {\frac{1}{i}} \approx log_eN$,近似式误差趋近于欧拉常数$\gamma \approx 0.577215$ </p>
+]]></content>
+      <categories>
+        <category>algorithm</category>
+        <category>数学</category>
       </categories>
   </entry>
   <entry>
@@ -1091,16 +1152,6 @@ SELECT * FROM table_name;
       </categories>
   </entry>
   <entry>
-    <title>索引对象</title>
-    <url>/2026/02/07/language/oracle/%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<p>什么是数据对象？他是指存储在 <strong>Schema（用户）</strong> 中、由 Oracle 数据字典管理的一切结构化对象。索引就是一种</p>
-]]></content>
-      <categories>
-        <category>language</category>
-        <category>oracle</category>
-      </categories>
-  </entry>
-  <entry>
     <title>cpp进阶初步</title>
     <url>/2026/02/07/algorithm/3.stl/1.cpp%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h4 id="1-class语法"><a href="#1-class语法" class="headerlink" title="1.class语法"></a>1.class语法</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Name</span>&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="type">int</span> a;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">getB</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> b;&#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="type">int</span> b;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">func2</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line">        <span class="type">int</span> c;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">func3</span><span class="params">()</span></span>&#123;<span class="comment">/**/</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Name::func2</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
@@ -1137,20 +1188,6 @@ SELECT * FROM table_name;
 <p>m&#x3D;new IntCell(0);</p>
 <p>m-&gt;write(5);</p>
 <p>delete m;</p>
-]]></content>
-      <categories>
-        <category>algorithm</category>
-        <category>stl</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>参数传递</title>
-    <url>/2026/02/07/algorithm/3.stl/3.%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/</url>
-    <content><![CDATA[<h4 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h4><p>一般来说，c++常见几种参数传递</p>
-<p>1.一般值（int ，double，对象）</p>
-<p>2.引址调用 int &amp;</p>
-<p>3.常数引用调用const int &amp;</p>
-<p>4.（cpp里面少用)裸指针</p>
 ]]></content>
       <categories>
         <category>algorithm</category>
@@ -1211,6 +1248,16 @@ SELECT * FROM table_name;
       </categories>
   </entry>
   <entry>
+    <title>索引对象</title>
+    <url>/2026/02/07/language/oracle/%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<p>什么是数据对象？他是指存储在 <strong>Schema（用户）</strong> 中、由 Oracle 数据字典管理的一切结构化对象。索引就是一种</p>
+]]></content>
+      <categories>
+        <category>language</category>
+        <category>oracle</category>
+      </categories>
+  </entry>
+  <entry>
     <title>模板</title>
     <url>/2026/02/07/algorithm/3.stl/4.%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<h4 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h4><p>函数模板是一个用于产生函数的公式。</p>
@@ -1224,129 +1271,6 @@ SELECT * FROM table_name;
       <categories>
         <category>algorithm</category>
         <category>stl</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>迭代器</title>
-    <url>/2026/02/07/algorithm/3.stl/6.%E8%BF%AD%E4%BB%A3%E5%99%A8/</url>
-    <content><![CDATA[<h3 id="迭代器是什么？"><a href="#迭代器是什么？" class="headerlink" title="迭代器是什么？"></a>迭代器是什么？</h3><p>通俗来讲，迭代器用来指明stl容器位置</p>
-<p>我们创建一个迭代器，实际上是创建了迭代器类对于某个容器的一个对象，实现了类似指针的操作。所以他的本质不是指针，但很像指针</p>
-<p>例如</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i!=v.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">    cout&lt;&lt;v[i]&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>就类似</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(vector&lt;<span class="type">int</span>&gt;::iterator  i=v.<span class="built_in">begin</span>();i!=v.<span class="built_in">end</span>();++i)</span><br></pre></td></tr></table></figure>
-
-<p>begin()指向第一项,end()指向<strong>最后一项的后一项</strong></p>
-<h3 id="迭代器操作"><a href="#迭代器操作" class="headerlink" title="迭代器操作"></a>迭代器操作</h3><ol>
-<li></li>
-</ol>
-<p>itr++，++itr：迭代器进入下一个位置</p>
-<p><strong>注意！itr++实际上是重载运算符，他会返回一个对象！例如i++就是返回老的i，然后i本身封装的指针值++（类似指针移动）</strong></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 后缀 it++</span></span><br><span class="line">    Iterator <span class="keyword">operator</span>++(<span class="type">int</span>) &#123;</span><br><span class="line">        Iterator tmp = *<span class="keyword">this</span>; <span class="comment">// 保存旧值（拷贝）</span></span><br><span class="line">        ++ptr;                <span class="comment">// 再移动</span></span><br><span class="line">        <span class="keyword">return</span> tmp;           <span class="comment">// 返回旧值</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p>前缀自增 <code>++it</code> 表示“先移动迭代器，再使用结果”，返回的是<strong>自增后的迭代器本身（通常是引用）</strong>。<br>后缀自增 <code>it++</code> 表示“先使用旧位置，再移动迭代器”，返回的是<strong>自增前迭代器的一个副本</strong>。</p>
-<p>后缀形式为了返回旧值，必须保存一个临时对象；前缀形式不需要。</p>
-<p><strong>不需要旧值的情况下应当使用前缀形式</strong>；前缀在语义和性能上都更优。</p>
-<p>2.*itr</p>
-<p>返回迭代器指向的内容</p>
-<p>3.itr1&#x3D;&#x3D;itr2，itr1!&#x3D;itr2</p>
-<p>&#x3D;&#x3D;：如果两个迭代器指向同一个位置则返回true</p>
-<p>! &#x3D;：指向不同位置返回true</p>
-<p>4.注意!*itr++相当于itr,itr++</p>
-<p>由于++优先级更高，所以执行顺序在语义层面可以理解为：<br>第一步，保存 itr 的旧值。<br>第二步，itr 自增，指向下一个元素。<br>第三步，对保存下来的旧迭代器解引用.</p>
-<h3 id="迭代器方法"><a href="#迭代器方法" class="headerlink" title="迭代器方法"></a>迭代器方法</h3><p>在某容器（vector等）可中使用以下方法</p>
-<p>1.iterator insert(iterator pos,const boject &amp; x)</p>
-<p>在迭代器指向的位置前面插入。返回插入位置的迭代器</p>
-<p>2.（erase版本1）iterator erase(iterator pos)</p>
-<p>删除pos位置的目标，并返回原先pos后面的元素。注意迭代器pos在erase后已经失效</p>
-<p>3.（erase版本2）iterator erase(iterator begin,iterator end);</p>
-<p>删除从start到end（不包括end）的所有元素</p>
-<p>object.erase( object begin(),object end())删除整个数据结构</p>
-]]></content>
-      <categories>
-        <category>algorithm</category>
-        <category>stl</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>重载运算符</title>
-    <url>/2026/02/07/algorithm/3.stl/5.%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<p><strong>operator</strong>是C++的一个关键字，它和运算符（如“&#x3D;”）一起使用，表示一个<strong>运算符重载函数</strong>，在理解时可将operator和待重载的运算符整体（如“operator&#x3D;”）视为一个函数名。</p>
-<p>实现运算符重载的方式通常有以下两种：</p>
-<p>1.运算符重载实现为类的成员函数；</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在student类里面</span></span><br><span class="line"><span class="type">bool</span> <span class="keyword">operator</span>&gt;(<span class="type">const</span> student&amp; a)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.score&gt;a.score)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>2.运算符重载实现为非类的成员函数（即全局函数）。</p>
-<p>两个参数分别为左右操作数（至少一个是自定义类，可以只有一个或者另一个是int等）</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="keyword">operator</span>&gt;(<span class="type">const</span> student &amp;a,<span class="type">const</span> student &amp;b)&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.score&gt;b.score)&#123;</span><br><span class="line">    <span class="keyword">return</span> ture;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意：</p>
-<p>不能违反运算符原来的语法规则；</p>
-<p>不能创建新的运算符；</p>
-<p>有一些运算符是不能重载的，如“sizeof”；</p>
-<ul>
-<li>&#x3D;、()、[]、-&gt;操作符只能被类的成员函数重载。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>algorithm</category>
-        <category>stl</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>图储存</title>
-    <url>/2026/02/07/algorithm/2.%E5%9B%BE/%E5%9B%BE%E5%82%A8%E5%AD%98/</url>
-    <content><![CDATA[<p>对于图的储存而言，算法上一般用邻接表和邻接矩阵两种方法</p>
-<h4 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h4><p>使用一个二维数组 <code>adj</code> 来存边，其中 <code>adj[u][v]</code> 为 1 表示存在 𝑢<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="u"> 到 𝑣<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="v"> 的边，为 0 表示不存在．如果是带边权的图，可以在 <code>adj[u][v]</code> 中存<img src="C:\Users\mec\Pictures\算法图解\链式前向星.png" alt="链式前向星">储 𝑢<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="u"> 到 𝑣<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="v"> 的边的边权．<br>    &#x2F;&#x2F;u-&gt;v<br>    adj[u][v]&#x3D;1;</p>
-<p>注意不能有重边，优点是查某边很快，缺点是稀疏图效率低</p>
-<h4 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h4><p>一般情况下，都用邻接表方法储存图</p>
-<p>实现方法有很多，有vector，指针 链表（理论），链式前向星（数组+链式索引），我们采用链式索引</p>
-<p>定义head[a]储存a指向的边的信息</p>
-<p>e[i]为索引i所对应的点</p>
-<p>ne[i]为索引i的下一个索引</p>
-<p>idx为目前储存的边数</p>
-<p>我们储存a-&gt;b,a-&gt;c两条边如图所示</p>
-<p>先储存a-&gt;c,分配idx2&#x3D;1，然后e[idx2]代表a指向的c</p>
-<p>后面插入a-&gt;b,分配idx1&#x3D;2，然后e[idx1]&#x3D;b代表a-&gt;b,然后让ne[idx1]&#x3D;head[a]即idx2。两个边就建好了</p>
-<p><img src="C:\Users\mec\Pictures\算法图解\链式前向星.png" alt="链式前向星"></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> n=x<span class="number">+10</span>,m=<span class="number">2</span>*y<span class="number">+10</span>;</span><br><span class="line"><span class="comment">//我们假设有x个节点，y条无向边（一般题目会给）</span></span><br><span class="line"><span class="comment">//2*y表明无向边可以看成两条特殊的有向边</span></span><br><span class="line"><span class="type">int</span> h[n],e[m],ne[m],idx;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">     e[idx]=b;ne[idx]=h[a];h[a]=idx;idx++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>h[i]表示第i个节点的头节点，后面接入i节点指向的所有节点的idx索引，无顺序之分。e[idx]表示第idx个空间分配的值，ne[idx]表示第idx个空间的值所指向的的下一个值的索引。idx从零开始递增。 整体而言可以把e[]看作一个内存池，从这个内存池里面取出边，一个一个赋值，接在h[]后面</p>
-<p>add函数是把e的第idx位置存成b，ne[idx]&#x3D;h[a]表示把原来h[a]指向的索引成为ne的下一个索引，在让h[a]指向idx，idx自增，即可完成插入</p>
-]]></content>
-      <categories>
-        <category>algorithm</category>
-        <category>图</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>DAG</title>
-    <url>/2026/02/05/algorithm/1.dp/DAG-dp/</url>
-    <content><![CDATA[<p>什么是DAG，即有向无环图，有些</p>
-]]></content>
-      <categories>
-        <category>algorithm</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>基础</title>
-    <url>/2026/02/07/algorithm/4.%E6%95%B0%E5%AD%A6%E7%9B%B8%E5%85%B3/1%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<h4 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h4><p>1.$\sum_{i&#x3D;1}^{n} A^i &#x3D;\frac {A^{N+1}-1}{A-1}$</p>
-<p>当A∈(0,1)，$\sum_{i&#x3D;1}^{n} A^i &lt;&#x3D;\frac {1}{1-A}$</p>
-<ol start="2">
-<li></li>
-</ol>
-<p>$\sum _{i&#x3D;1}^N i&#x3D;N(N+1)&#x2F;2$</p>
-<p>$\sum _{i&#x3D;1}^N i^2 &#x3D;N(N+1)&#x2F;2$</p>
-<p>$\sum _{i&#x3D;1}^N i^k \approx \frac {N^{k+1}}{|k+1|},k\neq-1$</p>
-<p>$\sum _{i&#x3D;1}^N {\frac{1}{i}} \approx log_eN$,近似式误差趋近于欧拉常数$\gamma \approx 0.577215$ </p>
-]]></content>
-      <categories>
-        <category>algorithm</category>
-        <category>数学</category>
       </categories>
   </entry>
   <entry>
@@ -1404,11 +1328,48 @@ SELECT * FROM table_name;
 ]]></content>
   </entry>
   <entry>
-    <title>线性dp</title>
-    <url>/2026/02/05/algorithm/1.dp/%E7%BA%BF%E6%80%A7dp/</url>
-    <content><![CDATA[]]></content>
+    <title>迭代器</title>
+    <url>/2026/02/07/algorithm/3.stl/6.%E8%BF%AD%E4%BB%A3%E5%99%A8/</url>
+    <content><![CDATA[<h3 id="迭代器是什么？"><a href="#迭代器是什么？" class="headerlink" title="迭代器是什么？"></a>迭代器是什么？</h3><p>通俗来讲，迭代器用来指明stl容器位置</p>
+<p>我们创建一个迭代器，实际上是创建了迭代器类对于某个容器的一个对象，实现了类似指针的操作。所以他的本质不是指针，但很像指针</p>
+<p>例如</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i!=v.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">    cout&lt;&lt;v[i]&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就类似</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(vector&lt;<span class="type">int</span>&gt;::iterator  i=v.<span class="built_in">begin</span>();i!=v.<span class="built_in">end</span>();++i)</span><br></pre></td></tr></table></figure>
+
+<p>begin()指向第一项,end()指向<strong>最后一项的后一项</strong></p>
+<h3 id="迭代器操作"><a href="#迭代器操作" class="headerlink" title="迭代器操作"></a>迭代器操作</h3><ol>
+<li></li>
+</ol>
+<p>itr++，++itr：迭代器进入下一个位置</p>
+<p><strong>注意！itr++实际上是重载运算符，他会返回一个对象！例如i++就是返回老的i，然后i本身封装的指针值++（类似指针移动）</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 后缀 it++</span></span><br><span class="line">    Iterator <span class="keyword">operator</span>++(<span class="type">int</span>) &#123;</span><br><span class="line">        Iterator tmp = *<span class="keyword">this</span>; <span class="comment">// 保存旧值（拷贝）</span></span><br><span class="line">        ++ptr;                <span class="comment">// 再移动</span></span><br><span class="line">        <span class="keyword">return</span> tmp;           <span class="comment">// 返回旧值</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>前缀自增 <code>++it</code> 表示“先移动迭代器，再使用结果”，返回的是<strong>自增后的迭代器本身（通常是引用）</strong>。<br>后缀自增 <code>it++</code> 表示“先使用旧位置，再移动迭代器”，返回的是<strong>自增前迭代器的一个副本</strong>。</p>
+<p>后缀形式为了返回旧值，必须保存一个临时对象；前缀形式不需要。</p>
+<p><strong>不需要旧值的情况下应当使用前缀形式</strong>；前缀在语义和性能上都更优。</p>
+<p>2.*itr</p>
+<p>返回迭代器指向的内容</p>
+<p>3.itr1&#x3D;&#x3D;itr2，itr1!&#x3D;itr2</p>
+<p>&#x3D;&#x3D;：如果两个迭代器指向同一个位置则返回true</p>
+<p>! &#x3D;：指向不同位置返回true</p>
+<p>4.注意!*itr++相当于itr,itr++</p>
+<p>由于++优先级更高，所以执行顺序在语义层面可以理解为：<br>第一步，保存 itr 的旧值。<br>第二步，itr 自增，指向下一个元素。<br>第三步，对保存下来的旧迭代器解引用.</p>
+<h3 id="迭代器方法"><a href="#迭代器方法" class="headerlink" title="迭代器方法"></a>迭代器方法</h3><p>在某容器（vector等）可中使用以下方法</p>
+<p>1.iterator insert(iterator pos,const boject &amp; x)</p>
+<p>在迭代器指向的位置前面插入。返回插入位置的迭代器</p>
+<p>2.（erase版本1）iterator erase(iterator pos)</p>
+<p>删除pos位置的目标，并返回原先pos后面的元素。注意迭代器pos在erase后已经失效</p>
+<p>3.（erase版本2）iterator erase(iterator begin,iterator end);</p>
+<p>删除从start到end（不包括end）的所有元素</p>
+<p>object.erase( object begin(),object end())删除整个数据结构</p>
+]]></content>
       <categories>
         <category>algorithm</category>
+        <category>stl</category>
       </categories>
   </entry>
   <entry>
@@ -1437,33 +1398,28 @@ SELECT * FROM table_name;
       </categories>
   </entry>
   <entry>
-    <title>子集生成</title>
-    <url>/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%AD%90%E9%9B%86%E7%94%9F%E6%88%90/</url>
-    <content><![CDATA[<h3 id="子集生成"><a href="#子集生成" class="headerlink" title="子集生成"></a>子集生成</h3><p>生成某个整数序列的所有可能子集</p>
-<p>下面以从1-n的整数集，无重复数字 举例</p>
-<h5 id="增量构造法（递归）"><a href="#增量构造法（递归）" class="headerlink" title="增量构造法（递归）"></a>增量构造法（递归）</h5><p>思路是从第一位开始，对于每一位而言，依次填入这一位后面的所有值，而后面的后面又是这样填，即递归。</p>
-<p>若是算法每一步都对，有正确的初始化值，且有终止条件，则可用递归</p>
-<p>例如，1 2 3的递归过程用解释树构造如下</p>
-<p><img src="file:///D:/Typedown/813127ef-a2ea-447c-ba05-f6b9380c3577.png" alt="813127ef-a2ea-447c-ba05-f6b9380c3577"></p>
-<p>a:构造的子集</p>
-<p>s:s为当前加入的值，若cur为零，则初始化为1，否则为a[cur-1]的下一个值</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_subset</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> *a,<span class="type">int</span> cur)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;cur;i++)cout&lt;&lt;a[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    <span class="type">int</span> s=cur?a[cur<span class="number">-1</span>]<span class="number">+1</span>:<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=s;i&lt;=n;i++)&#123;</span><br><span class="line">        a[cur]=i;</span><br><span class="line">        <span class="built_in">print_subset</span>(n,a,cur<span class="number">+1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>重载运算符</title>
+    <url>/2026/02/07/algorithm/3.stl/5.%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<p><strong>operator</strong>是C++的一个关键字，它和运算符（如“&#x3D;”）一起使用，表示一个<strong>运算符重载函数</strong>，在理解时可将operator和待重载的运算符整体（如“operator&#x3D;”）视为一个函数名。</p>
+<p>实现运算符重载的方式通常有以下两种：</p>
+<p>1.运算符重载实现为类的成员函数；</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在student类里面</span></span><br><span class="line"><span class="type">bool</span> <span class="keyword">operator</span>&gt;(<span class="type">const</span> student&amp; a)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.score&gt;a.score)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="位向量法-决策树"><a href="#位向量法-决策树" class="headerlink" title="位向量法(决策树)"></a>位向量法(决策树)</h5><p>我们构造一个向量a,a[i]为0或1,a[i]&#x3D;&#x3D;1意味着子集含有i</p>
-<p>比如a[4]&#x3D;0,1,1,0;对应子集为2 3.</p>
-<p>注意这里递归函数没有for循环限制数量，需要return ；</p>
-<p>对于某一位而言，下一位数要么有，要么没有，以此构造递归式</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_subset1</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> *a,<span class="type">int</span> cur)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cur==n)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i])cout&lt;&lt;i<span class="number">+1</span>&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    a[cur]=<span class="number">1</span>;</span><br><span class="line">    <span class="built_in">print_subset1</span>(n,a,cur<span class="number">+1</span>);</span><br><span class="line">    a[cur]=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">print_subset1</span>(n,a,cur<span class="number">+1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.运算符重载实现为非类的成员函数（即全局函数）。</p>
+<p>两个参数分别为左右操作数（至少一个是自定义类，可以只有一个或者另一个是int等）</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="keyword">operator</span>&gt;(<span class="type">const</span> student &amp;a,<span class="type">const</span> student &amp;b)&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.score&gt;b.score)&#123;</span><br><span class="line">    <span class="keyword">return</span> ture;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="二进制法"><a href="#二进制法" class="headerlink" title="二进制法"></a>二进制法</h5><p>惊讶的发现，我们子集可以看成一个数组，每一位取和不取的集合！将取与不取看成01的话，子集就代表一个二进制串！（和位向量法类似）</p>
-<p>先枚举二进制数（就是1-2^n，二进制和十进制没区别），对于每个二进制数，打印出其对应的子集</p>
-<p>s&amp;1&lt;&lt;i即s的第i位与上1,判断s的第i位是否为1</p>
-<p>很优雅的实现</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;(<span class="number">1</span>&lt;&lt;<span class="number">4</span>);i++)</span><br><span class="line">    <span class="built_in">print_subset2</span>(<span class="number">4</span>,i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_subset2</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s&amp;<span class="number">1</span>&lt;&lt;i)cout&lt;&lt;i<span class="number">+1</span>&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<p>不能违反运算符原来的语法规则；</p>
+<p>不能创建新的运算符；</p>
+<p>有一些运算符是不能重载的，如“sizeof”；</p>
+<ul>
+<li>&#x3D;、()、[]、-&gt;操作符只能被类的成员函数重载。</li>
+</ul>
 ]]></content>
       <categories>
         <category>algorithm</category>
-        <category>搜索</category>
+        <category>stl</category>
       </categories>
   </entry>
   <entry>
@@ -1500,6 +1456,90 @@ SELECT * FROM table_name;
     <title>回溯</title>
     <url>/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>algorithm</category>
+        <category>搜索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>子集生成</title>
+    <url>/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E5%AD%90%E9%9B%86%E7%94%9F%E6%88%90/</url>
+    <content><![CDATA[<h3 id="子集生成"><a href="#子集生成" class="headerlink" title="子集生成"></a>子集生成</h3><p>生成某个整数序列的所有可能子集</p>
+<p>下面以从1-n的整数集，无重复数字 举例</p>
+<h5 id="增量构造法（递归）"><a href="#增量构造法（递归）" class="headerlink" title="增量构造法（递归）"></a>增量构造法（递归）</h5><p>思路是从第一位开始，对于每一位而言，依次填入这一位后面的所有值，而后面的后面又是这样填，即递归。</p>
+<p>若是算法每一步都对，有正确的初始化值，且有终止条件，则可用递归</p>
+<p>例如，1 2 3的递归过程用解释树构造如下</p>
+<p><img src="file:///D:/Typedown/813127ef-a2ea-447c-ba05-f6b9380c3577.png" alt="813127ef-a2ea-447c-ba05-f6b9380c3577"></p>
+<p>a:构造的子集</p>
+<p>s:s为当前加入的值，若cur为零，则初始化为1，否则为a[cur-1]的下一个值</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_subset</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> *a,<span class="type">int</span> cur)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;cur;i++)cout&lt;&lt;a[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    <span class="type">int</span> s=cur?a[cur<span class="number">-1</span>]<span class="number">+1</span>:<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=s;i&lt;=n;i++)&#123;</span><br><span class="line">        a[cur]=i;</span><br><span class="line">        <span class="built_in">print_subset</span>(n,a,cur<span class="number">+1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="位向量法-决策树"><a href="#位向量法-决策树" class="headerlink" title="位向量法(决策树)"></a>位向量法(决策树)</h5><p>我们构造一个向量a,a[i]为0或1,a[i]&#x3D;&#x3D;1意味着子集含有i</p>
+<p>比如a[4]&#x3D;0,1,1,0;对应子集为2 3.</p>
+<p>注意这里递归函数没有for循环限制数量，需要return ；</p>
+<p>对于某一位而言，下一位数要么有，要么没有，以此构造递归式</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_subset1</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> *a,<span class="type">int</span> cur)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cur==n)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i])cout&lt;&lt;i<span class="number">+1</span>&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    a[cur]=<span class="number">1</span>;</span><br><span class="line">    <span class="built_in">print_subset1</span>(n,a,cur<span class="number">+1</span>);</span><br><span class="line">    a[cur]=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">print_subset1</span>(n,a,cur<span class="number">+1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="二进制法"><a href="#二进制法" class="headerlink" title="二进制法"></a>二进制法</h5><p>惊讶的发现，我们子集可以看成一个数组，每一位取和不取的集合！将取与不取看成01的话，子集就代表一个二进制串！（和位向量法类似）</p>
+<p>先枚举二进制数（就是1-2^n，二进制和十进制没区别），对于每个二进制数，打印出其对应的子集</p>
+<p>s&amp;1&lt;&lt;i即s的第i位与上1,判断s的第i位是否为1</p>
+<p>很优雅的实现</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;(<span class="number">1</span>&lt;&lt;<span class="number">4</span>);i++)</span><br><span class="line">    <span class="built_in">print_subset2</span>(<span class="number">4</span>,i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_subset2</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s&amp;<span class="number">1</span>&lt;&lt;i)cout&lt;&lt;i<span class="number">+1</span>&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>algorithm</category>
+        <category>搜索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>参数传递</title>
+    <url>/2026/02/07/algorithm/3.stl/3.%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/</url>
+    <content><![CDATA[<h4 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h4><p>一般来说，c++常见几种参数传递</p>
+<p>1.一般值（int ，double，对象）</p>
+<p>2.引址调用 int &amp;</p>
+<p>3.常数引用调用const int &amp;</p>
+<p>4.（cpp里面少用)裸指针</p>
+]]></content>
+      <categories>
+        <category>algorithm</category>
+        <category>stl</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>枚举排列</title>
+    <url>/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%9E%9A%E4%B8%BE%E6%8E%92%E5%88%97/</url>
+    <content><![CDATA[<h4 id="枚举排列"><a href="#枚举排列" class="headerlink" title="枚举排列"></a>枚举排列</h4><p>枚举排列，即列出一个集合的所有排列可能，考虑字典序的话，通常有递归(树深搜)和stl(next_permutation)两种方法</p>
+<h5 id="next-permutation"><a href="#next-permutation" class="headerlink" title="next_permutation()"></a>next_permutation()</h5><h6 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h6><p>next_permutation(_BidirectionalIterator __first, _BidirectionalIterator __last)  </p>
+<p>first和last是迭代器，一般我们用指针就够了：</p>
+<p>next_permutation(p,p+n)</p>
+<h6 id="函数作用"><a href="#函数作用" class="headerlink" title="函数作用"></a>函数作用</h6><p>找出当前序列的<strong>下一个</strong>排列</p>
+<h6 id="函数算法"><a href="#函数算法" class="headerlink" title="函数算法"></a>函数算法</h6><p>1.从后向前找到第一个 <strong>升序对</strong>：<code>a[i] &lt; a[i+1]</code>。</p>
+<p>2.从后向前找到第一个比 <code>a[i]</code> 大的元素 <code>a[j]</code>，交换 <code>a[i]</code> 和 <code>a[j]</code>。</p>
+<p>3.将 <code>a[i+1]</code> 到末尾逆序。</p>
+<p>例如，求32154的下一个排列：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3 2 1 5 4--1 5第一个升序(i=2)，4比1大(j=4)</span><br><span class="line"></span><br><span class="line">交换--3 2 4 5 1</span><br><span class="line"></span><br><span class="line">逆序--3 2 4 1 5</span><br></pre></td></tr></table></figure>
+
+<h6 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h6><p>输入n个散乱的数</p>
+<p>先sort排序，再用next_permutation求下一个排序</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="type">int</span> p[maxn];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;p[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(p,p+n);</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            cout&lt;&lt;p[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">    &#125;<span class="keyword">while</span>(<span class="built_in">next_permutation</span>(p,p+n));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="递归求"><a href="#递归求" class="headerlink" title="递归求"></a>递归求</h5><p>思路是这样，我们从开头固定数字，这样只需要递归的求后面几位的字典序即可</p>
+<p>如我们有1 2 3 4，就先固定开头为1，再递归求后面，后面又可以先固定第二位为2，再递归，直到递归完。</p>
+<p>算法过程</p>
+<p>传入三个变量*n(数组),len数组长,cur已经固定的数的末尾位置</p>
+<p>当cur&#x3D;&#x3D;len说明全部固定完成，输出字典序，return，进入上一层递归。</p>
+<p>否则我们从数组中所有的数中从小到大选出一个没被用于固定的数，作为当前的值，再递归。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_permutation</span><span class="params">(<span class="type">int</span> *n,<span class="type">int</span> len,<span class="type">int</span> cur)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cur==len)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;len;i++)std::cout&lt;&lt;n[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        std::cout&lt;&lt;std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;len;j++)&#123;</span><br><span class="line">        <span class="type">bool</span> done=<span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;cur;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(j==n[i])done=<span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(done)&#123;</span><br><span class="line">        n[cur]=j;</span><br><span class="line">        <span class="built_in">print_permutation</span>(n,len,cur<span class="number">+1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如 3 1 2</p>
+<p>1最小，固定,进入下一层递归</p>
+<p>2最小，固定，进入下一层</p>
+<p>3最小，固定，进入下一层</p>
+<p>cur&#x3D;&#x3D;len,输出1 2 3，return 回固定了 1 2的那一层，此时for循环刚好走到尽头，继续递归到固定1 的那一层，递归前执行到了for(j&#x3D;2,j&lt;3;j++)，所以现在j&#x3D;3，</p>
+<p>1 3固定，进入下一层</p>
+<p>2固定，进入下一层</p>
+<p>cur&#x3D;&#x3D;len,输出1 3 2…以此类推。</p>
+]]></content>
       <categories>
         <category>algorithm</category>
         <category>搜索</category>
@@ -1562,72 +1602,32 @@ SELECT * FROM table_name;
       </categories>
   </entry>
   <entry>
-    <title>枚举排列</title>
-    <url>/2026/02/07/algorithm/5.%E6%90%9C%E7%B4%A2/%E6%9E%9A%E4%B8%BE%E6%8E%92%E5%88%97/</url>
-    <content><![CDATA[<h4 id="枚举排列"><a href="#枚举排列" class="headerlink" title="枚举排列"></a>枚举排列</h4><p>枚举排列，即列出一个集合的所有排列可能，考虑字典序的话，通常有递归(树深搜)和stl(next_permutation)两种方法</p>
-<h5 id="next-permutation"><a href="#next-permutation" class="headerlink" title="next_permutation()"></a>next_permutation()</h5><h6 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h6><p>next_permutation(_BidirectionalIterator __first, _BidirectionalIterator __last)  </p>
-<p>first和last是迭代器，一般我们用指针就够了：</p>
-<p>next_permutation(p,p+n)</p>
-<h6 id="函数作用"><a href="#函数作用" class="headerlink" title="函数作用"></a>函数作用</h6><p>找出当前序列的<strong>下一个</strong>排列</p>
-<h6 id="函数算法"><a href="#函数算法" class="headerlink" title="函数算法"></a>函数算法</h6><p>1.从后向前找到第一个 <strong>升序对</strong>：<code>a[i] &lt; a[i+1]</code>。</p>
-<p>2.从后向前找到第一个比 <code>a[i]</code> 大的元素 <code>a[j]</code>，交换 <code>a[i]</code> 和 <code>a[j]</code>。</p>
-<p>3.将 <code>a[i+1]</code> 到末尾逆序。</p>
-<p>例如，求32154的下一个排列：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3 2 1 5 4--1 5第一个升序(i=2)，4比1大(j=4)</span><br><span class="line"></span><br><span class="line">交换--3 2 4 5 1</span><br><span class="line"></span><br><span class="line">逆序--3 2 4 1 5</span><br></pre></td></tr></table></figure>
+    <title>01背包</title>
+    <url>/2026/02/05/algorithm/1.dp/%E8%83%8C%E5%8C%85dp.md/01%E8%83%8C%E5%8C%85/</url>
+    <content><![CDATA[<h5 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h5><p>有 𝑛<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="n"> 个物品和一个容量为 𝑊<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="W"> 的背包，每个物品有重量 𝑤𝑖<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="w_{i}"> 和价值 𝑣𝑖<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="v_{i}"> 两种属性，要求选若干物品放入背包，使背包中物品的总价值最大且背包中物品的总重量不超过背包的容量。</p>
+<p>每个物体只有取与不取两种可能的状态，即01背包问题</p>
+<h5 id="朴素思路"><a href="#朴素思路" class="headerlink" title="朴素思路"></a>朴素思路</h5><p>首先思考这个问题里面的要素，有容量，重量，总重量，其中总重量是要求的，即f( ).</p>
+<p>我们考虑dp状态：  𝑓𝑖,𝑗<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="f_{i,j}"> 为在只能放前 𝑖<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="i"> 个物品的情况下，容量为 𝑗<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="j"> 的背包所能达到的最大总价值。</p>
+<p>对于这样一个dp状态，我们考虑这样一个划分（转移），每个状态可以划分为第i个物品取或不取的两种子情况，首先，若不取，显然f(i,j)&#x3D;f(i-1,j)，若取，即f(i,j)&#x3D;取第i个物品且要从前i个物品中取。为利用f表示，我们除去第i个物品，最后再加上起价值即可，即f(i,j)&#x3D;f(i-1,j-w[i])+v[i]</p>
+<p>得到dp转移方程f(i,j)&#x3D;max(f(i-1,j),f(i-1,j-w[i])+v[i])，也就是说f(i,j)的最大总重量必然能通过i取与不取两条路不断被划分为子问题，以求解。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">110</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> manc=<span class="number">10010</span>;</span><br><span class="line"><span class="type">int</span> w[maxn],v[maxn],f[maxn][maxc];<span class="comment">//全局数组默认为0</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,cap;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;cap;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cin&gt;&gt;w[i]&gt;&gt;v[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=cap;j++)&#123;</span><br><span class="line">    f[i][j]=f[i<span class="number">-1</span>][j];</span><br><span class="line">    <span class="keyword">if</span>(j&gt;=w[i])f[i][j]=<span class="built_in">max</span>(f[i][j],f[i<span class="number">-1</span>][j-w[i]]+v[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">    cout&lt;&lt;f[n][cap];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h6 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h6><p>输入n个散乱的数</p>
-<p>先sort排序，再用next_permutation求下一个排序</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="type">int</span> p[maxn];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;p[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(p,p+n);</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            cout&lt;&lt;p[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">    &#125;<span class="keyword">while</span>(<span class="built_in">next_permutation</span>(p,p+n));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="滚动数组优化版"><a href="#滚动数组优化版" class="headerlink" title="滚动数组优化版"></a>滚动数组优化版</h5><p>我们这个f[][]开得很大容易mle，不妨用滚动数组优化。</p>
+<p>注意到我们这个状态转移的更新只用到了f[i-1][…],所以我们不妨舍弃第一维，只用一个一维数组fj储存f(i,j)，即每次更新一层即可，前面的i-2层用之则弃，这样滚动地更新。</p>
+<p>故新状态转移 <strong>𝑓𝑗&#x3D;max(𝑓𝑗,𝑓𝑗−𝑤[𝑖]+𝑣[𝑖])</strong></p>
+<p>之前的核心代码</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=cap;j++)&#123;</span><br><span class="line">    f[i][j]=f[i<span class="number">-1</span>][j];</span><br><span class="line">    <span class="keyword">if</span>(j&gt;=w[i])f[i][j]=<span class="built_in">max</span>(f[i][j],f[i<span class="number">-1</span>][j-w[i]]+v[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="递归求"><a href="#递归求" class="headerlink" title="递归求"></a>递归求</h5><p>思路是这样，我们从开头固定数字，这样只需要递归的求后面几位的字典序即可</p>
-<p>如我们有1 2 3 4，就先固定开头为1，再递归求后面，后面又可以先固定第二位为2，再递归，直到递归完。</p>
-<p>算法过程</p>
-<p>传入三个变量*n(数组),len数组长,cur已经固定的数的末尾位置</p>
-<p>当cur&#x3D;&#x3D;len说明全部固定完成，输出字典序，return，进入上一层递归。</p>
-<p>否则我们从数组中所有的数中从小到大选出一个没被用于固定的数，作为当前的值，再递归。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_permutation</span><span class="params">(<span class="type">int</span> *n,<span class="type">int</span> len,<span class="type">int</span> cur)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cur==len)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;len;i++)std::cout&lt;&lt;n[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        std::cout&lt;&lt;std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;len;j++)&#123;</span><br><span class="line">        <span class="type">bool</span> done=<span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;cur;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(j==n[i])done=<span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(done)&#123;</span><br><span class="line">        n[cur]=j;</span><br><span class="line">        <span class="built_in">print_permutation</span>(n,len,cur<span class="number">+1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>砍掉f[i][j]&#x3D;f[i-1][j] (恒成立）</p>
+<p><strong>调换内层循环顺序（j&#x3D;cap从大递减，否则f[j]&#x3D;max(f[j],f[j-w[i]]+v[i]);将会用到更新后的f[j-w[i]]+v[i]），我们需要的是更新前的</strong></p>
+<p>优化为</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=cap;j&gt;=w[i];j--)&#123;</span><br><span class="line">    f[j]=<span class="built_in">max</span>(f[j],f[j-w[i]]+v[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>如 3 1 2</p>
-<p>1最小，固定,进入下一层递归</p>
-<p>2最小，固定，进入下一层</p>
-<p>3最小，固定，进入下一层</p>
-<p>cur&#x3D;&#x3D;len,输出1 2 3，return 回固定了 1 2的那一层，此时for循环刚好走到尽头，继续递归到固定1 的那一层，递归前执行到了for(j&#x3D;2,j&lt;3;j++)，所以现在j&#x3D;3，</p>
-<p>1 3固定，进入下一层</p>
-<p>2固定，进入下一层</p>
-<p>cur&#x3D;&#x3D;len,输出1 3 2…以此类推。</p>
+
 ]]></content>
       <categories>
         <category>algorithm</category>
-        <category>搜索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>哈希表</title>
-    <url>/2026/02/07/algorithm/%E9%9B%B6%E6%95%A3%E7%AE%97%E6%B3%95/hash/</url>
-    <content><![CDATA[<p>哈希表（Hash Table，也叫散列表）是一种基于哈希函数的数据结构，用来实现快速的查找、插入和删除操作。</p>
-<p>关键思想是，如果我们有很多十分分散的数据，直接储存查找需要大量空间，那么我们不妨使存储位置与存储值之间建立直接关系，从而可以把一堆比较大的数据压缩到一个较小的数据中，这样我们可以很大的压缩空间。</p>
-<p>即 <strong>p&#x3D;H(key)</strong> H是散列函数，p是散列地址，key就是储存的关键字</p>
-<p>但是一个hash表很有可能遇到”冲突“，即我们不同的关键字，在进行hash(key)压缩后来到了同一个位置，导致无法区分，对此我们常采用开放地址法和链地址法</p>
-<h4 id="构造hash"><a href="#构造hash" class="headerlink" title="构造hash"></a>构造hash</h4><p>1.规律：若已知数据的构成都具有某种规律，可根据规律定义hash</p>
-<p>2.平方法：把数串平方，取固定的某几位作为映射方式</p>
-<p>3.折叠：把数串平均分成几部分，相加，可作为最终hash地址</p>
-<p>4.模：H(key)&#x3D;key%x. 最常用的一集</p>
-<p><strong>注1：p最好取质数，并离2^n尽量远</strong>，</p>
-<p><strong>注2：含负数的模的公式：A%B&#x3D;A-A&#x2F;B*B，有个结论是结果只与A的正负有关</strong> </p>
-<h4 id="冲突处理"><a href="#冲突处理" class="headerlink" title="冲突处理"></a>冲突处理</h4><p>1.链地址：我们先进行一次处理如mod(p)得到p个可能的hash地址，然后以这0-p建立p个单链表，分别储存冲突的数字（类比图的储存，一个节点后跟着他到的所有边)</p>
-<p>由于”注1“，我们先找到大于hash范围的最小质数</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">find_prime</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;=<span class="number">2</span>)<span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">    <span class="type">bool</span> flag=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">2</span>;j*j&lt;=x;j++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(x%j==<span class="number">0</span>)&#123;</span><br><span class="line">    flag=<span class="number">0</span>;<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">if</span>(flag)<span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">if</span>(x%<span class="number">2</span>)x+=<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">else</span> x++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>我们发现find_prime(10000)&#x3D;10007</p>
-<p>插入操作：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">10007</span>;</span><br><span class="line"><span class="type">int</span> h[N],e[N],ne[N],idx;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">int</span> number)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> hnum=(number%N+N)%N;<span class="comment">//可处理number是负数的情况，将其映射到正数，如果A是正数就和A%B一样的，如果A是负数等于A%B+B一定是正数</span></span><br><span class="line">e[idx]=number,ne[idx]=h[hnum],h[hnum]=idx,idx++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>查找操作</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">find</span><span class="params">(<span class="type">int</span> number)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> hnum=(number%N+N)%N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>algorithm</category>
-        <category>零散算法</category>
+        <category>背包dp</category>
       </categories>
   </entry>
   <entry>
@@ -1706,196 +1706,39 @@ SELECT * FROM table_name;
       </categories>
   </entry>
   <entry>
-    <title>7.1编译流程</title>
-    <url>/2026/02/07/note/csapp/7.%E9%93%BE%E6%8E%A5/1.%E6%80%BB%E4%BD%93%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<h4 id="整体流程"><a href="#整体流程" class="headerlink" title="整体流程"></a>整体流程</h4><p>源代码–(预处理)–main.i–(编译处理)–main.s–(汇编)–main.o–linked–可执行文件</p>
-<p>1.预处理（c preprocessor，cpp）命令：</p>
-<p>cpp  main.c -o main.i</p>
-<p>or</p>
-<p>gcc -E -o main.i main.c  (-E告诉处理器只弄到main.i)</p>
-<p>2.编译（c compiler）命令：（大写！！）</p>
-<p>cc -S -o main.s main.c</p>
-<p>or  </p>
-<p>gcc -S -o main.s main.c</p>
-<p>3.汇编 （assembler）</p>
-<p>as -o main.o main.c</p>
-<p>4.链接</p>
-<p>手动： ld -static -o prog main.o sum.o &#x2F;usr&#x2F;lib&#x2F;…..o(有六七个系统带的.o文件作为启动等功能，缺的话无法运行)</p>
-]]></content>
-      <categories>
-        <category>note</category>
-        <category>csapp</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>7.2目标文件</title>
-    <url>/2026/02/07/note/csapp/7.%E9%93%BE%E6%8E%A5/2.%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<p>目标文件分为可重定位目标文件，可执行目标文件，共享目标文件（动态链接）</p>
-<p>对于目标文件而言，每个系统的都不一样，windows是PE格式，linux是ELF格式</p>
-<p>对于linux的ELF目标文件，通常分为ELF头，.text,.rodate,.data等数个节（在可执行文件加载到内存里则称之为段），以及最后的节头部表</p>
-<p>elf头描述系统子，大端还是小端，elf头大小，机器类型等等</p>
-<p>对于节，每个节都有不同的作用，例如.text储存已编译的机器代码，.rodata储存只读数据等</p>
-<p>而节头部表记录了 ELF 文件中每一个节的位置、大小、类型和属性</p>
-<p>命令:readelf -h main.o能查看main.o的elfheader</p>
-<p>readelf -S main.o 查看main.o 的section header</p>
-]]></content>
-      <categories>
-        <category>note</category>
-        <category>csapp</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>3.1命令记录</title>
-    <url>/2026/02/07/note/csapp/3.%E6%B1%87%E7%BC%96/%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>1.反汇编</p>
-<p>objdump -d name.o</p>
-]]></content>
-      <categories>
-        <category>note</category>
-        <category>csapp</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>8.1异常</title>
-    <url>/2026/02/22/note/csapp/8.%E5%BC%82%E5%B8%B8/8.1%E5%BC%82%E5%B8%B8/</url>
-    <content><![CDATA[<h1 id="8-1-异常"><a href="#8-1-异常" class="headerlink" title="8.1 异常"></a>8.1 异常</h1><h4 id="1-ECF（异常控制流）"><a href="#1-ECF（异常控制流）" class="headerlink" title="1.ECF（异常控制流）"></a>1.ECF（异常控制流）</h4><p>PC程序计数器里面有序列$a_0$,$a_1$,…$a_k$,$a_{k+1}$($a_k$是指令$I_k$的地址)</p>
-<p>从$a_k$到$a_{k+1}$称为控制转移，如果程序是顺序执行，那么$a_{k+1}$&#x3D;$a_{k}+len(I_k)$。</p>
-<p>一般来说程序是按照地址序列顺序执行的，但是有时候会发生特殊情况，系统就使控制的执行发生<strong>突变</strong>，<strong>在程序未显式请求的情况下，由硬件或操作系统强制改变 PC，使处理器转入异常处理路径</strong>，来应对突发情况，就称为异常控制流（ECF）</p>
-<h4 id="2-异常概念"><a href="#2-异常概念" class="headerlink" title="2.异常概念"></a>2.异常概念</h4><h6 id="a-基本概念理解"><a href="#a-基本概念理解" class="headerlink" title="a.基本概念理解"></a>a.基本概念理解</h6><p>异常&#x3D;控制流中的<strong>突变</strong></p>
-<p>事件&#x3D;处理器状态（寄存器状态，标志寄存器，异常和中断相关的控制状态等）的变化，</p>
-<blockquote>
-<p>比如当前的指令发生算数溢出，除以零，抑或是系统产生信号（与当前执行指令无关），都会导致处理器状态变化，也就是导致事件发生</p>
-</blockquote>
-<p>总的来说，$I_{cur}$–事件发生–异常–转入系统异常处理–（可能的）返回–$I_{next}$。中间异常到处理完毕即ECF</p>
-<h6 id="b-异常种类"><a href="#b-异常种类" class="headerlink" title="b.异常种类"></a>b.异常种类</h6><p>首先，对于某一<strong>个</strong>具体的异常，系统有对应的唯一的非负整数异常号</p>
-<blockquote>
-<p>系统中的异常一部分由cpu处理器厂商定义，如被零除，错误访问内存，一部分由操作系统定义，例如系统调用和外部IO信号</p>
-<p>所以不同系统异常可能有所不同</p>
-</blockquote>
-<p>此外，所有异常可分为四类：中断，陷阱，故障，终止</p>
-<p><strong>中断</strong></p>
-<p>中断不是由指令问题造成的，是由<strong>外部I&#x2F;O设备信号</strong>引起的（所以说中断是<strong>异步发生</strong>的，异步指事件发生的时刻不由当前正在执行的指令序列决定，与$I_{cur}$ 的语义无因果绑定。）</p>
-<blockquote>
-<p>除了中断以外，陷阱 故障 终止都是同步发生的，即执行当前指令的结果</p>
-</blockquote>
-<p>总的而言，$I_{cur}$执行中–中断信号使中断引脚电压变高–$I_{cur}$完成后，控制转移给中断处理程序–程序处理–返回$I_{next}$ </p>
-<p><strong>陷阱</strong></p>
-<p>陷阱是<strong>有意</strong>的异常。</p>
-<p>系统调用本质上就是<strong>陷阱</strong>，通过 <code>syscall</code> 或 <code>int</code> 指令触发，CPU 切换到内核态，执行处理程序，最后返回到用户态。</p>
-<blockquote>
-<p>例如，由于安全设定，用户不能直接调用操作系统内核，就得用陷阱（trap）调用它，调用完后再弹回用户态</p>
-</blockquote>
-<p>想要请求内核的n号服务（read，exit之类），调用syscall n指令，就会导致一个到异常处理程序的陷阱，该程序读取参数，调用相应的服务。</p>
-<p>总的而言，$syscall , n$–控制交给处理程序–陷阱处理程序运行–返回到$I_{next}$ </p>
-<blockquote>
-<p>虽然但是，c里面虽然有syscall，但是一般不用，因为c将他们包装了（例如写有一个write函数）。syscall调用和包装过的系统调用统称为系统级函数</p>
-</blockquote>
-<p><strong>故障</strong></p>
-<p>故障由错误情况产生，若是处理程序能解决故障则执行next，否则返回到内核中的abort例程，终止程序</p>
-<p><strong>终止</strong></p>
-<p>不可恢复的致命错误，通常是硬件错误。</p>
-<p>控制不再会回到应用程序</p>
-<h4 id="3-异常处理过程"><a href="#3-异常处理过程" class="headerlink" title="3.异常处理过程"></a>3.异常处理过程</h4><p>在系统启动之际，操作系统分配，初始化一张叫<strong>异常表</strong>的跳转表。这个表的第k个位置表示处理异常k的处理程序<strong>代码位置</strong>。当cpu检测到事件及其相应的异常号，就会先通过<strong>异常表基址寄存器</strong>里面储存的表首地址找到表，再找到相应的处理程序的地址</p>
-<h4 id="4-异常处理结果"><a href="#4-异常处理结果" class="headerlink" title="4.异常处理结果"></a>4.异常处理结果</h4><p>系统的处理程序处理完毕后，根据引起异常的事件类型，可能发生以下三种结果</p>
-<p>1.控制返回给$I_{cur}$</p>
-<p>2.控制返回给$I_{next}$</p>
-<p>3.终止当前程序，不再返回</p>
-]]></content>
-      <categories>
-        <category>note</category>
-        <category>csapp</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>8.2进程</title>
-    <url>/2026/02/22/note/csapp/8.%E5%BC%82%E5%B8%B8/8.2%E8%BF%9B%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><h6 id="1-进程概念"><a href="#1-进程概念" class="headerlink" title="1.进程概念"></a>1.进程概念</h6><p>通俗来说，进程就是一个执行中程序的实例</p>
-<p>程序是静态的代码文件，只有在执行时才具备动态行为。进程表示程序在特定时刻的运行状态，包括代码，环境变量 PC、寄存器、栈、堆、打开的文件、内存映射等资源（<strong>上下文</strong>）。这些状态会随时间变化，并且每次运行同一个程序都会生成不同的进程实例。</p>
-<h6 id="2-并发流"><a href="#2-并发流" class="headerlink" title="2.并发流"></a>2.并发流</h6><p>逻辑流：PC中可执行文件的<strong>指令序列</strong>（和之前8.1控制流是同一个过程的不同看待角度）</p>
-<p>并发流：一个逻辑流的执行时间与另一个流重叠，称为并发流（宏观上看起来同时进行）</p>
-<blockquote>
-<p>注意，一个cpu上面不能真正处理两个事情，cpu毕竟一次只能运算一次。实际上是两个进程被不断的轮流执行，交错调度。例如进程A等待内存返回的时间，我们完全可以执行进程B的一条指令，当A的取值返回后，再从B转而执行A。</p>
-</blockquote>
-<p>并行流：两个流并发的运行在不同处理器上或是计算机上</p>
-<blockquote>
-<p>真正意义上的同时运行。我们电脑的8核 16核就是这个。</p>
-</blockquote>
-<h6 id="3-用户模式和内核模式"><a href="#3-用户模式和内核模式" class="headerlink" title="3.用户模式和内核模式"></a>3.用户模式和内核模式</h6><p>为了限制应用可执行的指令和可访问的地址范围，操作系统提供了用户模式和内核模式。</p>
-<p>控制寄存器有一个模式位，模式位开，表示进程运行到内核模式上，此时可以执行指令集中任何指令，访问内存中任何位置。否则是用户模式，只能通过系统调用接口访问内核代码，数据。</p>
-<p>进程从用户模式转为内核模式只能通过异常。</p>
-<h6 id="4-上下文切换"><a href="#4-上下文切换" class="headerlink" title="4.上下文切换"></a>4.上下文切换</h6><p>上下文切换，即保存当前进程的上下文，回复之前被抢占的进程的已保存的上下文，最后将控制转移给回复的进程</p>
-<blockquote>
-<p>例如read进程需要访问磁盘（$10^2$ms级别），等待时间就可以上下文切换，运行另一个进程</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>note</category>
-        <category>csapp</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>8.3系统调用错误处理</title>
-    <url>/2026/02/22/note/csapp/8.%E5%BC%82%E5%B8%B8/8.3%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<p>这章主要思想就是<strong>错误包装</strong></p>
-<p>例如我们调用fork并检查</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> pid;</span><br><span class="line"><span class="keyword">if</span>((pid=fork())&lt;<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">&quot;fork error:%s\n&quot;</span>,strerror(errno));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>fprintf:int fprintf(FILE *stream, const char *format, …);和printf区别就是能输出到指定目标，比如文件，错误流，file流</p>
-</blockquote>
-<blockquote>
-<p>在 <code>&lt;string.h&gt;</code> 中有char *strerror(int errnum);其中 <code>errnum</code> 通常传入 <code>&lt;errno.h&gt;</code> 中定义的错误码变量 <code>errno</code>。  返回值是错误描述的字符串。</p>
-<p>很多系统调用失败时只返回 -1 或 NULL，但真正的错误原因存在 <code>errno</code> 里。<br><code>strerror</code> 只是把这个数字翻译成人类可读的文本。</p>
-</blockquote>
-<p>包装成</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">pid_t</span> <span class="title">Fork</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="type">pid_t</span> pid;</span><br><span class="line">    <span class="keyword">if</span>(pid&lt;<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="built_in">fprintf</span>(srderr,<span class="string">&quot;fork error&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样我们只需要调用</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">pid=<span class="built_in">Fork</span>();</span><br></pre></td></tr></table></figure>
-
-
-
-
-]]></content>
-      <categories>
-        <category>note</category>
-        <category>csapp</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>01背包</title>
-    <url>/2026/02/05/algorithm/1.dp/%E8%83%8C%E5%8C%85dp.md/01%E8%83%8C%E5%8C%85/</url>
-    <content><![CDATA[<h5 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h5><p>有 𝑛<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="n"> 个物品和一个容量为 𝑊<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="W"> 的背包，每个物品有重量 𝑤𝑖<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="w_{i}"> 和价值 𝑣𝑖<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="v_{i}"> 两种属性，要求选若干物品放入背包，使背包中物品的总价值最大且背包中物品的总重量不超过背包的容量。</p>
-<p>每个物体只有取与不取两种可能的状态，即01背包问题</p>
-<h5 id="朴素思路"><a href="#朴素思路" class="headerlink" title="朴素思路"></a>朴素思路</h5><p>首先思考这个问题里面的要素，有容量，重量，总重量，其中总重量是要求的，即f( ).</p>
-<p>我们考虑dp状态：  𝑓𝑖,𝑗<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="f_{i,j}"> 为在只能放前 𝑖<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="i"> 个物品的情况下，容量为 𝑗<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" title="j"> 的背包所能达到的最大总价值。</p>
-<p>对于这样一个dp状态，我们考虑这样一个划分（转移），每个状态可以划分为第i个物品取或不取的两种子情况，首先，若不取，显然f(i,j)&#x3D;f(i-1,j)，若取，即f(i,j)&#x3D;取第i个物品且要从前i个物品中取。为利用f表示，我们除去第i个物品，最后再加上起价值即可，即f(i,j)&#x3D;f(i-1,j-w[i])+v[i]</p>
-<p>得到dp转移方程f(i,j)&#x3D;max(f(i-1,j),f(i-1,j-w[i])+v[i])，也就是说f(i,j)的最大总重量必然能通过i取与不取两条路不断被划分为子问题，以求解。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">110</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> manc=<span class="number">10010</span>;</span><br><span class="line"><span class="type">int</span> w[maxn],v[maxn],f[maxn][maxc];<span class="comment">//全局数组默认为0</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,cap;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;cap;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cin&gt;&gt;w[i]&gt;&gt;v[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=cap;j++)&#123;</span><br><span class="line">    f[i][j]=f[i<span class="number">-1</span>][j];</span><br><span class="line">    <span class="keyword">if</span>(j&gt;=w[i])f[i][j]=<span class="built_in">max</span>(f[i][j],f[i<span class="number">-1</span>][j-w[i]]+v[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">    cout&lt;&lt;f[n][cap];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="滚动数组优化版"><a href="#滚动数组优化版" class="headerlink" title="滚动数组优化版"></a>滚动数组优化版</h5><p>我们这个f[][]开得很大容易mle，不妨用滚动数组优化。</p>
-<p>注意到我们这个状态转移的更新只用到了f[i-1][…],所以我们不妨舍弃第一维，只用一个一维数组fj储存f(i,j)，即每次更新一层即可，前面的i-2层用之则弃，这样滚动地更新。</p>
-<p>故新状态转移 <strong>𝑓𝑗&#x3D;max(𝑓𝑗,𝑓𝑗−𝑤[𝑖]+𝑣[𝑖])</strong></p>
-<p>之前的核心代码</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=cap;j++)&#123;</span><br><span class="line">    f[i][j]=f[i<span class="number">-1</span>][j];</span><br><span class="line">    <span class="keyword">if</span>(j&gt;=w[i])f[i][j]=<span class="built_in">max</span>(f[i][j],f[i<span class="number">-1</span>][j-w[i]]+v[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>砍掉f[i][j]&#x3D;f[i-1][j] (恒成立）</p>
-<p><strong>调换内层循环顺序（j&#x3D;cap从大递减，否则f[j]&#x3D;max(f[j],f[j-w[i]]+v[i]);将会用到更新后的f[j-w[i]]+v[i]），我们需要的是更新前的</strong></p>
-<p>优化为</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=cap;j&gt;=w[i];j--)&#123;</span><br><span class="line">    f[j]=<span class="built_in">max</span>(f[j],f[j-w[i]]+v[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>algorithm</category>
-        <category>背包dp</category>
-      </categories>
-  </entry>
-  <entry>
     <title></title>
     <url>/2026/02/05/algorithm/1.dp/%E8%83%8C%E5%8C%85dp.md/dp%E6%80%9D%E8%B7%AF/</url>
     <content><![CDATA[<p>一般来说，dp问题可以从状态表示f[i][j]和状态计算两个角度来思考</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>哈希表</title>
+    <url>/2026/02/07/algorithm/%E9%9B%B6%E6%95%A3%E7%AE%97%E6%B3%95/hash/</url>
+    <content><![CDATA[<p>哈希表（Hash Table，也叫散列表）是一种基于哈希函数的数据结构，用来实现快速的查找、插入和删除操作。</p>
+<p>关键思想是，如果我们有很多十分分散的数据，直接储存查找需要大量空间，那么我们不妨使存储位置与存储值之间建立直接关系，从而可以把一堆比较大的数据压缩到一个较小的数据中，这样我们可以很大的压缩空间。</p>
+<p>即 <strong>p&#x3D;H(key)</strong> H是散列函数，p是散列地址，key就是储存的关键字</p>
+<p>但是一个hash表很有可能遇到”冲突“，即我们不同的关键字，在进行hash(key)压缩后来到了同一个位置，导致无法区分，对此我们常采用开放地址法和链地址法</p>
+<h4 id="构造hash"><a href="#构造hash" class="headerlink" title="构造hash"></a>构造hash</h4><p>1.规律：若已知数据的构成都具有某种规律，可根据规律定义hash</p>
+<p>2.平方法：把数串平方，取固定的某几位作为映射方式</p>
+<p>3.折叠：把数串平均分成几部分，相加，可作为最终hash地址</p>
+<p>4.模：H(key)&#x3D;key%x. 最常用的一集</p>
+<p><strong>注1：p最好取质数，并离2^n尽量远</strong>，</p>
+<p><strong>注2：含负数的模的公式：A%B&#x3D;A-A&#x2F;B*B，有个结论是结果只与A的正负有关</strong> </p>
+<h4 id="冲突处理"><a href="#冲突处理" class="headerlink" title="冲突处理"></a>冲突处理</h4><p>1.链地址：我们先进行一次处理如mod(p)得到p个可能的hash地址，然后以这0-p建立p个单链表，分别储存冲突的数字（类比图的储存，一个节点后跟着他到的所有边)</p>
+<p>由于”注1“，我们先找到大于hash范围的最小质数</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">find_prime</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;=<span class="number">2</span>)<span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">    <span class="type">bool</span> flag=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">2</span>;j*j&lt;=x;j++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(x%j==<span class="number">0</span>)&#123;</span><br><span class="line">    flag=<span class="number">0</span>;<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">if</span>(flag)<span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">if</span>(x%<span class="number">2</span>)x+=<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">else</span> x++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们发现find_prime(10000)&#x3D;10007</p>
+<p>插入操作：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">10007</span>;</span><br><span class="line"><span class="type">int</span> h[N],e[N],ne[N],idx;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">int</span> number)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> hnum=(number%N+N)%N;<span class="comment">//可处理number是负数的情况，将其映射到正数，如果A是正数就和A%B一样的，如果A是负数等于A%B+B一定是正数</span></span><br><span class="line">e[idx]=number,ne[idx]=h[hnum],h[hnum]=idx,idx++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>查找操作</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">find</span><span class="params">(<span class="type">int</span> number)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> hnum=(number%N+N)%N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>algorithm</category>
+        <category>零散算法</category>
+      </categories>
   </entry>
   <entry>
     <title>分组背包</title>
@@ -1960,6 +1803,163 @@ SELECT * FROM table_name;
       <categories>
         <category>algorithm</category>
         <category>背包dp</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>3.1命令记录</title>
+    <url>/2026/02/07/note/csapp/3.%E6%B1%87%E7%BC%96/%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>1.反汇编</p>
+<p>objdump -d name.o</p>
+]]></content>
+      <categories>
+        <category>note</category>
+        <category>csapp</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>7.2目标文件</title>
+    <url>/2026/02/07/note/csapp/7.%E9%93%BE%E6%8E%A5/2.%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<p>目标文件分为可重定位目标文件，可执行目标文件，共享目标文件（动态链接）</p>
+<p>对于目标文件而言，每个系统的都不一样，windows是PE格式，linux是ELF格式</p>
+<p>对于linux的ELF目标文件，通常分为ELF头，.text,.rodate,.data等数个节（在可执行文件加载到内存里则称之为段），以及最后的节头部表</p>
+<p>elf头描述系统子，大端还是小端，elf头大小，机器类型等等</p>
+<p>对于节，每个节都有不同的作用，例如.text储存已编译的机器代码，.rodata储存只读数据等</p>
+<p>而节头部表记录了 ELF 文件中每一个节的位置、大小、类型和属性</p>
+<p>命令:readelf -h main.o能查看main.o的elfheader</p>
+<p>readelf -S main.o 查看main.o 的section header</p>
+]]></content>
+      <categories>
+        <category>note</category>
+        <category>csapp</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>7.1编译流程</title>
+    <url>/2026/02/07/note/csapp/7.%E9%93%BE%E6%8E%A5/1.%E6%80%BB%E4%BD%93%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<h4 id="整体流程"><a href="#整体流程" class="headerlink" title="整体流程"></a>整体流程</h4><p>源代码–(预处理)–main.i–(编译处理)–main.s–(汇编)–main.o–linked–可执行文件</p>
+<p>1.预处理（c preprocessor，cpp）命令：</p>
+<p>cpp  main.c -o main.i</p>
+<p>or</p>
+<p>gcc -E -o main.i main.c  (-E告诉处理器只弄到main.i)</p>
+<p>2.编译（c compiler）命令：（大写！！）</p>
+<p>cc -S -o main.s main.c</p>
+<p>or  </p>
+<p>gcc -S -o main.s main.c</p>
+<p>3.汇编 （assembler）</p>
+<p>as -o main.o main.c</p>
+<p>4.链接</p>
+<p>手动： ld -static -o prog main.o sum.o &#x2F;usr&#x2F;lib&#x2F;…..o(有六七个系统带的.o文件作为启动等功能，缺的话无法运行)</p>
+]]></content>
+      <categories>
+        <category>note</category>
+        <category>csapp</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>8.1异常</title>
+    <url>/2026/02/22/note/csapp/8.%E5%BC%82%E5%B8%B8/8.1%E5%BC%82%E5%B8%B8/</url>
+    <content><![CDATA[<h1 id="8-1-异常"><a href="#8-1-异常" class="headerlink" title="8.1 异常"></a>8.1 异常</h1><h4 id="1-ECF（异常控制流）"><a href="#1-ECF（异常控制流）" class="headerlink" title="1.ECF（异常控制流）"></a>1.ECF（异常控制流）</h4><p>PC程序计数器里面有序列$a_0$,$a_1$,…$a_k$,$a_{k+1}$($a_k$是指令$I_k$的地址)</p>
+<p>从$a_k$到$a_{k+1}$称为控制转移，如果程序是顺序执行，那么$a_{k+1}$&#x3D;$a_{k}+len(I_k)$。</p>
+<p>一般来说程序是按照地址序列顺序执行的，但是有时候会发生特殊情况，系统就使控制的执行发生<strong>突变</strong>，<strong>在程序未显式请求的情况下，由硬件或操作系统强制改变 PC，使处理器转入异常处理路径</strong>，来应对突发情况，就称为异常控制流（ECF）</p>
+<h4 id="2-异常概念"><a href="#2-异常概念" class="headerlink" title="2.异常概念"></a>2.异常概念</h4><h6 id="a-基本概念理解"><a href="#a-基本概念理解" class="headerlink" title="a.基本概念理解"></a>a.基本概念理解</h6><p>异常&#x3D;控制流中的<strong>突变</strong></p>
+<p>事件&#x3D;处理器状态（寄存器状态，标志寄存器，异常和中断相关的控制状态等）的变化，</p>
+<blockquote>
+<p>比如当前的指令发生算数溢出，除以零，抑或是系统产生信号（与当前执行指令无关），都会导致处理器状态变化，也就是导致事件发生</p>
+</blockquote>
+<p>总的来说，$I_{cur}$–事件发生–异常–转入系统异常处理–（可能的）返回–$I_{next}$。中间异常到处理完毕即ECF</p>
+<h6 id="b-异常种类"><a href="#b-异常种类" class="headerlink" title="b.异常种类"></a>b.异常种类</h6><p>首先，对于某一<strong>个</strong>具体的异常，系统有对应的唯一的非负整数异常号</p>
+<blockquote>
+<p>系统中的异常一部分由cpu处理器厂商定义，如被零除，错误访问内存，一部分由操作系统定义，例如系统调用和外部IO信号</p>
+<p>所以不同系统异常可能有所不同</p>
+</blockquote>
+<p>此外，所有异常可分为四类：中断，陷阱，故障，终止</p>
+<p><strong>中断</strong></p>
+<p>中断不是由指令问题造成的，是由<strong>外部I&#x2F;O设备信号</strong>引起的（所以说中断是<strong>异步发生</strong>的，异步指事件发生的时刻不由当前正在执行的指令序列决定，与$I_{cur}$ 的语义无因果绑定。）</p>
+<blockquote>
+<p>除了中断以外，陷阱 故障 终止都是同步发生的，即执行当前指令的结果</p>
+</blockquote>
+<p>总的而言，$I_{cur}$执行中–中断信号使中断引脚电压变高–$I_{cur}$完成后，控制转移给中断处理程序–程序处理–返回$I_{next}$ </p>
+<p><strong>陷阱</strong></p>
+<p>陷阱是<strong>有意</strong>的异常。</p>
+<p>系统调用本质上就是<strong>陷阱</strong>，通过 <code>syscall</code> 或 <code>int</code> 指令触发，CPU 切换到内核态，执行处理程序，最后返回到用户态。</p>
+<blockquote>
+<p>例如，由于安全设定，用户不能直接调用操作系统内核，就得用陷阱（trap）调用它，调用完后再弹回用户态</p>
+</blockquote>
+<p>想要请求内核的n号服务（read，exit之类），调用syscall n指令，就会导致一个到异常处理程序的陷阱，该程序读取参数，调用相应的服务。</p>
+<p>总的而言，$syscall , n$–控制交给处理程序–陷阱处理程序运行–返回到$I_{next}$ </p>
+<blockquote>
+<p>虽然但是，c里面虽然有syscall，但是一般不用，因为c将他们包装了（例如写有一个write函数）。syscall调用和包装过的系统调用统称为系统级函数</p>
+</blockquote>
+<p><strong>故障</strong></p>
+<p>故障由错误情况产生，若是处理程序能解决故障则执行next，否则返回到内核中的abort例程，终止程序</p>
+<p><strong>终止</strong></p>
+<p>不可恢复的致命错误，通常是硬件错误。</p>
+<p>控制不再会回到应用程序</p>
+<h4 id="3-异常处理过程"><a href="#3-异常处理过程" class="headerlink" title="3.异常处理过程"></a>3.异常处理过程</h4><p>在系统启动之际，操作系统分配，初始化一张叫<strong>异常表</strong>的跳转表。这个表的第k个位置表示处理异常k的处理程序<strong>代码位置</strong>。当cpu检测到事件及其相应的异常号，就会先通过<strong>异常表基址寄存器</strong>里面储存的表首地址找到表，再找到相应的处理程序的地址</p>
+<h4 id="4-异常处理结果"><a href="#4-异常处理结果" class="headerlink" title="4.异常处理结果"></a>4.异常处理结果</h4><p>系统的处理程序处理完毕后，根据引起异常的事件类型，可能发生以下三种结果</p>
+<p>1.控制返回给$I_{cur}$</p>
+<p>2.控制返回给$I_{next}$</p>
+<p>3.终止当前程序，不再返回</p>
+]]></content>
+      <categories>
+        <category>note</category>
+        <category>csapp</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>8.3系统调用错误处理</title>
+    <url>/2026/02/22/note/csapp/8.%E5%BC%82%E5%B8%B8/8.3%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<p>这章主要思想就是<strong>错误包装</strong></p>
+<p>例如我们调用fork并检查</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> pid;</span><br><span class="line"><span class="keyword">if</span>((pid=fork())&lt;<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">&quot;fork error:%s\n&quot;</span>,strerror(errno));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>fprintf:int fprintf(FILE *stream, const char *format, …);和printf区别就是能输出到指定目标，比如文件，错误流，file流</p>
+</blockquote>
+<blockquote>
+<p>在 <code>&lt;string.h&gt;</code> 中有char *strerror(int errnum);其中 <code>errnum</code> 通常传入 <code>&lt;errno.h&gt;</code> 中定义的错误码变量 <code>errno</code>。  返回值是错误描述的字符串。</p>
+<p>很多系统调用失败时只返回 -1 或 NULL，但真正的错误原因存在 <code>errno</code> 里。<br><code>strerror</code> 只是把这个数字翻译成人类可读的文本。</p>
+</blockquote>
+<p>包装成</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">pid_t</span> <span class="title">Fork</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="type">pid_t</span> pid;</span><br><span class="line">    <span class="keyword">if</span>(pid&lt;<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="built_in">fprintf</span>(srderr,<span class="string">&quot;fork error&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样我们只需要调用</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">pid=<span class="built_in">Fork</span>();</span><br></pre></td></tr></table></figure>
+
+
+
+
+]]></content>
+      <categories>
+        <category>note</category>
+        <category>csapp</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>8.2进程</title>
+    <url>/2026/02/22/note/csapp/8.%E5%BC%82%E5%B8%B8/8.2%E8%BF%9B%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><h6 id="1-进程概念"><a href="#1-进程概念" class="headerlink" title="1.进程概念"></a>1.进程概念</h6><p>通俗来说，进程就是一个执行中程序的实例</p>
+<p>程序是静态的代码文件，只有在执行时才具备动态行为。进程表示程序在特定时刻的运行状态，包括代码，环境变量 PC、寄存器、栈、堆、打开的文件、内存映射等资源（<strong>上下文</strong>）。这些状态会随时间变化，并且每次运行同一个程序都会生成不同的进程实例。</p>
+<h6 id="2-并发流"><a href="#2-并发流" class="headerlink" title="2.并发流"></a>2.并发流</h6><p>逻辑流：PC中可执行文件的<strong>指令序列</strong>（和之前8.1控制流是同一个过程的不同看待角度）</p>
+<p>并发流：一个逻辑流的执行时间与另一个流重叠，称为并发流（宏观上看起来同时进行）</p>
+<blockquote>
+<p>注意，一个cpu上面不能真正处理两个事情，cpu毕竟一次只能运算一次。实际上是两个进程被不断的轮流执行，交错调度。例如进程A等待内存返回的时间，我们完全可以执行进程B的一条指令，当A的取值返回后，再从B转而执行A。</p>
+</blockquote>
+<p>并行流：两个流并发的运行在不同处理器上或是计算机上</p>
+<blockquote>
+<p>真正意义上的同时运行。我们电脑的8核 16核就是这个。</p>
+</blockquote>
+<h6 id="3-用户模式和内核模式"><a href="#3-用户模式和内核模式" class="headerlink" title="3.用户模式和内核模式"></a>3.用户模式和内核模式</h6><p>为了限制应用可执行的指令和可访问的地址范围，操作系统提供了用户模式和内核模式。</p>
+<p>控制寄存器有一个模式位，模式位开，表示进程运行到内核模式上，此时可以执行指令集中任何指令，访问内存中任何位置。否则是用户模式，只能通过系统调用接口访问内核代码，数据。</p>
+<p>进程从用户模式转为内核模式只能通过异常。</p>
+<h6 id="4-上下文切换"><a href="#4-上下文切换" class="headerlink" title="4.上下文切换"></a>4.上下文切换</h6><p>上下文切换，即保存当前进程的上下文，回复之前被抢占的进程的已保存的上下文，最后将控制转移给回复的进程</p>
+<blockquote>
+<p>例如read进程需要访问磁盘（$10^2$ms级别），等待时间就可以上下文切换，运行另一个进程</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>note</category>
+        <category>csapp</category>
       </categories>
   </entry>
 </search>
